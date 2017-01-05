@@ -3,42 +3,6 @@
   margin-top: 5px;
   padding: 0;
 
-  &-link {
-    display: block;
-    font-size: 17px;
-    margin-bottom: 10px;
-    padding: 10px 60px 10px 20px;
-    position: relative;
-    text-decoration: none;
-
-    &::after {
-      content: '\203A';
-      float: right;
-      margin-top: -8px;
-      position: absolute;
-      right: 20px;
-      top: 50%;
-    }
-
-    &:link {
-      color: $grey;
-    }
-
-    &.active,
-    &:focus {
-      background-color: $link-colour;
-      color: $white;
-      outline: none;
-      padding-bottom: 15px;
-      padding-top: 15px;
-    }
-  }
-
-  &-ordered {
-    list-style-type: disc;
-    padding-left: 15px;
-  }
-
   &-bullet {
     list-style-type: none;
     padding-left: 0;
@@ -53,27 +17,11 @@
       }
 
       &:before {
-        color: $great-primary;
+        color: $great-blue;
         content: '\25CF';
         left: 0;
         margin-right: 10px;
         position: absolute;
-      }
-    }
-  }
-
-  &-user--amount {
-    font-size: 19px;
-  }
-
-  &-regular {
-    @extend %h4;
-
-    li {
-      margin-bottom: 5px;
-
-      @include media(mobile) {
-        font-size: 15px;
       }
     }
   }

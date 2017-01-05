@@ -1,11 +1,9 @@
 body {
   @extend %light;
+  @include font($base-font-size, 0, 23px);
   background-color: $body-background-color;
   color: $grey;
   font-family: $brand-font-family;
-  font-size: $base-font-size;
-  letter-spacing: 0;
-  line-height: 23px;
   position: relative;
 }
 
@@ -22,27 +20,15 @@ body {
   font-weight: 500;
 }
 
-// FONT SIZES
-// %font-headline {
-//   font-size: $headline-font-size;
-// }
-
 %font-base {
   font-size: $base-font-size;
 }
 
-// %font-xsmall {
-//   font-size: $extra-small-font-size;
-// }
 
 // HEADERS
 %h1 {
   @extend %medium;
-  font-family: $brand-font-family;
-  font-size: $h1-font-size;
-  letter-spacing: -1px;
-  line-height: 1.04167;
-  margin-bottom: 1.25em;
+  @include font($h1-font-size, -1px, 58px);
 
   @include media(tablet) {
     font-size: $h2-font-size;
@@ -56,15 +42,11 @@ body {
 }
 
 %h2 {
-  font-size: $h2-font-size;
-  letter-spacing: -.6px;
-  line-height: 40px;
+  @include font($h2-font-size, -.6px, 40px);
 }
 
 %h3 {
-  font-size: $h3-font-size;
-  letter-spacing: 0;
-  line-height: 32px;
+  @include font($h3-font-size, 0, 32px);
 
   @include media(mobile) {
     font-size: 19px;
@@ -72,9 +54,7 @@ body {
 }
 
 %h4 {
-  font-size: $h4-font-size;
-  letter-spacing: 0;
-  line-height: 25px;
+  @include font($h4-font-size, 0, 25px);
 }
 
 .font {
@@ -82,10 +62,6 @@ body {
   &-base {
     @extend %font-base;
   }
-
-  // &-xsmall {
-  //   @extend %font-xsmall;
-  // }
 
   &-white {
     color: $white;
@@ -95,23 +71,19 @@ body {
     color: $grey;
   }
 
-  // &-lighter-grey {
-  //   color: $lighter-grey;
-  // }
-
   &-purple {
     color: $purple;
   }
 
-  &-lig {
+  &-light {
     @extend %light;
   }
 
-  &-reg {
+  &-regular {
     @extend %regular;
   }
 
-  &-med {
+  &-medium {
     @extend %medium;
   }
 }
@@ -135,22 +107,7 @@ hr {
   background: $purple;
 }
 
-p {
-  @extend %light;
-  line-height: 23px;
-  margin-bottom: 1.05263em;
-  margin-top: .26316em;
-
-  @include media(tablet) {
-    margin-bottom: 1.25em;
-    margin-top: .3125em;
-  }
-}
-
 a {
-
-  @include prefix((tap-highlight-color: $tap-highlight-color), webkit);
-
   &:focus {
     background-color: transparent;
     outline: 3px solid $aqua;
@@ -177,20 +134,7 @@ a {
     }
 
     &:hover {
-      // color: $turquoise;
+      color: $aqua;
     }
-  }
-
-  &--regular {
-    @extend %h4;
-
-    @include media(mobile) {
-      font-size: $base-font-size;
-    }
-  }
-
-  &--back {
-    display: inline-block;
-    margin-top: 21px;
   }
 }

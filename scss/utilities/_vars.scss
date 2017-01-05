@@ -1,19 +1,27 @@
+$font-family-url: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+@import url($font-family-url);
+$brand-font-family: 'Roboto', sans-serif;
+
+$base-spacing-unit: 20px;
+$half-spacing-unit: $base-spacing-unit / 2;
+
 // BRAND COLOURS
-$great-primary: #1e1348;
+$great-blue: #1e1348;
 $flag-red: #b00d23;
 $stone: #dfd5c5;
 $white: #fafafa;
 $grey: #333;
-$grey-1: #999; // Mid grey
+$mid-grey: #999; // Mid grey
 $light-grey: #d8d8d8;
 $purple: #4f0b7b;
 $mid-blue: #00549f;
 $aqua: #007ea3;
-$great-secondary: #e41f13;
+$great-red: #e41f13;
 
+// LINK
 $link-colour: $mid-blue;
 
-$brand-font-family: 'Roboto', sans-serif;
+// FONT SIZES
 $base-font-size: 16px;
 $h1-font-size: 48px;
 $h2-font-size: 32px;
@@ -22,17 +30,8 @@ $h4-font-size: 18px;
 $paragraph-large-font-size: $h4-font-size;
 
 
-// FONTS
-$font-family-url: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
-@import url($font-family-url);
-$brand-font-family: 'Roboto', sans-serif;
-
 //BODY
 $body-background-color: $white;
-$tap-highlight-color: rgba(0, 126, 163, .5);
-
-// HEADER
-$logo-width: 300px;
 
 // BUTTONS
 $button-blue-bg-color: $mid-blue;
@@ -51,18 +50,20 @@ $button-border-outline: 1px solid $mid-blue;
 
 
 $backgrounds: (
-  'grey-darkest' $grey,
-  'blue' $link-colour,
+  'great-blue' $great-blue,
+  'flag-red' $great-red,
   'stone' $stone,
-  'great-primary' $great-primary
+  'white' $white,
+  'grey' $grey,
+  'mid-grey' $mid-grey,
+  'light-grey' $light-grey,
+  'purple' $purple,
+  'mid-blue' $mid-blue,
+  'aqua' $aqua,
+  'great-blue' $great-blue,
 );
 
 $button: (
   'blue' $button-blue-bg-color $button-blue-bg-color--visited $button-blue-bg-color--hover $button-blue-color $button-blue-color-hover null $button-blue-outline,
   'border' $button-border-bg-color $button-border-bg-color--visited $button-border-bg-color--hover $button-border-color $button-border-color-hover null $button-border-outline,
 );
-
-
-
-//FORMS
-$form-field-height: 50px;
