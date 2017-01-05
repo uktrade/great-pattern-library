@@ -1,0 +1,196 @@
+body {
+  @extend %light;
+  background-color: $body-background-color;
+  color: $grey;
+  font-family: $brand-font-family;
+  font-size: $base-font-size;
+  letter-spacing: 0;
+  line-height: 23px;
+  position: relative;
+}
+
+// FONT WEIGHT
+%light {
+  font-weight: 300;
+}
+
+%regular {
+  font-weight: 400;
+}
+
+%medium {
+  font-weight: 500;
+}
+
+// FONT SIZES
+// %font-headline {
+//   font-size: $headline-font-size;
+// }
+
+%font-base {
+  font-size: $base-font-size;
+}
+
+// %font-xsmall {
+//   font-size: $extra-small-font-size;
+// }
+
+// HEADERS
+%h1 {
+  @extend %medium;
+  font-family: $brand-font-family;
+  font-size: $h1-font-size;
+  letter-spacing: -1px;
+  line-height: 1.04167;
+  margin-bottom: 1.25em;
+
+  @include media(tablet) {
+    font-size: $h2-font-size;
+    font-weight: 500;
+  }
+
+  @include media(mobile) {
+    font-size: 30px;
+    margin-bottom: 0;
+  }
+}
+
+%h2 {
+  font-size: $h2-font-size;
+  letter-spacing: -.6px;
+  line-height: 40px;
+}
+
+%h3 {
+  font-size: $h3-font-size;
+  letter-spacing: 0;
+  line-height: 32px;
+
+  @include media(mobile) {
+    font-size: 19px;
+  }
+}
+
+%h4 {
+  font-size: $h4-font-size;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.font {
+
+  &-base {
+    @extend %font-base;
+  }
+
+  // &-xsmall {
+  //   @extend %font-xsmall;
+  // }
+
+  &-white {
+    color: $white;
+  }
+
+  &-brand {
+    color: $grey;
+  }
+
+  // &-lighter-grey {
+  //   color: $lighter-grey;
+  // }
+
+  &-purple {
+    color: $purple;
+  }
+
+  &-lig {
+    @extend %light;
+  }
+
+  &-reg {
+    @extend %regular;
+  }
+
+  &-med {
+    @extend %medium;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  @extend %medium;
+}
+
+blockquote {
+  @extend %font-base;
+  line-height: 25px;
+}
+
+hr {
+  background: $purple;
+}
+
+p {
+  @extend %light;
+  line-height: 23px;
+  margin-bottom: 1.05263em;
+  margin-top: .26316em;
+
+  @include media(tablet) {
+    margin-bottom: 1.25em;
+    margin-top: .3125em;
+  }
+}
+
+a {
+
+  @include prefix((tap-highlight-color: $tap-highlight-color), webkit);
+
+  &:focus {
+    background-color: transparent;
+    outline: 3px solid $aqua;
+  }
+}
+
+
+.link {
+  @extend %regular;
+  border-bottom: 1px solid;
+  color: $mid-blue;
+  text-decoration: none;
+
+  &:hover {
+    border-bottom: 1px dashed;
+    color: $aqua;
+  }
+
+  &--white {
+    color: $white;
+
+    &:visited {
+      color: $purple;
+    }
+
+    &:hover {
+      // color: $turquoise;
+    }
+  }
+
+  &--regular {
+    @extend %h4;
+
+    @include media(mobile) {
+      font-size: $base-font-size;
+    }
+  }
+
+  &--back {
+    display: inline-block;
+    margin-top: 21px;
+  }
+}

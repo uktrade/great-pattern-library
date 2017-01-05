@@ -1,0 +1,10 @@
+@import 'neat-helpers';
+
+$column: 90px;
+$gutter: 20px;
+$grid-columns: 12;
+$max-width: 1200px;
+
+// Define your breakpoints
+$mob: new-breakpoint(min-width 767px 12);
+$tab: new-breakpoint(min-width 767px 12); 

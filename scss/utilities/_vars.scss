@@ -1,0 +1,68 @@
+// BRAND COLOURS
+$great-primary: #1e1348;
+$flag-red: #b00d23;
+$stone: #dfd5c5;
+$white: #fafafa;
+$grey: #333;
+$grey-1: #999; // Mid grey
+$light-grey: #d8d8d8;
+$purple: #4f0b7b;
+$mid-blue: #00549f;
+$aqua: #007ea3;
+$great-secondary: #e41f13;
+
+$link-colour: $mid-blue;
+
+$brand-font-family: 'Roboto', sans-serif;
+$base-font-size: 16px;
+$h1-font-size: 48px;
+$h2-font-size: 32px;
+$h3-font-size: 24px;
+$h4-font-size: 18px;
+$paragraph-large-font-size: $h4-font-size;
+
+
+// FONTS
+$font-family-url: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+@import url($font-family-url);
+$brand-font-family: 'Roboto', sans-serif;
+
+//BODY
+$body-background-color: $white;
+$tap-highlight-color: rgba(0, 126, 163, .5);
+
+// HEADER
+$logo-width: 300px;
+
+// BUTTONS
+$button-blue-bg-color: $mid-blue;
+$button-blue-bg-color--visited: $mid-blue;
+$button-blue-bg-color--hover: $mid-blue;
+$button-blue-color: $white;
+$button-blue-color-hover: $white;
+$button-blue-outline: 0;
+
+$button-border-bg-color: transparent;
+$button-border-bg-color--visited: transparent;
+$button-border-bg-color--hover: transparent;
+$button-border-color: $mid-blue;
+$button-border-color-hover: $grey;
+$button-border-outline: 1px solid $mid-blue;
+
+
+$backgrounds: (
+  'grey-darkest' $grey,
+  'blue' $link-colour,
+  'stone' $stone,
+  'great-primary' $great-primary
+);
+
+$button: (
+  'blue' $button-blue-bg-color $button-blue-bg-color--visited $button-blue-bg-color--hover $button-blue-color $button-blue-color-hover null $button-blue-outline,
+  'border' $button-border-bg-color $button-border-bg-color--visited $button-border-bg-color--hover $button-border-color $button-border-color-hover null $button-border-outline,
+);
+
+
+
+//FORMS
+$form-field-height: 50px;
