@@ -1,8 +1,10 @@
 ### Installation
 
     npm install
-    gulp
     
 ### Getting Started
 
-Open public/index.html
+    npm start
+
+
+open <http://localhost:5000/>
