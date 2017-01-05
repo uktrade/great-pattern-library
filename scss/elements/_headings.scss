@@ -34,7 +34,7 @@
     // @extend %font-headline;
     @extend %regular;
 
-    @include media(mobile) { 
+    @include media(mobile) {
       font-size: 15px;
     }
   }

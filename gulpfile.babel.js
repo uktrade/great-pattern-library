@@ -37,7 +37,9 @@ gulp.task('lint:sass', () => gulp
             'pseudo-element': 0,
             'no-ids': 0,
             'mixins-before-declarations': 0,
-            'no-duplicate-properties': 0
+            'no-duplicate-properties': 0,
+            'no-vendor-prefixes': 0,
+            'single-line-per-selector': 0
         }
     }))
     .pipe(plugins.sassLint.format(stylish))

@@ -2,20 +2,16 @@
 @import 'neat';
 
 //utilities
-@import "utilities/reset";
-@import "utilities/vars";
-@import "utilities/mixins";
-@import "utilities/typography";
-@import "utilities/grid";
-@import "utilities/background";
+@import 'utilities/reset';
+@import 'utilities/vars';
+@import 'utilities/mixins';
+@import 'utilities/typography';
+@import 'utilities/grid';
+@import 'utilities/background';
 
 
-//elememnts
-@import "elements/headings";
-@import "elements/paragraphs";
-@import "elements/tables";
-@import "elements/lists";
-@import "elements/buttons";
+//elements
+@import 'elements/headings';
+@import 'elements/lists';
+@import 'elements/buttons';
 
-//patterns
-@import "patterns/cards";
