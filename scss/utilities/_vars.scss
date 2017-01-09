@@ -11,12 +11,15 @@ $flag-red: #b00d23;
 $stone: #dfd5c5;
 $white: #fafafa;
 $grey: #333;
-$mid-grey: #999; // Mid grey
-$light-grey: #d8d8d8;
+$mid-grey: #999;
+$light-grey: #dce0df;
 $purple: #4f0b7b;
 $mid-blue: #00549f;
 $aqua: #007ea3;
 $great-red: #e41f13;
+$dark-navy: #110b29;
+$blue: #181f58;
+$light-blue: #00549f;
 
 // LINK
 $link-colour: $mid-blue;
@@ -28,6 +31,8 @@ $h2-font-size: 32px;
 $h3-font-size: 24px;
 $h4-font-size: 18px;
 $paragraph-large-font-size: $h4-font-size;
+$small: 15px;
+$xsmall: 14px;
 
 
 //BODY
@@ -61,6 +66,9 @@ $backgrounds: (
   'mid-blue' $mid-blue,
   'aqua' $aqua,
   'great-blue' $great-blue,
+  'dark-navy' $dark-navy,
+  'blue' $blue,
+  'light-blue' $light-blue
 );
 
 $button: (

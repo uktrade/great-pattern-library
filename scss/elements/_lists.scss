@@ -3,12 +3,8 @@
   margin-top: 5px;
   padding: 0;
 
-  &-bullet {
-    list-style-type: none;
-    padding-left: 0;
-  }
 
-  &-bullet--item {
+  &-item {
     margin-bottom: 13px;
     padding-left: 20px;
     position: relative;
@@ -23,6 +19,12 @@
       left: 0;
       margin-right: 10px;
       position: absolute;
+    }
+  }
+
+  &-inline {
+    li {
+      float: left;
     }
   }
 }

@@ -75,6 +75,10 @@ body {
     color: $purple;
   }
 
+  &-light-grey {
+    color: $light-grey;
+  }
+
   &-light {
     @extend %light;
   }
@@ -85,6 +89,14 @@ body {
 
   &-medium {
     @extend %medium;
+  }
+
+  &-small {
+    font-size: $small;
+  }
+
+  &-xsmall {
+    font-size: $xsmall;
   }
 }
 
@@ -108,6 +120,8 @@ hr {
 }
 
 a {
+  text-decoration: none;
+
   &:focus {
     background-color: transparent;
     outline: 3px solid $aqua;

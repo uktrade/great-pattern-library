@@ -1,0 +1,42 @@
+.navigation {
+  li {
+    position: relative;
+
+    &:after {
+      color: $white;
+      content: '|';
+      position: absolute;
+      right: 0;
+      top: 5px;
+    }
+
+    &:last-child,
+    &:nth-child(3) {
+      &:after {
+        content: '';
+      }
+    }
+  }
+
+  a {
+    display: block;
+  }
+
+  &-main {
+    @extend %anchor-white;
+
+    a {
+      font-size: $small;
+      padding: 5px 17px;
+    }
+  }
+
+  &-top {
+    @extend %anchor-light-grey;
+
+    a {
+      font-size: $xsmall;
+      padding: 5px 0 2px;
+    }
+  }
+}

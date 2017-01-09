@@ -1,0 +1,19 @@
+%anchor-white {
+  a {
+    color: $white;
+
+    &:hover {
+      color: $grey;
+    }
+  }
+}
+
+%anchor-light-grey {
+  a {
+    color: $light-grey;
+
+    &:hover {
+      color: $grey;
+    }
+  }
+}
