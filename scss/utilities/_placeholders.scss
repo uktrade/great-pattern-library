@@ -3,7 +3,7 @@
     color: $white;
 
     &:hover {
-      color: $grey;
+      //color: $grey;
     }
   }
 }
@@ -13,7 +13,17 @@
     color: $light-grey;
 
     &:hover {
-      color: $grey;
+      //color: $grey;
     }
   }
+}
+
+%transparent-color {
+  color: $border-color-fallback;
+  color: $border-color;
+}
+
+%transparent-background {
+  background-color: $border-color-fallback;
+  background-color: $border-color;
 }

@@ -3,11 +3,11 @@
     position: relative;
 
     &:after {
-      color: $white;
+      @extend %transparent-color;
       content: '|';
       position: absolute;
       right: 0;
-      top: 5px;
+      top: 0;
     }
 
     &:last-child,
@@ -25,18 +25,40 @@
   &-main {
     @extend %anchor-white;
 
+    li {
+      &:after {
+        top: 5px;
+      }
+    }
+
     a {
       font-size: $small;
       padding: 5px 17px;
     }
+
+    &--link {
+
+      &:hover,
+      &--active {
+
+        &:after {
+          border-top: 3px solid $flag-red;
+          content: '';
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+      }
+    }
   }
 
-  &-top {
+  &-strip {
     @extend %anchor-light-grey;
 
     a {
       font-size: $xsmall;
-      padding: 5px 0 2px;
+      padding: 0 5px 0 2px;
     }
   }
 }

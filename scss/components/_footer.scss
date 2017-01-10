@@ -1,0 +1,27 @@
+.footer {
+  @extend %anchor-white;
+  font-size: $small;
+
+  &-logo {
+    width: 200px;
+  }
+
+  &-links {
+    a {
+      &:hover {
+        border-bottom: 1px dashed $white;
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  &-middle-section {
+    @extend %transparent-color;
+
+    border: {
+      left: 1px;
+      right: 1px;
+      style: solid;
+    }
+  }
+}
