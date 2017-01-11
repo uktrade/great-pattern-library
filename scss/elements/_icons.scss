@@ -1,0 +1,15 @@
+@each $name, $file-name in $icons {
+  .icon {
+    &-#{$name} {
+      background-image: url('#{$image-path}icons/#{$file-name}');
+    }
+  }
+}
+
+.icon {
+  background: {
+    position: 0 0;
+    repeat: no-repeat;
+  };
+  display: inline-block;
+}

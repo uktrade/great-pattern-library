@@ -27,5 +27,26 @@
       float: left;
     }
   }
+
+  &-separators {
+    li {
+      position: relative;
+
+      &:after {
+        @extend %transparent-color;
+        content: '|';
+        position: absolute;
+        right: -1px;
+        top: 0;
+      }
+
+      &:last-child,
+      &:nth-child(3) {
+        &:after {
+          content: '';
+        }
+      }
+    }
+  }
 }
 

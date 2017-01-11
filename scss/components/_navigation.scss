@@ -1,22 +1,4 @@
 .navigation {
-  li {
-    position: relative;
-
-    &:after {
-      @extend %transparent-color;
-      content: '|';
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-
-    &:last-child,
-    &:nth-child(3) {
-      &:after {
-        content: '';
-      }
-    }
-  }
 
   a {
     display: block;
@@ -24,6 +6,10 @@
 
   &-main {
     @extend %anchor-white;
+
+    &-section {
+      position: relative;
+    }
 
     li {
       &:after {
@@ -33,11 +19,13 @@
 
     a {
       font-size: $small;
-      padding: 5px 17px;
     }
 
-    &--link {
+    &-link {
+      padding: 5px 11px;
+    }
 
+    &-link--services {
       &:hover,
       &--active {
 
@@ -50,6 +38,37 @@
           width: 100%;
         }
       }
+    }
+  }
+
+  &-toggle {
+    display: none;
+
+    &--open {
+      display: block;
+    }
+  }
+
+  &-main-button {
+    background-color: $light-blue;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 4px 10px;
+    position: absolute;
+    right: 0;
+
+    .icon {
+      height: 15px;
+      line-height: 15px;
+      margin-right: 2px;
+      position: relative;
+      top: 1px;
+      width: 25px;
+    }
+
+    &:hover,
+    &--open {
+      background-color: $dark-navy;
     }
   }
 

@@ -37,7 +37,6 @@ $paragraph-large-font-size: $h4-font-size;
 $small: 15px;
 $xsmall: 14px;
 
-
 //BODY
 $body-background-color: $white;
 
@@ -55,7 +54,6 @@ $button-border-bg-color--hover: transparent;
 $button-border-color: $mid-blue;
 $button-border-color-hover: $grey;
 $button-border-outline: 1px solid $mid-blue;
-
 
 $backgrounds: (
   'great-blue' $great-blue,
@@ -78,3 +76,9 @@ $button: (
   'blue' $button-blue-bg-color $button-blue-bg-color--visited $button-blue-bg-color--hover $button-blue-color $button-blue-color-hover null $button-blue-outline,
   'border' $button-border-bg-color $button-border-bg-color--visited $button-border-bg-color--hover $button-border-color $button-border-color-hover null $button-border-outline,
 );
+
+$icons: (
+  'menu' 'menu.svg',
+);
+
+$image-path: '/images/';

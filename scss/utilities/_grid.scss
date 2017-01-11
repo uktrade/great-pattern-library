@@ -2,6 +2,14 @@
 
 .outer-container {
   @include outer-container;
+
+  @include media($tablet) {
+    margin: 0 20px;
+  }
+
+  @include media($mobile) {
+    margin: 0 10px;
+  }
 }
 
 @for $i from 1 through $grid-columns {
