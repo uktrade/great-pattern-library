@@ -24,17 +24,20 @@
 
   &-inline {
     li {
-      float: left;
+      display: inline-block;
     }
   }
 
   &-separators {
+    font-size: 0;
+
     li {
       position: relative;
 
       &:after {
         @extend %transparent-color;
         content: '|';
+        font-size: 16px;
         position: absolute;
         right: -1px;
         top: 0;
