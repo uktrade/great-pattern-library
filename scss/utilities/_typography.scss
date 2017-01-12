@@ -91,6 +91,10 @@ body {
     @extend %medium;
   }
 
+  &-large {
+    @extend %h4;
+  }
+
   &-small {
     font-size: $small;
   }

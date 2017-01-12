@@ -13,7 +13,7 @@
 
     li {
       &:after {
-        top: 5px;
+        top: 7px;
       }
     }
 
@@ -22,7 +22,7 @@
     }
 
     &-link {
-      padding: 5px 11px;
+      padding: 8px 11px 7px;
     }
 
     &-link--services {
@@ -30,7 +30,7 @@
       &--active {
 
         &:after {
-          border-top: 3px solid $flag-red;
+          border-top: 3px solid $great-red;
           content: '';
           left: 0;
           position: absolute;
@@ -61,9 +61,11 @@
 
   &-main-button {
     background-color: $light-blue;
+    border-left: 2px solid $black;
+    border-radius: 0;
     font-size: 15px;
     font-weight: 300;
-    padding: 4px 10px;
+    padding: 8px 10px 5px;
     position: absolute;
     right: 0;
     top: 0;
@@ -79,15 +81,22 @@
     &:hover,
     &--open {
       background-color: $dark-navy;
+      border-top: 3px solid $great-red;
+      padding-top: 5px;
     }
   }
 
   &-strip {
     @extend %anchor-light-grey;
+    padding: 8px 0 3px;
 
     a {
       font-size: $xsmall;
       padding: 0 5px 0 2px;
     }
+  }
+
+  &-logo {
+    padding: 17px 0 11px;
   }
 }

@@ -30,18 +30,19 @@
 
 .button {
   @extend %h4;
+  @extend %medium;
   border: 0;
+  border-radius: 3px;
   box-shadow: none;
   cursor: pointer;
   display: inline-block;
   font-family: $brand-font-family;
-  font-weight: 900;
-  padding: 13px 38px;
+  padding: 12px 30px;
   text-decoration: none;
 
   &-large {
-    @extend %h3;
-    padding: 18px 30px;
+    font-size: $h3-font-size;
+    padding: 15px 35px;
   }
 
   &-close {
@@ -61,6 +62,10 @@
       left: -35px;
       top: -5px;
     }
+  }
+
+  &-border {
+    border: 2px solid;
   }
 
   @include media (mobile) {
