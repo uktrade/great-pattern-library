@@ -39,6 +39,16 @@
         }
       }
     }
+
+    &-menu {
+      overflow-x: scroll;
+      padding-right: 70px;
+      white-space: nowrap;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
 
   &-toggle {
@@ -62,7 +72,6 @@
       height: 15px;
       line-height: 15px;
       margin-right: 2px;
-      position: relative;
       top: 1px;
       width: 25px;
     }
