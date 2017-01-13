@@ -45,6 +45,10 @@
       padding-right: 70px;
       white-space: nowrap;
 
+      @include media($mobile) {
+        display: none;
+      }
+
       &::-webkit-scrollbar {
         display: none;
       }
@@ -53,9 +57,88 @@
 
   &-toggle {
     display: none;
+    padding: 28px 0 25px;
+
+    &-item {
+      padding: 13px 25px 0;
+
+      &:first-child {
+        padding-top: 0;
+
+        @include media($mobile) {
+          padding-top: 13px;
+        }
+      }
+
+      a {
+        display: inline;
+
+        &.last {
+          border: 0;
+        }
+
+        &:hover {
+          border-bottom: 1px dashed $white;
+          padding-bottom: 5px;
+        }
+
+        @include media($mobile) {
+          border: {
+            bottom: 1px solid;
+            color: $border-color-fallback;
+          }
+          border-color: $border-color;
+          display: block;
+          padding-bottom: 10px;
+        }
+      }
+
+      &-last {
+        border: 0;
+      }
+    }
+
+    &-services {
+
+      @include media($mobile) {
+        background-color: $light-blue;
+        font-weight: 500;
+      }
+    }
 
     &--open {
       display: block;
+    }
+
+    .outer-container {
+
+      @include media($mobile) {
+        margin: 0;
+        width: 100%;
+      }
+    }
+
+    @include media($mobile) {
+      padding: 0;
+
+      .col-4 {
+        @include span-columns(12 of 12);
+      }
+    }
+
+    &-middle {
+      @extend %transparent-color;
+      border: {
+        left: 1px;
+        right: 1px;
+        style: solid;
+      }
+      padding-left: 15px;
+
+      @include media($mobile) {
+        border: 0;
+        padding: 0;
+      }
     }
   }
 
@@ -83,6 +166,22 @@
       background-color: $dark-navy;
       border-top: 3px solid $great-red;
       padding-top: 5px;
+
+      @include media($mobile) {
+        border: {
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+
+    @include media($mobile) {
+      background: transparent;
+      border: 1px solid;
+      border-color: $border-color-fallback;
+      border-color: $border-color;
+      top: -50px;
     }
   }
 
@@ -98,5 +197,9 @@
 
   &-logo {
     padding: 17px 0 11px;
+
+    @include media($mobile) {
+      width: 70%;
+    }
   }
 }

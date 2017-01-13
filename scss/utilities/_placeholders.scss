@@ -27,3 +27,8 @@
   background-color: $border-color-fallback;
   background-color: $border-color;
 }
+
+%transparent-border {
+  border-color: $border-color-fallback;
+  border-color: $border-color;
+}
