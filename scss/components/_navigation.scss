@@ -193,6 +193,10 @@
       font-size: $xsmall;
       padding: 0 5px 0 2px;
     }
+
+    @include media($mobile) {
+      @include span-columns(12 of 12);
+    }
   }
 
   &-logo {

@@ -100,7 +100,7 @@ body {
   }
 
   &-xsmall {
-    font-size: $xsmall;
+    @include font($xsmall, normal, $xsmall);
   }
 }
 
