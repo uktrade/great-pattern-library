@@ -66,6 +66,10 @@
 
   &-border {
     border: 2px solid;
+    padding: {
+      bottom: 10px;
+      top: 10px;
+    };
   }
 
   @include media (mobile) {

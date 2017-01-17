@@ -152,15 +152,20 @@ a {
     color: $aqua;
   }
 
-  &--white {
-    color: $white;
-
-    &:visited {
-      color: $purple;
-    }
+  &--grey {
+    color: $light-grey;
+    display: block;
 
     &:hover {
-      color: $aqua;
+      border-bottom: 1px dashed;
     }
+  }
+}
+
+p {
+  margin-bottom: 23px;
+
+  &.font-large {
+    margin-bottom: 25px;
   }
 }

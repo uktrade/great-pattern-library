@@ -152,7 +152,7 @@
     @include media($mobile) {
       padding: 0;
 
-      .col-4 {
+      .col-3 {
         @include span-columns(12 of 12);
       }
     }
@@ -161,7 +161,6 @@
       @extend %transparent-color;
       border: {
         left: 1px;
-        right: 1px;
         style: solid;
       }
       padding-left: 15px;
@@ -196,6 +195,8 @@
     &--open {
       background-color: $dark-navy;
       border-top: 3px solid $great-red;
+      bottom: 0;
+      display: block;
       padding-top: 5px;
 
       @include media($mobile) {
@@ -217,7 +218,6 @@
   }
 
   &-strip {
-    @extend %anchor-light-grey;
     padding: 8px 0 3px;
 
     a {

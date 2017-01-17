@@ -6,6 +6,10 @@
   &-logo {
     width: 200px;
 
+    @include media($tablet) {
+      width: 170px;
+    }
+
     @include media($mobile) {
       width: 150px;
     }
@@ -13,6 +17,12 @@
 
   &-links {
     padding-left: 10px;
+
+    @include media($mobile) {
+      li {
+        padding-bottom: 10px;
+      }
+    }
 
     a {
       &:hover {
@@ -52,6 +62,13 @@
   &-section {
     @include span-columns(6 of 12);
 
+    @include media($tablet) {
+      .col-8,
+      .col-4 {
+        @include span-columns(6 of 12);
+      }
+    }
+
     @include media($mobile) {
       @include span-columns(12 of 12);
       border-bottom: 1px solid;
@@ -69,9 +86,26 @@
   &-section-right {
     li {
       padding-left: 40px;
+      padding-right: 5px;
 
       @include media($mobile) {
         padding-left: 0;
+      }
+
+      @include media($desktop) {
+        padding-left: 0;
+      }
+    }
+
+    @include media($tablet) {
+      .col-6 {
+        &:nth-child(1) {
+          @include span-columns(7 of 12);
+        }
+
+        &:nth-child(2) {
+          @include span-columns(5 of 12);
+        }
       }
     }
 

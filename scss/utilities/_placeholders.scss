@@ -8,16 +8,6 @@
   }
 }
 
-%anchor-light-grey {
-  a {
-    color: $light-grey;
-
-    &:hover {
-      //color: $grey;
-    }
-  }
-}
-
 %transparent-color {
   color: $border-color-fallback;
   color: $border-color;
