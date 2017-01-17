@@ -9,6 +9,6 @@ $max-width: 1200px;
 //$mob: new-breakpoint(min-width 767px 12);
 //$tab: new-breakpoint(min-width 767px 12);
 
+$desktop: max-width $max-width;
 $mobile: max-width 767px;
 $tablet: max-width 959px min-width 768px;
-

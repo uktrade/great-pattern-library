@@ -23,9 +23,7 @@
 
     &-link {
       padding: 8px 11px 7px;
-    }
 
-    &-link--services {
       &:hover,
       &--active {
 
@@ -56,11 +54,12 @@
   }
 
   &-toggle {
-    display: none;
+    display: block;
     padding: 28px 0 25px;
 
     &-item {
       padding: 13px 25px 0;
+      position: relative;
 
       &:first-child {
         padding-top: 0;
@@ -71,25 +70,57 @@
       }
 
       a {
+        @extend %transparent-border;
         display: inline;
 
         &.last {
           border: 0;
         }
 
+        &.navigation-toggle-active,
         &:hover {
-          border-bottom: 1px dashed $white;
+          border: {
+            bottom-width: 1px;
+            style: dashed;
+          }
           padding-bottom: 5px;
+
+          @include media($mobile) {
+            border-style: solid;
+            display: block;
+            padding-bottom: 10px;
+
+            &:after {
+              border: {
+                bottom: 10px solid transparent;
+                left: 15px solid $great-red;
+                top: 10px solid transparent;
+              }
+              content: '';
+              height: 0;
+              left: 0;
+              position: absolute;
+              top: 15px;
+              width: 0;
+            }
+          }
         }
 
         @include media($mobile) {
           border: {
-            bottom: 1px solid;
-            color: $border-color-fallback;
+            bottom-width: 1px;
+            style: solid;
           }
-          border-color: $border-color;
           display: block;
           padding-bottom: 10px;
+
+          &.navigation-toggle-active,
+          &:hover {
+
+            &.last {
+              border: 0;
+            }
+          }
         }
       }
 

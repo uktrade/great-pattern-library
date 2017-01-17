@@ -3,6 +3,10 @@
 .outer-container {
   @include outer-container;
 
+  @include media($desktop) {
+    margin: 0 30px;
+  }
+
   @include media($tablet) {
     margin: 0 20px;
   }
