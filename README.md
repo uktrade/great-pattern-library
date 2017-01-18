@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/uktrade/dit-pattern-library/tree/master.svg?style=svg)](https://circleci.com/gh/uktrade/dit-pattern-library/tree/master)
+
+
 ### Installation
 
     npm install

@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "DIT pattern library styles",
   "author": "DIT",
-  "private": true,
   "homepage": "",
   "scripts": {
     "start": "node index.js",
@@ -28,7 +27,7 @@
     "jshint-stylish": "2.1.0"
   },
   "engines": {
-    "node": "4.1.1"
+    "node": "5.0.0"
   },
   "main": "index.js"
 }
