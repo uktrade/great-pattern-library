@@ -107,7 +107,7 @@ node_modules/
 assets/test/unit/coverage/
 
 # Whoosh search index
-iwhoosh_index*
+whoosh_index*
 
 # Caches
 .sass-cache
