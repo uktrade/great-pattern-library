@@ -4,10 +4,18 @@
 ### Installation
 
     npm install
-    
+
 ### Getting Started
 
     npm start
 
 
 open <http://localhost:5000/>
+
+### Watch changes
+
+   gulp watch
+
+### Run test
+
+   npm test
