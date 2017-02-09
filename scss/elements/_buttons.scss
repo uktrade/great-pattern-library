@@ -23,7 +23,7 @@
         background-color: $aqua;
         outline: 0;
       }
-      
+
       &:focus {
         @include button-focus;
       }

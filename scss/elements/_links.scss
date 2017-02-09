@@ -33,11 +33,11 @@ a {
 
 .logo-hmg {
   display: block;
-  
+
   &:focus {
     @include logo-in-link;
   }
-  
+
   img {
     display: block;
   }
