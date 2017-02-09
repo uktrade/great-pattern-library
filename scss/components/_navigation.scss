@@ -24,6 +24,10 @@
     &-link {
       padding: 8px 11px 7px;
 
+      &:focus {
+        @include navigation-focus;
+      }
+
       &:hover,
       &--active {
 
@@ -72,7 +76,7 @@
       a {
         @extend %transparent-border;
         display: inline;
-
+        
         &.last {
           border: 0;
         }
@@ -183,6 +187,10 @@
     right: 0;
     top: 0;
 
+    &:focus {
+      @include navigation-focus;
+    }
+
     .icon {
       height: 12px;
       line-height: 15px;
@@ -208,10 +216,6 @@
       }
     }
 
-    &:focus {
-      background-color: $dark-navy;
-    }
-
     @include media($mobile) {
       background: transparent;
       border: 1px solid;
@@ -235,6 +239,7 @@
   }
 
   &-logo {
+    @include logo-in-link;
     padding: 17px 0 11px;
 
     @include media($mobile) {

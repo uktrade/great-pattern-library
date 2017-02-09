@@ -1,0 +1,5 @@
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid $focus-yellow;
+}
