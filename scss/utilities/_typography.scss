@@ -131,37 +131,6 @@ hr {
   }
 }
 
-a {
-  text-decoration: none;
-
-  &:focus {
-    background-color: transparent;
-    outline: 3px solid $aqua;
-  }
-}
-
-
-.link {
-  @extend %regular;
-  border-bottom: 1px solid;
-  color: $mid-blue;
-  text-decoration: none;
-
-  &:hover {
-    border-bottom: 1px dashed;
-    color: $aqua;
-  }
-
-  &--grey {
-    color: $light-grey;
-    display: block;
-
-    &:hover {
-      border-bottom: 1px dashed;
-    }
-  }
-}
-
 p {
   margin-bottom: 23px;
 

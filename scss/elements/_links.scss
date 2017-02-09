@@ -1,0 +1,44 @@
+a {
+  text-decoration: none;
+
+  &:focus {
+    @include link-focus;
+  }
+}
+
+.link {
+  @extend %regular;
+  border-bottom: 1px solid;
+  color: $mid-blue;
+  text-decoration: none;
+
+  &:focus {
+    @include link-focus;
+  }
+
+  &:hover {
+    border-bottom: 1px dashed;
+    color: $aqua;
+  }
+
+  &--grey {
+    color: $light-grey;
+    display: block;
+
+    &:hover {
+      border-bottom: 1px dashed;
+    }
+  }
+}
+
+.logo-hmg {
+  display: block;
+
+  &:focus {
+    @include logo-in-link;
+  }
+
+  img {
+    display: block;
+  }
+}
