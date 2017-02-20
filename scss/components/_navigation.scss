@@ -148,7 +148,6 @@
     }
 
     .outer-container {
-
       @include media($mobile) {
         margin: 0;
         width: 100%;
@@ -236,11 +235,16 @@
     }
   }
 
+  &-logo-link {
+    margin-bottom: 3px;
+  }
+  
   &-logo {
-    padding: 17px 0 11px;
+    padding: 17px 0 4px;
 
     @include media($mobile) {
       width: 70%;
     }
   }
+
 }
