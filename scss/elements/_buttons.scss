@@ -25,7 +25,7 @@
       }
 
       &:focus {
-        @include button-focus;
+        outline: 3px solid $focus-yellow;
       }
     }
   }
