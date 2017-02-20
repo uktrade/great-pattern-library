@@ -62,7 +62,7 @@
     padding: 28px 0 25px;
 
     &-item {
-      padding: 13px 25px 0;
+      padding: 13px 12px 0;
       position: relative;
 
       &:first-child {
@@ -131,6 +131,10 @@
       &-last {
         border: 0;
       }
+
+      @include media($mobile) {
+        padding-left: 25px;
+      }
     }
 
     &-services {
@@ -181,7 +185,7 @@
     border-left: 2px solid $black;
     border-radius: 0;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 400;
     padding: 8px 10px 5px;
     position: absolute;
     right: 0;
