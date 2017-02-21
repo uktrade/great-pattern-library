@@ -20,24 +20,3 @@
   }
 }
 
-// Centralise focus states
-@mixin button-focus {
-  outline: 3px solid $focus-yellow;
-}
-
-@mixin link-focus {
-  background-color: $focus-yellow;
-  color: $dark-blue;
-  outline: 3px solid $focus-yellow;
-}
-
-@mixin navigation-focus {
-  background-color: $focus-yellow;
-  color: $dark-blue;
-  outline: none;
-}
-
-@mixin logo-in-link {
-  background-color: $great-blue;
-  margin-bottom: -4px;
-}

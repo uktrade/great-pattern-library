@@ -22,11 +22,9 @@
     }
 
     &-link {
-      padding: 8px 11px 7px;
-
-      &:focus {
-        @include navigation-focus;
-      }
+      margin: 3px;
+      outline: 3px solid $light-blue;
+      padding: 5px 8px 4px;
 
       &:hover,
       &--active {
@@ -39,6 +37,10 @@
           top: 0;
           width: 100%;
         }
+      }
+
+      &--secondary {
+        outline: 3px solid $dark-blue;
       }
     }
 
@@ -150,7 +152,6 @@
     }
 
     .outer-container {
-
       @include media($mobile) {
         margin: 0;
         width: 100%;
@@ -190,10 +191,6 @@
     position: absolute;
     right: 0;
     top: 0;
-
-    &:focus {
-      @include navigation-focus;
-    }
 
     .icon {
       height: 12px;
@@ -242,12 +239,16 @@
     }
   }
 
+  &-logo-link {
+    margin-bottom: 3px;
+  }
+
   &-logo {
-    @include logo-in-link;
-    padding: 17px 0 11px;
+    padding: 17px 0 4px;
 
     @include media($mobile) {
       width: 70%;
     }
   }
+
 }
