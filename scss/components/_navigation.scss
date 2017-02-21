@@ -60,7 +60,6 @@
   }
 
   &-toggle {
-    display: none;
     padding: 28px 0 25px;
 
     &-item {
@@ -145,10 +144,6 @@
         background-color: $light-blue;
         font-weight: 500;
       }
-    }
-
-    &--open {
-      display: block;
     }
 
     .outer-container {
@@ -251,4 +246,14 @@
     }
   }
 
+}
+
+.js-enabled {
+  .navigation-toggle {
+    display: none;
+
+    &--open {
+      display: block;
+    }
+  }
 }
