@@ -246,6 +246,22 @@
     }
   }
 
+  &-skip-to {
+
+    a {
+      left: -9999em;
+      position: absolute;
+
+      &:focus {
+        left: 0;
+        position: relative;
+      }
+    }
+
+    &:after {
+      display: none;
+    }
+  }
 }
 
 .js-enabled {
