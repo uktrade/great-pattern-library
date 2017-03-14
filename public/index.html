@@ -74,7 +74,7 @@
     </div>
   </header>
 
-  <main class="outer-container" id="content">
+  <div class="outer-container" id="content">
     <h1 class="h1">This is a 48px heading</h1>
     <p>class<strong> (.h1)</strong></p>
     <hr>
@@ -242,7 +242,7 @@
         <option>GOV.UK elements option 3</option>
       </select>
     </div>
-  </main>
+  </div>
 
   <footer role="contentinfo">
     <div class="footer background--great-blue soft--top">
@@ -303,11 +303,12 @@
   </footer>
   <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
   <script src="js/jquery.js"></script>
-  <!--[if IE 8]>
-  <script type="text/javascript" src="js/selectivizr.js"></script>
-  <![endif]-->
   <script src="js/navigation.js"></script>
-  <script src="js/ie8.js"></script>
+
+  <!--[if IE 8]>
+    <script src="js/ie8.js"></script>
+    <link rel="stylesheet" href="css/ie8.css">
+  <![endif]-->
 
 
 </body>
