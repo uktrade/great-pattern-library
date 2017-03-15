@@ -22,3 +22,14 @@
   border-color: $border-color-fallback;
   border-color: $border-color;
 }
+
+%login-active {
+  &:after {
+    border-top: 3px solid $great-red;
+    content: '';
+    left: 0;
+    position: absolute;
+    top: -8px;
+    width: 100%;
+  }
+}
