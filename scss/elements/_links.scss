@@ -15,15 +15,24 @@ a {
   &:hover {
     border-bottom: 1px dashed;
     color: $aqua;
+    margin-bottom: -1px;
   }
 
   &--grey {
+    border-bottom: 0;
     color: $light-grey;
-    display: block;
 
     &:hover {
-      border-bottom: 1px dashed;
-      margin-bottom: -1px;
+      color: $light-grey;
+    }
+  }
+
+  &--white {
+    border-bottom: 0;
+    color: $white;
+
+    &:hover {
+      color: $white;
     }
   }
 }

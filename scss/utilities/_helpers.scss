@@ -124,6 +124,12 @@
 
 .hide {
   display: none;
+
+  &-mobile {
+    @include media($mobile) {
+      display: none;
+    }
+  }
 }
 
 .show {
