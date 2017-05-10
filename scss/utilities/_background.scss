@@ -1,7 +1,23 @@
+.background__panel__container {
+  @extend .cf;
+  text-align: center;
+  vertical-align: top;
+  clear: both;
+}
+
+.background__panel {
+  border: solid 1px $black;
+  border-radius: 1rem;
+  float:left;
+  width: 10rem;
+  height: 10rem;
+  padding: 1rem;
+  margin: 0 1rem 1rem 0;
+}
 @each $name, $color in $backgrounds {
-  .background {
-    &--#{$name} {
-      background-color: $color;
+    .background {
+        &--#{$name} {
+            background-color: $color;
+        }
     }
-  }
 }
