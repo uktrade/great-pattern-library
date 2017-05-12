@@ -15,7 +15,7 @@ gulp.task('sass', () => gulp
       outputStyle: 'compressed',
       includePaths: [
         require("bourbon-neat").includePaths
-      ] 
+      ]
     }))
     .pipe(gulp.dest(paths.public))
 );
@@ -42,7 +42,7 @@ gulp.task('lint:sass', () => gulp
             'single-line-per-selector': 0
         }
     }))
-    .pipe(plugins.sassLint.format(stylish))
+    .pipe(plugins.sassLint.format())
     .pipe(plugins.sassLint.failOnError())
 );
 
