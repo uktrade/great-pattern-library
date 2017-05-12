@@ -1,5 +1,7 @@
 [![CircleCI](https://circleci.com/gh/uktrade/dit-pattern-library/tree/master.svg?style=svg)](https://circleci.com/gh/uktrade/dit-pattern-library/tree/master)
 
+### Demo
+A live demo can be seen here: https://dit-styleguide.herokuapp.com/
 
 ### Installation
 

@@ -1,21 +1,76 @@
+mixin codeblock(lang, code)
+  .component
+    .component__example
+      div !{code}
+    .componet__source
+      pre
+        code(class=`language-${lang}`)
+          div| #{code}
 doctype html
 html
   head
-    meta(charset='utf-8')
-    meta(http-equiv='x-ua-compatible' content='ie=edge')
-    meta(name='description' content='')
-    meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(charset='utf-8')/
+    meta(http-equiv='x-ua-compatible' content='ie=edge')/
+    meta(name='description' content='')/
+    meta(name='viewport' content='width=device-width, initial-scale=1')/
     title EIG Styleguide
-    link(rel='apple-touch-icon' href='apple-touch-icon.png')
+    link(rel='apple-touch-icon' href='apple-touch-icon.png')/
     // Place favicon.ico in the root directory
-    link(rel='stylesheet' href='css/main.css')
+    link(rel='stylesheet' href='css/main.css')/
+    link(rel='stylesheet' href='prismjs/themes/prism-twilight.css')/
   body
     script.
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled')
     include ../layout/header
     .outer-container(id="content")
-      h1 hey!
+      section
+        h1 Typography
+        p here are example of typography
+        // headers
+        +codeblock('html', `
+        <h1 class="h1">Level 1 header (48px)</h1>
+        `)
+
+        +codeblock('html', `
+        <h1 class="h2">Level 2 header (32px)</h1>
+        `)
+
+        +codeblock('html', `
+        <h1 class="h3">Level 3 header (24px)</h1>
+        `)
+
+        +codeblock('html', `
+        <h1 class="h4">Level 4 header (18px)</h1>
+        `)
+
+        +codeblock('html', `
+        <p><strong>This is a 18px paragraph.</strong></p>
+        `)
+
+        +codeblock('html', `
+        <p class="font-large">Cupcake ipsum dolor sit amet cotton candy toffee chocolate bar. Carrot cake icing brownie jelly-o toffee gingerbread. Dessert apple pie cake soufflé dessert cake oat cake.</p>
+        `)
+
+        p.font-large Cupcake ipsum dolor sit amet cotton candy toffee chocolate bar. Carrot cake icing brownie jelly-o toffee gingerbread. Dessert apple pie cake soufflé dessert cake oat cake.
+        p.font-large Pastry pastry sweet dragée cupcake dessert donut. Bear claw soufflé sesame snaps cake bear claw gingerbread topping. Sesame snaps liquorice donut chocolate jujubes tootsie roll wafer biscuit. Muffin bonbon oat cake topping fruitcake macaroon.</p>
+        p class <strong>(.font-large)</strong>
+        hr/
+        p <strong>This is a 16px paragraph.</strong>
+        p Cupcake ipsum dolor sit amet cotton candy toffee chocolate bar. Carrot cake icing brownie jelly-o toffee gingerbread. Dessert apple pie cake soufflé dessert cake oat cake.
+
+        p Pastry pastry sweet dragée cupcake dessert donut. Bear claw soufflé sesame snaps cake bear claw gingerbread topping. Sesame snaps liquorice donut chocolate jujubes tootsie roll wafer biscuit. Muffin bonbon oat cake topping fruitcake macaroon.
+
+        hr/
+        p <strong>This is a bold 16px paragraph.</strong>
+        p <strong>Pastry pastry sweet dragée cupcake dessert donut. Bear claw soufflé sesame snaps cake bear claw gingerbread topping. Sesame snaps liquorice donut chocolate jujubes tootsie roll wafer biscuit. Muffin bonbon oat cake topping fruitcake macaroon.</strong>
+        hr/
+
+
+      a.link(href="www.thisisalink.com") This is a link
+      strong (.link)
+      <hr>
     include ../layout/footer
+    script(src="prismjs/prism.js")
     script(src="js/jquery.js")
     script(src="js/navigation.js")
     script(src="js/sso.js")
