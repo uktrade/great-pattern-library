@@ -1,0 +1,72 @@
+mixin codeblock(lang, code)
+  .tabswitcher
+    nav.tabswitcher__nav
+      a.tabswitcher__btn Example
+      a.tabswitcher__btn Source code
+    .tabswitcher__content
+      .tabswitcher__pane.tabswitcher__example
+        div !{code}
+      .tabswitcher__pane.tabswitcher__source
+        pre
+          code(class=`language-${lang}`)
+            div| #{code}
+doctype html
+html
+  head
+    meta(charset='utf-8')/
+    meta(http-equiv='x-ua-compatible' content='ie=edge')/
+    meta(name='description' content='')/
+    meta(name='viewport' content='width=device-width, initial-scale=1')/
+    title EIG Styleguide
+    link(rel='apple-touch-icon' href='apple-touch-icon.png')/
+    // Place favicon.ico in the root directory
+    link(rel='stylesheet' href='styles/main.css')/
+    link(rel='stylesheet' href='prismjs/themes/prism-twilight.css')/
+  body
+    script.
+      document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled')
+    include ../layout/header
+    .outer-container(id="content")
+      section
+        h1 Typography
+        p here are example of typography
+        // headers
+        +codeblock('html', `
+        <h1 class="h1">Level 1 header (48px)</h1>
+        `)
+
+        +codeblock('html', `
+        <h1 class="h2">Level 2 header (32px)</h1>
+        `)
+
+        +codeblock('html', `
+        <h1 class="h3">Level 3 header (24px)</h1>
+        `)
+
+        +codeblock('html', `
+        <h1 class="h4">Level 4 header (18px)</h1>
+        `)
+
+        +codeblock('html', `
+        <p>This is a paragraph (16px).</p>
+        `)
+
+        +codeblock('html', `
+        <p class="font-large">This is a .font-large paragraph (18px).</p>
+        <p class="font-large">Cupcake ipsum dolor sit amet cotton candy toffee chocolate bar. Carrot cake icing brownie jelly-o toffee gingerbread. Dessert apple pie cake soufflé dessert cake oat cake.</p>
+        `)
+
+      section
+        h1 Links
+        +codeblock('html', `
+        <a class="link" href="www.thisisalink.com">This is a web hyperlink</a>
+        `)
+      <hr>
+
+    include ../layout/footer
+    script(src="prismjs/prism.js")
+    script(src="/static/vendor/js/jquery.js")
+    script(src="/static/vendor/js/navigation.js")
+    script(src="/static/vendor/js/sso.js")
+    script(src="/static/vendor/js/sso.js")
+    script(src="/pages/home.js")

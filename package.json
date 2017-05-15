@@ -6,7 +6,7 @@
   "homepage": "",
   "scripts": {
     "start": "node index.js",
-    "develop": "npm run build && npm start & npm run watch",
+    "develop": "npm run build & npm start & npm run watch",
     "test": "gulp lint:sass",
     "build": "gulp",
     "watch": "gulp watch"
@@ -27,8 +27,21 @@
     "selectivizr": "latest"
   },
   "devDependencies": {
+    "babel-loader": "^7.0.0",
+    "browser-sync": "^2.18.8",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-mocha": "^4.3.1",
+    "gulp-nodemon": "^2.2.1",
     "gulp-sass-lint": "1.1.1",
-    "jshint-stylish": "2.1.0"
+    "gulp-util": "^3.0.8",
+    "jshint-stylish": "2.1.0",
+    "webpack": "^2.5.1"
   },
   "engines": {
     "node": "5.0.0"

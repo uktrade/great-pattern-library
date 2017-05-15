@@ -1,8 +1,12 @@
 /* CONFIGURATIONS -- PATH */
 
 const paths = {
-    sass: 'scss/',
-    public: 'public/css/'
+    styles: {
+      src:'frontend/scss',
+      dest:'static/css'
+    },
+    js:{},
+    public: 'public/css/',
 };
 
 export default paths;
