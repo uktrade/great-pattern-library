@@ -1,8 +1,14 @@
 .tabswitcher {
-  &--init {
+  border:solid 1px $black;
+  margin-bottom:1rem;
+  &--initialised {
     .tabswitcher__pane {
       display: none;
+      &--active {
+        display:inline-block;
+      }
     }
+
   }
   &__nav {
 
@@ -11,6 +17,13 @@
     display:inline-block;
     padding:0.5rem;
     cursor: pointer;
+    background: $white;
+    color: $grey;
+
+    &--active {
+      background: $grey;
+      color: $white;
+    }
   }
 
   &__content {
@@ -21,9 +34,7 @@
     // position:absolute;
     // top:0;
     // left:0;
-    &--active {
-      display:block;
-    }
+
   }
 
 
