@@ -1,0 +1,30 @@
+.tabswitcher {
+  &--init {
+    .tabswitcher__pane {
+      display: none;
+    }
+  }
+  &__nav {
+
+  }
+  &__btn{
+    display:inline-block;
+    padding:0.5rem;
+    cursor: pointer;
+  }
+
+  &__content {
+    // position:relative;
+  }
+
+  &__pane {
+    // position:absolute;
+    // top:0;
+    // left:0;
+    &--active {
+      display:block;
+    }
+  }
+
+
+}

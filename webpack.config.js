@@ -21,20 +21,15 @@ module.exports = {
              exclude: /node_modules/,
              loader: 'babel-loader'
           },
-          {
-              test: `${PROJECT_DIR}/node_modules/scotchPanels/src/scotchPanels.js`,
-              loader: "imports?$=>jquery"
-          },
+          // {
+          //     test: `${PROJECT_DIR}/node_modules/scotchPanels/src/scotchPanels.js`,
+          //     loader: "imports?$=>jquery"
+          // },
           {
             test: /\.modernizrrc$/,
             loader: "modernizr"
           }
        ],
-      //  resolve:{
-      //    alias:{
-      //      modernizr$: `${PROJECT_DIR}/.modernizrrc`
-      //    }
-      //  }
      },
      'plugins': [
           new webpack.optimize.CommonsChunkPlugin({
@@ -50,16 +45,6 @@ module.exports = {
         }),
         new webpack.optimize.UglifyJsPlugin(),
       ],
-      // resolve:{
-      //   alias: {
-      //     scotchPanels:path.resolve(
-      //       __dirname, 'node_modules/scotchPanels/src/scotchPanels.js'
-      //     ),
-      //     slick:path.resolve(
-      //       __dirname, 'node_modules/slick-carousel'
-      //     )
-      //   }
-      // }
       resolve:{
         alias:{
           modernizr$: `${PROJECT_DIR}/.modernizrrc`

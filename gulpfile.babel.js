@@ -28,12 +28,22 @@ const IMG_FILES = [
 ]
 
 const SASS_VENDOR_PATHS = [
-  require("bourbon-neat").includePaths
+  require("bourbon-neat").includePaths,
+
 ]
-const SASS_FILES = [`${PROJECT_DIR}/frontend/styles/**/*.scss`]
+
+const SASS_FILES = [
+  `${PROJECT_DIR}/frontend/styles/**/*.scss`,
+  `${PROJECT_DIR}/frontend/components/**/*.scss`,
+  // new components
+  // `${PROJECT_DIR}/frontend/components/**/styles/`,
+]
 const VENDOR_FILES = `${PROJECT_DIR}/frontend/vendor/**/*`
 
-const JS_FILES = [`${PROJECT_DIR}/frontend/scripts/**/*.js`]
+const JS_FILES = [
+  `${PROJECT_DIR}/frontend/scripts/**/*.js`,
+  `${PROJECT_DIR}/frontend/components/**/scripts/*.js`
+]
 
 const JS_WATCH_FILES = [
   `${PROJECT_DIR}/webpack.config.js`
@@ -58,11 +68,13 @@ var lintPaths = [
 gulp.task('browser-sync', ['clean','build','nodemon'], function() {
 	return browserSync.init(null, {
 		proxy: `http://localhost:${NODEMON_PORT}`,
-    files: ["static/**/*.*", '_api/**/*.*'],
+    files: ["static/**/*.*", 'backend/**/*.*'],
     browser: "google chrome",
     port: BROWSERSYNC_PORT,
+    reloadDelay: 2000
 	});
 });
+
 gulp.task('nodemon', function (cb) {
 
 	var started = false;
@@ -74,15 +86,16 @@ gulp.task('nodemon', function (cb) {
       // 'backend/routes/**/*.*',
       // '_server/**/*.*',
       'backend/views/**/*.*',
-      'backend/appController.js',
-      'Constants.js',
+      // 'backend/appController.js',
+      // 'Constants.js',
       'index.js'
     ],
     env:{
       PORT:NODEMON_PORT,
       NODE_ENV:NODEMON_ENV
     },
-    'nodeArgs':['--inspect']
+    ext: 'js pug',
+    nodeArgs:['--inspect']
 	}).on('start', function () {
 		// to avoid nodemon being started multiple times
 		// thanks @matthisk
