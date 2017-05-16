@@ -8,7 +8,7 @@ const CSS_BTN_ACTIVE = `${CSS_BTN}--active`
 const CSS_PANE = `${CSS_CONTAINER}__pane`
 const CSS_PANE_ACTIVE = `${CSS_PANE}--active`
 const DATA_ATTR_PANE = 'data-tabswitcher-pane'
-const state = ['example', 'source']
+const state = ['example', 'markup']
 const nodeListToArray = function (nodeList) {
   return [].slice.call(nodeList)
 }
@@ -35,7 +35,7 @@ TabSwitcher.prototype = extend(EventEmitter.prototype, {
   setActivePane: function () {
     this.domElPanes.forEach((el, i) => {
       console.log(`.${CSS_BTN}[${DATA_ATTR_PANE}=${this.activePane}]`)
-      let btn = this.domEl.querySelector(`.${CSS_BTN}[${DATA_ATTR_PANE}=${this.activePane}]`)
+      let btn = this.domEl.querySelector(`.${CSS_BTN}[${DATA_ATTR_PANE}=${el.getAttribute(DATA_ATTR_PANE)}]`)
       if (el.getAttribute(DATA_ATTR_PANE) === this.activePane) {
         el.classList.add(CSS_PANE_ACTIVE)
         btn.classList.add(CSS_BTN_ACTIVE)

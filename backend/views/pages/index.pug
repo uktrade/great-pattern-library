@@ -1,12 +1,13 @@
-mixin codeblock(lang, code)
+mixin codeblock(lang, label, code)
+  h3.h3 #{label}
   .tabswitcher
     nav.tabswitcher__nav
       a.tabswitcher__btn(data-tabswitcher-pane='example') Example
-      a.tabswitcher__btn(data-tabswitcher-pane='source') Source code
+      a.tabswitcher__btn(data-tabswitcher-pane='markup') Markup
     .tabswitcher__content
       .tabswitcher__pane.tabswitcher__example(data-tabswitcher-pane='example')
         div !{code}
-      .tabswitcher__pane.tabswitcher__source(data-tabswitcher-pane='source')
+      .tabswitcher__pane.tabswitcher__source(data-tabswitcher-pane='markup')
         pre
           code(class=`language-${lang}`)
             div| #{code}
@@ -29,38 +30,128 @@ html
     include ../layout/header
     .outer-container(id="content")
       section
-        h1 Typography
-        p here are example of typography
+        h2.h2 Typography
+        p Here are examples of typography used across the site
         // headers
-        +codeblock('html', `
-        <h1 class="h1">Level 1 header (48px)</h1>
+        +codeblock('html', 'Level 1 header', `
+        <h1 class="h1">This is a title (48px)</h1>
         `)
 
-        +codeblock('html', `
-        <h1 class="h2">Level 2 header (32px)</h1>
+        +codeblock('html', 'Level 2 header', `
+        <h2 class="h2">This is a subtitle (32px)</h2>
         `)
 
-        +codeblock('html', `
-        <h1 class="h3">Level 3 header (24px)</h1>
+        +codeblock('html', 'Level 3 header', `
+        <h3 class="h3">This is a small subtitle (24px)</h3>
         `)
 
-        +codeblock('html', `
-        <h1 class="h4">Level 4 header (18px)</h1>
+        +codeblock('html', 'Level 4 header', `
+        <h4 class="h4">This is a smaller subtitle (18px)</h4>
         `)
 
-        +codeblock('html', `
-        <p>This is a paragraph (16px).</p>
+        +codeblock('html', 'Paragraph', `
+        <p>This is normal text (16px).</p>
         `)
 
-        +codeblock('html', `
-        <p class="font-large">This is a .font-large paragraph (18px).</p>
-        <p class="font-large">Cupcake ipsum dolor sit amet cotton candy toffee chocolate bar. Carrot cake icing brownie jelly-o toffee gingerbread. Dessert apple pie cake soufflé dessert cake oat cake.</p>
+        +codeblock('html', 'Large paragraph', `
+        <p class="font-large">This is large text (18px).</p>
+        `)
+
+        +codeblock('html', 'Small paragraph', `
+        <p class="font-small">This is small text (15px).</p>
+        `)
+
+        +codeblock('html', 'Extra small paragraph', `
+        <p class="font-xsmall">This is extra small text (14px).</p>
         `)
 
       section
-        h1 Links
-        +codeblock('html', `
+        h2.h2 Links
+        +codeblock('html', 'Hyperlinked text', `
         <a class="link" href="www.thisisalink.com">This is a web hyperlink</a>
+        `)
+
+      section
+        h2.h2 Lists
+        +codeblock('html', 'Unordered list', `
+        <ul class="list push--bottom">
+          <li class="list-item">which are the major online markets in overseas countries</li>
+          <li class="list-item">if there is a suitable e-commerce website to sell your products</li>
+          <li class="list-item">about costs and logistics</li>
+          <li class="list-item">how to proceed and join a marketplace</li>
+          <li class="list-item">special terms negotiated by DIT (Department for International Trade)</li>
+        </ul>
+        `)
+
+      section
+        h2.h2 Buttons
+        +codeblock('html', 'Normal buttons', `
+        <button class="button button-blue">Button</button>
+        <button class="button button-red">Button</button>
+        <button class="button button-border">Button</button>
+        `)
+
+        +codeblock('html', 'Large buttons', `
+        <button class="button button-blue button-large">Button</button>
+        <button class="button button-red button-large">Button</button>
+        <button class="button button-border button-large">Button</button>
+        `)
+
+      section
+        h2.h2 Colours
+        -
+          let aColours = [
+            'great-blue',
+            'flag-red',
+            'stone',
+            'dark-white',
+            'grey',
+            'mid-grey',
+            'light-grey',
+            'purple', 'mid-blue',
+            'aqua',
+            'dark-navy',
+            'dark-blue',
+            'light-blue','light-aqua','great-red','white'
+          ]
+
+          let bgMarkup = ''
+          aColours.forEach((colour) => {
+            bgMarkup += `
+            <div class="background__panel background--${colour}">
+              <strong class="font-white">(.background--${colour})</strong>
+            </div>
+            `
+          })
+        +codeblock('html', 'Backgrounds',`
+        <div class="background__panel__container">${bgMarkup}</div>
+        `)
+
+      section
+        h2.h2 Grids &amp; Breakpoints
+        +codeblock('html', 'Grid', `
+        <div class="push--bottom cf text--center">
+          <div class="col-1 background--mid-grey">1</div>
+          <div class="col-1 background--mid-grey">1</div>
+          <div class="col-1 background--mid-grey">1</div>
+          <div class="col-1 background--mid-grey">1</div>
+          <div class="col-1 background--mid-grey">1</div>
+          <div class="col-1 background--mid-grey">1</div>
+          <div class="col-1 background--mid-grey">1</div>
+          <div class="col-1 background--mid-grey">1</div>
+          <div class="col-1 background--mid-grey">1</div>
+          <div class="col-1 background--mid-grey">1</div>
+          <div class="col-1 background--mid-grey">1</div>
+          <div class="col-1 background--mid-grey">1</div>
+        </div>
+        <div class="push--bottom cf text--center">
+          <div class="col-6 background--mid-grey">6</div>
+          <div class="col-6 background--mid-grey">6</div>
+        </div>
+        <div class="push--bottom cf text--center">
+          <div class="col-3 background--mid-grey">3</div>
+          <div class="col-9 background--mid-grey">9</div>
+        </div>
         `)
       <hr>
 
