@@ -3,13 +3,13 @@ const TabSwitcher = require('../../components/TabSwitcher')
 let aSwitchers
 
 document.addEventListener('DOMContentLoaded', (e) => {
-  console.log('home!')
+  // get all Tab Switcher containers
   aSwitchers = [].slice.call(document.querySelectorAll('.tabswitcher'))
-  console.log(aSwitchers)
   aSwitchers.forEach((el, i, arr) => {
+    // initialise all Tab Switchers on the page
     arr[i] = new TabSwitcher(el).init()
   })
   // initialise syntax highlighting
-  Prism.highlightAll()
-  console.log(aSwitchers)
+  Prism.highlightAll(false, (e) => {
+  })
 })

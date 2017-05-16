@@ -2,8 +2,8 @@ mixin codeblock(lang, label, code)
   h3.h3 #{label}
   .tabswitcher
     nav.tabswitcher__nav
-      a.tabswitcher__btn(data-tabswitcher-pane='example') Example
-      a.tabswitcher__btn(data-tabswitcher-pane='markup') Markup
+      a.tabswitcher__btn(data-tabswitcher-pane='example', title='click to view example') Example
+      a.tabswitcher__btn(data-tabswitcher-pane='markup', title='click to view markup') Markup
     .tabswitcher__content
       .tabswitcher__pane.tabswitcher__example(data-tabswitcher-pane='example')
         div !{code}
@@ -23,7 +23,7 @@ html
     link(rel='apple-touch-icon' href='apple-touch-icon.png')/
     // Place favicon.ico in the root directory
     link(rel='stylesheet' href='styles/main.css')/
-    link(rel='stylesheet' href='prismjs/themes/prism-twilight.css')/
+    link(rel='stylesheet' href='vendor/prism-twilight.css')/
   body
     script.
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled')
@@ -119,7 +119,7 @@ html
           aColours.forEach((colour) => {
             bgMarkup += `
             <div class="background__panel background--${colour}">
-              <strong class="font-white">(.background--${colour})</strong>
+              <strong class="font-white" style="background:rgba(0,0,0,0.5)">(.background--${colour})</strong>
             </div>
             `
           })

@@ -1,4 +1,4 @@
-const {debounce, extend} = require('lodash')
+const {extend} = require('lodash')
 const EventEmitter = require('eventemitter3')
 const DOM_EL_CONTAINER = '.tabswitcher'
 const CSS_CONTAINER = DOM_EL_CONTAINER.replace('.', '')
@@ -34,7 +34,6 @@ TabSwitcher.prototype = extend(EventEmitter.prototype, {
   },
   setActivePane: function () {
     this.domElPanes.forEach((el, i) => {
-      console.log(`.${CSS_BTN}[${DATA_ATTR_PANE}=${this.activePane}]`)
       let btn = this.domEl.querySelector(`.${CSS_BTN}[${DATA_ATTR_PANE}=${el.getAttribute(DATA_ATTR_PANE)}]`)
       if (el.getAttribute(DATA_ATTR_PANE) === this.activePane) {
         el.classList.add(CSS_PANE_ACTIVE)
@@ -49,7 +48,6 @@ TabSwitcher.prototype = extend(EventEmitter.prototype, {
     this.domEl.addEventListener('click', this.onTabClick.bind(this))
     this.domEl.classList.add(CSS_CONTAINER_INITIALISED)
     this.on('tabchange', function (e) {
-      console.log(e)
       this.setActivePane(e.activePane)
     }.bind(this))
     // set display

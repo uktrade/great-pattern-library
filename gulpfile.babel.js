@@ -34,11 +34,14 @@ const SASS_VENDOR_PATHS = [
 
 const SASS_FILES = [
   `${PROJECT_DIR}/frontend/styles/**/*.scss`,
-  `${PROJECT_DIR}/frontend/components/**/*.scss`,
+  `${PROJECT_DIR}/frontend/components/**/*.scss`
   // new components
   // `${PROJECT_DIR}/frontend/components/**/styles/`,
 ]
-const VENDOR_FILES = `${PROJECT_DIR}/frontend/vendor/**/*`
+const VENDOR_FILES = [
+  `${PROJECT_DIR}/frontend/vendor/**/*`,
+  'node_modules/prismjs/themes/*.css'
+]
 
 const JS_FILES = [
   `${PROJECT_DIR}/frontend/scripts/**/*.js`,
