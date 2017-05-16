@@ -6,7 +6,6 @@ const PROJECT_DIR = path.resolve(__dirname)
 app.set('port', (process.env.PORT || 5000))
 
 app.use(express.static(`${PROJECT_DIR}/static`))
-app.use(express.static(__dirname + '/node_modules'))
 
 // views is directory for all template files
 app.set('views', 'backend/views')

@@ -1,3 +1,4 @@
+const Prism = require('prismjs')
 const TabSwitcher = require('../../components/TabSwitcher')
 let aSwitchers
 
@@ -8,5 +9,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   aSwitchers.forEach((el, i, arr) => {
     arr[i] = new TabSwitcher(el).init()
   })
+  // initialise syntax highlighting
+  Prism.highlightAll()
   console.log(aSwitchers)
 })
