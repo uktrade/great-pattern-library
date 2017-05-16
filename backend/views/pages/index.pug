@@ -128,7 +128,7 @@ html
         `)
 
       section
-        h2.h2 Grids &amp; Breakpoints
+        h2.h2 Layout
         +codeblock('html', 'Grid', `
         <div class="push--bottom cf text--center">
           <div class="col-1 background--mid-grey">1</div>
@@ -153,6 +153,12 @@ html
           <div class="col-9 background--mid-grey">9</div>
         </div>
         `)
+
+        h2.h2 Breakpoints
+        p Breakpoint info goes here
+        ul
+          li mobile = less than or equal to 767px
+          li desktop = greater than or equal to 768px
       <hr>
 
     include ../layout/footer
