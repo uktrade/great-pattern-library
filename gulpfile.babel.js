@@ -24,7 +24,7 @@ const BROWSERSYNC_PORT = 4001;
 
 
 const IMG_FILES = [
-  './frontend/images/**/*'
+  './frontend/images/**/*.*{jpg,jpeg,png,svg,bmp}'
 ]
 
 const SASS_VENDOR_PATHS = [
@@ -122,21 +122,22 @@ gulp.task('nodemon', function (cb) {
 
 
 gulp.task('images', ['clean'], function () {
-    return gulp.src(IMG_FILES)
-      .pipe(plugins.imagemin({verbose:true}))
-      .pipe(gulp.dest('./static/images'));
-});
+  return gulp.src(IMG_FILES)
+    .pipe(plugins.imagemin({verbose: true}))
+    .pipe(gulp.dest('./static/images'))
+})
 gulp.task('images:dev', function () {
-    return gulp.src(IMG_FILES)
-      .pipe(plugins.imagemin({verbose:true}))
-      .pipe(gulp.dest('./static/images'));
-});
+  return gulp.src(IMG_FILES)
+    .pipe(plugins.imagemin({verbose: true}))
+    .pipe(gulp.dest('./static/images'))
+})
 
 // Watch for changes and re-run tasks
-gulp.task('watchForChanges', function() {
-    gulp.watch(SASS_FILES, ['sass:dev']);
-    gulp.watch(JS_WATCH_FILES, ['webpack:dev'])
-});
+gulp.task('watchForChanges', function () {
+  gulp.watch(SASS_FILES, ['sass:dev'])
+  gulp.watch(JS_WATCH_FILES, ['webpack:dev'])
+  gulp.watch(IMG_FILES, ['images:dev'])
+})
 
 
 gulp.task('lint:sass', () => gulp

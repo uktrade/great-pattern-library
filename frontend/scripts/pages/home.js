@@ -1,3 +1,4 @@
+require('../utils/images')
 const Prism = require('prismjs')
 const TabSwitcher = require('../../components/TabSwitcher')
 let aSwitchers

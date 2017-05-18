@@ -36,13 +36,13 @@ module.exports = {
               name: 'core',
               filename: 'core.js'
           }),
-          new ProvidePlugin({
-            jQuery: 'jquery',
-            $: 'jquery',
-            jquery: 'jquery',
-            // "Tether": 'tether',
-            // "window.Tether": "tether",
-        }),
+        //   new ProvidePlugin({
+        //     jQuery: 'jquery',
+        //     $: 'jquery',
+        //     jquery: 'jquery',
+        //     // "Tether": 'tether',
+        //     // "window.Tether": "tether",
+        // }),
         new webpack.optimize.UglifyJsPlugin(),
       ],
       resolve:{

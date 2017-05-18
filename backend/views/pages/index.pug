@@ -29,7 +29,7 @@ html
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled')
     include ../layout/header
     .outer-container(id="content")
-      section
+      section(id="section-typography")
         h2.h2 Typography
         p Here are examples of typography used across the site
         // headers
@@ -65,13 +65,13 @@ html
         <p class="font-xsmall">This is extra small text (14px).</p>
         `)
 
-      section
+      section(id="section-links")
         h2.h2 Links
         +codeblock('html', 'Hyperlinked text', `
         <a class="link" href="www.thisisalink.com">This is a web hyperlink</a>
         `)
 
-      section
+      section(id="section-lists")
         h2.h2 Lists
         +codeblock('html', 'Unordered list', `
         <ul class="list push--bottom">
@@ -83,7 +83,7 @@ html
         </ul>
         `)
 
-      section
+      section(id="section-buttons")
         h2.h2 Buttons
         +codeblock('html', 'Normal buttons', `
         <button class="button button-blue">Button</button>
@@ -97,29 +97,37 @@ html
         <button class="button button-border button-large">Button</button>
         `)
 
-      section
+      section(id="section-colours")
         h2.h2 Colours
         -
-          let aColours = [
-            'great-blue',
-            'flag-red',
-            'stone',
-            'dark-white',
-            'grey',
-            'mid-grey',
-            'light-grey',
-            'purple', 'mid-blue',
-            'aqua',
-            'dark-navy',
-            'dark-blue',
-            'light-blue','light-aqua','great-red','white'
-          ]
+          let oColours = {}
+          oColours['great-blue'] = '#1e1348'
+          oColours['flag-red'] = '#b00d23'
+          oColours['stone'] = '#dfd5c5'
+          oColours['dark-white'] = '#fafafa'
+          oColours['grey'] = '#333'
+          oColours['mid-grey'] = '#999'
+          oColours['light-grey'] = '#dce0df'
+          oColours['purple'] = '#4f0b7b'
+          oColours['mid-blue'] = '#00549f'
+          oColours['aqua'] = '#007ea3'
+          oColours['dark-navy'] = '#160d37'
+          oColours['dark-blue'] = '#132965'
+          oColours['light-blue'] = '#00549f'
+          oColours['light-aqua'] = '#8ae2fb'
+          oColours['great-red'] = '#e41f13'
+          oColours['white'] = '#fff'
 
+          let aColours = Object.keys(oColours)
           let bgMarkup = ''
+
           aColours.forEach((colour) => {
             bgMarkup += `
             <div class="background__panel background--${colour}">
-              <strong class="font-white" style="background:rgba(0,0,0,0.5)">(.background--${colour})</strong>
+              <strong class="font-white" style="background:rgba(0,0,0,0.5)">
+                (.background--${colour})<br /><br />
+                ${oColours[colour]}
+              </strong>
             </div>
             `
           })
@@ -127,7 +135,7 @@ html
         <div class="background__panel__container">${bgMarkup}</div>
         `)
 
-      section
+      section(id="section-layout")
         h2.h2 Layout
         +codeblock('html', 'Grid', `
         <div class="push--bottom cf text--center">
@@ -154,14 +162,14 @@ html
         </div>
         `)
 
-      section
+      section(id="section-breakpoints")
         h2.h2 Breakpoints
         p Breakpoint info goes here
         ul
           li mobile = less than or equal to 767px
           li desktop = greater than or equal to 768px
 
-      section
+      section(id="section-forms")
         h2.h2 Forms &amp; Inputs
 
         +codeblock('html', 'Input fields', `
@@ -224,14 +232,23 @@ html
         </div>
         `)
 
-      section
+      section(id="section-media")
+        h2.h2 Media
+        +codeblock('html', 'Images',`
+        <figure>
+          <figcaption>Inline image (landscape)</figcaption>
+          <img class="lazyload" src="/images/placeholder-570x380.png" alt="placeholder - 570x380.png"/>
+        </figure>
+        `)
+
+      section(id="section-patterns")
         h2.h2 Patterns / page sections
         +codeblock('html', 'Steps', `
         <div class="outer-container">
           <h3 class="h2 font-reg flush--top push--bottom soft--top">How does it work?</h3>
           <ul>
             <li class="col-4 text--center soft--bottom">
-              <img src="http://placehold.it/250x250" alt="">
+              <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
               <div class="cf push--top text--left">
                 <span class="steps-number font-med font-grey float--left push-half--right">1</span>
                 <div class="steps-content float--left">
@@ -242,7 +259,7 @@ html
             </li>
 
             <li class="col-4 text--center soft--bottom">
-              <img src="http://placehold.it/250x250" alt="">
+              <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
               <div class="cf push--top text--left">
                 <span class="steps-number font-med font-grey float--left push-half--right">2</span>
                 <div class="steps-content float--left">
@@ -253,7 +270,7 @@ html
             </li>
 
             <li class="col-4 text--center soft--bottom">
-              <img src="http://placehold.it/250x250" alt="">
+              <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
               <div class="cf push--top text--left">
                 <span class="steps-number font-med font-grey float--left push-half--right">3</span>
                 <div class="steps-content float--left">
@@ -265,13 +282,11 @@ html
           </ul>
         </div>
         `)
-        
       // end of outer container
 
     include ../layout/footer
     script(src="/vendor/js/jquery.js")
     script(src="/vendor/js/navigation.js")
-    script(src="/vendor/js/sso.js")
     script(src="/vendor/js/sso.js")
     script(src="/scripts/pages/core.js")
     script(src="/scripts/pages/home.js")
