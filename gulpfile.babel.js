@@ -28,8 +28,7 @@ const IMG_FILES = [
 ]
 
 const SASS_VENDOR_PATHS = [
-  require("bourbon-neat").includePaths,
-
+  require("bourbon-neat").includePaths
 ]
 
 const SASS_FILES = [
@@ -124,20 +123,8 @@ gulp.task('watchForChanges', function () {
 
 
 gulp.task('lint:sass', () => gulp
-    .src([
-        SASS_FILES
-    ])
-    .pipe(plugins.sassLint({
-        rules: {
-            'no-mergeable-selectors': 1, // Severity 1 (warning)
-            'pseudo-element': 0,
-            'no-ids': 0,
-            'mixins-before-declarations': 0,
-            'no-duplicate-properties': 0,
-            'no-vendor-prefixes': 0,
-            'single-line-per-selector': 0
-        }
-    }))
+    .src(SASS_FILES)
+    .pipe(plugins.sassLint())
     .pipe(plugins.sassLint.format())
     .pipe(plugins.sassLint.failOnError())
 );

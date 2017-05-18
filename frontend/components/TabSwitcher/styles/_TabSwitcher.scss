@@ -1,24 +1,22 @@
 .tabswitcher {
-  border:solid 1px $black;
-  margin-bottom:1rem;
+  border: solid 1px $black;
+  margin-bottom: 1rem;
   &--initialised {
     .tabswitcher__pane {
       display: none;
       &--active {
-        display:inline-block;
+        display: inline-block;
       }
     }
 
   }
-  &__nav {
 
-  }
-  &__btn{
-    display:inline-block;
-    padding:0.5rem;
-    cursor: pointer;
+  &__btn {
     background: $white;
     color: $grey;
+    cursor: pointer;
+    display: inline-block;
+    padding: .5rem;
 
     &--active {
       background: $grey;
@@ -26,15 +24,10 @@
     }
   }
 
-  &__content {
-    // position:relative;
-  }
+  // &__content {}
 
   &__pane {
-    width:90%;
-    padding:1rem;
-
+    padding: 1rem;
+    width: 90%;
   }
-
-
 }
