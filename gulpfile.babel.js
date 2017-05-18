@@ -75,22 +75,16 @@ gulp.task('browser-sync', ['clean','build','nodemon'], function() {
     browser: "google chrome",
     port: BROWSERSYNC_PORT,
     reloadDelay: 2000
-	});
-});
+	})
+})
 
 gulp.task('nodemon', function (cb) {
-
 	var started = false;
 
 	return nodemon({
 		script: 'index.js',
     watch:[
-      // 'backend/_api/**/*.*',
-      // 'backend/routes/**/*.*',
-      // '_server/**/*.*',
       'backend/views/**/*.*',
-      // 'backend/appController.js',
-      // 'Constants.js',
       'index.js'
     ],
     env:{
@@ -103,22 +97,11 @@ gulp.task('nodemon', function (cb) {
 		// to avoid nodemon being started multiple times
 		// thanks @matthisk
 		if (!started) {
-			cb();
+			cb()
 			started = true;
 		}
-	});
-});
-
-// gulp.task('sass', () => gulp
-//     .src(SASS_FILES)
-//     .pipe(plugins.sass({
-//       outputStyle: 'compressed',
-//       includePaths: [
-//         SASS_VENDOR_PATHS
-//       ]
-//     }))
-//     .pipe(gulp.dest(paths.styles.dest))
-// );
+	})
+})
 
 
 gulp.task('images', ['clean'], function () {
@@ -155,7 +138,7 @@ gulp.task('lint:sass', () => gulp
             'single-line-per-selector': 0
         }
     }))
-    .pipe(plugins.sassLint.format(stylish))
+    .pipe(plugins.sassLint.format())
     .pipe(plugins.sassLint.failOnError())
 );
 

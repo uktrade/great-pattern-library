@@ -1,4 +1,6 @@
 [![CircleCI](https://circleci.com/gh/uktrade/dit-pattern-library/tree/master.svg?style=svg)](https://circleci.com/gh/uktrade/dit-pattern-library/tree/master)
+[![dependencies Status](https://david-dm.org/uktrade/dit-pattern-library/status.svg)](https://david-dm.org/uktrade/dit-pattern-library)
+[![devDependencies Status](https://david-dm.org/uktrade/dit-pattern-library/dev-status.svg)](https://david-dm.org/uktrade/dit-pattern-library?type=dev)
 
 ### Demo
 A live demo can be seen here: https://dit-styleguide.herokuapp.com/
