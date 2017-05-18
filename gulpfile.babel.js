@@ -1,34 +1,25 @@
 // LIBRARIES
 // - - - - - - - - - - - - - - -
-import gulp from 'gulp';
-import paths from './projectpath.babel';
-import stylish from 'jshint-stylish';
-import loadPlugins from 'gulp-load-plugins';
-import path from 'path';
-import del from 'del';
+import gulp from 'gulp'
+import loadPlugins from 'gulp-load-plugins'
+import path from 'path'
+import del from 'del'
 
-const eslint = require('gulp-eslint')
-const mocha = require('gulp-mocha')
-const nodemon = require('gulp-nodemon')
 const browserSync = require('browser-sync').create()
 const webpack = require('webpack')
-const imagemin = require('gulp-imagemin')
-
-const plugins = loadPlugins();
+const plugins = loadPlugins()
 
 const PROJECT_DIR = path.resolve(__dirname)
-
 const NODEMON_PORT = 4000
 const NODEMON_ENV = 'development'
-const BROWSERSYNC_PORT = 4001;
-
+const BROWSERSYNC_PORT = 4001
 
 const IMG_FILES = [
   './frontend/images/**/*.*{jpg,jpeg,png,svg,bmp}'
 ]
 
 const SASS_VENDOR_PATHS = [
-  require("bourbon-neat").includePaths
+  require('bourbon-neat').includePaths
 ]
 
 const SASS_FILES = [
@@ -62,46 +53,45 @@ var lintPaths = [
   'frontend/scripts/**/*.js',
   'backend/**/*.js',
   'tests/unit/spec/**/*.js',
-  'gulpfile.js'
+  'gulpfile.babel.js'
 ]
 
 // TASKS
 // - - - - - - - - - - - - - - -
-gulp.task('browser-sync', ['clean','build','nodemon'], function() {
-	return browserSync.init(null, {
-		proxy: `http://localhost:${NODEMON_PORT}`,
-    files: ["static/**/*.*", 'backend/**/*.*'],
-    browser: "google chrome",
+gulp.task('browser-sync', ['clean', 'build', 'nodemon'], function () {
+  return browserSync.init(null, {
+    proxy: `http://localhost:${NODEMON_PORT}`,
+    files: ['static/**/*.*', 'backend/**/*.*'],
+    browser: 'google chrome',
     port: BROWSERSYNC_PORT,
     reloadDelay: 2000
-	})
+  })
 })
 
 gulp.task('nodemon', function (cb) {
-	var started = false;
+  var started = false
 
-	return nodemon({
-		script: 'index.js',
-    watch:[
+  return plugins.nodemon({
+    script: 'index.js',
+    watch: [
       'backend/views/**/*.*',
       'index.js'
     ],
-    env:{
-      PORT:NODEMON_PORT,
-      NODE_ENV:NODEMON_ENV
+    env: {
+      PORT: NODEMON_PORT,
+      NODE_ENV: NODEMON_ENV
     },
     ext: 'js pug',
-    nodeArgs:['--inspect']
-	}).on('start', function () {
-		// to avoid nodemon being started multiple times
-		// thanks @matthisk
-		if (!started) {
-			cb()
-			started = true;
-		}
-	})
+    nodeArgs: ['--inspect']
+  }).on('start', function () {
+    // to avoid nodemon being started multiple times
+    // thanks @matthisk
+    if (!started) {
+      cb()
+      started = true
+    }
+  })
 })
-
 
 gulp.task('images', ['clean'], function () {
   return gulp.src(IMG_FILES)
@@ -121,29 +111,27 @@ gulp.task('watchForChanges', function () {
   gulp.watch(IMG_FILES, ['images:dev'])
 })
 
-
 gulp.task('lint:sass', () => gulp
     .src(SASS_FILES)
     .pipe(plugins.sassLint())
     .pipe(plugins.sassLint.format())
     .pipe(plugins.sassLint.failOnError())
-);
-
+)
 
 gulp.task('lint',
     ['lint:sass']
-);
+)
 
 gulp.task('js:lint', function () {
   return gulp.src(lintPaths)
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
+    .pipe(plugins.eslint())
+    .pipe(plugins.eslint.format())
+    .pipe(plugins.eslint.failAfterError())
 })
 
 gulp.task('js:test', ['js:lint'], function (done) {
   return gulp.src(JS_TEST_FILES)
-    .pipe(mocha({
+    .pipe(plugins.mocha({
       compilers: [
         'js:babel-core/register'
       ]
@@ -190,7 +178,7 @@ gulp.task('sass', ['clean'], function () {
 })
 
 gulp.task('sass:dev', function () {
-  // console.log(SASS_FILES);
+  // console.log(SASS_FILES)
   return gulp.src(SASS_FILES)
     .pipe(plugins.sass({
       includePaths: SASS_VENDOR_PATHS,
@@ -211,11 +199,11 @@ gulp.task('clean', function () {
 // Default: compile everything
 gulp.task('default',
     ['build', 'watch', 'browser-sync']
-);
+)
 
 gulp.task('build', ['clean', 'js:test', 'vendor_assets', 'sass', 'webpack', 'images'])
 
 // Optional: recompile on changes
 gulp.task('watch',
     ['watchForChanges']
-);
+)
