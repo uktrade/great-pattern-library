@@ -13,10 +13,4 @@ require('lazysizes')
 
 window.lazySizesConfig = window.lazySizesConfig || {}
 
-/*
-document.addEventListener('lazybeforeunveil', function(e){
-  // add cus
-});
-*/
-
 module.exports = window.lazySizesConfig
