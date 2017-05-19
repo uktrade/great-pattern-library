@@ -49,7 +49,7 @@ const JS_TEST_FILES = [
 const JS_TEST_WATCH_FILES = JS_TEST_FILES.concat(JS_WATCH_FILES)
 const webpackConfig = require('./webpack.config.js')
 
-var lintPaths = [
+var jsLintPaths = [
   'frontend/scripts/**/*.js',
   'backend/**/*.js',
   'tests/unit/spec/**/*.js',
@@ -119,17 +119,17 @@ gulp.task('lint:sass', () => gulp
 )
 
 gulp.task('lint',
-    ['lint:sass']
+    ['lint:sass', 'lint:js']
 )
 
-gulp.task('js:lint', function () {
-  return gulp.src(lintPaths)
+gulp.task('lint:js', function () {
+  return gulp.src(jsLintPaths)
     .pipe(plugins.eslint())
     .pipe(plugins.eslint.format())
     .pipe(plugins.eslint.failAfterError())
 })
 
-gulp.task('js:test', ['js:lint'], function (done) {
+gulp.task('js:test', ['lint:js'], function (done) {
   return gulp.src(JS_TEST_FILES)
     .pipe(plugins.mocha({
       compilers: [
@@ -142,7 +142,7 @@ gulp.task('js:test:watch', function () {
   return gulp.watch(JS_TEST_WATCH_FILES, ['js:test'])
 })
 
-gulp.task('webpack', ['clean', 'js:lint', 'js:test'], function (callback) {
+gulp.task('webpack', ['clean', 'lint:js', 'js:test'], function (callback) {
   // run webpack
   return webpack(webpackConfig, function (err, stats) {
     if (err) {
@@ -155,7 +155,7 @@ gulp.task('webpack', ['clean', 'js:lint', 'js:test'], function (callback) {
   })
 })
 
-gulp.task('webpack:dev', ['js:lint', 'js:test'], function (callback) {
+gulp.task('webpack:dev', ['lint:js', 'js:test'], function (callback) {
   // run webpack
   return webpack(webpackConfig, function (err, stats) {
     if (err) {
@@ -168,7 +168,7 @@ gulp.task('webpack:dev', ['js:lint', 'js:test'], function (callback) {
   })
 })
 
-gulp.task('sass', ['clean'], function () {
+gulp.task('sass', ['clean', 'lint'], function () {
   return gulp.src(SASS_FILES)
     .pipe(plugins.sass({
       includePaths: SASS_VENDOR_PATHS,
@@ -177,7 +177,7 @@ gulp.task('sass', ['clean'], function () {
     .pipe(gulp.dest('./static/styles'))
 })
 
-gulp.task('sass:dev', function () {
+gulp.task('sass:dev', ['lint'], function () {
   // console.log(SASS_FILES)
   return gulp.src(SASS_FILES)
     .pipe(plugins.sass({

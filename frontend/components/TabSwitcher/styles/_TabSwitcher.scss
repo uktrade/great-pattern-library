@@ -1,15 +1,6 @@
 .tabswitcher {
   border: solid 1px $black;
   margin-bottom: 1rem;
-  &--initialised {
-    .tabswitcher__pane {
-      display: none;
-      &--active {
-        display: inline-block;
-      }
-    }
-
-  }
 
   &__btn {
     background: $white;
@@ -29,5 +20,14 @@
   &__pane {
     padding: 1rem;
     width: 90%;
+  }
+}
+
+.tabswitcher--initialised {
+  .tabswitcher__pane {
+    display: none;
+    &--active {
+      display: inline-block;
+    }
   }
 }
