@@ -26,6 +26,7 @@
 .tabswitcher--initialised {
   .tabswitcher__pane {
     display: none;
+
     &--active {
       display: inline-block;
     }
