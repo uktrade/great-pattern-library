@@ -1,0 +1,13 @@
+mixin codeblock(lang, label, code)
+  h3.h3 #{label}
+  .tabswitcher
+    nav.tabswitcher__nav
+      a.tabswitcher__btn(data-tabswitcher-pane='example', title='click to view example') Example
+      a.tabswitcher__btn(data-tabswitcher-pane='markup', title='click to view markup') Markup
+    .tabswitcher__content
+      .tabswitcher__pane.tabswitcher__example(data-tabswitcher-pane='example')
+        div !{code}
+      .tabswitcher__pane.tabswitcher__source(data-tabswitcher-pane='markup')
+        pre
+          code(class=`language-${lang}`)
+            div| #{code}
