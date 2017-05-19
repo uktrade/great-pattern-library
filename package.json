@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "babel-core": "6.3.26",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-preset-es2015": "6.3.13",
     "bourbon-neat": "1.8.0",
     "eslint": "^3.19.0",
