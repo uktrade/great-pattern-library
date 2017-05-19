@@ -29,14 +29,12 @@
 
   blockquote {
     &::before, &::after {
-      content: '';
       content: none;
     }
   }
 
   q {
-    &:before, &::after {
-      content: '';
+    &::before, &::after {
       content: none;
     }
   }
