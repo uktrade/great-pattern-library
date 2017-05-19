@@ -46,12 +46,6 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      scotchPanels: path.resolve(
-        __dirname, 'node_modules/scotchPanels/src/scotchPanels.js'
-      ),
-      slick: path.resolve(
-        __dirname, 'node_modules/slick-carousel'
-      ),
       modernizr$: `${PROJECT_DIR}/.modernizrrc`
     }
   }
