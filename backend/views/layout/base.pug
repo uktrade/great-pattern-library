@@ -1,0 +1,30 @@
+include ../../../frontend/components/TabSwitcher/templates/mixins.pug
+doctype html
+html
+  head
+    block head_meta
+      meta(charset='utf-8')/
+      meta(http-equiv='x-ua-compatible' content='ie=edge')/
+      meta(name='description' content='')/
+      meta(name='viewport' content='width=device-width, initial-scale=1')/
+    title EIG Styleguide
+    block head_links
+      link(rel="icon", type="image/png", href="images/favicon.ico")
+      link(rel='apple-touch-icon' href='apple-touch-icon.png')/
+      // Place favicon.ico in the root directory
+      link(rel='stylesheet' href='styles/main.css')/
+      link(rel='stylesheet' href='vendor/prism-twilight.css')/
+  body
+    script.
+      document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled')
+    include ./header
+    .outer-container(id="content")
+        block content
+    // end of outer container
+
+    include ./footer
+    block foot_scripts
+      script(src="/vendor/js/jquery.js")
+      script(src="/vendor/js/navigation.js")
+      script(src="/vendor/js/sso.js")
+      script(src="/scripts/pages/core.js")

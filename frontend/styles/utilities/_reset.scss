@@ -28,15 +28,13 @@
   }
 
   blockquote {
-    &:before, &:after {
-      content: '';
+    &::before, &::after {
       content: none;
     }
   }
 
   q {
-    &:before, &:after {
-      content: '';
+    &::before, &::after {
       content: none;
     }
   }

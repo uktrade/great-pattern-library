@@ -1,0 +1,259 @@
+extends ../layout/base.pug
+include ../../../frontend/components/TabSwitcher/templates/mixins.pug
+block content
+  section(id="section-typography")
+  h2.h2 Typography
+  p Here are examples of typography used across the site
+  // headers
+  +codeblock('html', 'Level 1 header', `
+  <h1 class="h1">This is a title (48px)</h1>
+  `)
+
+  +codeblock('html', 'Level 2 header', `
+  <h2 class="h2">This is a subtitle (32px)</h2>
+  `)
+
+  +codeblock('html', 'Level 3 header', `
+  <h3 class="h3">This is a small subtitle (24px)</h3>
+  `)
+
+  +codeblock('html', 'Level 4 header', `
+  <h4 class="h4">This is a smaller subtitle (18px)</h4>
+  `)
+
+  +codeblock('html', 'Paragraph', `
+  <p>This is normal text (16px).</p>
+  `)
+
+  +codeblock('html', 'Paragraph (large)', `
+  <p class="font-large">This is large text (18px).</p>
+  `)
+
+  +codeblock('html', 'Paragraph (small)', `
+  <p class="font-small">This is small text (15px).</p>
+  `)
+
+  +codeblock('html', 'Paragraph (extra small)', `
+  <p class="font-xsmall">This is extra small text (14px).</p>
+  `)
+
+  section(id="section-links")
+  h2.h2 Links
+  +codeblock('html', 'Hyperlinked text', `
+  <a class="link" href="www.thisisalink.com">This is a web hyperlink</a>
+  `)
+
+  section(id="section-lists")
+  h2.h2 Lists
+  +codeblock('html', 'Unordered list', `
+  <ul class="list push--bottom">
+    <li class="list-item">which are the major online markets in overseas countries</li>
+    <li class="list-item">if there is a suitable e-commerce website to sell your products</li>
+    <li class="list-item">about costs and logistics</li>
+    <li class="list-item">how to proceed and join a marketplace</li>
+    <li class="list-item">special terms negotiated by DIT (Department for International Trade)</li>
+  </ul>
+  `)
+
+  section(id="section-buttons")
+  h2.h2 Buttons
+  +codeblock('html', 'Normal buttons', `
+  <button class="button button-blue">Button</button>
+  <button class="button button-red">Button</button>
+  <button class="button button-border">Button</button>
+  `)
+
+  +codeblock('html', 'Large buttons', `
+  <button class="button button-blue button-large">Button</button>
+  <button class="button button-red button-large">Button</button>
+  <button class="button button-border button-large">Button</button>
+  `)
+
+  section(id="section-colours")
+  h2.h2 Colours
+  -
+    let oColours = {}
+    oColours['great-blue'] = '#1e1348'
+    oColours['flag-red'] = '#b00d23'
+    oColours['stone'] = '#dfd5c5'
+    oColours['dark-white'] = '#fafafa'
+    oColours['grey'] = '#333'
+    oColours['mid-grey'] = '#999'
+    oColours['light-grey'] = '#dce0df'
+    oColours['purple'] = '#4f0b7b'
+    oColours['mid-blue'] = '#00549f'
+    oColours['aqua'] = '#007ea3'
+    oColours['dark-navy'] = '#160d37'
+    oColours['dark-blue'] = '#132965'
+    oColours['light-blue'] = '#00549f'
+    oColours['light-aqua'] = '#8ae2fb'
+    oColours['great-red'] = '#e41f13'
+    oColours['white'] = '#fff'
+
+    let aColours = Object.keys(oColours)
+    let bgMarkup = ''
+
+    aColours.forEach((colour) => {
+      bgMarkup += `
+      <div class="background__panel background--${colour}">
+        <strong class="font-white" style="background:rgba(0,0,0,0.5)">
+          (.background--${colour})<br /><br />
+          ${oColours[colour]}
+        </strong>
+      </div>
+      `
+    })
+  +codeblock('html', 'Backgrounds',`
+  <div class="background__panel__container">${bgMarkup}</div>
+  `)
+
+  section(id="section-layout")
+  h2.h2 Layout
+  +codeblock('html', 'Grid', `
+  <div class="push--bottom cf text--center">
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+  </div>
+  <div class="push--bottom cf text--center">
+    <div class="col-6 background--mid-grey">6</div>
+    <div class="col-6 background--mid-grey">6</div>
+  </div>
+  <div class="push--bottom cf text--center">
+    <div class="col-3 background--mid-grey">3</div>
+    <div class="col-9 background--mid-grey">9</div>
+  </div>
+  `)
+
+  section(id="section-breakpoints")
+  h2.h2 Breakpoints
+  p Breakpoint info goes here
+  ul
+    li mobile = less than or equal to 767px
+    li desktop = greater than or equal to 768px
+
+  section(id="section-forms")
+  h2.h2 Forms &amp; Inputs
+
+  +codeblock('html', 'Input fields', `
+  <div class="form-group">
+    <label class="form-label" for="first-name-2">First name</label>
+    <input class="form-control" id="first-name-2" name="first-name-2" type="text">
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="last-name-2">Last name</label>
+    <input class="form-control" id="last-name-2" name="last-name-2" type="text">
+  </div>
+  `)
+
+  +codeblock('html', 'Radio buttons', `
+  <form>
+    <div class="form-group">
+      <fieldset class="inline">
+        <legend class="visuallyhidden">Do you already have a personal user account?</legend>
+        <label class="block-label" for="radio-inline-1">
+          <input id="radio-inline-1" name="radio-inline-group" value="Yes" type="radio">
+          Yes
+        </label>
+        <label class="block-label" for="radio-inline-2">
+          <input id="radio-inline-2" name="radio-inline-group" value="No" type="radio">
+          No
+        </label>
+      </fieldset>
+    </div>
+  </form>
+  `)
+
+  +codeblock('html', 'Check boxes', `
+  <form>
+    <fieldset>
+      <legend class="visuallyhidden">Which types of waste do you transport regularly?</legend>
+      <label class="block-label" for="waste-type-1">
+        <input id="waste-type-1" name="waste-types" value="waste-animal" type="checkbox">
+        Waste from animal carcasses
+      </label>
+      <label class="block-label" for="waste-type-2">
+        <input id="waste-type-2" name="waste-types" value="waste-mines" type="checkbox">
+        Waste from mines or quarries
+      </label>
+      <label class="block-label" for="waste-type-3">
+        <input id="waste-type-3" name="waste-types" value="waste-farm-agricultural" type="checkbox">
+        Farm or agricultural waste
+      </label>
+    </fieldset>
+  </form>
+  `)
+
+  +codeblock('html', 'Label', `
+  <div class="form-group">
+    <label class="form-label" for="select-box">This is the label text</label>
+    <select class="form-control" id="select-box">
+      <option>GOV.UK elements option 1</option>
+      <option>GOV.UK elements option 2</option>
+      <option>GOV.UK elements option 3</option>
+    </select>
+  </div>
+  `)
+
+  section(id="section-media")
+  h2.h2 Media
+  +codeblock('html', 'Images',`
+  <figure>
+    <figcaption>Inline image (landscape)</figcaption>
+    <img class="lazyload" src="/images/placeholder-570x380.png" alt="placeholder - 570x380.png"/>
+  </figure>
+  `)
+
+  section(id="section-patterns")
+  h2.h2 Patterns / page sections
+  +codeblock('html', 'Steps', `
+  <div class="outer-container">
+    <h3 class="h2 font-reg flush--top push--bottom soft--top">How does it work?</h3>
+    <ul>
+      <li class="col-4 text--center soft--bottom">
+        <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
+        <div class="cf push--top text--left">
+          <span class="steps-number font-med font-grey float--left push-half--right">1</span>
+          <div class="steps-content float--left">
+            <h4 class="h3 font-reg">Find marketplaces</h4>
+            <p class="font-xsmall">Find online marketplaces suitable for your products</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="col-4 text--center soft--bottom">
+        <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
+        <div class="cf push--top text--left">
+          <span class="steps-number font-med font-grey float--left push-half--right">2</span>
+          <div class="steps-content float--left">
+            <h4 class="h3 font-reg">Apply to join</h4>
+            <p class="font-xsmall">Apply via Department for International Trade and get fast track.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="col-4 text--center soft--bottom">
+        <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
+        <div class="cf push--top text--left">
+          <span class="steps-number font-med font-grey float--left push-half--right">3</span>
+          <div class="steps-content float--left">
+            <h4 class="h3 font-reg">Start selling</h4>
+            <p class="font-xsmall">Reach billions of consumers and grow your business</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  `)
+block append foot_scripts
+  // home scripts
+  script(src="/scripts/pages/home.js")

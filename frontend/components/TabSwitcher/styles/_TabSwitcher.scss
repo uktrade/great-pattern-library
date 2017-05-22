@@ -1,0 +1,34 @@
+.tabswitcher {
+  border: solid 1px $black;
+  margin-bottom: 1rem;
+
+  &__btn {
+    background: $white;
+    color: $grey;
+    cursor: pointer;
+    display: inline-block;
+    padding: .5rem;
+
+    &--active {
+      background: $grey;
+      color: $white;
+    }
+  }
+
+  // &__content {}
+
+  &__pane {
+    padding: 1rem;
+    width: 90%;
+  }
+}
+
+.tabswitcher--initialised {
+  .tabswitcher__pane {
+    display: none;
+
+    &--active {
+      display: inline-block;
+    }
+  }
+}
