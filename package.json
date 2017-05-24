@@ -50,7 +50,7 @@
     "webpack": "^2.5.1"
   },
   "engines": {
-    "node": "6.10.3"
+    "node": "6.10.2"
   },
   "main": "index.js"
 }
