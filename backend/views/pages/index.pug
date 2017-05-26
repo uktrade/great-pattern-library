@@ -1,4 +1,5 @@
 extends ../layout/base.pug
+include ../../../frontend/components/core/templates/mixins.pug
 include ../../../frontend/components/TabSwitcher/templates/mixins.pug
 block content
   section
@@ -29,30 +30,17 @@ block content
   section(id="section-typography")
   h2.h2 Typography
   p Here are examples of typography used across the site
-  // headers
-  +codeblock('html', 'Level 1 header', `
-  <h1 class="h1">This is a title (48px)</h1>
-  `)
+  +codeblock('html', 'Level 1 header', headers.h1)
 
-  +codeblock('html', 'Level 2 header', `
-  <h2 class="h2">This is a subtitle (32px)</h2>
-  `)
+  +codeblock('html', 'Level 2 header', headers.h2)
 
-  +codeblock('html', 'Level 3 header', `
-  <h3 class="h3">This is a small subtitle (24px)</h3>
-  `)
+  +codeblock('html', 'Level 3 header', headers.h3)
 
-  +codeblock('html', 'Level 4 header', `
-  <h4 class="h4">This is a smaller subtitle (18px)</h4>
-  `)
+  +codeblock('html', 'Level 4 header', headers.h4)
 
-  +codeblock('html', 'Paragraph', `
-  <p>This is normal text (16px).</p>
-  `)
+  +codeblock('html', 'Paragraph', paragraphs.p)
 
-  +codeblock('html', 'Paragraph (large)', `
-  <p class="font-large">This is large text (18px).</p>
-  `)
+  +codeblock('html', 'Paragraph (large)', paragraphs.p_large)
 
   +codeblock('html', 'Paragraph (small)', `
   <p class="font-small">This is small text (15px).</p>
