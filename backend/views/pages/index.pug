@@ -85,15 +85,41 @@ block content
   +codeblock('html', 'Normal buttons', `
   <button class="button button-blue">Button</button>
   <button class="button button-red">Button</button>
-  <button class="button button-border">Button</button>
   `)
 
   +codeblock('html', 'Large buttons', `
   <button class="button button-blue button-large">Button</button>
   <button class="button button-red button-large">Button</button>
-  <button class="button button-border button-large">Button</button>
   `)
 
+  +codeblock('html', 'Transparent buttons', `
+  <!-- Blue -->
+  <div class="button__container background--light-blue">
+    <button class="button button-transparent-white button-border">Transparent Button</button>
+  </div>
+
+  <div class="button__container background--light-blue">
+    <button class="button button-large button-transparent-white button-border">Transparent Button (large)</button>
+  </div>
+
+  <!-- Red -->
+  <div class="button__container background--dark-white">
+    <button class="button button-transparent-red button-border">Transparent Button</button>
+  </div>
+
+  <div class="button__container background--dark-white">
+    <button class="button button-large button-transparent-red button-border">Transparent Button (large)</button>
+  </div>
+
+  <!-- White -->
+  <div class="button__container background--dark-white">
+    <button class="button button-transparent-blue button-border">Transparent Button</button>
+  </div>
+
+  <div class="button__container background--dark-white">
+    <button class="button button-large button-transparent-blue button-border">Transparent Button (large)</button>
+  </div>
+  `)
   section(id="section-colours")
   h2.h2 Colours
   -
@@ -150,12 +176,28 @@ block content
     <div class="col-1 background--mid-grey">1</div>
   </div>
   <div class="push--bottom cf text--center">
-    <div class="col-6 background--mid-grey">6</div>
-    <div class="col-6 background--mid-grey">6</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-11 background--mid-grey">11</div>
+  </div>
+  <div class="push--bottom cf text--center">
+    <div class="col-2 background--mid-grey">2</div>
+    <div class="col-10 background--mid-grey">10</div>
   </div>
   <div class="push--bottom cf text--center">
     <div class="col-3 background--mid-grey">3</div>
     <div class="col-9 background--mid-grey">9</div>
+  </div>
+  <div class="push--bottom cf text--center">
+    <div class="col-4 background--mid-grey">4</div>
+    <div class="col-8 background--mid-grey">8</div>
+  </div>
+  <div class="push--bottom cf text--center">
+    <div class="col-5 background--mid-grey">5</div>
+    <div class="col-7 background--mid-grey">7</div>
+  </div>
+  <div class="push--bottom cf text--center">
+    <div class="col-6 background--mid-grey">6</div>
+    <div class="col-6 background--mid-grey">6</div>
   </div>
   `)
 

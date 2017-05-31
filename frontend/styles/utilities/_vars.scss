@@ -58,12 +58,21 @@ $button-red-color: $white;
 $button-red-color-hover: $white;
 $button-red-outline: 0;
 
-$button-border-bg-color: transparent;
-$button-border-bg-color--visited: transparent;
-$button-border-bg-color--hover: transparent;
-$button-border-color: $mid-blue;
-$button-border-color-hover: $aqua;
-$button-border-outline: 0;
+// transparent buttons
+$button-transparent-bg-color: transparent;
+$button-transparent-bg-color--visited: transparent;
+$button-transparent-bg-color--hover: transparent;
+$button-transparent-border-outline: 1px;
+
+$button-transparent-color-red: $flag-red;
+$button-transparent-color-red--hover: $great-red;
+
+$button-transparent-color-blue: $mid-blue;
+$button-transparent-color-blue--hover: $aqua;
+
+$button-transparent-color-white: $white;
+$button-transparent-color-white--hover: $dark-white;
+
 
 $backgrounds: (
   'great-blue' $great-blue,
@@ -87,7 +96,9 @@ $backgrounds: (
 $button: (
   'blue' $button-blue-bg-color $button-blue-bg-color--visited $button-blue-bg-color--hover $button-blue-color $button-blue-color-hover null $button-blue-outline,
   'red' $button-red-bg-color $button-red-bg-color--visited $button-red-bg-color--hover $button-red-color $button-red-color-hover null $button-red-outline,
-  'border' $button-border-bg-color $button-border-bg-color--visited $button-border-bg-color--hover $button-border-color $button-border-color-hover null $button-border-outline,
+  'transparent-blue' $button-transparent-bg-color $button-transparent-bg-color--visited $button-transparent-bg-color--hover $button-transparent-color-blue $button-transparent-color-blue--hover null $button-transparent-border-outline,
+  'transparent-red' $button-transparent-bg-color $button-transparent-bg-color--visited $button-transparent-bg-color--hover $button-transparent-color-red $button-transparent-color-red--hover null $button-transparent-border-outline,
+  'transparent-white' $button-transparent-bg-color $button-transparent-bg-color--visited $button-transparent-bg-color--hover $button-transparent-color-white $button-transparent-color-white--hover null $button-transparent-border-outline,
 );
 
 $icons: (
