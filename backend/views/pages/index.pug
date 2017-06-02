@@ -40,21 +40,15 @@ block content
 
   +codeblock('html', 'Paragraph', paragraphs.p)
 
-  +codeblock('html', 'Paragraph (large)', paragraphs.p_large)
+  +codeblock('html', 'Paragraph (large)', paragraphs['p--large'])
 
-  +codeblock('html', 'Paragraph (small)', `
-  <p class="font-small">This is small text (15px).</p>
-  `)
+  +codeblock('html', 'Paragraph (small)', paragraphs['p--small'])
 
-  +codeblock('html', 'Paragraph (extra small)', `
-  <p class="font-xsmall">This is extra small text (14px).</p>
-  `)
+  +codeblock('html', 'Paragraph (extra small)', paragraphs['p--xsmall'])
 
   section(id="section-links")
   h2.h2 Links
-  +codeblock('html', 'Hyperlinked text', `
-  <a class="link" href="www.thisisalink.com">This is a web hyperlink</a>
-  `)
+  +codeblock('html', 'Hyperlinked text', links['a'])
 
   section(id="section-lists")
   h2.h2 Lists
@@ -70,44 +64,12 @@ block content
 
   section(id="section-buttons")
   h2.h2 Buttons
-  +codeblock('html', 'Normal buttons', `
-  <button class="button button-blue">Button</button>
-  <button class="button button-red">Button</button>
-  `)
+  +codeblock('html', 'Normal buttons', buttons['buttons--normal'])
 
-  +codeblock('html', 'Large buttons', `
-  <button class="button button-blue button-large">Button</button>
-  <button class="button button-red button-large">Button</button>
-  `)
+  +codeblock('html', 'Large buttons', buttons['buttons--large'])
 
-  +codeblock('html', 'Transparent buttons', `
-  <!-- Blue -->
-  <div class="button__container background--light-blue">
-    <button class="button button-transparent-white button-border">Transparent Button</button>
-  </div>
+  +codeblock('html', 'Transparent buttons', buttons['buttons--transparent'])
 
-  <div class="button__container background--light-blue">
-    <button class="button button-large button-transparent-white button-border">Transparent Button (large)</button>
-  </div>
-
-  <!-- Red -->
-  <div class="button__container background--dark-white">
-    <button class="button button-transparent-red button-border">Transparent Button</button>
-  </div>
-
-  <div class="button__container background--dark-white">
-    <button class="button button-large button-transparent-red button-border">Transparent Button (large)</button>
-  </div>
-
-  <!-- White -->
-  <div class="button__container background--dark-white">
-    <button class="button button-transparent-blue button-border">Transparent Button</button>
-  </div>
-
-  <div class="button__container background--dark-white">
-    <button class="button button-large button-transparent-blue button-border">Transparent Button (large)</button>
-  </div>
-  `)
   section(id="section-colours")
   h2.h2 Colours
   -

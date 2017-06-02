@@ -24,3 +24,23 @@ mixin p--large(text, attrs)
 
 mixin a(text, attrs)
   a.link(href='attrs[href]') This is a web hyperlink.
+
+mixin button(text, attrs)
+  -
+    let aExtraClasses = ['button']
+    let sExtraClasses = ''
+    if (attrs.colour) {
+      if (attrs.transparent) {
+        aExtraClasses.push(`button-border`)
+        aExtraClasses.push(`button-transparent-${attrs.colour}`)
+      }
+      else {
+        aExtraClasses.push(`button-${attrs.colour}`)
+      }
+
+    }
+    if (attrs.size) {
+      aExtraClasses.push(`button-${attrs.size}`)
+    }
+    sExtraClasses = aExtraClasses.join(' ')
+  button(href='attrs[href]', title='attrs[title]', class=''+sExtraClasses)=text

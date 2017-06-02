@@ -24,12 +24,17 @@ app.get('/', function (request, response) {
     },
     paragraphs: {
       'p': `${partialsPath}/p.pug`,
-      'p_large': `${partialsPath}/p--large.pug`,
+      'p--large': `${partialsPath}/p--large.pug`,
       'p--small': `${partialsPath}/p--small.pug`,
       'p--xsmall': `${partialsPath}/p--xsmall.pug`
     },
     links: {
       'a': `${partialsPath}/a.pug`
+    },
+    buttons: {
+      'buttons--normal': `${partialsPath}/buttons.pug`,
+      'buttons--large': `${partialsPath}/buttons--large.pug`,
+      'buttons--transparent': `${partialsPath}/buttons--transparent.pug`
     }
   }
   // pre-render examples
