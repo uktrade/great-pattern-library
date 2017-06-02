@@ -10,7 +10,8 @@
     "develop": "./node_modules/.bin/gulp & npm run start-server",
     "test": "./node_modules/.bin/gulp lint",
     "build": "./node_modules/.bin/gulp build",
-    "watch": "./node_modules/.bin/gulp watch"
+    "watch": "./node_modules/.bin/gulp watch",
+    "heroku-prebuild": "gulp build"
   },
   "dependencies": {
     "babel-core": "6.3.26",
