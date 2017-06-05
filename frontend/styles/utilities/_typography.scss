@@ -95,6 +95,10 @@ body {
     @extend %h4;
   }
 
+  &-xlarge {
+    @extend %h3;
+  }
+
   &-small {
     font-size: $small;
   }

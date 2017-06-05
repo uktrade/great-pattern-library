@@ -5,6 +5,8 @@ const PROJECT_DIR = path.resolve(__dirname)
 const pug = require('pug')
 const fs = require('fs')
 
+const partialsPath = `${PROJECT_DIR}/backend/views/partials`
+const patternsPath = `${PROJECT_DIR}/backend/views/patterns`
 app.set('port', (process.env.PORT || 5000))
 
 app.use(express.static(`${PROJECT_DIR}/static`))
@@ -14,7 +16,7 @@ app.set('views', 'backend/views')
 app.set('view engine', 'pug')
 
 app.get('/', function (request, response) {
-  const partialsPath = `${PROJECT_DIR}/backend/views/partials`
+
   const templatePaths = {
     headers: {
       h1: `${partialsPath}/h1.pug`,
@@ -51,8 +53,16 @@ app.get('/', function (request, response) {
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
     Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(output, section))
   })
-
   response.render('pages/index', output)
+})
+
+app.get('/patterns', function (request, response) {
+  let templatePath = `${patternsPath}/typography.pug`
+  let context = {
+    typography: pug.render(fs.readFileSync(templatePath, 'utf8'),
+    {filename: templatePath})
+  }
+  response.render('pages/patterns', context)
 })
 
 app.listen(app.get('port'), function () {
