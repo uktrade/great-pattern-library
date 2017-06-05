@@ -1,4 +1,5 @@
 extends ../layout/base.pug
+include ../../../frontend/components/core/templates/mixins.pug
 include ../../../frontend/components/TabSwitcher/templates/mixins.pug
 block content
   section
@@ -29,44 +30,25 @@ block content
   section(id="section-typography")
   h2.h2 Typography
   p Here are examples of typography used across the site
-  // headers
-  +codeblock('html', 'Level 1 header', `
-  <h1 class="h1">This is a title (48px)</h1>
-  `)
+  +codeblock('html', 'Level 1 header', headers.h1)
 
-  +codeblock('html', 'Level 2 header', `
-  <h2 class="h2">This is a subtitle (32px)</h2>
-  `)
+  +codeblock('html', 'Level 2 header', headers.h2)
 
-  +codeblock('html', 'Level 3 header', `
-  <h3 class="h3">This is a small subtitle (24px)</h3>
-  `)
+  +codeblock('html', 'Level 3 header', headers.h3)
 
-  +codeblock('html', 'Level 4 header', `
-  <h4 class="h4">This is a smaller subtitle (18px)</h4>
-  `)
+  +codeblock('html', 'Level 4 header', headers.h4)
 
-  +codeblock('html', 'Paragraph', `
-  <p>This is normal text (16px).</p>
-  `)
+  +codeblock('html', 'Paragraph', paragraphs.p)
 
-  +codeblock('html', 'Paragraph (large)', `
-  <p class="font-large">This is large text (18px).</p>
-  `)
+  +codeblock('html', 'Paragraph (large)', paragraphs['p--large'])
 
-  +codeblock('html', 'Paragraph (small)', `
-  <p class="font-small">This is small text (15px).</p>
-  `)
+  +codeblock('html', 'Paragraph (small)', paragraphs['p--small'])
 
-  +codeblock('html', 'Paragraph (extra small)', `
-  <p class="font-xsmall">This is extra small text (14px).</p>
-  `)
+  +codeblock('html', 'Paragraph (extra small)', paragraphs['p--xsmall'])
 
   section(id="section-links")
   h2.h2 Links
-  +codeblock('html', 'Hyperlinked text', `
-  <a class="link" href="www.thisisalink.com">This is a web hyperlink</a>
-  `)
+  +codeblock('html', 'Hyperlinked text', links['a'])
 
   section(id="section-lists")
   h2.h2 Lists
@@ -82,44 +64,12 @@ block content
 
   section(id="section-buttons")
   h2.h2 Buttons
-  +codeblock('html', 'Normal buttons', `
-  <button class="button button-blue">Button</button>
-  <button class="button button-red">Button</button>
-  `)
+  +codeblock('html', 'Normal buttons', buttons['buttons--normal'])
 
-  +codeblock('html', 'Large buttons', `
-  <button class="button button-blue button-large">Button</button>
-  <button class="button button-red button-large">Button</button>
-  `)
+  +codeblock('html', 'Large buttons', buttons['buttons--large'])
 
-  +codeblock('html', 'Transparent buttons', `
-  <!-- Blue -->
-  <div class="button__container background--light-blue">
-    <button class="button button-transparent-white button-border">Transparent Button</button>
-  </div>
+  +codeblock('html', 'Transparent buttons', buttons['buttons--transparent'])
 
-  <div class="button__container background--light-blue">
-    <button class="button button-large button-transparent-white button-border">Transparent Button (large)</button>
-  </div>
-
-  <!-- Red -->
-  <div class="button__container background--dark-white">
-    <button class="button button-transparent-red button-border">Transparent Button</button>
-  </div>
-
-  <div class="button__container background--dark-white">
-    <button class="button button-large button-transparent-red button-border">Transparent Button (large)</button>
-  </div>
-
-  <!-- White -->
-  <div class="button__container background--dark-white">
-    <button class="button button-transparent-blue button-border">Transparent Button</button>
-  </div>
-
-  <div class="button__container background--dark-white">
-    <button class="button button-large button-transparent-blue button-border">Transparent Button (large)</button>
-  </div>
-  `)
   section(id="section-colours")
   h2.h2 Colours
   -
