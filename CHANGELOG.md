@@ -22,8 +22,8 @@ n/a
 n/a -->
 ## [Unreleased]
 ### Added
-* trello-124 typography patterns 
-
+* trello-124 typography patterns
+* trello-98 responsive mobile buttons
 ### Changed
 n/a
 
