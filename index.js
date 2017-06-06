@@ -109,6 +109,18 @@ app.get('/layout-breakpoints', function (request, response) {
   response.render('pages/layout-breakpoints', context)
 })
 
+app.get('/forms-inputs', function (request, response) {
+  let context = {}
+  // let templatePath = `${patternsPath}/typography.pug`
+  response.render('pages/forms-inputs', context)
+})
+
+app.get('/blocks-media', function (request, response) {
+  let context = {}
+  // let templatePath = `${patternsPath}/typography.pug`
+  response.render('pages/blocks-media', context)
+})
+
 app.get('/patterns', function (request, response) {
   const templatePaths = {
     patterns: {

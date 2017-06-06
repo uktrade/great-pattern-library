@@ -1,0 +1,40 @@
+extends ../layout/base.pug
+include ../../../frontend/components/core/templates/mixins.pug
+include ../../../frontend/components/TabSwitcher/templates/mixins.pug
+block content
+  section
+    h2.h2 Forms &amp; Inputs
+    p This library is a set of shared UI components and patterns used on the great.gov.uk sites.
+
+    section(id="section-panels")
+    h2.h2 Blocks
+    +codeblock('html', 'Panels',`
+    <div class="panel">
+      <p>This is a panel</p>
+      <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
+    </div>
+
+    <div class="panel panel--action">
+      <p>This is an action panel</p>
+      <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
+    </div>
+
+    <div class="panel panel--info">
+      <p>This is an info panel</p>
+      <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
+    </div>
+    `)
+
+    section(id="section-media")
+    h2.h2 Media
+    +codeblock('html', 'Images',`
+    <figure>
+      <figcaption>Inline image (landscape)</figcaption>
+      <img class="lazyload" src="/images/placeholder-570x380.png" alt="placeholder - 570x380.png"/>
+    </figure>
+    `)
+
+
+block append foot_scripts
+  // home scripts
+  script(src="/scripts/pages/home.js")

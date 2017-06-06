@@ -13,26 +13,23 @@ html
       link(rel='apple-touch-icon' href='/apple-touch-icon.png')/
       // Place favicon.ico in the root directory
       link(rel='stylesheet' href='/styles/main.css')/
+      link(rel='stylesheet' href='/styles/library.css')/
       link(rel='stylesheet' href='/vendor/prism-twilight.css')/
   body
     script.
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled')
     //- include ./header
-    header
+    header.gpl-header
       h1.h1
         a(href="/") Great Pattern Library
-      nav
-        ul
-          li
-            a(href='/') Home
-          li
-            a(href='/layout-breakpoints') Layout &amp; Breakpoints
-          li
-            a(href='/colour-typography') Colour &amp; Typography
-          li
-            a(href='/links-buttons') Links &amp; Button
-          li
-            a(href='/patterns/') Patterns
+      nav.gpl-nav
+          a.gpl-nav__item(href='/') Home
+          a.gpl-nav__item(href='/layout-breakpoints') Layout &amp; Breakpoints
+          a.gpl-nav__item(href='/colour-typography') Colour &amp; Typography
+          a.gpl-nav__item(href='/links-buttons') Links &amp; Button
+          a.gpl-nav__item(href='/forms-inputs') Forms &amp; Inputs
+          a.gpl-nav__item(href='/blocks-media') Blocks &amp; Media
+          a.gpl-nav__item(href='/patterns/') Patterns
     .outer-container(id="content")
         block content
     // end of outer container
