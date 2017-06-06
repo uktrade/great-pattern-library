@@ -1,5 +1,5 @@
 body {
-  @extend %light;
+  @extend %regular;
   @include font($base-font-size, 0, 23px);
   background-color: $body-background-color;
   color: $grey;
@@ -28,6 +28,7 @@ body {
 // HEADERS
 %h1 {
   @extend %medium;
+  @include bottom-margin(1);
   @include font($h1-font-size, -1px, 58px);
 
   @include media(tablet) {
@@ -42,10 +43,12 @@ body {
 }
 
 %h2 {
+  @include bottom-margin(1);
   @include font($h2-font-size, -.6px, 40px);
 }
 
 %h3 {
+  @include bottom-margin(1);
   @include font($h3-font-size, 0, 32px);
 
   @include media(mobile) {
@@ -54,6 +57,7 @@ body {
 }
 
 %h4 {
+  @include bottom-margin(1);
   @include font($h4-font-size, 0, 25px);
 }
 
@@ -93,6 +97,10 @@ body {
 
   &-large {
     @extend %h4;
+  }
+
+  &-xlarge {
+    @extend %h3;
   }
 
   &-small {

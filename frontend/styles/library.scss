@@ -1,0 +1,27 @@
+@import 'utilities/vars';
+
+.gpl-header {
+  text-align: center;
+}
+
+.gpl-nav {
+  text-align: center;
+
+  &__item {
+    background-color: $great-blue;
+    color: $white;
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+    padding: .5rem;
+
+    &:hover {
+      background-color: $great-red;
+    }
+
+    &:visited {
+
+      background-color: $light-blue;
+    }
+  }
+}
