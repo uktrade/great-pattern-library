@@ -25,15 +25,16 @@ n/a -->
 * trello-124 typography patterns
 * trello-98 responsive mobile buttons
 * trello-106 inset text panels
+* library navigation
 ### Changed
 * trello-139 default font weight
 * trello-138 update button styles
+* moved great.gov.uk header and footer to patterns page
 ### Deprecated
 n/a
 
 ### Removed
-n/a
-
+* removed great.gov.uk header and footer from library template
 ### Fixed
 n/a
 
