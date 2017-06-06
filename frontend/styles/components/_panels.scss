@@ -2,10 +2,12 @@
   @extend %col-12;
   @include media($tablet) {
     // @extnd %col-6;
+    margin-right: 2rem;
     width: 50%;
   }
   @include media($desktop) {
     // @extnd %col-6;
+    margin-right: 2rem;
     width: 50%;
   }
   background-color: $stone;
