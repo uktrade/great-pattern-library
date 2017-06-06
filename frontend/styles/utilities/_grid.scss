@@ -18,6 +18,7 @@
 
 @for $i from 1 through $grid-columns {
   .col-#{$i} { @include span-columns($i); }
+  %col-#{$i} { @include span-columns($i); }
 }
 
 .omega {

@@ -1,5 +1,5 @@
 body {
-  @extend %light;
+  @extend %regular;
   @include font($base-font-size, 0, 23px);
   background-color: $body-background-color;
   color: $grey;

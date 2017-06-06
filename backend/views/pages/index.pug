@@ -26,6 +26,8 @@ block content
         li
           a.link(href='#section-media') Media
         li
+          a.link(href='#section-panels') Panels
+        li
           a.link(href='#section-patterns') Patterns
   section(id="section-typography")
   h2.h2 Typography
@@ -70,6 +72,34 @@ block content
 
   +codeblock('html', 'Transparent buttons', buttons['buttons--transparent'])
 
+  +codeblock('html', 'Transparent buttons', `
+  <!-- Blue -->
+  <div class="button__container background--light-blue">
+    <button class="button button-transparent-white button-border">Transparent Button</button>
+  </div>
+
+  <div class="button__container background--light-blue">
+    <button class="button button-large button-transparent-white button-border">Transparent Button (large)</button>
+  </div>
+
+  <!-- Red -->
+  <div class="button__container background--dark-white">
+    <button class="button button-transparent-red button-border">Transparent Button</button>
+  </div>
+
+  <div class="button__container background--dark-white">
+    <button class="button button-large button-transparent-red button-border">Transparent Button (large)</button>
+  </div>
+
+  <!-- White -->
+  <div class="button__container background--dark-white">
+    <button class="button button-transparent-blue button-border">Transparent Button</button>
+  </div>
+
+  <div class="button__container background--dark-white">
+    <button class="button button-large button-transparent-blue button-border">Transparent Button (large)</button>
+  </div>
+  `)
   section(id="section-colours")
   h2.h2 Colours
   -
@@ -229,6 +259,26 @@ block content
     <img class="lazyload" src="/images/placeholder-570x380.png" alt="placeholder - 570x380.png"/>
   </figure>
   `)
+
+  section(id="section-panels")
+  h2.h2 Panels
+  +codeblock('html', 'Panels',`
+  <div class="panel">
+    <p>This is a panel</p>
+    <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
+  </div>
+
+  <div class="panel panel--action">
+    <p>This is an action panel</p>
+    <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
+  </div>
+
+  <div class="panel panel--info">
+    <p>This is an info panel</p>
+    <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
+  </div>
+  `)
+
 
   section(id="section-patterns")
   h2.h2 Patterns / page sections
