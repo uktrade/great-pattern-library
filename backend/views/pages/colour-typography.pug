@@ -1,0 +1,87 @@
+extends ../layout/base.pug
+include ../../../frontend/components/core/templates/mixins.pug
+include ../../../frontend/components/TabSwitcher/templates/mixins.pug
+block content
+  section
+    h2.h2 Overview
+    p This library is a set of shared UI components and patterns used on the great.gov.uk sites.
+    nav
+      ul
+        li
+          a.link(href='#section-colours') Colours
+        li
+          a.link(href='#section-typography') Typography
+        li
+          a.link(href='#section-lists') Lists
+
+  section(id="section-colours")
+  h2.h2 Colours
+  -
+    let oColours = {}
+    oColours['great-blue'] = '#1e1348'
+    oColours['flag-red'] = '#b00d23'
+    oColours['stone'] = '#dfd5c5'
+    oColours['dark-white'] = '#fafafa'
+    oColours['grey'] = '#333'
+    oColours['mid-grey'] = '#999'
+    oColours['light-grey'] = '#dce0df'
+    oColours['purple'] = '#4f0b7b'
+    oColours['mid-blue'] = '#00549f'
+    oColours['aqua'] = '#007ea3'
+    oColours['dark-navy'] = '#160d37'
+    oColours['dark-blue'] = '#132965'
+    oColours['light-blue'] = '#00549f'
+    oColours['light-aqua'] = '#8ae2fb'
+    oColours['great-red'] = '#e41f13'
+    oColours['white'] = '#fff'
+
+    let aColours = Object.keys(oColours)
+    let bgMarkup = ''
+
+    aColours.forEach((colour) => {
+      bgMarkup += `
+      <div class="background__panel background--${colour}">
+        <strong class="font-white" style="background:rgba(0,0,0,0.5)">
+          (.background--${colour})<br /><br />
+          ${oColours[colour]}
+        </strong>
+      </div>
+      `
+    })
+  +codeblock('html', 'Backgrounds',`
+  <div class="background__panel__container">${bgMarkup}</div>
+  `)
+  section(id="section-typography")
+  h2.h2 Typography
+  p Here are examples of typography used across the site
+  +codeblock('html', 'Level 1 header', headers.h1)
+
+  +codeblock('html', 'Level 2 header', headers.h2)
+
+  +codeblock('html', 'Level 3 header', headers.h3)
+
+  +codeblock('html', 'Level 4 header', headers.h4)
+
+  +codeblock('html', 'Paragraph', paragraphs.p)
+
+  +codeblock('html', 'Paragraph (large)', paragraphs['p--large'])
+
+  +codeblock('html', 'Paragraph (small)', paragraphs['p--small'])
+
+  +codeblock('html', 'Paragraph (extra small)', paragraphs['p--xsmall'])
+
+  section(id="section-lists")
+  h2.h2 Lists
+  +codeblock('html', 'Unordered list', `
+  <ul class="list push--bottom">
+    <li class="list-item">which are the major online markets in overseas countries</li>
+    <li class="list-item">if there is a suitable e-commerce website to sell your products</li>
+    <li class="list-item">about costs and logistics</li>
+    <li class="list-item">how to proceed and join a marketplace</li>
+    <li class="list-item">special terms negotiated by DIT (Department for International Trade)</li>
+  </ul>
+  `)
+
+block append foot_scripts
+  // home scripts
+  script(src="/scripts/pages/home.js")

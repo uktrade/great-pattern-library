@@ -7,6 +7,16 @@ const fs = require('fs')
 
 const partialsPath = `${PROJECT_DIR}/backend/views/partials`
 const patternsPath = `${PROJECT_DIR}/backend/views/patterns`
+
+// pre-render examples
+const renderComponentExample = function (templatePaths, sectionName, componentName) {
+  let templatePath = templatePaths[sectionName][componentName]
+  if (!this[sectionName]) {
+    this[sectionName] = {}
+  }
+  this[sectionName][componentName] = pug.render(fs.readFileSync(templatePath, 'utf8'),
+    {filename: templatePath})
+}
 app.set('port', (process.env.PORT || 5000))
 
 app.use(express.static(`${PROJECT_DIR}/static`))
@@ -16,7 +26,6 @@ app.set('views', 'backend/views')
 app.set('view engine', 'pug')
 
 app.get('/', function (request, response) {
-
   const templatePaths = {
     headers: {
       h1: `${partialsPath}/h1.pug`,
@@ -39,29 +48,82 @@ app.get('/', function (request, response) {
       'buttons--transparent': `${partialsPath}/buttons--transparent.pug`
     }
   }
-  // pre-render examples
-  const renderComponentExample = function (sectionName, componentName) {
-    let templatePath = templatePaths[sectionName][componentName]
-    if (!this[sectionName]) {
-      this[sectionName] = {}
-    }
-    this[sectionName][componentName] = pug.render(fs.readFileSync(templatePath, 'utf8'),
-      {filename: templatePath})
-  }
-  let output = {}
+
+  let context = {}
   // go through template paths sections and populate output
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
-    Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(output, section))
+    Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
   })
-  response.render('pages/index', output)
+  response.render('pages/index', context)
+})
+
+app.get('/colour-typography', function (request, response) {
+  const templatePaths = {
+    headers: {
+      h1: `${partialsPath}/h1.pug`,
+      h2: `${partialsPath}/h2.pug`,
+      h3: `${partialsPath}/h3.pug`,
+      h4: `${partialsPath}/h4.pug`
+    },
+    paragraphs: {
+      'p': `${partialsPath}/p.pug`,
+      'p--large': `${partialsPath}/p--large.pug`,
+      'p--small': `${partialsPath}/p--small.pug`,
+      'p--xsmall': `${partialsPath}/p--xsmall.pug`
+    }
+  }
+
+  let context = {}
+  // go through template paths sections and populate output
+  Object.getOwnPropertyNames(templatePaths).forEach(section => {
+    Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
+  })
+  // let templatePath = `${patternsPath}/typography.pug`
+  response.render('pages/colour-typography', context)
+})
+
+app.get('/links-buttons', function (request, response) {
+  const templatePaths = {
+    links: {
+      'a': `${partialsPath}/a.pug`
+    },
+    buttons: {
+      'buttons--normal': `${partialsPath}/buttons.pug`,
+      'buttons--large': `${partialsPath}/buttons--large.pug`,
+      'buttons--transparent': `${partialsPath}/buttons--transparent.pug`
+    }
+  }
+
+  let context = {}
+  // go through template paths sections and populate output
+  Object.getOwnPropertyNames(templatePaths).forEach(section => {
+    Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
+  })
+  // let templatePath = `${patternsPath}/typography.pug`
+  response.render('pages/links-buttons', context)
+})
+
+app.get('/layout-breakpoints', function (request, response) {
+  let context = {}
+  // let templatePath = `${patternsPath}/typography.pug`
+  response.render('pages/layout-breakpoints', context)
 })
 
 app.get('/patterns', function (request, response) {
-  let templatePath = `${patternsPath}/typography.pug`
-  let context = {
-    typography: pug.render(fs.readFileSync(templatePath, 'utf8'),
-    {filename: templatePath})
+  const templatePaths = {
+    patterns: {
+      typography: `${patternsPath}/typography.pug`,
+      header: `${patternsPath}/header.pug`,
+      footer: `${patternsPath}/footer.pug`
+    }
   }
+
+  let context = {}
+  // go through template paths sections and populate output
+  Object.getOwnPropertyNames(templatePaths).forEach(section => {
+    Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
+  })
+  // let templatePath = `${patternsPath}/typography.pug`
   response.render('pages/patterns', context)
 })
 
