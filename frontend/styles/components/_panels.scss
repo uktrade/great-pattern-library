@@ -1,0 +1,17 @@
+.panel {
+  @extend %col-12;
+
+  background-color: $stone;
+  border-top: solid $black .5rem;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  width: 100%;
+
+  &--action {
+    border-top-color: $great-red;
+  }
+
+  &--info {
+    border-top-color: $light-blue;
+  }
+}

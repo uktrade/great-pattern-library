@@ -20,3 +20,6 @@
   }
 }
 
+@mixin bottom-margin($multiple: 1) {
+  margin-bottom: (15px * $multiple);
+}

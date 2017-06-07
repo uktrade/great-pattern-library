@@ -1,0 +1,22 @@
+@import 'utilities/vars';
+
+.gpl-header {
+  text-align: center;
+}
+
+.gpl-nav {
+  text-align: center;
+
+  &__item {
+    background-color: $light-blue;
+    color: $white;
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+    padding: .5rem;
+
+    &--current {
+      background-color: $great-blue;
+    }
+  }
+}

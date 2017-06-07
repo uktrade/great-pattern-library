@@ -7,22 +7,48 @@ html
       meta(http-equiv='x-ua-compatible' content='ie=edge')/
       meta(name='description' content='')/
       meta(name='viewport' content='width=device-width, initial-scale=1')/
-    title EIG Styleguide
+    title Great Pattern Library - GPL| great.gov.uk
     block head_links
-      link(rel="icon", type="image/png", href="images/favicon.ico")
-      link(rel='apple-touch-icon' href='apple-touch-icon.png')/
+      link(rel="icon", type="image/png", href="/images/favicon.ico")
+      link(rel='apple-touch-icon' href='/apple-touch-icon.png')/
       // Place favicon.ico in the root directory
-      link(rel='stylesheet' href='styles/main.css')/
-      link(rel='stylesheet' href='vendor/prism-twilight.css')/
+      link(rel='stylesheet' href='/styles/main.css')/
+      link(rel='stylesheet' href='/styles/library.css')/
+      link(rel='stylesheet' href='/vendor/prism-twilight.css')/
   body
     script.
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled')
-    include ./header
+    //- include ./header
+    header.gpl-header
+      h1.h1
+        a(href="/") Great Pattern Library
+      nav.gpl-nav
+        -
+          let navLinks = [
+            {href: '/', text: 'Home'},
+            {href: '/layout-breakpoints/', text: 'Layout &amp; Breakpoints'},
+            {href: '/colours-typography/', text: 'Colour &amp; Typography'},
+            {href: '/links-buttons/', text: 'Links &amp; Buttons'},
+            {href: '/forms-inputs/', text: 'Forms &amp; Inputs'},
+            {href: '/blocks-media/', text: 'Blocks &amp; Media'},
+            {href: '/patterns/', text: 'Patterns'},
+          ]
+          navLinks.forEach((item, i, arr) => {
+            let classes = []
+            if (item.href === req.path) {
+              classes.push('gpl-nav__item--current')
+            }
+            item.classes = classes
+          })
+
+        each item in navLinks
+          a.gpl-nav__item(href=`${item.href}`, class=item.classes) !{item.text}
+
     .outer-container(id="content")
         block content
     // end of outer container
 
-    include ./footer
+    //- include ./footer
     block foot_scripts
       script(src="/vendor/js/jquery.js")
       script(src="/vendor/js/navigation.js")

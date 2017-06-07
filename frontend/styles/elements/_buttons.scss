@@ -31,6 +31,16 @@
   }
 }
 
+.button__container {
+  @include media ($mobile) {
+    width: 100%;
+  }
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  vertical-align: top;
+}
+
 .button {
   @extend %h4;
   @extend %medium;
@@ -40,6 +50,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: $brand-font-family;
+  font-weight: 500;
   padding: 12px 30px;
   text-decoration: none;
 
@@ -57,7 +68,7 @@
       background-color: transparent;
     }
 
-    &:before {
+    &::before {
       @extend %h4;
       color: $flag-red;
       content: 'X';
@@ -75,8 +86,9 @@
     };
   }
 
-  @include media (mobile) {
+  @include media ($mobile) {
     font-size: 18px;
+    margin-bottom: 1rem;
     padding: 14px;
     text-align: center;
     width: 100%;

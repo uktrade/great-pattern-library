@@ -1,0 +1,52 @@
+extends ../layout/base.pug
+include ../../../frontend/components/core/templates/mixins.pug
+include ../../../frontend/components/TabSwitcher/templates/mixins.pug
+block content
+  section
+    h2.h2 Links &amp; Buttons
+
+  section(id="section-links")
+  h2.h2 Links
+  +codeblock('html', 'Hyperlinked text', links['a'])
+
+  section(id="section-buttons")
+  h2.h2 Buttons
+  +codeblock('html', 'Normal buttons', buttons['buttons--normal'])
+
+  +codeblock('html', 'Large buttons', buttons['buttons--large'])
+
+  +codeblock('html', 'Transparent buttons', buttons['buttons--transparent'])
+
+  +codeblock('html', 'Transparent buttons', `
+  <!-- Blue -->
+  <div class="button__container background--light-blue">
+    <button class="button button-transparent-white button-border">Transparent Button</button>
+  </div>
+
+  <div class="button__container background--light-blue">
+    <button class="button button-large button-transparent-white button-border">Transparent Button (large)</button>
+  </div>
+
+  <!-- Red -->
+  <div class="button__container background--dark-white">
+    <button class="button button-transparent-red button-border">Transparent Button</button>
+  </div>
+
+  <div class="button__container background--dark-white">
+    <button class="button button-large button-transparent-red button-border">Transparent Button (large)</button>
+  </div>
+
+  <!-- White -->
+  <div class="button__container background--dark-white">
+    <button class="button button-transparent-blue button-border">Transparent Button</button>
+  </div>
+
+  <div class="button__container background--dark-white">
+    <button class="button button-large button-transparent-blue button-border">Transparent Button (large)</button>
+  </div>
+  `)
+
+
+block append foot_scripts
+  // home scripts
+  script(src="/scripts/pages/home.js")

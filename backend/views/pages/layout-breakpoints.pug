@@ -1,0 +1,62 @@
+extends ../layout/base.pug
+include ../../../frontend/components/core/templates/mixins.pug
+include ../../../frontend/components/TabSwitcher/templates/mixins.pug
+block content
+  section
+    h2.h2 Layouts &amp; Breakpoints
+
+  section(id="section-breakpoints")
+  h2.h2 Breakpoints
+  p Breakpoint info goes here
+  ul
+    li mobile = less than or equal to 767px
+    li desktop = greater than or equal to 768px
+
+  section(id="section-layout")
+  h2.h2 Layout
+  +codeblock('html', 'Grid', `
+  <div class="push--bottom cf text--center">
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-1 background--mid-grey">1</div>
+  </div>
+  <div class="push--bottom cf text--center">
+    <div class="col-1 background--mid-grey">1</div>
+    <div class="col-11 background--mid-grey">11</div>
+  </div>
+  <div class="push--bottom cf text--center">
+    <div class="col-2 background--mid-grey">2</div>
+    <div class="col-10 background--mid-grey">10</div>
+  </div>
+  <div class="push--bottom cf text--center">
+    <div class="col-3 background--mid-grey">3</div>
+    <div class="col-9 background--mid-grey">9</div>
+  </div>
+  <div class="push--bottom cf text--center">
+    <div class="col-4 background--mid-grey">4</div>
+    <div class="col-8 background--mid-grey">8</div>
+  </div>
+  <div class="push--bottom cf text--center">
+    <div class="col-5 background--mid-grey">5</div>
+    <div class="col-7 background--mid-grey">7</div>
+  </div>
+  <div class="push--bottom cf text--center">
+    <div class="col-6 background--mid-grey">6</div>
+    <div class="col-6 background--mid-grey">6</div>
+  </div>
+  `)
+
+
+
+block append foot_scripts
+  // home scripts
+  script(src="/scripts/pages/home.js")
