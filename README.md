@@ -20,8 +20,9 @@ The Great Pattern Library takes on some of the priciples of [Atomic Design](http
 * find a way to distribute versioned components so that changes can be made in a way that does not break existing sites (i.e. frontend micro-architecture)
 
 ### Demo
+#### Latest release
 A live demo can be seen here: https://dit-styleguide.herokuapp.com/
-
+#### Development
 The staging URL for this pattern library can be found here: https://great-pattern-library-staging.cloudapps.digital/
 
 ### Installation
@@ -51,13 +52,6 @@ Browsersync also syncs UI interactions across multiple browsers which helps whic
 #### Run tests
 
     npm test
-
-### Watch changes
-
-    gulp watch
-
-
-
 
 ### Designs
 
