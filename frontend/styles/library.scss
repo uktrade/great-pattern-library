@@ -8,20 +8,15 @@
   text-align: center;
 
   &__item {
-    background-color: $great-blue;
+    background-color: $light-blue;
     color: $white;
     display: inline-block;
     margin-bottom: .5rem;
     margin-right: .5rem;
     padding: .5rem;
 
-    &:hover {
-      background-color: $great-red;
-    }
-
-    &:visited {
-
-      background-color: $light-blue;
+    &--current {
+      background-color: $great-blue;
     }
   }
 }

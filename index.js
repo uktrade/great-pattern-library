@@ -21,6 +21,12 @@ app.set('port', (process.env.PORT || 5000))
 
 app.use(express.static(`${PROJECT_DIR}/static`))
 
+// add request to context
+app.use(function (req, res, next) {
+  res.locals.req = req
+  next()
+})
+
 // views is directory for all template files
 app.set('views', 'backend/views')
 app.set('view engine', 'pug')
@@ -57,7 +63,7 @@ app.get('/', function (request, response) {
   response.render('pages/index', context)
 })
 
-app.get('/colour-typography', function (request, response) {
+app.get('/colours-typography', function (request, response) {
   const templatePaths = {
     headers: {
       h1: `${partialsPath}/h1.pug`,
