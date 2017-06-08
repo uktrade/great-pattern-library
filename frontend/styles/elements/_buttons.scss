@@ -32,7 +32,7 @@
 }
 
 .button__container {
-  @include media ($mobile) {
+  @include mobile {
     width: 100%;
   }
   display: inline-block;
@@ -86,7 +86,7 @@
     };
   }
 
-  @include media ($mobile) {
+  @include mobile {
     font-size: 18px;
     margin-bottom: 1rem;
     padding: 14px;
