@@ -1,8 +1,13 @@
 @import 'neat-helpers';
 
-$column: 90px;
-$gutter: 20px;
+$gutter: 15px;
 $grid-columns: 12;
+
+$neat-grid: (
+  columns: $grid-columns,
+  gutter: $gutter
+);
+
 $max-width: 1200px;
 // Define your breakpoints
 //$mob: new-breakpoint(min-width 767px 12);
