@@ -18,9 +18,7 @@ const IMG_FILES = [
   './frontend/images/**/*.*{jpg,jpeg,png,svg,bmp}'
 ]
 
-const SASS_VENDOR_PATHS = [
-  require('bourbon-neat').includePaths
-]
+const SASS_VENDOR_PATHS = [].concat(require('bourbon-neat').includePaths)
 
 const SASS_FILES = [
   `${PROJECT_DIR}/frontend/styles/**/*.scss`,
