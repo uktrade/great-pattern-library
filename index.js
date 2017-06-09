@@ -56,7 +56,7 @@ app.get('/', function (request, response) {
   }
 
   let context = {}
-  // go through template paths sections and populate output
+  // go through template paths sections and populate context
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
     Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
   })
