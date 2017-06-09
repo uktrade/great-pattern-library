@@ -2,7 +2,8 @@
   "name": "dit-pattern-library",
   "scripts": {},
   "env": {
-    "NPM_CONFIG_PRODUCTION": "false"
+    "NPM_CONFIG_PRODUCTION": "false",
+    "NODE_MODULES_CACHE": "false"
   },
   "formation": {},
   "addons": [],
