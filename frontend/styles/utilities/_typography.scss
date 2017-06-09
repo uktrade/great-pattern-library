@@ -31,13 +31,13 @@ body {
   @include bottom-margin(0);
   @include font($h1-font-size-mobile, -1px, 58px);
 
-  @include media($tablet) {
+  @include tablet {
     @include bottom-margin(1);
     font-size: $h1-font-size-desktop;
     font-weight: 500;
   }
 
-  @include media($desktop) {
+  @include desktop {
     @include bottom-margin(1);
     font-size: $h1-font-size-desktop;
     font-weight: 500;
@@ -47,10 +47,10 @@ body {
 %h2 {
   @include bottom-margin(1);
   @include font($h2-font-size-mobile, -.6px, 32px);
-  @include media($tablet) {
+  @include tablet {
     @include font($h2-font-size-desktop, -.6px, 40px);
   }
-  @include media($desktop) {
+  @include desktop {
     @include font($h2-font-size-desktop, -.6px, 40px);
   }
 }
@@ -59,10 +59,10 @@ body {
   @include bottom-margin(1);
   @include font($h3-font-size-mobile, 0, 28px);
 
-  @include media($tablet) {
+  @include tablet {
     @include font($h3-font-size-desktop, 0, 32px);
   }
-  @include media($desktop) {
+  @include desktop {
     @include font($h3-font-size-desktop, 0, 32px);
   }
 }
@@ -71,10 +71,10 @@ body {
   @include bottom-margin(1);
   @include font($h4-font-size-mobile, 0, 25px);
 
-  @include media($tablet) {
+  @include tablet {
     @include font($h4-font-size-desktop, 0, 25px);
   }
-  @include media($desktop) {
+  @include desktop {
     @include font($h4-font-size-desktop, 0, 25px);
   }
 }

@@ -1,26 +1,63 @@
+@import 'neat';
 //extracting burbon-neat grid classes for non-silent implimentation (adding classes to markup)
 
-.outer-container {
-  @include outer-container;
+.grid-container {
+  @include grid-container;
+}
 
-  @include media($desktop) {
-    margin: 0 30px;
-  }
+.column-full,
+.column-one-half,
+.column-one-third,
+.column-two-third,
+.column-one-quarter,
+.column-one-twelfth {
+  margin-bottom: $gutter;
+}
 
-  @include media($tablet) {
-    margin: 0 20px;
-  }
+.column-full {
+  @include grid-column(12);
+}
 
-  @include media($mobile) {
-    margin: 0 10px;
+.column-one-half {
+  @include grid-column(6);
+  @include mobile {
+    @include grid-column(12);
   }
 }
 
-@for $i from 1 through $grid-columns {
-  .col-#{$i} { @include span-columns($i); }
-  %col-#{$i} { @include span-columns($i); }
+.column-one-third {
+  @include grid-column(4);
+  @include mobile {
+    @include grid-column(12);
+  }
 }
 
-.omega {
-  @include omega;
+.column-two-third {
+  @include grid-column(8);
+  @include mobile {
+    @include grid-column(12);
+  }
+}
+
+.column-one-quarter {
+  @include grid-column(3);
+  @include mobile {
+    @include grid-column(12);
+  }
+}
+
+.column-one-twelfth {
+  @include grid-column(1);
+  @include mobile {
+    @include grid-column(12);
+  }
+  @include tablet {
+    @include grid-column(6);
+  }
+}
+
+.column-debug {
+  background: $stone;
+  min-height: 200px;
+  padding: 15px;
 }

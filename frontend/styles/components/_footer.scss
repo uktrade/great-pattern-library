@@ -4,25 +4,28 @@
   padding-top: 40px;
 
   &-logo {
-    width: 200px;
-
-    @include media($tablet) {
+    @include tablet {
       width: 170px;
     }
 
-    @include media($mobile) {
-      width: 150px;
+    @include desktop {
+      width: 200px;
     }
+    width: 150px;
+
+
   }
 
   &-links {
-    padding-left: 10px;
-
-    @include media($mobile) {
+    @include mobile {
       li {
         padding-bottom: 10px;
       }
     }
+
+    padding-left: 10px;
+
+
 
     a {
       &:hover {
@@ -34,7 +37,7 @@
     &--border {
       @extend %transparent-color;
 
-      @include media($mobile) {
+      @include mobile {
         border: {
           left: 1px;
           style: solid;
@@ -46,31 +49,30 @@
 
   &-middle-section {
     @extend %transparent-color;
+    @include mobile {
+      border: 0;
+      padding-left: 0;
+    }
     border: {
       left: 1px;
       right: 1px;
       style: solid;
     }
     padding-left: 20px;
-
-    @include media($mobile) {
-      border: 0;
-      padding-left: 0;
-    }
   }
 
   &-section {
-    @include span-columns(6 of 12);
+    @include grid-column(6);
 
-    @include media($tablet) {
+    @include tablet {
       .col-8,
       .col-4 {
-        @include span-columns(6 of 12);
+        @include grid-column(6);
       }
     }
 
-    @include media($mobile) {
-      @include span-columns(12 of 12);
+    @include mobile {
+      @include grid-column(12);
       border-bottom: 1px solid;
       color: $border-color-fallback;
       color: $border-color;
@@ -78,7 +80,7 @@
 
       .col-8,
       .col-4 {
-        @include span-columns(6 of 12);
+        @include grid-column(6);
       }
     }
   }
@@ -88,28 +90,28 @@
       padding-left: 40px;
       padding-right: 5px;
 
-      @include media($mobile) {
+      @include mobile {
         padding-left: 0;
       }
 
-      @include media($desktop) {
+      @include desktop {
         padding-left: 0;
       }
     }
 
-    @include media($tablet) {
+    @include tablet {
       .col-6 {
         &:nth-child(1) {
-          @include span-columns(7 of 12);
+          @include grid-column(7);
         }
 
         &:nth-child(2) {
-          @include span-columns(5 of 12);
+          @include grid-column(5);
         }
       }
     }
 
-    @include media($mobile) {
+    @include mobile {
       margin-bottom: 10px;
     }
   }
@@ -117,8 +119,8 @@
   &-copy {
     text-align: right;
 
-    @include media($mobile) {
-      @include span-columns(12 of 12);
+    @include mobile {
+      @include grid-column(12);
       padding: 10px 0 20px;
       text-align: center;
     }
@@ -127,8 +129,8 @@
   .list-separators {
 
     li {
-      @include media($mobile) {
-        @include span-columns(6 of 12);
+      @include mobile {
+        @include grid-column(6);
 
         &:after {
           content: '';
@@ -146,13 +148,13 @@
     padding-bottom: 20px;
     padding-top: 10px;
 
-    @include media($mobile) {
+    @include mobile {
       border: 0;
       margin-top: 0;
     }
   }
 
-  @include media($mobile) {
+  @include mobile {
     padding-top: 0;
   }
 }
