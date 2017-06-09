@@ -57,32 +57,7 @@ block content
   </div>
   `)
 
-  +codeblock('html', 'Steps (new)', `
-  <div class="steps">
-    <div class="steps__item">
-      <img class="steps__item_img lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png" />
-      <div class="steps__item_text_container">
-        <div class="steps__item_number">1</div>
-        <div class="steps__item_text__content">
-          <h4 class="h4">Step 1</h4>
-          <p>These are the steps to take</p>
-        </div>
-      </div>
-    </div>
-  </div>
-      <li class="col-4 text--center soft--bottom">
-        <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png" />
-        <div class="cf push--top text--left">
-          <span class="steps-number font-med font-grey float--left push-half--right">3</span>
-          <div class="steps-content float--left">
-            <h4 class="h3 font-reg">Start selling</h4>
-            <p class="font-xsmall">Reach billions of consumers and grow your business</p>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  `)
+  +codeblock('html', 'Steps (new)', patterns.steps)
 
 block append foot_scripts
   // home scripts
