@@ -1,7 +1,9 @@
 {
   "name": "dit-pattern-library",
   "scripts": {},
-  "env": {},
+  "env": {
+    "NPM_CONFIG_PRODUCTION": "false"
+  },
   "formation": {},
   "addons": [],
   "buildpacks": [
