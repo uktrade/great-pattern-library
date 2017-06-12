@@ -17,6 +17,6 @@ $mobile: (max-width: 767px);
 $desktop: (min-width: 960px);
 $tablet: (max-width: 959px) and (min-width 768px);
 
-$media-mobile: 'max-width: 767px';
+$media-mobile: '(max-width: 767px)';
 $media-tablet: '(min-width: 768px) and (max-width: 959px)';
-$media-desktop: 'min-width: 960px';
+$media-desktop: '(min-width: 960px)';

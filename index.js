@@ -4,6 +4,7 @@ const path = require('path')
 const PROJECT_DIR = path.resolve(__dirname)
 const pug = require('pug')
 const fs = require('fs')
+const beautify_html = require('js-beautify').html
 
 const partialsPath = `${PROJECT_DIR}/backend/views/partials`
 const patternsPath = `${PROJECT_DIR}/backend/views/patterns`
@@ -14,8 +15,12 @@ const renderComponentExample = function (templatePaths, sectionName, componentNa
   if (!this[sectionName]) {
     this[sectionName] = {}
   }
-  this[sectionName][componentName] = pug.render(fs.readFileSync(templatePath, 'utf8'),
-    {filename: templatePath})
+  this[sectionName][componentName] = beautify_html(
+    pug.render(
+      fs.readFileSync(templatePath, 'utf8'),
+      {filename: templatePath}
+    )
+  )
 }
 app.set('port', (process.env.PORT || 5000))
 
