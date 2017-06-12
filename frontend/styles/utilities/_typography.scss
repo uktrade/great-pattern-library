@@ -28,37 +28,55 @@ body {
 // HEADERS
 %h1 {
   @extend %medium;
-  @include bottom-margin(1);
-  @include font($h1-font-size, -1px, 58px);
+  @include bottom-margin(0);
+  @include font($h1-font-size-mobile, -1px, 58px);
 
-  @include media(tablet) {
-    font-size: $h2-font-size;
+  @include tablet {
+    @include bottom-margin(1);
+    font-size: $h1-font-size-desktop;
     font-weight: 500;
   }
 
-  @include media(mobile) {
-    font-size: 30px;
-    margin-bottom: 0;
+  @include desktop {
+    @include bottom-margin(1);
+    font-size: $h1-font-size-desktop;
+    font-weight: 500;
   }
 }
 
 %h2 {
   @include bottom-margin(1);
-  @include font($h2-font-size, -.6px, 40px);
+  @include font($h2-font-size-mobile, -.6px, 32px);
+  @include tablet {
+    @include font($h2-font-size-desktop, -.6px, 40px);
+  }
+  @include desktop {
+    @include font($h2-font-size-desktop, -.6px, 40px);
+  }
 }
 
 %h3 {
   @include bottom-margin(1);
-  @include font($h3-font-size, 0, 32px);
+  @include font($h3-font-size-mobile, 0, 28px);
 
-  @include media(mobile) {
-    font-size: 19px;
+  @include tablet {
+    @include font($h3-font-size-desktop, 0, 32px);
+  }
+  @include desktop {
+    @include font($h3-font-size-desktop, 0, 32px);
   }
 }
 
 %h4 {
   @include bottom-margin(1);
-  @include font($h4-font-size, 0, 25px);
+  @include font($h4-font-size-mobile, 0, 25px);
+
+  @include tablet {
+    @include font($h4-font-size-desktop, 0, 25px);
+  }
+  @include desktop {
+    @include font($h4-font-size-desktop, 0, 25px);
+  }
 }
 
 .font {

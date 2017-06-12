@@ -1,5 +1,11 @@
 @import 'utilities/vars';
 
+.outer-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 30px;
+}
+
 .gpl-header {
   text-align: center;
 }
@@ -13,10 +19,31 @@
     display: inline-block;
     margin-bottom: .5rem;
     margin-right: .5rem;
-    padding: .5rem;
+    padding: .25rem;
 
     &--current {
       background-color: $great-blue;
     }
+  }
+}
+
+.styleguide {
+  &__table {
+    min-width: 200px;
+  }
+
+  &__th {
+    font-weight: 400;
+  }
+
+  &__td,
+  &__th {
+    padding: .5rem;
+  }
+
+  &__table,
+  &__td,
+  &__th {
+    border: solid 1px $black;
   }
 }

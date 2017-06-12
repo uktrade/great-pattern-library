@@ -6,56 +6,66 @@ block content
     h2.h2 Layouts &amp; Breakpoints
 
   section(id="section-breakpoints")
-  h2.h2 Breakpoints
-  p Breakpoint info goes here
-  ul
-    li mobile = less than or equal to 767px
-    li desktop = greater than or equal to 768px
-
+    h2.h2 Breakpoints
+    p Breakpoint info goes here
+    table.styleguide__table
+      tr.styleguide__tr
+        th.styleguide__th(scope='col') Breakpoint class
+        th.styleguide__th(scope='col') From (px)
+        th.styleguide__th(scope='col') To (px)
+      tr.styleguide__tr
+        td.styleguide__td mobile
+        td.styleguide__td 0
+        td.styleguide__td 767
+      tr.styleguide__tr
+        td.styleguide__td(scope='row') tablet
+        td.styleguide__td 768
+        td.styleguide__td 959
+      tr.styleguide__tr
+        td.styleguide__td(scope='row') desktop
+        td.styleguide__td 960
+        td.styleguide__td 1200+
+    //- ul
+    //-   li mobile = less than or equal to 767px
+    //-   li tablet = greater than or equal to 768px and less than or equal to 959px
+    //-   li desktop = greater than or equal to 960px
+    p The pattern library comes with mixins named after each breakpoint class (mobile, tablet, desktop) to help developers implement the breakpoints.
   section(id="section-layout")
-  h2.h2 Layout
-  +codeblock('html', 'Grid', `
-  <div class="push--bottom cf text--center">
-    <div class="col-1 background--mid-grey">1</div>
-    <div class="col-1 background--mid-grey">1</div>
-    <div class="col-1 background--mid-grey">1</div>
-    <div class="col-1 background--mid-grey">1</div>
-    <div class="col-1 background--mid-grey">1</div>
-    <div class="col-1 background--mid-grey">1</div>
-    <div class="col-1 background--mid-grey">1</div>
-    <div class="col-1 background--mid-grey">1</div>
-    <div class="col-1 background--mid-grey">1</div>
-    <div class="col-1 background--mid-grey">1</div>
-    <div class="col-1 background--mid-grey">1</div>
-    <div class="col-1 background--mid-grey">1</div>
-  </div>
-  <div class="push--bottom cf text--center">
-    <div class="col-1 background--mid-grey">1</div>
-    <div class="col-11 background--mid-grey">11</div>
-  </div>
-  <div class="push--bottom cf text--center">
-    <div class="col-2 background--mid-grey">2</div>
-    <div class="col-10 background--mid-grey">10</div>
-  </div>
-  <div class="push--bottom cf text--center">
-    <div class="col-3 background--mid-grey">3</div>
-    <div class="col-9 background--mid-grey">9</div>
-  </div>
-  <div class="push--bottom cf text--center">
-    <div class="col-4 background--mid-grey">4</div>
-    <div class="col-8 background--mid-grey">8</div>
-  </div>
-  <div class="push--bottom cf text--center">
-    <div class="col-5 background--mid-grey">5</div>
-    <div class="col-7 background--mid-grey">7</div>
-  </div>
-  <div class="push--bottom cf text--center">
-    <div class="col-6 background--mid-grey">6</div>
-    <div class="col-6 background--mid-grey">6</div>
-  </div>
-  `)
+    h2.h2 Layout
+    +codeblock('html', 'Grid', `
+    <div class="grid-container" style="text-align: center;">
+      <div class="column-debug column-full">Hero</div>
+      <div class="column-debug column-one-half">Halves</div>
+      <div class="column-debug column-one-half">Halves</div>
+      <div class="column-debug column-one-third">Desktop third</div>
+      <div class="column-debug column-one-third">Desktop third</div>
+      <div class="column-debug column-one-third">Desktop third</div>
 
+      <div class="column-debug column-two-third">Desktop 2/3</div>
+      <div class="column-debug column-one-third">Desktop 1/3</div>
 
+      <div class="column-debug column-one-third">Desktop 1/3</div>
+      <div class="column-debug column-two-third">Desktop 2/3</div>
+
+      <div class="column-debug column-one-quarter">Desktop 1/4</div>
+      <div class="column-debug column-one-quarter">Desktop 1/4</div>
+      <div class="column-debug column-one-quarter">Desktop 1/4</div>
+      <div class="column-debug column-one-quarter">Desktop 1/4</div>
+
+      <div class="column-debug column-one-twelfth">1/12</div>
+      <div class="column-debug column-one-twelfth">1/12</div>
+      <div class="column-debug column-one-twelfth">1/12</div>
+      <div class="column-debug column-one-twelfth">1/12</div>
+      <div class="column-debug column-one-twelfth">1/12</div>
+      <div class="column-debug column-one-twelfth">1/12</div>
+      <div class="column-debug column-one-twelfth">1/12</div>
+      <div class="column-debug column-one-twelfth">1/12</div>
+      <div class="column-debug column-one-twelfth">1/12</div>
+      <div class="column-debug column-one-twelfth">1/12</div>
+      <div class="column-debug column-one-twelfth">1/12</div>
+      <div class="column-debug column-one-twelfth">1/12</div>
+    </div>
+    `)
 
 block append foot_scripts
   // home scripts
