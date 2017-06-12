@@ -1,0 +1,15 @@
+{
+  "name": "dit-pattern-library",
+  "scripts": {},
+  "env": {
+    "NPM_CONFIG_PRODUCTION": "false",
+    "NODE_MODULES_CACHE": "false"
+  },
+  "formation": {},
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
