@@ -211,16 +211,15 @@
       border-color: $border-color-fallback;
       border-color: $border-color;
       top: -50px;
+      width: auto;
     }
 
     &:hover,
     &--open {
       background-color: $dark-navy;
       border-top: 3px solid $great-red;
-      bottom: 0;
       display: block;
       padding-top: 5px;
-
       @include media($mobile) {
         border: {
           bottom: 0;
