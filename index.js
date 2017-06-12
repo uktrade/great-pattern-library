@@ -138,7 +138,8 @@ app.get('/patterns', function (request, response) {
       typography: `${patternsPath}/typography.pug`,
       header: `${patternsPath}/header.pug`,
       footer: `${patternsPath}/footer.pug`,
-      steps: `${patternsPath}/steps.pug`
+      steps: `${patternsPath}/steps.pug`,
+      stepsOnGrid: `${patternsPath}/steps--on-grid.pug`
     }
   }
 

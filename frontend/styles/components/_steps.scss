@@ -15,16 +15,13 @@
     }
 
     &__img__container {
-      @include desktop {
-        text-align: left;
-      }
       text-align: center;
     }
 
     &__img {
       display: inline-block;
-      height: 230px;
-      width: 230px;
+      height: 200px;
+      width: 200px;
     }
 
     &__text__container {
@@ -57,7 +54,7 @@
       width: 74px;
     }
 
-    @media (min-width: 1150px) {
+    @media (min-width: 980px) {
       &::after {
         background: url('/images/steps-arrow.svg');
         background-size: contain;
@@ -67,7 +64,7 @@
         position: absolute;
         right: 0;
         top: 115px;
-        transform: translate3d(-25%, -50%, 0);
+        transform: translate3d(50%, -50%, 0);
         width: 45px;
       }
 

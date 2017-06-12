@@ -17,47 +17,10 @@ block content
 
   section(id="section-partials")
   h2.h2 Page partials
-  +codeblock('html', 'Steps', `
-  <div class="outer-container">
-    <h3 class="h2 font-reg flush--top push--bottom soft--top">How does it work?</h3>
-    <ul>
-      <li class="col-4 text--center soft--bottom">
-        <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
-        <div class="cf push--top text--left">
-          <span class="steps-number font-med font-grey float--left push-half--right">1</span>
-          <div class="steps-content float--left">
-            <h4 class="h3 font-reg">Find marketplaces</h4>
-            <p class="font-xsmall">Find online marketplaces suitable for your products</p>
-          </div>
-        </div>
-      </li>
 
-      <li class="col-4 text--center soft--bottom">
-        <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
-        <div class="cf push--top text--left">
-          <span class="steps-number font-med font-grey float--left push-half--right">2</span>
-          <div class="steps-content float--left">
-            <h4 class="h3 font-reg">Apply to join</h4>
-            <p class="font-xsmall">Apply via Department for International Trade and get fast track.</p>
-          </div>
-        </div>
-      </li>
+  +codeblock('html', 'Steps', patterns.steps)
 
-      <li class="col-4 text--center soft--bottom">
-        <img class="lazyload" src="/images/placeholder-250x250.png" alt="placeholder - 250x250.png">
-        <div class="cf push--top text--left">
-          <span class="steps-number font-med font-grey float--left push-half--right">3</span>
-          <div class="steps-content float--left">
-            <h4 class="h3 font-reg">Start selling</h4>
-            <p class="font-xsmall">Reach billions of consumers and grow your business</p>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  `)
-
-  +codeblock('html', 'Steps (new)', patterns.steps)
+  +codeblock('html', 'Steps (on grid)', patterns.stepsOnGrid)
 
 block append foot_scripts
   // home scripts
