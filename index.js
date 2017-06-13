@@ -4,18 +4,22 @@ const path = require('path')
 const PROJECT_DIR = path.resolve(__dirname)
 const pug = require('pug')
 const fs = require('fs')
-const beautify_html = require('js-beautify').html
+const beautifyHtml = require('js-beautify').html
 
+const oPackage = require('./package.json')
 const partialsPath = `${PROJECT_DIR}/backend/views/partials`
 const patternsPath = `${PROJECT_DIR}/backend/views/patterns`
-
+const {version} = oPackage
+const getBaseContext = function () {
+  return {version}
+}
 // pre-render examples
 const renderComponentExample = function (templatePaths, sectionName, componentName) {
   let templatePath = templatePaths[sectionName][componentName]
   if (!this[sectionName]) {
     this[sectionName] = {}
   }
-  this[sectionName][componentName] = beautify_html(
+  this[sectionName][componentName] = beautifyHtml(
     pug.render(
       fs.readFileSync(templatePath, 'utf8'),
       {filename: templatePath}
@@ -60,8 +64,8 @@ app.get('/', function (request, response) {
     }
   }
 
-  let context = {}
-  // go through template paths sections and populate context
+  let context = getBaseContext()
+  // go through template paths sections and populate output
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
     Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
   })
@@ -84,7 +88,7 @@ app.get('/colours-typography', function (request, response) {
     }
   }
 
-  let context = {}
+  let context = getBaseContext()
   // go through template paths sections and populate output
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
     Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
@@ -105,7 +109,7 @@ app.get('/links-buttons', function (request, response) {
     }
   }
 
-  let context = {}
+  let context = getBaseContext()
   // go through template paths sections and populate output
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
     Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
@@ -115,19 +119,19 @@ app.get('/links-buttons', function (request, response) {
 })
 
 app.get('/layout-breakpoints', function (request, response) {
-  let context = {}
+  let context = getBaseContext()
   // let templatePath = `${patternsPath}/typography.pug`
   response.render('pages/layout-breakpoints', context)
 })
 
 app.get('/forms-inputs', function (request, response) {
-  let context = {}
+  let context = getBaseContext()
   // let templatePath = `${patternsPath}/typography.pug`
   response.render('pages/forms-inputs', context)
 })
 
 app.get('/blocks-media', function (request, response) {
-  let context = {}
+  let context = getBaseContext()
   // let templatePath = `${patternsPath}/typography.pug`
   response.render('pages/blocks-media', context)
 })
@@ -143,7 +147,7 @@ app.get('/patterns', function (request, response) {
     }
   }
 
-  let context = {}
+  let context = getBaseContext()
   // go through template paths sections and populate output
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
     Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))

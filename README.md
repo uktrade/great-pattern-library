@@ -21,7 +21,7 @@ The Great Pattern Library takes on some of the priciples of [Atomic Design](http
 
 ### Demo
 #### Latest release
-A live demo can be seen here: https://dit-styleguide.herokuapp.com/
+A live demo can be seen here: http://styleguide.uktrade.io/
 #### Development
 The staging URL for this pattern library can be found here: https://great-pattern-library-staging.cloudapps.digital/
 
