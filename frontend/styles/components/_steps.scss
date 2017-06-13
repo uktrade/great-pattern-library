@@ -10,10 +10,6 @@
     margin-bottom: 15px;
     position: relative;
 
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-
     &__img__container {
       text-align: center;
     }
@@ -54,6 +50,9 @@
       width: 74px;
     }
 
+    &__text__content {
+      text-overflow: hidden;
+    }
     @media (min-width: 980px) {
       &::after {
         background: url('/images/steps-arrow.svg');
@@ -71,6 +70,8 @@
     }
 
     &:last-of-type {
+      margin-bottom: 0;
+
       &::after {
         display: none;
       }
@@ -78,35 +79,3 @@
   }
 
 }
-
-
-// .steps {
-//   &-number {
-//     color: $light-grey;
-//     display: block;
-//     font-size: 144px;
-//     line-height: 110px;
-//
-//     @include tablet {
-//       font-size: 96px;
-//       line-height: 80px;
-//     }
-//
-//     @include mobile {
-//       font-size: 90px;
-//       line-height: 69px;
-//     }
-//   }
-//
-//   &-content {
-//     width: 199px;
-//
-//     @include mobile {
-//       width: 76%;
-//     }
-//
-//     @include tablet {
-//       width: 70%;
-//     }
-//   }
-// }
