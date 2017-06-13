@@ -14,4 +14,24 @@
   &--info {
     border-top-color: $light-blue;
   }
+
+  &--border-top-none {
+    border-top: 0;
+  }
+
+  &--chevron-top {
+    position: relative;
+
+    &::after {
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 20px solid $white;
+      content: '';
+      display: block;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
 }

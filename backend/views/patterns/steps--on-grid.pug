@@ -4,16 +4,10 @@ include ../../../frontend/components/core/templates/mixins.pug
     include ./steps
   .grid-container
     .column-full
-      .panel
+      .panel.panel--chevron-top.panel--border-top-none
         h3.h3 Title
-        .grid-container
+        .grid-container.grid-container--inner
           .column-one-half
             p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           .column-one-half
             +button('Button text', {colour:'red'})
-  .column-full
-    h3.h3 Title
-  .column-one-half
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-  .column-one-half
-    +button('Button text', {colour:'red'})
