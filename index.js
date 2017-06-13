@@ -5,9 +5,13 @@ const PROJECT_DIR = path.resolve(__dirname)
 const pug = require('pug')
 const fs = require('fs')
 
+const oPackage = require('./package.json')
 const partialsPath = `${PROJECT_DIR}/backend/views/partials`
 const patternsPath = `${PROJECT_DIR}/backend/views/patterns`
-
+const {version} = oPackage
+const getBaseContext = function () {
+  return {version}
+}
 // pre-render examples
 const renderComponentExample = function (templatePaths, sectionName, componentName) {
   let templatePath = templatePaths[sectionName][componentName]
@@ -55,7 +59,7 @@ app.get('/', function (request, response) {
     }
   }
 
-  let context = {}
+  let context = getBaseContext()
   // go through template paths sections and populate output
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
     Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
@@ -79,7 +83,7 @@ app.get('/colours-typography', function (request, response) {
     }
   }
 
-  let context = {}
+  let context = getBaseContext()
   // go through template paths sections and populate output
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
     Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
@@ -100,7 +104,7 @@ app.get('/links-buttons', function (request, response) {
     }
   }
 
-  let context = {}
+  let context = getBaseContext()
   // go through template paths sections and populate output
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
     Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
@@ -110,19 +114,19 @@ app.get('/links-buttons', function (request, response) {
 })
 
 app.get('/layout-breakpoints', function (request, response) {
-  let context = {}
+  let context = getBaseContext()
   // let templatePath = `${patternsPath}/typography.pug`
   response.render('pages/layout-breakpoints', context)
 })
 
 app.get('/forms-inputs', function (request, response) {
-  let context = {}
+  let context = getBaseContext()
   // let templatePath = `${patternsPath}/typography.pug`
   response.render('pages/forms-inputs', context)
 })
 
 app.get('/blocks-media', function (request, response) {
-  let context = {}
+  let context = getBaseContext()
   // let templatePath = `${patternsPath}/typography.pug`
   response.render('pages/blocks-media', context)
 })
@@ -136,7 +140,7 @@ app.get('/patterns', function (request, response) {
     }
   }
 
-  let context = {}
+  let context = getBaseContext()
   // go through template paths sections and populate output
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
     Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
