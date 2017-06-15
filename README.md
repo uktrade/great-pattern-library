@@ -52,6 +52,29 @@ Browsersync also syncs UI interactions across multiple browsers which helps whic
 
     npm test
 
+## Releases
+This project uses the GitFlow branching strategy for git.
+
+A description of the GitFlow strategy can be found here:
+
+[https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow)
+
+### Procedure
+#### New feature
+1. ```feature``` branch is created (from the ```develop``` branch) to carry out the work to complete the feature
+2. A github pull request (PR) is created when the ```feature``` is ready to considered for merging back into the ```develop``` before code review.
+3. Once the feature passes the code review and is approved the developer is able to merge their feature back into the ```develop``` branch.
+
+#### Full release
+1. When ready to make a new release (end of each sprint) create a release branch from the develop branch (i.e. ```release/1.0.1```) to begin the release process.
+2. Inside the release branch add/amend documentation where necessary (including the README.md and CHANGELOG.md files).
+3. Submit the release branch to a UAT environment for user testing to begin.
+4. Once the release has passed user testing. The release branch can be merged into the master branch.
+5. From the master branch both; update the version of the package.json file, and add a git tag with the release version number (```npm version``` command).
+6. Update the CHANGELOG.md file to reflect the new version (being sure that there is a new 'unreleased section' for the next release)
+
+
+
 ## Designs
 
 1. Signed in state:
