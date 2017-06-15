@@ -1,0 +1,34 @@
+include ../../../frontend/components/core/templates/mixins.pug
+-
+  let attrsWhiteTrans = {colour: 'white', transparent: true}
+  let attrsWhiteTransLarge = {colour: 'white', transparent: true, size: 'large'}
+  let attrsRedTrans = {colour: 'red', transparent: true}
+  let attrsRedTransLarge = {colour: 'red', transparent: true, size: 'large'}
+  let attrsBlueTrans = {colour: 'blue', transparent: true}
+  let attrsBlueTransLarge = {colour: 'blue', transparent: true, size: 'large'}
+<!-- Blue -->
+<div class="button__container background--light-blue">
+  +button('Transparent Button', attrsWhiteTrans)
+</div>
+
+<div class="button__container background--light-blue">
+  +button('Transparent Button (large)', attrsWhiteTransLarge)
+</div>
+
+<!-- Red -->
+<div class="button__container background--dark-white">
+  +button('Transparent Button', attrsRedTrans)
+</div>
+
+<div class="button__container background--dark-white">
+  +button('Transparent Button (large)', attrsRedTransLarge)
+</div>
+
+<!-- White -->
+<div class="button__container background--dark-white">
+  +button('Transparent Button', attrsBlueTrans)
+</div>
+
+<div class="button__container background--dark-white">
+  +button('Transparent Button (large)', attrsBlueTransLarge)
+</div>

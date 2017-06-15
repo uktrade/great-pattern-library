@@ -111,3 +111,6 @@ whoosh_index*
 
 # Caches
 .sass-cache
+
+# other
+ngrok.yml

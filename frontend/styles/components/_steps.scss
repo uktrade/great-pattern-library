@@ -1,0 +1,30 @@
+.steps {
+  &-number {
+    color: $light-grey;
+    display: block;
+    font-size: 144px;
+    line-height: 110px;
+
+    @include tablet {
+      font-size: 96px;
+      line-height: 80px;
+    }
+
+    @include mobile {
+      font-size: 90px;
+      line-height: 69px;
+    }
+  }
+
+  &-content {
+    width: 199px;
+
+    @include mobile {
+      width: 76%;
+    }
+
+    @include tablet {
+      width: 70%;
+    }
+  }
+}

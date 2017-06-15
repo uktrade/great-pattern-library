@@ -1,0 +1,44 @@
+// Create vendor prefixes
+@mixin prefix($map, $vendors: webkit moz ms o) {
+  @each $prop, $value in $map {
+    @if $vendors {
+      @each $vendor in $vendors {
+        #{'-' + $vendor + '-' + $prop}: #{$value};
+      }
+    }
+    #{$prop}: #{$value};
+  }
+}
+
+// Set font dimensions
+@mixin font($font-size, $letter-spacing, $line-height: '') {
+  font-size: $font-size;
+  letter-spacing: $letter-spacing;
+
+  @if $line-height != '' {
+    line-height: $line-height;
+  }
+}
+
+@mixin bottom-margin($multiple: 1) {
+  margin-bottom: (15px * $multiple);
+}
+
+// interpolate media query: https://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375
+@mixin mobile {
+  @media #{$media-mobile} {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media #{$media-tablet} {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media #{$media-desktop} {
+    @content;
+  }
+}

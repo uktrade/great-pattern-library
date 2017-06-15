@@ -1,0 +1,19 @@
+extends ../layout/base.pug
+include ../../../frontend/components/core/templates/mixins.pug
+include ../../../frontend/components/TabSwitcher/templates/mixins.pug
+block content
+  section(style='text-align:center;')
+    h2.h2 Overview
+    p This library is a set of shared UI components and patterns used across the great.gov.uk sites.
+    p This library has been built with the following teams in mind:
+    ul
+      li <abbr title="Export readiness">EXRED</abbr> - Export readiness
+      li <abbr title="Export opportunities">EXOPPS</abbr> - Export opportunities
+      li <abbr title="Find a Buyer">FAB</abbr> - Find a Buyer
+      li <abbr title="Selling Online Overseas">SOO</abbr> - Selling Online Overseas
+    br
+    p Please use the navigation above the view the different sections
+
+block append foot_scripts
+  // home scripts
+  script(src="/scripts/pages/home.js")

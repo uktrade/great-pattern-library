@@ -1,0 +1,160 @@
+.footer {
+  @extend %anchor-white;
+  font-size: $small;
+  padding-top: 40px;
+
+  &-logo {
+    @include tablet {
+      width: 170px;
+    }
+
+    @include desktop {
+      width: 200px;
+    }
+    width: 150px;
+
+
+  }
+
+  &-links {
+    @include mobile {
+      li {
+        padding-bottom: 10px;
+      }
+    }
+
+    padding-left: 10px;
+
+
+
+    a {
+      &:hover {
+        border-bottom: 1px dashed $white;
+        padding-bottom: 2px;
+      }
+    }
+
+    &--border {
+      @extend %transparent-color;
+
+      @include mobile {
+        border: {
+          left: 1px;
+          style: solid;
+        }
+        padding-left: 20px;
+      }
+    }
+  }
+
+  &-middle-section {
+    @extend %transparent-color;
+    @include mobile {
+      border: 0;
+      padding-left: 0;
+    }
+    border: {
+      left: 1px;
+      right: 1px;
+      style: solid;
+    }
+    padding-left: 20px;
+  }
+
+  &-section {
+    @include grid-column(6);
+
+    @include tablet {
+      .col-8,
+      .col-4 {
+        @include grid-column(6);
+      }
+    }
+
+    @include mobile {
+      @include grid-column(12);
+      border-bottom: 1px solid;
+      color: $border-color-fallback;
+      color: $border-color;
+      padding: 20px 0;
+
+      .col-8,
+      .col-4 {
+        @include grid-column(6);
+      }
+    }
+  }
+
+  &-section-right {
+    li {
+      padding-left: 40px;
+      padding-right: 5px;
+
+      @include mobile {
+        padding-left: 0;
+      }
+
+      @include desktop {
+        padding-left: 0;
+      }
+    }
+
+    @include tablet {
+      .col-6 {
+        &:nth-child(1) {
+          @include grid-column(7);
+        }
+
+        &:nth-child(2) {
+          @include grid-column(5);
+        }
+      }
+    }
+
+    @include mobile {
+      margin-bottom: 10px;
+    }
+  }
+
+  &-copy {
+    text-align: right;
+
+    @include mobile {
+      @include grid-column(12);
+      padding: 10px 0 20px;
+      text-align: center;
+    }
+  }
+
+  .list-separators {
+
+    li {
+      @include mobile {
+        @include grid-column(6);
+
+        &:after {
+          content: '';
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    @extend %transparent-color;
+    border: {
+      top: 1px solid;
+    }
+    margin-top: 60px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+
+    @include mobile {
+      border: 0;
+      margin-top: 0;
+    }
+  }
+
+  @include mobile {
+    padding-top: 0;
+  }
+}
