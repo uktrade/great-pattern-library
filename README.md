@@ -3,7 +3,6 @@
 [![devDependencies Status](https://david-dm.org/uktrade/dit-pattern-library/dev-status.svg)](https://david-dm.org/uktrade/dit-pattern-library?type=dev)
 
 # Great Pattern Library
-## Overview
 This Great Pattern Library (GPL) is a set of shared UI components and patterns used on the great.gov.uk sites.
 
 The main goals of this library are to:
@@ -15,22 +14,22 @@ The library should make it easy for developers to reuse these components in othe
 
 The Great Pattern Library takes on some of the priciples of [Atomic Design](http://atomicdesign.bradfrost.com/).
 
-### TODO
+## TODO
 
-* find a way to distribute versioned components so that changes can be made in a way that does not break existing sites (i.e. frontend micro-architecture)
+- [ ] find a way to distribute versioned components so that changes can be made in a way that does not break existing sites (i.e. frontend micro-architecture)
+- [ ] document release procedure
 
-### Demo
-#### Latest release
-A live demo can be seen here: http://styleguide.uktrade.io/
-#### Development
-The staging URL for this pattern library can be found here: https://great-pattern-library-staging.cloudapps.digital/
+## Demo
+* Latest release: http://styleguide.uktrade.io/
+* Staging (in dev): https://great-pattern-library-staging.herokuapp.com/
+* Legacy (version 0.1.3): https://old-great-pattern-library.herokuapp.com/
 
-### Installation
+## Installation
 
     npm install
 
-### Usage
-#### Development
+## Usage
+### Development
     npm run develop
 
 Then in your web browser open this URL:  <http://localhost:5000/>
@@ -46,14 +45,14 @@ The default ```gulp``` command does the following:
 Browsersync also syncs UI interactions across multiple browsers which helps which cross device testing.
 
 
-#### Production
+### Production
     npm run build && npm start
 
-#### Run tests
+### Run tests
 
     npm test
 
-### Designs
+## Designs
 
 1. Signed in state:
 
