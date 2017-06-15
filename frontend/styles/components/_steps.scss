@@ -1,3 +1,5 @@
+$text-row-height: 132px;
+
 .steps {
   @include grid-container;
 
@@ -21,18 +23,21 @@
     }
 
     &__text__container {
-      // @extend %cf;
+      @include desktop {
+        height: $text-row-height;
+        line-height: $text-row-height;
+      }
       display: flex;
-      height: 132px;
       justify-content: flex-start;
-      line-height: 132px;
       margin: 30px 0;
     }
 
     &__number,
     &__text__content {
+      @include desktop {
+        height: $text-row-height;
+      }
       float: left;
-      height: 132px;
       line-height: $base-line-height;
     }
 
