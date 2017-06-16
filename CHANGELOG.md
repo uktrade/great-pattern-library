@@ -20,7 +20,7 @@ n/a
 
 ### Security
 n/a -->
-## 0.1.4 - 2017-06-07
+## 0.2.0 - 2017-06-07
 ### Added
 * trello-124 typography patterns
 * trello-98 responsive mobile buttons
