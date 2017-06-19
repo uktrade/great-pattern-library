@@ -60,7 +60,7 @@ A description of the GitFlow strategy can be found here:
 [https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow)
 
 ### Release notes/Changelog
-Release notes can be found in the [CHANGELOG.md]('./CHANGELOG.md') file.
+Release notes can be found in the [CHANGELOG.md](./CHANGELOG.md) file.
 
 ### Procedure
 #### New feature
