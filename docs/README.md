@@ -59,6 +59,9 @@ A description of the GitFlow strategy can be found here:
 
 [https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow)
 
+### Release notes/Changelog
+Release notes can be found in the [CHANGELOG.md]('./CHANGELOG.md') file.
+
 ### Procedure
 #### New feature
 1. ```feature``` branch is created (from the ```develop``` branch) to carry out the work to complete the feature
@@ -79,9 +82,9 @@ A description of the GitFlow strategy can be found here:
 
 1. Signed in state:
 
-![](docs/images/signed-in-state.png)
+![](./images/signed-in-state.png)
 
 
 2. Signed out state:
 
-![](docs/images/signed-out-state.png)
+![](./images/signed-out-state.png)
