@@ -34,8 +34,10 @@
     "selectivizr": "latest"
   },
   "devDependencies": {
+    "axe-core": "^2.3.1",
     "babel-loader": "^7.0.0",
     "browser-sync": "^2.18.12",
+    "chai": "^4.0.2",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-node": "^4.2.2",
@@ -47,9 +49,11 @@
     "gulp-nodemon": "^2.2.1",
     "gulp-sass-lint": "1.3.2",
     "gulp-util": "^3.0.8",
-    "js-beautify": "^1.6.14",
+    "jsdom": "^11.0.0",
     "jshint": "2.9.4",
     "jshint-stylish": "2.2.1",
+    "mocha-phantomjs": "^4.1.0",
+    "nyc": "^11.0.2",
     "webpack": "^2.6.1"
   },
   "engines": {
