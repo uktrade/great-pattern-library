@@ -12,7 +12,7 @@ $stone: #dfd5c5;
 $dark-white: #fafafa;
 $grey: #333;
 $mid-grey: #999;
-$light-grey: #dce0df;
+$light-grey: #d8d8d8;
 $purple: #4f0b7b;
 $mid-blue: #00549f;
 $aqua: #007ea3;
@@ -32,6 +32,7 @@ $link-colour: $mid-blue;
 
 // FONT SIZES
 $base-font-size: 16px;
+$base-line-height: 23px;
 $h1-font-size-mobile: 32px;
 $h2-font-size-mobile: 24px;
 $h3-font-size-mobile: 18px;
@@ -57,8 +58,8 @@ $button-blue-color-hover: $white;
 $button-blue-outline: 0;
 
 $button-red-bg-color: $great-red;
-$button-red-bg-color--visited: $mid-blue;
-$button-red-bg-color--hover: $dark-blue;
+$button-red-bg-color--visited: $great-red;
+$button-red-bg-color--hover: $flag-red;
 $button-red-color: $white;
 $button-red-color-hover: $white;
 $button-red-outline: 0;

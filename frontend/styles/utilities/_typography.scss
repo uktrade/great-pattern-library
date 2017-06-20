@@ -1,6 +1,6 @@
 body {
   @extend %regular;
-  @include font($base-font-size, 0, 23px);
+  @include font($base-font-size, 0, $base-line-height);
   background-color: $body-background-color;
   color: $grey;
   font-family: $brand-font-family;

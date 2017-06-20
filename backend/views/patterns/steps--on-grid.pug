@@ -1,0 +1,13 @@
+include ../../../frontend/components/core/templates/mixins.pug
+.grid-container
+  .column-full
+    include ./steps
+  .grid-container
+    .column-full
+      .panel.panel--full-width.panel--chevron-top.panel--border-top-none
+        h3.h3 Title
+        .grid-container.grid-container--inner
+          .column-one-half
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          .column-one-half
+            +button('Button text', {colour:'red'})

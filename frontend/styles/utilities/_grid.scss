@@ -3,6 +3,10 @@
 
 .grid-container {
   @include grid-container;
+
+  &--inner {
+    @include grid-collapse;
+  }
 }
 
 .column-full,
