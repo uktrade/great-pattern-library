@@ -20,6 +20,10 @@ n/a
 
 ### Security
 n/a -->
+## 0.2.4 - 2017-06-21
+### Fixed
+* assets not running on heroku - re-added heroku-prebuild script
+
 ## 0.2.3 - 2017-06-21
 ### Fixed
 * deployment error (added js-beautify to npm dependancies)
