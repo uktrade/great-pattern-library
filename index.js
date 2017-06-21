@@ -4,6 +4,7 @@ const path = require('path')
 const PROJECT_DIR = path.resolve(__dirname)
 const pug = require('pug')
 const fs = require('fs')
+const beautifyHtml = require('js-beautify').html
 
 const oPackage = require('./package.json')
 const partialsPath = `${PROJECT_DIR}/backend/views/partials`
@@ -18,8 +19,12 @@ const renderComponentExample = function (templatePaths, sectionName, componentNa
   if (!this[sectionName]) {
     this[sectionName] = {}
   }
-  this[sectionName][componentName] = pug.render(fs.readFileSync(templatePath, 'utf8'),
-    {filename: templatePath})
+  this[sectionName][componentName] = beautifyHtml(
+    pug.render(
+      fs.readFileSync(templatePath, 'utf8'),
+      {filename: templatePath}
+    )
+  )
 }
 app.set('port', (process.env.PORT || 5000))
 
@@ -136,7 +141,9 @@ app.get('/patterns', function (request, response) {
     patterns: {
       typography: `${patternsPath}/typography.pug`,
       header: `${patternsPath}/header.pug`,
-      footer: `${patternsPath}/footer.pug`
+      footer: `${patternsPath}/footer.pug`,
+      steps: `${patternsPath}/steps.pug`,
+      stepsOnGrid: `${patternsPath}/steps--on-grid.pug`
     }
   }
 

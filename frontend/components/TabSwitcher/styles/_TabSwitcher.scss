@@ -1,4 +1,5 @@
 .tabswitcher {
+  background: $white;
   border: solid 1px $black;
   margin-bottom: 1rem;
 
@@ -19,7 +20,6 @@
 
   &__pane {
     padding: 1rem;
-    width: 90%;
   }
 }
 

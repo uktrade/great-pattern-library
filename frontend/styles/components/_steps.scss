@@ -1,30 +1,94 @@
+$text-row-height: 132px;
+
 .steps {
-  &-number {
-    color: $light-grey;
-    display: block;
-    font-size: 144px;
-    line-height: 110px;
+  @include grid-container;
 
-    @include tablet {
-      font-size: 96px;
-      line-height: 80px;
+  &__item {
+    @include grid-column(12);
+    @include desktop {
+      @include grid-column(4);
+      margin-bottom: 0;
+    }
+    position: relative;
+
+    &__img__container {
+      height: 200px;
+      text-align: center;
     }
 
-    @include mobile {
-      font-size: 90px;
-      line-height: 69px;
+    &__img {
+      display: inline-block;
+      max-height: 200px;
+      width: 200px;
+    }
+
+    &__text__container {
+      @include desktop {
+        height: $text-row-height;
+        line-height: $text-row-height;
+      }
+      display: flex;
+      justify-content: flex-start;
+      margin: 30px 0;
+    }
+
+    &__number,
+    &__text__content {
+      @include desktop {
+        height: $text-row-height;
+      }
+      float: left;
+      line-height: $base-line-height;
+    }
+
+    &__number {
+      color: $light-grey;
+      flex-basis: 74px;
+      font-size: 100px;
+      font-weight: 500;
+      letter-spacing: -1px;
+      line-height: 100px;
+      margin-right: 15px;
+      position: relative;
+      text-align: right;
+      top: -8px;
+      width: 74px;
+    }
+
+    &__text__content {
+      overflow: hidden;
+    }
+    @media (min-width: 980px) {
+      &::after {
+        background: url('/images/steps-arrow.svg') no-repeat;
+        background-size: contain;
+        content: '';
+        display: block;
+        height: 40px;
+        position: absolute;
+        right: 0;
+        top: 100px;
+        transform: translate3d(50%, -50%, 0);
+        width: 22px;
+      }
+
+    }
+
+    @media (min-width: 1200px) {
+      &::after {
+        height: 80px;
+        width: 44px;
+      }
+
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+
+      &::after {
+        display: none;
+      }
     }
   }
 
-  &-content {
-    width: 199px;
-
-    @include mobile {
-      width: 76%;
-    }
-
-    @include tablet {
-      width: 70%;
-    }
-  }
 }

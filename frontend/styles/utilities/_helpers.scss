@@ -106,7 +106,9 @@
   padding-right: 0;
 }
 
-
+.no-margin-bottom {
+  margin-bottom: 0;
+}
 
 // Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
 %cf {
