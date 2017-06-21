@@ -20,10 +20,12 @@ n/a
 
 ### Security
 n/a -->
+## 0.2.2 - 2017-06-21
+### Added
+* trello-108 steps pattern
 
 ## 0.2.1 - 2017-06-20
 ### Added
-* trello-108 steps pattern
 * trello-157 release procedure documentation
 ### Changed
 * trello-99 grid to pattern library
