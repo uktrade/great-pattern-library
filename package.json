@@ -10,8 +10,7 @@
     "develop": "npm run start-server & ./node_modules/.bin/gulp",
     "test": "./node_modules/.bin/gulp lint",
     "build": "./node_modules/.bin/gulp build",
-    "watch": "./node_modules/.bin/gulp watch",
-    "heroku-postbuild": "gulp build"
+    "watch": "./node_modules/.bin/gulp watch"
   },
   "dependencies": {
     "babel-core": "6.3.26",
@@ -26,6 +25,7 @@
     "gulp-load-plugins": "1.5.0",
     "gulp-sass": "3.1.0",
     "jquery": "1.11.2",
+    "js-beautify": "^1.6.14",
     "lazysizes": "^4.0.0-rc1",
     "node-sass": "4.5.2",
     "node-sass-import": "^1.1.0",

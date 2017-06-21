@@ -20,6 +20,10 @@ n/a
 
 ### Security
 n/a -->
+## 0.2.3 - 2017-06-21
+### Fixed
+* deployment error (added js-beautify to npm dependancies)
+
 ## 0.2.2 - 2017-06-21
 ### Added
 * trello-108 steps pattern
