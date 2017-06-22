@@ -18,6 +18,11 @@ The Great Pattern Library takes on some of the priciples of [Atomic Design](http
 
 - [ ] find a way to distribute versioned components so that changes can be made in a way that does not break existing sites (i.e. frontend micro-architecture)
 - [ ] document release procedure
+### Other teams backend
+* IIGB - Node (Nunjucks)
+* SSO - Python
+* ExOpps - Ruby (HAML)
+* ExRed - Python
 
 ## Demo
 * Latest release: http://styleguide.uktrade.io/
