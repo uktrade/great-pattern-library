@@ -1,6 +1,6 @@
-[![CircleCI](https://circleci.com/gh/uktrade/dit-pattern-library/tree/master.svg?style=svg)](https://circleci.com/gh/uktrade/dit-pattern-library/tree/master)
-[![dependencies Status](https://david-dm.org/uktrade/dit-pattern-library/status.svg)](https://david-dm.org/uktrade/dit-pattern-library)
-[![devDependencies Status](https://david-dm.org/uktrade/dit-pattern-library/dev-status.svg)](https://david-dm.org/uktrade/dit-pattern-library?type=dev)
+[![CircleCI](https://circleci.com/gh/uktrade/great-pattern-library/tree/master.svg?style=svg)](https://circleci.com/gh/uktrade/great-pattern-library/tree/master)
+[![dependencies Status](https://david-dm.org/uktrade/great-pattern-library/status.svg)](https://david-dm.org/uktrade/great-pattern-library)
+[![devDependencies Status](https://david-dm.org/uktrade/great-pattern-library/dev-status.svg)](https://david-dm.org/uktrade/great-pattern-library?type=dev)
 
 # Great Pattern Library
 This Great Pattern Library (GPL) is a set of shared UI components and patterns used on the great.gov.uk sites.
