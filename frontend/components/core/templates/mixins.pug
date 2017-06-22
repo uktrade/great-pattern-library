@@ -13,40 +13,40 @@ mixin h4(text, attrs)
 mixin p(text, attrs)
   p=text
 
-mixin p--no-margin-bottom(text, attrs)
+mixin p__no_margin_bottom(text, attrs)
   p.no-margin-bottom=text
 
-mixin p--xsmall(text, attrs)
+mixin p__xsmall(text, attrs)
   p.font-xsmall=text
 
-mixin p--small(text, attrs)
+mixin p__small(text, attrs)
   p.font-small=text
 
-mixin p--large(text, attrs)
+mixin p__large(text, attrs)
   p.font-large=text
 
-mixin p--xlarge(text, attrs)
+mixin p__xlarge(text, attrs)
   p.font-xlarge=text
 
 mixin a(text, attrs)
   a.link(href='attrs[href]') This is a web hyperlink.
 
 mixin button(text, attrs)
-  -
-    let aExtraClasses = ['button']
-    let sExtraClasses = ''
-    if (attrs.colour) {
-      if (attrs.transparent) {
-        aExtraClasses.push(`button-border`)
-        aExtraClasses.push(`button-transparent-${attrs.colour}`)
-      }
-      else {
-        aExtraClasses.push(`button-${attrs.colour}`)
-      }
-
-    }
-    if (attrs.size) {
-      aExtraClasses.push(`button-${attrs.size}`)
-    }
-    sExtraClasses = aExtraClasses.join(' ')
+  // -
+  //   let aExtraClasses = ['button']
+  //   let sExtraClasses = ''
+  //   if (attrs.colour) {
+  //     if (attrs.transparent) {
+  //       aExtraClasses.push(`button-border`)
+  //       aExtraClasses.push(`button-transparent-${attrs.colour}`)
+  //     }
+  //     else {
+  //       aExtraClasses.push(`button-${attrs.colour}`)
+  //     }
+  //
+  //   }
+  //   if (attrs.size) {
+  //     aExtraClasses.push(`button-${attrs.size}`)
+  //   }
+  //   sExtraClasses = aExtraClasses.join(' ')
   button(href='attrs[href]', title='attrs[title]', class=''+sExtraClasses)=text
