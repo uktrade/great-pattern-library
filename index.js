@@ -143,7 +143,8 @@ app.get('/patterns', function (request, response) {
       header: `${patternsPath}/header.pug`,
       footer: `${patternsPath}/footer.pug`,
       steps: `${patternsPath}/steps.pug`,
-      stepsOnGrid: `${patternsPath}/steps--on-grid.pug`
+      stepsOnGrid: `${patternsPath}/steps--on-grid.pug`,
+      heroBanner: `${patternsPath}/hero-banner.pug`
     }
   }
 

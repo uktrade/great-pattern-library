@@ -1,0 +1,33 @@
+$hero-transparent-from: rgba(0, 0, 0, .2);
+$hero-transparent-to: rgba(0, 0, 0, .3);
+
+.hero-banner {
+  @include mobile-plus {
+    height: 500px;
+  }
+  background-image: linear-gradient(to bottom, $hero-transparent-from, $hero-transparent-to);
+  color: $white;
+  padding: 120px $gutter $gutter;
+  width: 100%;
+
+  &__content {
+    max-width: 500px;
+  }
+
+  .h1 {
+    line-height: 1.25;
+
+    &::after {
+      @include mobile-plus {
+        margin-bottom: 0;
+      }
+      background-color: $great-red;
+      content: '';
+      display: block;
+      height: 4px;
+      margin-bottom: $gds-base-spacing-unit;
+      margin-top: $gutter;
+      width: 70px;
+    }
+  }
+}

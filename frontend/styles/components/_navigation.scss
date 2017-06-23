@@ -95,17 +95,17 @@
             display: block;
             padding-bottom: 10px;
 
-            &:after {
+            &::after {
               border: {
                 bottom: 10px solid transparent;
-                left: 15px solid $great-red;
+                left: $gds-base-spacing-unit solid $great-red;
                 top: 10px solid transparent;
               }
               content: '';
               height: 0;
               left: 0;
               position: absolute;
-              top: 15px;
+              top: $gds-base-spacing-unit;
               width: 0;
             }
           }
@@ -190,7 +190,7 @@
     background-color: $light-blue;
     border-left: 2px solid $black;
     border-radius: 0;
-    font-size: 15px;
+    font-size: $gds-base-spacing-unit;
     font-weight: 400;
     padding: 8px 10px 5px;
     position: absolute;
@@ -199,7 +199,7 @@
 
     .icon {
       height: 12px;
-      line-height: 15px;
+      line-height: $gds-base-spacing-unit;
       margin-right: 2px;
       top: 1px;
       width: 25px;

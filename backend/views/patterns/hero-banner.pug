@@ -1,0 +1,8 @@
+include ../../../frontend/components/core/templates/mixins.pug
+-
+  let attrsWhiteTrans = {colour: 'white', transparent: true}
+.hero-banner
+  .hero-banner__content
+    +h1--unescaped('Expand your business<br />Export overseas')
+    +p('We can give you the help and support you need to increase your business.')
+    +button('Get started', attrsWhiteTrans)
