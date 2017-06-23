@@ -1,7 +1,86 @@
+.form {
+  &-control {
+    @extend %light;
+    background-color: $form-field-background;
+    border: 1px solid $form-field-border-color;
+    font-family: $brand-font-family;
+    font-size: 16px;
+    padding: 10px;
+    width: 75%;
+  }
+
+  &-label {
+    @extend %medium;
+    color: $form-label-color;
+    font: {
+      family: $brand-font-family;
+      size: 18px;
+    }
+    margin-bottom: 10px;
+
+    @include mobile {
+      font-size: 19px;
+    }
+  }
+
+  &-group {
+    &-error {
+      border-left: 10px solid $form-error-color;
+      padding-left: 20px;
+    }
+  }
+}
+
+.error-message {
+  color: $great-red;
+}
+
 input,
 textarea,
 select {
   &:focus {
     outline: 3px solid $focus-yellow;
+  }
+}
+
+
+.multiple-choice {
+
+  [type='checkbox'] + label {
+
+    &::before {
+      border: {
+        color: $grey;
+        radius: 4px;
+        style: solid;
+        width: 2px;
+      }
+      height: 25px;
+      width: 25px;
+    }
+
+    &::after {
+      color: $mid-blue;
+      height: 5px;
+      left: 5px;
+      top: 8px;
+      width: 14px;
+    }
+  }
+
+  [type='radio'] + label {
+
+    &::before {
+      color: $grey;
+      height: 30px;
+      top: 0;
+      width: 30px;
+    }
+
+    &::after {
+      color: $mid-blue;
+      left: 7px;
+      top: 7px;
+    }
   }
 }
