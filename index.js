@@ -50,17 +50,17 @@ app.get('/', function (request, response) {
     },
     paragraphs: {
       'p': `${partialsPath}/p.pug`,
-      'p--large': `${partialsPath}/p--large.pug`,
-      'p--small': `${partialsPath}/p--small.pug`,
-      'p--xsmall': `${partialsPath}/p--xsmall.pug`
+      'p--large': `${partialsPath}/p__large.pug`,
+      'p--small': `${partialsPath}/p__small.pug`,
+      'p--xsmall': `${partialsPath}/p__xsmall.pug`
     },
     links: {
       'a': `${partialsPath}/a.pug`
     },
     buttons: {
       'buttons--normal': `${partialsPath}/buttons.pug`,
-      'buttons--large': `${partialsPath}/buttons--large.pug`,
-      'buttons--transparent': `${partialsPath}/buttons--transparent.pug`
+      'buttons--large': `${partialsPath}/buttons__large.pug`,
+      'buttons--transparent': `${partialsPath}/buttons__transparent.pug`
     }
   }
 
@@ -82,9 +82,9 @@ app.get('/colours-typography', function (request, response) {
     },
     paragraphs: {
       'p': `${partialsPath}/p.pug`,
-      'p--large': `${partialsPath}/p--large.pug`,
-      'p--small': `${partialsPath}/p--small.pug`,
-      'p--xsmall': `${partialsPath}/p--xsmall.pug`
+      'p--large': `${partialsPath}/p__large.pug`,
+      'p--small': `${partialsPath}/p__small.pug`,
+      'p--xsmall': `${partialsPath}/p__xsmall.pug`
     }
   }
 
@@ -104,8 +104,8 @@ app.get('/links-buttons', function (request, response) {
     },
     buttons: {
       'buttons--normal': `${partialsPath}/buttons.pug`,
-      'buttons--large': `${partialsPath}/buttons--large.pug`,
-      'buttons--transparent': `${partialsPath}/buttons--transparent.pug`
+      'buttons--large': `${partialsPath}/buttons__large.pug`,
+      'buttons--transparent': `${partialsPath}/buttons__transparent.pug`
     }
   }
 
@@ -143,7 +143,7 @@ app.get('/patterns', function (request, response) {
       header: `${patternsPath}/header.pug`,
       footer: `${patternsPath}/footer.pug`,
       steps: `${patternsPath}/steps.pug`,
-      stepsOnGrid: `${patternsPath}/steps--on-grid.pug`
+      stepsOnGrid: `${patternsPath}/steps__on_grid.pug`
     }
   }
 
