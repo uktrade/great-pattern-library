@@ -114,3 +114,5 @@ whoosh_index*
 
 # other
 ngrok.yml
+package-lock.json
+

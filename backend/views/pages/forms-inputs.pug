@@ -16,19 +16,25 @@ block content
   </div>
   `)
 
+  +codeblock('html', 'Textarea', `
+  <label class="form-label" for="textarea">Why can't you provide a National Insurance number?</label>
+  <textarea class="form-control form-control-3-4" name="textarea" id="textarea" rows="5"></textarea>
+  `)
+
+
   +codeblock('html', 'Radio buttons', `
   <form>
     <div class="form-group">
       <fieldset class="inline">
-        <legend class="visuallyhidden">Do you already have a personal user account?</legend>
-        <label class="block-label" for="radio-inline-1">
-          <input id="radio-inline-1" name="radio-inline-group" value="Yes" type="radio">
-          Yes
-        </label>
-        <label class="block-label" for="radio-inline-2">
-          <input id="radio-inline-2" name="radio-inline-group" value="No" type="radio">
-          No
-        </label>
+        <legend class="visually-hidden">Do you already have a personal user account?</legend>
+        <div class="multiple-choice">
+          <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+          <label for="radio-inline-1">Yes</label>
+        </div>
+        <div class="multiple-choice">
+          <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+          <label for="radio-inline-2">No</label>
+        </div>
       </fieldset>
     </div>
   </form>
@@ -37,31 +43,42 @@ block content
   +codeblock('html', 'Check boxes', `
   <form>
     <fieldset>
-      <legend class="visuallyhidden">Which types of waste do you transport regularly?</legend>
-      <label class="block-label" for="waste-type-1">
-        <input id="waste-type-1" name="waste-types" value="waste-animal" type="checkbox">
-        Waste from animal carcasses
-      </label>
-      <label class="block-label" for="waste-type-2">
-        <input id="waste-type-2" name="waste-types" value="waste-mines" type="checkbox">
-        Waste from mines or quarries
-      </label>
-      <label class="block-label" for="waste-type-3">
-        <input id="waste-type-3" name="waste-types" value="waste-farm-agricultural" type="checkbox">
-        Farm or agricultural waste
-      </label>
+      <legend>
+        <span class="visually-hidden">Which types of waste do you transport regularly?</span>
+        <span class="body-text">Select all that apply</span>
+      </legend>
+      <div class="multiple-choice">
+        <input id="waste-type-1" name="waste-types" type="checkbox" value="waste-animal">
+        <label for="waste-type-1">Waste from animal carcasses</label>
+      </div>
+      <div class="multiple-choice">
+        <input id="waste-type-2" name="waste-types" type="checkbox" value="waste-mines">
+        <label for="waste-type-2">Waste from mines or quarries</label>
+      </div>
+      <div class="multiple-choice">
+        <input id="waste-type-3" name="waste-types" type="checkbox" value="waste-farm-agricultural">
+        <label for="waste-type-3">Farm or agricultural waste</label>
+      </div>
     </fieldset>
   </form>
   `)
 
-  +codeblock('html', 'Label', `
+  +codeblock('html', 'Select box', `
   <div class="form-group">
     <label class="form-label" for="select-box">This is the label text</label>
-    <select class="form-control" id="select-box">
+    <select class="form-control" id="select-box" name="select-box">
       <option>GOV.UK elements option 1</option>
       <option>GOV.UK elements option 2</option>
       <option>GOV.UK elements option 3</option>
     </select>
+  </div>
+  `)
+
+  +codeblock('html', 'Input field with error message', `
+  <div class="form-group form-group-error">
+    <span class="error-message">Error message about full name goes here</span>
+    <label class="form-label" for="first-name-2">First name</label>
+    <input class="form-control" id="first-name-2" name="first-name-2" type="text">
   </div>
   `)
 
