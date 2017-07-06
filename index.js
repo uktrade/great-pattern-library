@@ -82,6 +82,7 @@ app.get('/colours-typography', function (request, response) {
     },
     paragraphs: {
       'p': `${partialsPath}/p.pug`,
+      'p--lead': `${partialsPath}/p--lead.pug`,
       'p--large': `${partialsPath}/p--large.pug`,
       'p--small': `${partialsPath}/p--small.pug`,
       'p--xsmall': `${partialsPath}/p--xsmall.pug`

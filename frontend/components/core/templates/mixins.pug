@@ -1,3 +1,4 @@
+//- mixins named using BEM syntax to main consistency with CSS naming conventions
 mixin h1(text, attrs)
   h1.h1=text
 
@@ -8,7 +9,7 @@ mixin h3(text, attrs)
   h3.h3=text
 
 mixin h4(text, attrs)
-  // @deprecated - removed in next minor version - v0.3
+  //- @deprecated - removed in next minor version - v0.3
   h4.h4=text
 
 mixin p(text, attrs)
@@ -18,7 +19,7 @@ mixin p--no-margin-bottom(text, attrs)
   p.no-margin-bottom=text
 
 mixin p--xsmall(text, attrs)
-  // @deprecated - removed in next minor version - v0.3
+  //- @deprecated - removed in next minor version - v0.3
   p.font-xsmall=text
 
 mixin p--small(text, attrs)
@@ -27,8 +28,8 @@ mixin p--small(text, attrs)
 mixin p--large(text, attrs)
   p.font-large=text
 
-mixin p--xlarge(text, attrs)
-  p.font-xlarge=text
+mixin p--lead(text, attrs)
+  p.font-lead=text
 
 mixin blockquote(text, attrs)
   blockquote.font-quote=text

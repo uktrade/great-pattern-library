@@ -32,10 +32,11 @@
 }
 
 @mixin mobile-plus {
-  @media #{$media-tablet} and #{$media-desktop} {
+  @media #{$media-mobile-plus} {
     @content;
   }
 }
+
 
 @mixin tablet {
   @media #{$media-tablet} {

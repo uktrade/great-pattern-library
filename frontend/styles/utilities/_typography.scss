@@ -29,41 +29,31 @@ body {
 %h1 {
   @extend %medium;
   @include bottom-margin(0);
-  @include font($h1-font-size-mobile, -1px, 55px);
+  @include font($h1-font-size-mobile, -1px, 40px);
 
-  @include tablet {
+  @include mobile-plus {
     @include bottom-margin(1);
     font-size: $h1-font-size-desktop;
     font-weight: 500;
-  }
-
-  @include desktop {
-    @include bottom-margin(1);
-    font-size: $h1-font-size-desktop;
-    font-weight: 500;
+    line-height: 55px;
   }
 }
 
 %h2 {
   @include bottom-margin(1);
   @include font($h2-font-size-mobile, -.7px, 32px);
-  @include tablet {
+  @include mobile-plus {
     @include font($h2-font-size-desktop, -.6px, 40px);
   }
-  @include desktop {
-    @include font($h2-font-size-desktop, -.6px, 40px);
-  }
+
 }
 
 %h3 {
   @include bottom-margin(1);
-  @include font($h3-font-size-mobile, 0, 28px);
+  @include font($h3-font-size-mobile, 0, 1.39);
 
-  @include tablet {
-    @include font($h3-font-size-desktop, 0, 32px);
-  }
-  @include desktop {
-    @include font($h3-font-size-desktop, 0, 32px);
+  @include mobile-plus {
+    @include font($h3-font-size-desktop, 0, 31px);
   }
 }
 
@@ -71,10 +61,7 @@ body {
   @include bottom-margin(1);
   @include font($h4-font-size-mobile, 0, 25px);
 
-  @include tablet {
-    @include font($h4-font-size-desktop, 0, 25px);
-  }
-  @include desktop {
+  @include mobile-plus {
     @include font($h4-font-size-desktop, 0, 25px);
   }
 }
@@ -113,8 +100,17 @@ body {
     @extend %medium;
   }
 
-  &-large {
-    @extend %h4;
+  &-lead {
+    // @extend %h4;
+    // line-height: 32px;
+
+    @include font($h3-font-size-mobile, 0, 32px);
+
+    @include mobile-plus {
+      @include font($h3-font-size-desktop, 0, 25px);
+    }
+
+    font-weight: 300;
   }
 
   &-xlarge {
