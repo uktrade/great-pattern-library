@@ -20,7 +20,7 @@ The Great Pattern Library takes on some of the priciples of [Atomic Design](http
 - [ ] document release procedure
 ### Other teams backend
 * IIGB - Node (Nunjucks)
-* SSO - Python
+* FAB/FAS/SSO/Profile - Python
 * ExOpps - Ruby (HAML)
 * ExRed - Python
 
@@ -51,7 +51,14 @@ Browsersync also syncs UI interactions across multiple browsers which helps whic
 
 
 ### Production
+
+#### Compiling CSS during your deployment
+Run the following command to compile the css files:
+
     npm run build && npm start
+
+#### Pre-compiled CSS
+The CSS files are also available pre-compiled in `static/styles`. These are useful if your project does not fit the "compile css during deployment" approach.
 
 ### Run tests
 
@@ -68,6 +75,10 @@ A description of the GitFlow strategy can be found here:
 The log of changes for each release can be found in the [CHANGELOG.md](./CHANGELOG.md) file.
 
 ### Procedure
+
+#### Development
+The compiled css in this project should always be added/updated in version control. This allows the utilisation of this library by projects that cannot compile the css during deployment due to technical constraints, or choose not to for other reasons.
+
 #### New feature
 1. ```feature``` branch is created (from the ```develop``` branch) to carry out the work to complete the feature
 2. A github pull request (PR) is created when the ```feature``` is ready to considered for merging back into the ```develop``` before code review.
