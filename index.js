@@ -85,6 +85,9 @@ app.get('/colours-typography', function (request, response) {
       'p--large': `${partialsPath}/p--large.pug`,
       'p--small': `${partialsPath}/p--small.pug`,
       'p--xsmall': `${partialsPath}/p--xsmall.pug`
+    },
+    quotes: {
+      'blockquote': `${partialsPath}/blockquote.pug`
     }
   }
 

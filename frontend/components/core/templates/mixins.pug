@@ -8,6 +8,7 @@ mixin h3(text, attrs)
   h3.h3=text
 
 mixin h4(text, attrs)
+  // @deprecated - removed in next minor version - v0.3
   h4.h4=text
 
 mixin p(text, attrs)
@@ -17,6 +18,7 @@ mixin p--no-margin-bottom(text, attrs)
   p.no-margin-bottom=text
 
 mixin p--xsmall(text, attrs)
+  // @deprecated - removed in next minor version - v0.3
   p.font-xsmall=text
 
 mixin p--small(text, attrs)
@@ -27,6 +29,9 @@ mixin p--large(text, attrs)
 
 mixin p--xlarge(text, attrs)
   p.font-xlarge=text
+
+mixin blockquote(text, attrs)
+  blockquote.font-quote=text
 
 mixin a(text, attrs)
   a.link(href='attrs[href]') This is a web hyperlink.

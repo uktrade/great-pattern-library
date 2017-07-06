@@ -50,7 +50,8 @@ block content
 
   +codeblock('html', 'Level 3 header', headers.h3)
 
-  +codeblock('html', 'Level 4 header', headers.h4)
+  // h4 deprecated - removed in next minor version - v0.3
+  //+codeblock('html', 'Level 4 header', headers.h4)
 
   +codeblock('html', 'Paragraph', paragraphs.p)
 
@@ -58,7 +59,10 @@ block content
 
   +codeblock('html', 'Paragraph (small)', paragraphs['p--small'])
 
-  +codeblock('html', 'Paragraph (extra small)', paragraphs['p--xsmall'])
+  // xsmall deprecated - removed in next minor version - v0.3
+  //- +codeblock('html', 'Paragraph (extra small)', paragraphs['p--xsmall'])
+
+  +codeblock('html', 'Blockquote', quotes['blockquote'])
 
   section(id="section-lists")
   h2.h2 Lists
