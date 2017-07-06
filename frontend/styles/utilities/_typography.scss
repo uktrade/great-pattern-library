@@ -107,10 +107,10 @@ body {
     @include font($h3-font-size-mobile, 0, 32px);
 
     @include mobile-plus {
-      @include font($h3-font-size-desktop, 0, 25px);
+      @include font($h3-font-size-desktop, 0, 32px);
     }
 
-    font-weight: 300;
+    font-weight: 400;
   }
 
   &-xlarge {
