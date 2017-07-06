@@ -20,6 +20,11 @@ n/a
 
 ### Security
 n/a -->
+## 0.2.6 - 2017-07-06
+### Added
+* GDS compliant forms
+* Roadmap docs file
+
 ## 0.2.5 - 2017-06-21
 ### Fixed
 * deployment error (added js-beautify to npm dependancies).. again!
