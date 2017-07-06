@@ -1,0 +1,22 @@
+.navigationBar {
+	&-link {
+    margin: 0px 3px;
+    padding: 5px 8px 4px;
+    &:hover,
+    &--active {
+
+      &:after {
+        border-top: 3px solid $great-red;
+        content: '';
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+
+    &--secondary {
+
+    }
+  }
+}
