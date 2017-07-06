@@ -39,7 +39,7 @@ The Great Pattern Library takes on some of the priciples of [Atomic Design](http
 
 Then in your web browser open this URL:  <http://localhost:5000/>
 
-This command will run ```node index.js``` which runs the express server follwed by the default ```gulp```command.
+This command will run ```node index.js``` which runs the express server followed by the default ```gulp```command.
 
 The default ```gulp``` command does the following:
 * builds the frontend assets
