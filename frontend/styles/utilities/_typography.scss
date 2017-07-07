@@ -59,7 +59,7 @@ body {
 
 %h4 {
   @include bottom-margin(1);
-  @include font($h4-font-size-mobile, 0, 25px);
+  @include font($h4-font-size-mobile, 0, 22px);
 
   @include mobile-plus {
     @include font($h4-font-size-desktop, 0, 25px);
@@ -101,16 +101,17 @@ body {
   }
 
   &-lead {
-    // @extend %h4;
-    // line-height: 32px;
-
-    @include font($h3-font-size-mobile, 0, 32px);
+    @include font($h3-font-size-mobile, 0, 25px);
 
     @include mobile-plus {
       @include font($h3-font-size-desktop, 0, 32px);
     }
 
     font-weight: 400;
+  }
+
+  &-large {
+    @extend %h4;
   }
 
   &-xlarge {
@@ -130,6 +131,7 @@ body {
     color: $grey;
     font-family: Georgia;
     font-size: 24px;
+    font-style: italic;
     font-weight: regular;
     line-height: 32px;
   }
