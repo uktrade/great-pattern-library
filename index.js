@@ -135,7 +135,17 @@ app.get('/forms-inputs', function (request, response) {
 })
 
 app.get('/blocks-media', function (request, response) {
+  const templatePaths = {
+    panels: {
+      'panel--no-border': `${partialsPath}/blocks/panel--no-border.pug`
+    }
+  }
   let context = getBaseContext()
+
+  // go through template paths sections and populate output
+  Object.getOwnPropertyNames(templatePaths).forEach(section => {
+    Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
+  })
   // let templatePath = `${patternsPath}/typography.pug`
   response.render('pages/blocks-media', context)
 })

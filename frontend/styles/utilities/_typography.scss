@@ -31,7 +31,7 @@ body {
   @include bottom-margin(0);
   @include font($h1-font-size-mobile, -1px, 40px);
 
-  @include mobile-plus {
+  @include mobile-up {
     @include bottom-margin(1);
     font-size: $h1-font-size-desktop;
     font-weight: 500;
@@ -42,7 +42,7 @@ body {
 %h2 {
   @include bottom-margin(1);
   @include font($h2-font-size-mobile, -.7px, 32px);
-  @include mobile-plus {
+  @include mobile-up {
     @include font($h2-font-size-desktop, -.6px, 40px);
   }
 
@@ -52,7 +52,7 @@ body {
   @include bottom-margin(1);
   @include font($h3-font-size-mobile, 0, 1.39);
 
-  @include mobile-plus {
+  @include mobile-up {
     @include font($h3-font-size-desktop, 0, 31px);
   }
 }
@@ -61,7 +61,7 @@ body {
   @include bottom-margin(1);
   @include font($h4-font-size-mobile, 0, 22px);
 
-  @include mobile-plus {
+  @include mobile-up {
     @include font($h4-font-size-desktop, 0, 25px);
   }
 }
@@ -103,7 +103,7 @@ body {
   &-lead {
     @include font($h3-font-size-mobile, 0, 25px);
 
-    @include mobile-plus {
+    @include mobile-up {
       @include font($h3-font-size-desktop, 0, 32px);
     }
 

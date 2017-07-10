@@ -31,8 +31,8 @@
   }
 }
 
-@mixin mobile-plus {
-  @media #{$media-mobile-plus} {
+@mixin mobile-up {
+  @media #{$media-mobile-up} {
     @content;
   }
 }
