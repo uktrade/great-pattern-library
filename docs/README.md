@@ -22,7 +22,7 @@ The Great Pattern Library takes on some of the priciples of [Atomic Design](http
 * IIGB - Node (Nunjucks)
 * FAB/FAS/SSO/Profile - Python
 * ExOpps - Ruby (HAML)
-* ExRed - Python
+* ExRed - Python (Jinja/Pug)
 
 ## Demo
 * Latest release: http://styleguide.uktrade.io/
@@ -86,12 +86,10 @@ The compiled css in this project should always be added/updated in version contr
 
 #### Full release
 1. When ready to make a new release (end of each sprint) create a release branch from the develop branch (i.e. ```release/1.0.1```) to begin the release process.
-2. Inside the release branch add/amend documentation where necessary (including the [README.md](./README.md) and [CHANGELOG.md](./CHANGELOG.md) files).
+2. Inside the release branch add/amend documentation where necessary (including the [README.md](./README.md) and [CHANGELOG.md](./CHANGELOG.md) files). Update the [CHANGELOG.md](./CHANGELOG.md) file to reflect the new version (being sure that there is a new 'unreleased section' for the next release)
 3. Submit the release branch to a UAT environment for user testing to begin.
 4. Once the release has passed user testing. The release branch can be merged into the master branch.
 5. From the master branch both; update the version of the package.json file, and add a git tag with the release version number (```npm version``` command).
-6. Update the [CHANGELOG.md](./CHANGELOG.md) file to reflect the new version (being sure that there is a new 'unreleased section' for the next release)
-
 
 
 ## Designs

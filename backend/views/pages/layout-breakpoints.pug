@@ -17,6 +17,10 @@ block content
         td.styleguide__td 0
         td.styleguide__td 767
       tr.styleguide__tr
+        td.styleguide__td(scope='row') mobile-up
+        td.styleguide__td 768
+        td.styleguide__td 768+
+      tr.styleguide__tr
         td.styleguide__td(scope='row') tablet
         td.styleguide__td 768
         td.styleguide__td 959
@@ -24,11 +28,22 @@ block content
         td.styleguide__td(scope='row') desktop
         td.styleguide__td 960
         td.styleguide__td 1200+
-    //- ul
-    //-   li mobile = less than or equal to 767px
-    //-   li tablet = greater than or equal to 768px and less than or equal to 959px
-    //-   li desktop = greater than or equal to 960px
     p The pattern library comes with mixins named after each breakpoint class (mobile, tablet, desktop) to help developers implement the breakpoints.
+    h2.h2 Spacing
+
+    p General speaking spacing follows GDS guidelines of multiples of 15px
+
+    table.styleguide__table
+      tr.styleguide__tr
+        th.styleguide__th(scope='col') Breakpoint class
+        th.styleguide__th(scope='col') Gutter (px)
+      tr.styleguide__tr
+        td.styleguide__td mobile
+        td.styleguide__td 15px
+      tr.styleguide__tr
+        td.styleguide__td mobile-up
+        td.styleguide__td 30px
+
   section(id="section-layout")
     h2.h2 Layout
     +codeblock('html', 'Grid', `

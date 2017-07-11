@@ -124,6 +124,7 @@ body {
   }
 
   &-xsmall {
+    // @deprecated - remove in v0.3
     @include font($xsmall, normal, $xsmall);
   }
 
