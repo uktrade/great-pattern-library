@@ -1,0 +1,17 @@
+.chevron {
+
+  position: relative;
+
+  &::after {
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-top: 40px solid #FFF;
+    content: '';
+    display: block;
+    left: 50%;
+    bottom: -40px;
+    z-index: 1;
+    position: absolute;
+    transform: translate3d(-50%, 0, 0);
+  }
+}

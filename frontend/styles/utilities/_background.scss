@@ -19,5 +19,8 @@
     &--#{$name} {
       background-color: $color;
     }
+    &--#{$name} .chevron::after {
+      border-top-color: $color;
+    }
   }
 }
