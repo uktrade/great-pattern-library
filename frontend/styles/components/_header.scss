@@ -1,8 +1,4 @@
-.globalHeader {
-  &__eiglogo {
-    padding: 17px 0 4px;
-  }
-}
+/* have split header into three parts */
 
 .topBar {
   height: 2em;
@@ -10,9 +6,16 @@
     display: block;
     padding: 0 5px 0 2px;
     position: relative;
-    top: 4px;
+    top: 6px;
     img {
       display: block;
+    }
+    &:after {
+      content: '|';
+      font-size: 20px;
+      position: absolute;
+      right: -3px;
+      top: 0
     }
   }
   &__logo-tagline {
@@ -22,7 +25,8 @@
     font-size: 14px;
     font-weight: 300;
     position: relative;
-    top: 4px;
+    top: 1px;
+    left: 6px;
     span {
       margin-right: 5px;
     }
@@ -38,7 +42,11 @@
   }
 }
 
-/* font-weight: 300 */
+.logoBar {
+  &__logo-eig {
+    padding: 17px 0 4px;
+  }
+}
 
 .navigationBar {
   min-height: 38px;
@@ -83,7 +91,7 @@
   }
 }
 
-.menuToggle {
+.mega-menuToggle {
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
@@ -102,3 +110,14 @@
   }
 }
 
+.mega-menu {
+  display: none;
+}
+
+/* */
+
+.js-enabled {
+  .mega-menu {
+    display: block;
+  }
+}
