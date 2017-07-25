@@ -165,7 +165,8 @@ app.get('/patterns', function (request, response) {
   let context = getBaseContext()
   // go through template paths sections and populate output
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
-    Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
+    Object.getOwnPropertyNames(templatePaths[section]).forEach(
+      renderComponentExample.bind(context, templatePaths, section))
   })
   // let templatePath = `${patternsPath}/typography.pug`
   response.render('pages/patterns', context)
