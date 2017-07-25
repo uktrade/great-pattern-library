@@ -15,11 +15,11 @@
 
   &__item {
     background-color: $light-blue;
+    border-radius: .5rem;
     color: $white;
     display: inline-block;
-    margin-bottom: .5rem;
-    margin-right: .5rem;
-    padding: .25rem;
+    margin: .25rem;
+    padding: .25rem .5rem;
 
     &--current {
       background-color: $great-blue;
