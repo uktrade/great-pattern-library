@@ -14,13 +14,16 @@
   padding: 1rem;
   width: 8rem;
 }
+
 @each $name, $color in $backgrounds {
   .background {
+
     &--#{$name} {
       background-color: $color;
-    }
-    &--#{$name} .chevron::after {
-      border-top-color: $color;
+
+      .chevron::after {
+        border-top-color: $color;
+      }
     }
   }
 }
