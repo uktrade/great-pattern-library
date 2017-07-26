@@ -7,7 +7,7 @@ rules:
   'pseudo-element': 0,
   'no-ids': 0,
   'mixins-before-declarations':
-    - 1
+    - 0
     -
       exclude: ['tablet', 'desktop']
   'no-duplicate-properties': 0,

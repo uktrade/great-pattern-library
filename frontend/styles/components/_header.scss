@@ -188,7 +188,7 @@
     font-weight: 300;
     letter-spacing: 0;
     line-height: 25px;
-    margin-bottom: 15px;
+    margin-bottom: 20px 0 15px;
   }
 
   &__list {
@@ -221,6 +221,7 @@
 
         a {
           border: 0;
+          display: inline-block;
           margin-left: 0;
           padding-bottom: 0;
         }
