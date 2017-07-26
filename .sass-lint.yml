@@ -6,7 +6,10 @@ rules:
   'no-mergeable-selectors': 1,
   'pseudo-element': 0,
   'no-ids': 0,
-  'mixins-before-declarations': 0,
+  'mixins-before-declarations':
+    - 1
+    -
+      exclude: ['tablet', 'desktop']
   'no-duplicate-properties': 0,
   'no-vendor-prefixes': 0,
   'single-line-per-selector': 0,
@@ -14,3 +17,4 @@ rules:
     - 0
     - allow-leading-underscore: true
       convention: hyphenatedbem
+

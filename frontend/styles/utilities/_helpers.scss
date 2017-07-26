@@ -1,3 +1,4 @@
+// sass-lint:disable no-important
 @import './mixins';
 // Based on https://github.com/csswizardry/inuit.css/blob/master/generic/_helper.scss
 
@@ -129,6 +130,10 @@
   }
 }
 
+.position-relative {
+  position: relative;
+}
+
 .hide {
   display: none;
 
@@ -164,3 +169,12 @@
     overflow: hidden;
   }
 }
+
+.collapse-on-mobile {
+  @include mobile {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+}
+

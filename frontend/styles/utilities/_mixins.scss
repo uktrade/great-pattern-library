@@ -20,6 +20,17 @@
   }
 }
 
+@mixin separator($font-size, $color: $grey-opacity-5, $right: 0, $top: 0) {
+  &::after {
+    color: $color;
+    content: '|';
+    font-size: $font-size;
+    position: absolute;
+    right: $right;
+    top: $top;
+  }
+}
+
 @mixin bottom-margin($multiple: 1) {
   margin-bottom: (15px * $multiple);
 }

@@ -2,6 +2,8 @@ extends ../layout/base.pug
 
 block content
   header.globalHeader(role='banner')
+    div(id='skiptocontent')
+      a(href='#maincontent') Skip to main content
     .background--dark-navy.cf
       nav.topBar
         .outer-container
@@ -20,15 +22,15 @@ block content
           a.float--left(href='https://www.export.great.gov.uk/', title='Go to the Exporting is GREAT homepage')
             img.logoBar__logo-eig(alt='Exporting is GREAT logo', src='/images/EiG_logo_horizontal.svg')
     .background--dark-blue.cf
-      .outer-container
+      .outer-container.position-relative
         nav.navigationBar
           ul.navigationBar__list
             li.navigationBar__list__item
-              a.navigationBar__link(title='new to exporting', href='https://www.export.great.gov.uk/new/') New to exporting
+              a.navigationBar__link.navigationBar__link--primary(title='new to exporting', href='https://www.export.great.gov.uk/new/') New to exporting
             li.navigationBar__list__item
-              a.navigationBar__link(title='occasional exporter', href='https://www.export.great.gov.uk/occasional/') Occasional exporter
-            li.navigationBar__list__item
-              a.navigationBar__link(title='regular exporter', href='https://www.export.great.gov.uk/regular/') Regular exporter
+              a.navigationBar__link.navigationBar__link--primary(title='occasional exporter', href='https://www.export.great.gov.uk/occasional/') Occasional exporter
+            li.navigationBar__list__item.navigationBar__list__item--noSeparator
+              a.navigationBar__link.navigationBar__link--primary(title='regular exporter', href='https://www.export.great.gov.uk/regular/') Regular exporter
             li.navigationBar__list__item
               a.navigationBar__link(href='https://www.export.great.gov.uk/opportunities', title='Export opportunities') Export opportunities
             li.navigationBar__list__item
@@ -37,47 +39,50 @@ block content
               a.navigationBar__link.active(href='https://selling-online-overseas.export.great.gov.uk/markets/', title='Selling online overseas') Selling online overseas
             li.navigationBar__list__item
               a.navigationBar__link(href='https://export.great.gov.uk/get-finance/', title='Get finance') Get finance
-            li.navigationBar__list__item
+            li.navigationBar__list__item.navigationBar__list__item--noSeparator
               a.navigationBar__link(href='https://events.trade.gov.uk/', title='Events') Events
-        a.menuToggle(href='', title='More')
-          i.icon
-          All
+        label.megaMenuToggle(for='megaMenu-disclosure', title='View more')
+          span(role='button', tabindex='0', aria-controls='headerMegaMenu', aria-expanded='true')
+            i.megaMenuToggle__icon
+            span.megaMenuToggle__text All
 
-    .navigation-toggle.background--dark-navy.navigation-toggle--open
-      .outer-container
-        .col-3
-          .navigation-toggle-services-section
-            h3.font-large.font-light-grey.font-light.push--bottom.hide-mobile Export readiness
-            ul.font-regular
-              li.navigation-toggle-item.navigation-toggle-services
-                a(title='new to exporting', href='https://www.export.great.gov.uk/new/') New to exporting
-              li.navigation-toggle-item.navigation-toggle-services
-                a(title='occasional exporter', href='https://www.export.great.gov.uk/occasional/') Occasional exporter
-              li.navigation-toggle-item.navigation-toggle-services
-                a.last(title='regular exporter', href='https://www.export.great.gov.uk/regular/') Regular exporter
-        .col-3
-          h3.font-large.font-light-grey.font-light.push--bottom.hide-mobile.soft--left Online tools
-          ul.navigation-toggle-middle
-            li.navigation-toggle-item
-              a(href='https://www.export.great.gov.uk/opportunities', title='Export opportunities') Export opportunities
-            li.navigation-toggle-item
-              a.navigation-toggle-active(href='http://find-a-buyer.export.great.gov.uk/', title='Find a buyer') Find a buyer
-            li.navigation-toggle-item
-              a(href='https://selling-online-overseas.export.great.gov.uk/markets/', title='Selling online overseas') Selling online overseas
-        .col-3
-          h3.font-large.font-light-grey.font-light.push--bottom.hide-mobile.soft--left Other support
-          ul.navigation-toggle-middle
-            li.navigation-toggle-item
-              a(href='https://export.great.gov.uk/get-finance/', title='Get finance') Get finance
-            li.navigation-toggle-item
-              a(href='https://events.trade.gov.uk/', title='Events') Events
-        .col-3
-          h3.font-large.font-light-grey.font-light.soft--left.push--bottom.hide-mobile About us
-          ul.navigation-toggle-middle
-            li.navigation-toggle-item
-              a(href='https://www.export.great.gov.uk/about/', title='About great.gov.uk') About great.gov.uk
-            li.navigation-toggle-item
-              a.last(href='https://contact-us.export.great.gov.uk/selling_online_overseas', title='Contact us') Contact us
+    input#megaMenu-disclosure.visuallyhidden(type='checkbox')
+    div#megaMenu.megaMenu
+      .background--dark-navy
+        .outer-container.collapse-on-mobile
+          .grid-container
+            .column-one-quarter.collapse-on-mobile
+              h3.megaMenu__heading.hide-mobile Export readiness
+              ul.megaMenu__list
+                li.megaMenu__list__item.megaMenu__list__item--primary
+                  a(title='new to exporting', href='https://www.export.great.gov.uk/new/') New to exporting
+                li.megaMenu__list__item.megaMenu__list__item--primary
+                  a(title='occasional exporter', href='https://www.export.great.gov.uk/occasional/') Occasional exporter
+                li.megaMenu__list__item.megaMenu__list__item--primary
+                  a.last(title='regular exporter', href='https://www.export.great.gov.uk/regular/') Regular exporter
+            .column-one-quarter.collapse-on-mobile
+              h3.megaMenu__heading.hide-mobile Online tools
+              ul.megaMenu__list
+                li.megaMenu__list__item
+                  a(href='https://www.export.great.gov.uk/opportunities', title='Export opportunities') Export opportunities
+                li.megaMenu__list__item
+                  a.navigation-toggle-active(href='http://find-a-buyer.export.great.gov.uk/', title='Find a buyer') Find a buyer
+                li.megaMenu__list__item
+                  a(href='https://selling-online-overseas.export.great.gov.uk/markets/', title='Selling online overseas') Selling online overseas
+            .column-one-quarter.collapse-on-mobile
+              h3.megaMenu__heading.hide-mobile Other support
+              ul.megaMenu__list
+                li.megaMenu__list__item
+                  a(href='https://export.great.gov.uk/get-finance/', title='Get finance') Get finance
+                li.megaMenu__list__item
+                  a(href='https://events.trade.gov.uk/', title='Events') Events
+            .column-one-quarter.collapse-on-mobile
+              h3.megaMenu__heading.hide-mobile About us
+              ul.megaMenu__list
+                li.megaMenu__list__item
+                  a(href='https://www.export.great.gov.uk/about/', title='About great.gov.uk') About great.gov.uk
+                li.megaMenu__list__item
+                  a.last(href='https://contact-us.export.great.gov.uk/selling_online_overseas', title='Contact us') Contact us
 
 
       
