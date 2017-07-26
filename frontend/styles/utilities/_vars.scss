@@ -31,20 +31,24 @@ $white: #fff;
 $link-colour: $mid-blue;
 
 // FONT SIZES
-$base-font-size: 16px;
+$base-font-size: 15px;
 $base-line-height: 23px;
-$h1-font-size-mobile: 32px;
-$h2-font-size-mobile: 24px;
-$h3-font-size-mobile: 18px;
-$h4-font-size-mobile: $base-font-size;
+$small: 13px;
+$xsmall: 14px;
 
 $h1-font-size-desktop: 48px;
 $h2-font-size-desktop: 32px;
 $h3-font-size-desktop: 24px;
 $h4-font-size-desktop: 18px;
-$paragraph-large-font-size: $h4-font-size-desktop;
-$small: 15px;
-$xsmall: 14px;
+
+$h1-font-size-mobile: $h2-font-size-desktop;
+$h2-font-size-mobile: $h3-font-size-desktop;
+$h3-font-size-mobile: $h4-font-size-desktop;
+$h4-font-size-mobile: $base-font-size;
+
+
+$paragraph-large-font-size: $h3-font-size-mobile;
+
 
 //BODY
 $body-background-color: $dark-white;

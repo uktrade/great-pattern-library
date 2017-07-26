@@ -20,6 +20,16 @@ n/a
 
 ### Security
 n/a -->
+
+## 0.2.7 - 2017-07-11
+### Added
+* panel with no border and chevron
+* compiled static assets to the repo (hopefully we can stop doing this as it create issues with version control conflicts). This should help projects where assets can't be compile on their build/hosting environment (i.e. GOV PAAS)
+### Changed
+* typography harmonisation changes - https://trello.com/c/NZPglQ1n/14-font-styles-library-update
+### Deprecated
+* font-xsmall class
+
 ## 0.2.6 - 2017-07-06
 ### Added
 * GDS compliant forms
@@ -28,7 +38,6 @@ n/a -->
 ## 0.2.5 - 2017-06-21
 ### Fixed
 * deployment error (added js-beautify to npm dependancies).. again!
-
 
 ## 0.2.4 - 2017-06-21
 ### Fixed
@@ -58,13 +67,5 @@ n/a -->
 * trello-139 default font weight
 * trello-138 update button styles
 * moved great.gov.uk header and footer to patterns page
-### Deprecated
-n/a
-
 ### Removed
 * removed great.gov.uk header and footer from library template
-### Fixed
-n/a
-
-### Security
-n/a

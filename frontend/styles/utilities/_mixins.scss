@@ -31,11 +31,12 @@
   }
 }
 
-@mixin mobile-plus {
-  @media #{$media-tablet} and #{$media-desktop} {
+@mixin mobile-up {
+  @media #{$media-mobile-up} {
     @content;
   }
 }
+
 
 @mixin tablet {
   @media #{$media-tablet} {

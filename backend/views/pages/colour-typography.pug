@@ -54,11 +54,16 @@ block content
 
   +codeblock('html', 'Paragraph', paragraphs.p)
 
+  +codeblock('html', 'Paragraph (lead)', paragraphs['p--lead'])
+
   +codeblock('html', 'Paragraph (large)', paragraphs['p--large'])
 
   +codeblock('html', 'Paragraph (small)', paragraphs['p--small'])
 
-  +codeblock('html', 'Paragraph (extra small)', paragraphs['p--xsmall'])
+  //- xsmall deprecated - removed in next minor version - v0.3
+  //- +codeblock('html', 'Paragraph (extra small)', paragraphs['p--xsmall'])
+
+  +codeblock('html', 'Blockquote', quotes['blockquote'])
 
   section(id="section-lists")
   h2.h2 Lists
