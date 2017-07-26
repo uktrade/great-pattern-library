@@ -111,7 +111,10 @@ gulp.task('watchForChanges', function () {
 
 gulp.task('lint:sass', () => gulp
     .src(SASS_FILES)
-    .pipe(plugins.sassLint())
+    .pipe(plugins.sassLint({
+      rules: {
+        'force-pseudo-nesting': 0
+      }}))
     .pipe(plugins.sassLint.format())
     .pipe(plugins.sassLint.failOnError())
 )
