@@ -69,25 +69,17 @@
 .navigationBar {
   display: none;
   height: 38px;
+  overflow: hidden;
 
   @include tablet {
     display: block;
-    overflow-y: scroll;
-  }
-
-  @include desktop {
-    display: block;
-    overflow-y: hidden;
   }
 
   &__list {
+    height: 38px;
     list-style: none;
     position: relative;
-
-    @include tablet {
-      height: 38px;
-      width: 140%;
-    }
+    width: 110%;
 
     &__item {
       display: inline-block;
@@ -215,6 +207,16 @@
         display: block;
         margin-left: 30px;
         padding-bottom: 10px;
+        position: relative;
+
+        &.current,
+        &:hover {
+          @include link-notch($great-red, -30px, 1px);
+          border-bottom-width: 1px;
+          border-color: $grey-opacity-5;
+          border-style: solid;
+          margin-bottom: 0;
+        }
       }
 
       @include tablet {
@@ -242,12 +244,4 @@
   position: absolute;
   top: -10px;
   width: 1px; // sass-lint:disable-line no-ids
-}
-
-.gradientWidget {
-  background: -o-linear-gradient(right, $dark-blue-opacity-0, $dark-blue-opacity-1);
-  background: -moz-linear-gradient(right, $dark-blue-opacity-0, $dark-blue-opacity-1);
-  background: linear-gradient(to right, $dark-blue-opacity-0, $dark-blue-opacity-1);
-  height: 38px;
-  width: 80px;
 }

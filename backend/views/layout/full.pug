@@ -18,37 +18,8 @@ html(lang='en')
   body
     script.
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled')
-    //- include ./header
-    header.gpl-header
-      h1.h1
-        a(href="/") Great Pattern Library
-      h2.h2 Version #{version}
-      nav.gpl-nav
-        -
-          let navLinks = [
-            {href: '/', text: 'Home'},
-            {href: '/layout-breakpoints/', text: 'Layout and breakpoints'},
-            {href: '/colours-typography/', text: 'Colour and typography'},
-            {href: '/links-buttons/', text: 'Links and buttons'},
-            {href: '/forms-inputs/', text: 'Forms and inputs'},
-            {href: '/blocks-media/', text: 'Blocks and media'},
-            {href: '/patterns/', text: 'Patterns'},
-            {href: '/header/', text: 'Header'},
-          ]
-          navLinks.forEach((item, i, arr) => {
-            let classes = []
-            if (item.href === req.path) {
-              classes.push('gpl-nav__item--current')
-            }
-            item.classes = classes
-          })
 
-        each item in navLinks
-          a.gpl-nav__item(href=`${item.href}`, class=item.classes) !{item.text}
-
-    .outer-container(id="content")
-        block content
-    // end of outer container
+    block content
 
     //- include ./footer
     block foot_scripts

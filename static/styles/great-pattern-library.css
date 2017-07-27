@@ -749,6 +749,24 @@ table {
   width: 100%;
 }
 
+.outer-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+  .outer-container {
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 960px) {
+  .outer-container {
+    padding: 0 30px;
+  }
+}
+
 .position-relative {
   position: relative;
 }
@@ -1650,32 +1668,20 @@ img {
 .navigationBar {
   display: none;
   height: 38px;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .navigationBar {
     display: block;
-    overflow-y: scroll;
-  }
-}
-
-@media (min-width: 960px) {
-  .navigationBar {
-    display: block;
-    overflow-y: hidden;
   }
 }
 
 .navigationBar__list {
+  height: 38px;
   list-style: none;
   position: relative;
-}
-
-@media (min-width: 768px) {
-  .navigationBar__list {
-    height: 38px;
-    width: 140%;
-  }
+  width: 110%;
 }
 
 .navigationBar__list__item {
@@ -1816,6 +1822,27 @@ img {
   display: block;
   margin-left: 30px;
   padding-bottom: 10px;
+  position: relative;
+}
+
+.megaMenu__list__item a.current, .megaMenu__list__item a:hover {
+  border-bottom-width: 1px;
+  border-color: rgba(250, 250, 250, 0.5);
+  border-style: solid;
+  margin-bottom: 0;
+}
+
+.megaMenu__list__item a.current::after, .megaMenu__list__item a:hover::after {
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #e41f13;
+  border-top: 10px solid transparent;
+  content: '';
+  height: 0;
+  left: -30px;
+  pointer-events: none;
+  position: absolute;
+  top: 1px;
+  width: 0;
 }
 
 @media (min-width: 768px) {
@@ -1837,14 +1864,6 @@ img {
   position: absolute;
   top: -10px;
   width: 1px;
-}
-
-.gradientWidget {
-  background: -o-linear-gradient(right, rgba(19, 41, 101, 0), #132965);
-  background: -moz-linear-gradient(right, rgba(19, 41, 101, 0), #132965);
-  background: linear-gradient(to right, rgba(19, 41, 101, 0), #132965);
-  height: 38px;
-  width: 80px;
 }
 
 .footer {

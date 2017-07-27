@@ -130,6 +130,18 @@
   }
 }
 
+.outer-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 10px;
+  @include tablet {
+    padding: 0 20px;
+  }
+  @include desktop {
+    padding: 0 30px;
+  }
+}
+
 .position-relative {
   position: relative;
 }
