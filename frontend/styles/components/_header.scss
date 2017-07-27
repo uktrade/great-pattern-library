@@ -1,4 +1,4 @@
-// sass-lint:disable mixins-before-declarations, no-ids, no-duplicate-properties
+// sass-lint:disable mixins-before-declarations, no-ids, no-duplicate-properties, declarations-before-nesting
 
 .topBar {
   height: 2em;
@@ -172,7 +172,6 @@
 }
 
 .megaMenu {
-  display: none;
 
   &__heading {
     color: $grey-tranquil;
@@ -208,10 +207,16 @@
         margin-left: 30px;
         padding-bottom: 10px;
         position: relative;
+        @include link-notch($great-red, -30px, 1px);
+        &::after {
+          opacity: 0;
+        }
 
         &.current,
         &:hover {
-          @include link-notch($great-red, -30px, 1px);
+          &::after {
+            opacity: 1;
+          }
           border-bottom-width: 1px;
           border-color: $grey-opacity-5;
           border-style: solid;
@@ -232,8 +237,12 @@
   }
 }
 
+#megaMenu-wrapper {
+  display: none;
+}
+
 #megaMenu-disclosure {
-  &:checked~#megaMenu {
+  &:checked~#megaMenu-wrapper {
     display: block; // sass-lint:disable-line no-ids
   }
 }
