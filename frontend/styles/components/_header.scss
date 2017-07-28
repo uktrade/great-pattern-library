@@ -48,7 +48,6 @@
 }
 
 .megaMenu {
-  padding: 28px 0 50px;
 
   &__heading {
     color: $grey-tranquil;
@@ -57,6 +56,7 @@
     letter-spacing: 0;
     line-height: 25px;
     margin-bottom: 5px;
+    padding-top: 28px;
   }
 
   &__list {
@@ -81,58 +81,56 @@
         }
       }
 
-      &--current {
-        a {
-          &::after {
-            opacity: 1;
-          }
-        }
-      }
-
       a {
-        border-bottom-width: 1px;
-        border-color: $grey-opacity-5;
-        border-style: solid;
         color: $white;
         display: block;
         margin-left: 30px;
         padding-bottom: 10px;
         position: relative;
-        @include mobile {
-          @include link-notch($great-red, -30px, 1px);
-        }
 
         &::after {
           opacity: 0;
         }
 
-        &.current,
         &:hover {
           &::after {
             opacity: 1;
           }
+        }
+
+        @include mobile {
+          @include link-notch($great-red, -30px, 1px);
           border-bottom-width: 1px;
           border-color: $grey-opacity-5;
           border-style: solid;
-          margin-bottom: 0;
+          margin-bottom: -1px;
         }
-      }
 
-      @include tablet {
-
-        a {
-          border: 0;
+        @include tablet  {
           display: inline-block;
           margin-left: 0;
           padding-bottom: 0;
+
           &:hover {
+            border-bottom-width: 1px;
+            border-color: $grey-opacity-5;
+            border-style: dashed;
+            margin-bottom: -1px;
           }
         }
       }
     }
 
-    &__item__link {
+    &__item--current {
+      a {
+        @include mobile {
+          @include link-notch($great-red, -30px, 1px);
 
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
     }
   }
 }
