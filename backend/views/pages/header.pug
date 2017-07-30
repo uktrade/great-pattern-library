@@ -4,10 +4,10 @@ block content
   header.globalHeader(role='banner')
     div(id='skiptocontent')
       a(href='#maincontent') Skip to main content
-    .background--dark-navy.cf
+    .background--dark-navy
       nav.topBar
         .outer-container
-          ul.list-inline.float--left
+          ul.topBar__logo.list-inline.float--left
             li.list-separators
               a.topBar__logo-hmg(href='https://www.gov.uk/', title='Go to the GOV.UK homepage')
                 img(alt='HM Government logo', src='/images/HM_Government_logo_horizontal.svg')
@@ -16,24 +16,25 @@ block content
                 span.hide-mobile
                   | Part of
                 strong.hide-mobil great.gov.uk
-          ul.list-inline.list-separators.float--right(id="sso-signin")
-            li.float--left.soft-half--right
-              a.link--white(href="" title="Sign in")
-                i.icon.icon--left.icon-sign-out
-                  span.visuallyhidden Sign in icon
-                span.hide-mobile Sign in
-            li.float--left.soft-half--left.hide-mobile
-              a.link--white(href="" title="Register")
-                span Register
+          .topBar__profile
+            ul.list-inline.list-separators.float--right(id="sso-signin")
+              li.float--left.soft-half--right
+                a.topBar__profile__link.link--white(href="" title="Sign in")
+                  i.icon.icon--left.icon-sign-out
+                    span.visuallyhidden Sign in icon
+                  span.hide-mobile Sign in
+              li.float--left.soft-half--left.hide-mobile
+                a.topBar__profile__link.link--white(href="" title="Register")
+                  span Register
 
-          ul.list-inline.list-separators(id="sso-signout" style="display:none")
-            li.float--left.soft-half--right
-              a.linkWithIcon--signout(href="https://profile.great.gov.uk/" title="Profile")
-                i.icon.icon-sign-out
-                span.hide-mobile Profile
-            li.float--left.soft-half--left.hide-mobile
-              a.link--white(href="https://sso.trade.great.gov.uk/accounts/logout/" title="Sign out")
-              span Sign out
+            ul.list-inline.list-separators(id="sso-signout" style="display:none")
+              li.float--left.soft-half--right
+                a.topBar__profile__link.linkWithIcon--signout(href="https://profile.great.gov.uk/" title="Profile")
+                  i.icon.icon-sign-out
+                  span.hide-mobile Profile
+              li.float--left.soft-half--left.hide-mobile
+                a.topBar__profile__link.link--white(href="https://sso.trade.great.gov.uk/accounts/logout/" title="Sign out")
+                span Sign out
     .background--great-blue.cf
       .outer-container
         .logoBar.cf

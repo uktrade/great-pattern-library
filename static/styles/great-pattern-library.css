@@ -1591,8 +1591,11 @@ img {
 }
 
 .topBar {
-  height: 23px;
-  padding: 8px 0 3px;
+  height: 35px;
+}
+
+.topBar__logo {
+  margin-top: 3px;
 }
 
 .topBar__logo-hmg {
@@ -1639,6 +1642,23 @@ img {
 .topBar__logo-tagline strong {
   color: #fff;
   font-weight: 400;
+}
+
+.topBar__profile {
+  padding-top: 6px;
+}
+
+.topBar__profile__link {
+  display: inline-block;
+}
+
+.topBar__profile__link:hover::after {
+  border-top: 3px solid #e41f13;
+  content: '';
+  left: 0;
+  position: absolute;
+  top: -6px;
+  width: 100%;
 }
 
 #skiptocontent {
@@ -1743,52 +1763,6 @@ img {
   outline: 3px solid #00549f;
 }
 
-.megaMenuToggle {
-  background-color: #00549f;
-  border: 0;
-  border-left: 2px solid #000;
-  border-radius: 0;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 15px;
-  font-weight: 400;
-  padding: 8px 10px 5px;
-  position: absolute;
-  right: 10px;
-  text-decoration: none;
-  top: -46px;
-}
-
-.megaMenuToggle:hover {
-  background-color: #160d37;
-  border-top: 3px solid #e41f13;
-  display: block;
-  padding-top: 5px;
-}
-
-@media (min-width: 960px) {
-  .megaMenuToggle {
-    right: 20px;
-    top: 0;
-  }
-}
-
-.megaMenuToggle__icon {
-  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTdweCIgaGVpZ2h0PSIxMnB4IiB2aWV3Qm94PSIwIDAgMTcgMTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE3IDEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6I0ZGRkZGRjt9PC9zdHlsZT48cmVjdCBjbGFzcz0ic3QwIiB3aWR0aD0iMTciIGhlaWdodD0iMiIvPjxyZWN0IHk9IjUiIGNsYXNzPSJzdDAiIHdpZHRoPSIxNyIgaGVpZ2h0PSIyIi8+PHJlY3QgeT0iMTAiIGNsYXNzPSJzdDAiIHdpZHRoPSIxNyIgaGVpZ2h0PSIyIi8+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PC9zdmc+"), linear-gradient(transparent, transparent);
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  display: inline-block;
-  height: 12px;
-  line-height: 15px;
-  margin-right: 2px;
-  top: 1px;
-  width: 25px;
-}
-
-.megaMenuToggle__text {
-  color: #fff;
-}
-
 .megaMenu__heading {
   color: #dce0df;
   font-size: 18px;
@@ -1887,6 +1861,71 @@ img {
   .megaMenu__list__item--current a::after {
     opacity: 1;
   }
+}
+
+@media (min-width: 768px) {
+  .megaMenu__list__item--current a {
+    border-bottom-width: 1px;
+    border-color: rgba(250, 250, 250, 0.5);
+    border-style: dashed;
+    margin-bottom: -1px;
+  }
+}
+
+.megaMenuToggle {
+  background: transparent;
+  border: 1px solid;
+  border-color: rgba(250, 250, 250, 0.5);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 400;
+  height: 38px;
+  padding: 8px 10px 5px;
+  position: absolute;
+  right: 10px;
+  text-decoration: none;
+  top: -46px;
+}
+
+.megaMenuToggle:hover {
+  background-color: #160d37;
+  border-top: 3px solid #e41f13;
+  display: block;
+  padding-top: 6px;
+}
+
+@media (min-width: 768px) {
+  .megaMenuToggle {
+    background-color: #00549f;
+    border-left: 2px solid #000;
+    border-width: 0 0 0 2px;
+  }
+  .megaMenuToggle:hover {
+    padding-top: 5px;
+  }
+}
+
+@media (min-width: 960px) {
+  .megaMenuToggle {
+    top: 0;
+  }
+}
+
+.megaMenuToggle__icon {
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTdweCIgaGVpZ2h0PSIxMnB4IiB2aWV3Qm94PSIwIDAgMTcgMTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE3IDEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6I0ZGRkZGRjt9PC9zdHlsZT48cmVjdCBjbGFzcz0ic3QwIiB3aWR0aD0iMTciIGhlaWdodD0iMiIvPjxyZWN0IHk9IjUiIGNsYXNzPSJzdDAiIHdpZHRoPSIxNyIgaGVpZ2h0PSIyIi8+PHJlY3QgeT0iMTAiIGNsYXNzPSJzdDAiIHdpZHRoPSIxNyIgaGVpZ2h0PSIyIi8+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PC9zdmc+"), linear-gradient(transparent, transparent);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 12px;
+  line-height: 15px;
+  margin-right: 2px;
+  top: 1px;
+  width: 25px;
+}
+
+.megaMenuToggle__text {
+  color: #fff;
 }
 
 #megaMenu-wrapper {

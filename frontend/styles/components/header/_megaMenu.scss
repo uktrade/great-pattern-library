@@ -1,0 +1,95 @@
+// sass-lint:disable no-important, no-ids
+
+.megaMenu {
+
+  &__heading {
+    color: $grey-tranquil;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 25px;
+    margin-bottom: 5px;
+    padding-top: 28px;
+  }
+
+  &__list {
+
+    &__item {
+      font-size: 15px;
+      font-weight: 300;
+      padding: 10px 0 0;
+
+      &--primary {
+        background-color: $mid-blue;
+        font-weight: 500;
+
+        @include tablet {
+          background-color: initial;
+        }
+      }
+
+      &--last {
+        a {
+          border: 0 !important;
+        }
+      }
+
+      a {
+        color: $white;
+        display: block;
+        margin-left: 30px;
+        padding-bottom: 10px;
+        position: relative;
+
+        &::after {
+          opacity: 0;
+        }
+
+        &:hover {
+          &::after {
+            opacity: 1;
+          }
+        }
+
+        @include mobile {
+          @include link-notch($great-red, -30px, 1px);
+          border-bottom-width: 1px;
+          border-color: $grey-opacity-5;
+          border-style: solid;
+          margin-bottom: -1px;
+        }
+
+        @include tablet  {
+          display: inline-block;
+          margin-left: 0;
+          padding-bottom: 0;
+
+          &:hover {
+            border-bottom-width: 1px;
+            border-color: $grey-opacity-5;
+            border-style: dashed;
+            margin-bottom: -1px;
+          }
+        }
+      }
+    }
+
+    &__item--current {
+      a {
+        @include mobile {
+          @include link-notch($great-red, -30px, 1px);
+
+          &::after {
+            opacity: 1;
+          }
+        }
+        @include tablet {
+          border-bottom-width: 1px;
+          border-color: $grey-opacity-5;
+          border-style: dashed;
+          margin-bottom: -1px;
+        }
+      }
+    }
+  }
+}
