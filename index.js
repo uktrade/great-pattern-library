@@ -157,14 +157,16 @@ app.get('/patterns', function (request, response) {
       header: `${patternsPath}/header.pug`,
       footer: `${patternsPath}/footer.pug`,
       steps: `${patternsPath}/steps.pug`,
-      stepsOnGrid: `${patternsPath}/steps--on-grid.pug`
+      stepsOnGrid: `${patternsPath}/steps--on-grid.pug`,
+      chevrons: `${patternsPath}/chevrons.pug`
     }
   }
 
   let context = getBaseContext()
   // go through template paths sections and populate output
   Object.getOwnPropertyNames(templatePaths).forEach(section => {
-    Object.getOwnPropertyNames(templatePaths[section]).forEach(renderComponentExample.bind(context, templatePaths, section))
+    Object.getOwnPropertyNames(templatePaths[section]).forEach(
+      renderComponentExample.bind(context, templatePaths, section))
   })
   // let templatePath = `${patternsPath}/typography.pug`
   response.render('pages/patterns', context)
