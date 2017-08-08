@@ -9,6 +9,17 @@
   }
 }
 
+@for $i from 1 through 12 {
+  .cols-#{$i} {
+    margin-bottom: $gutter;
+
+    @include grid-column($i);
+    @include mobile {
+      @include grid-column(12);
+    }
+  }
+}
+
 .column-full,
 .column-one-half,
 .column-one-third,
