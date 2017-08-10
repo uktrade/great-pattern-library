@@ -1,11 +1,22 @@
 @import 'neat';
-//extracting burbon-neat grid classes for non-silent implimentation (adding classes to markup)
+//extracting bourbon-neat grid classes for non-silent implementation (adding classes to markup)
 
 .grid-container {
   @include grid-container;
 
   &--inner {
     @include grid-collapse;
+  }
+}
+
+@for $i from 1 through 12 {
+  .cols-#{$i} {
+    margin-bottom: $gutter;
+
+    @include grid-column($i);
+    @include mobile {
+      @include grid-column(12);
+    }
   }
 }
 
