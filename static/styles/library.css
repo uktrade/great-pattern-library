@@ -1,1 +1,43 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");.outer-container{margin:0 auto;max-width:1200px;padding:0 30px}.gpl-header{text-align:center}.gpl-nav{text-align:center}.gpl-nav__item{background-color:#00549f;color:#fff;display:inline-block;margin-bottom:.5rem;margin-right:.5rem;padding:.25rem}.gpl-nav__item--current{background-color:#1e1348}.styleguide__table{min-width:200px}.styleguide__th{font-weight:400}.styleguide__td,.styleguide__th{padding:.5rem}.styleguide__table,.styleguide__td,.styleguide__th{border:solid 1px #000}
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+.gpl-outer-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 30px;
+}
+
+.gpl-header {
+  text-align: center;
+}
+
+.gpl-nav {
+  text-align: center;
+}
+
+.gpl-nav__item {
+  background-color: #00549f;
+  color: #fff;
+  display: inline-block;
+  margin-bottom: .5rem;
+  margin-right: .5rem;
+  padding: .25rem;
+}
+
+.gpl-nav__item--current {
+  background-color: #1e1348;
+}
+
+.styleguide__table {
+  min-width: 200px;
+}
+
+.styleguide__th {
+  font-weight: 400;
+}
+
+.styleguide__td, .styleguide__th {
+  padding: .5rem;
+}
+
+.styleguide__table, .styleguide__td, .styleguide__th {
+  border: solid 1px #000;
+}

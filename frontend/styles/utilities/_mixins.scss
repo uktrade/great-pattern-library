@@ -20,6 +20,32 @@
   }
 }
 
+@mixin separator($font-size, $color: $grey-opacity-5, $right: 0, $top: 0) {
+  &::after {
+    color: $color;
+    content: '|';
+    font-size: $font-size;
+    position: absolute;
+    right: $right;
+    top: $top;
+  }
+}
+
+@mixin link-notch($color: $great-red, $left: 0, $top: 0) {
+  &::after {
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid $color;
+    border-top: 10px solid transparent;
+    content: '';
+    height: 0;
+    left: $left;
+    pointer-events: none;
+    position: absolute;
+    top: $top;
+    width: 0;
+  }
+}
+
 @mixin bottom-margin($multiple: 1) {
   margin-bottom: (15px * $multiple);
 }
@@ -36,7 +62,6 @@
     @content;
   }
 }
-
 
 @mixin tablet {
   @media #{$media-tablet} {

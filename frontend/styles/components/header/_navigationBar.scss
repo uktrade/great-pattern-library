@@ -1,0 +1,62 @@
+// sass-lint:disable mixins-before-declarations, no-ids, no-duplicate-properties, declarations-before-nesting
+
+.navigationBar {
+  display: none;
+  height: 38px;
+  overflow: hidden;
+
+  @include tablet {
+    display: block;
+  }
+
+  &__list {
+    height: 38px;
+    list-style: none;
+    position: relative;
+    width: 110%;
+
+    &__item {
+      display: inline-block;
+      position: relative;
+      @include separator(20px, $grey-opacity-5, -1px, 7px);
+    }
+
+    &__item--noSeparator {
+      @include separator(0);
+    }
+  }
+
+  &__link {
+    background-color: $dark-blue;
+    color: $white;
+    display: block;
+    font-size: 15px;
+    font-weight: 300;
+    margin: 3px;
+    outline: 3px solid $dark-blue;
+    padding: 5px 8px 4px;
+    position: relative;
+
+    &:hover,
+    &--active {
+      &::after {
+        border-top: 3px solid $great-red;
+        content: '';
+        left: 0;
+        position: absolute;
+        top: -3px;
+        width: 100%;
+      }
+    }
+
+    &:focus {
+      outline: 3px solid $focus-yellow;
+    }
+
+    &--primary {
+      background-color: $light-blue;
+      font-weight: 400;
+      outline: 3px solid $light-blue;
+    }
+  }
+}

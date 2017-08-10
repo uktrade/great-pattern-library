@@ -1,0 +1,82 @@
+// sass-lint:disable mixins-before-declarations, no-ids, no-duplicate-properties, declarations-before-nesting
+
+.topBar {
+  height: 35px;
+
+  &__logo {
+    margin-top: 3px;
+  }
+
+  &__logo-hmg {
+    display: block;
+    padding: 0 5px 0 2px;
+    position: relative;
+    top: 6px;
+
+    img {
+      display: block;
+    }
+
+    &::after {
+      color: $grey-opacity-5;
+      content: '|';
+      font-size: 20px;
+      position: absolute;
+      right: -6px;
+      top: -2px;
+    }
+  }
+
+  &__logo-tagline {
+    color: $porcelain;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    left: 15px;
+    position: relative;
+    text-decoration: none;
+    top: 1px;
+
+    span {
+      margin-right: 5px;
+    }
+
+    &:hover {
+      border-bottom: 1px dashed;
+      color: $white;
+      margin-bottom: -1px;
+    }
+
+    strong {
+      color: $white;
+      font-weight: 400;
+    }
+  }
+
+  &__profile {
+    padding-top: 6px;
+  }
+
+  &__profile__link {
+    display: inline-block;
+
+    &:hover {
+      &::after {
+        border-top: 3px solid $great-red;
+        content: '';
+        left: 0;
+        position: absolute;
+        top: -6px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+#skiptocontent {
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  top: -10px;
+  width: 1px; // sass-lint:disable-line no-ids
+}

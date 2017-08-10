@@ -150,6 +150,11 @@ app.get('/blocks-media', function (request, response) {
   response.render('pages/blocks-media', context)
 })
 
+app.get('/header', function (request, response) {
+  let context = getBaseContext()
+  response.render('pages/header', context)
+})
+
 app.get('/patterns', function (request, response) {
   const templatePaths = {
     patterns: {

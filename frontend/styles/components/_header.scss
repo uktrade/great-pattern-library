@@ -1,0 +1,68 @@
+// sass-lint:disable mixins-before-declarations, no-important, no-ids, no-duplicate-properties, declarations-before-nesting
+@import 'header/topBar';
+@import 'header/logoBar';
+@import 'header/navigationBar';
+@import 'header/megaMenu';
+
+.megaMenuToggle {
+  background: transparent;
+  border: 1px solid;
+  border-color: $grey-opacity-5;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 400;
+  height: 38px;
+  padding: 8px 10px 5px;
+  position: absolute;
+  right: 10px;
+  text-decoration: none;
+  top: -46px;
+
+  &:hover {
+    background-color: $dark-navy;
+    border-top: 3px solid $great-red;
+    display: block;
+    padding-top: 6px;
+  }
+
+  @include tablet {
+    background-color: $mid-blue;
+    border-left: 2px solid $black;
+    border-width: 0 0 0 2px;
+
+    &:hover {
+      padding-top: 5px;
+    }
+  }
+
+  @include desktop {
+    top: 0;
+  }
+
+  &__icon {
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTdweCIgaGVpZ2h0PSIxMnB4IiB2aWV3Qm94PSIwIDAgMTcgMTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE3IDEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6I0ZGRkZGRjt9PC9zdHlsZT48cmVjdCBjbGFzcz0ic3QwIiB3aWR0aD0iMTciIGhlaWdodD0iMiIvPjxyZWN0IHk9IjUiIGNsYXNzPSJzdDAiIHdpZHRoPSIxNyIgaGVpZ2h0PSIyIi8+PHJlY3QgeT0iMTAiIGNsYXNzPSJzdDAiIHdpZHRoPSIxNyIgaGVpZ2h0PSIyIi8+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PC9zdmc+'), linear-gradient(transparent, transparent);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 12px;
+    line-height: 15px;
+    margin-right: 2px;
+    top: 1px;
+    width: 25px;
+  }
+
+  &__text {
+    color: $white;
+  }
+}
+
+#megaMenu-wrapper {
+  display: none;
+}
+
+#megaMenu-disclosure {
+  &:checked~#megaMenu-wrapper {
+    display: block; // sass-lint:disable-line no-ids
+  }
+}
