@@ -510,23 +510,23 @@
     line-height: 1.9em; }
 
 @media (max-width: 767px) {
-  footer.header-footer nav {
+  #footer nav {
     padding-top: 4px; }
-  footer.header-footer .link-group {
+  #footer .link-group {
     margin: 30px 0;
     position: relative;
     width: 50%; }
-    footer.header-footer .link-group:nth-child(even) {
+    #footer .link-group:nth-child(even) {
       border-left: #999999 solid 1px;
       left: -1px;
       padding-left: 30px; }
-      footer.header-footer .link-group:nth-child(even):after {
+      #footer .link-group:nth-child(even):after {
         left: -1px; }
-    footer.header-footer .link-group:nth-child(odd) {
+    #footer .link-group:nth-child(odd) {
       border-right: #999999 solid 1px;
       clear: left;
       padding-right: 30px; }
-    footer.header-footer .link-group:nth-child(3):before, footer.header-footer .link-group:nth-child(4):before {
+    #footer .link-group:nth-child(3):before, #footer .link-group:nth-child(4):before {
       border-top: #999999 solid 1px;
       content: '';
       display: block;
@@ -534,14 +534,14 @@
       position: absolute;
       top: -30px;
       width: 100.5%; }
-  footer.header-footer .list-heading {
+  #footer .list-heading {
     font-family: "Roboto", arial, helvetica, sans-serif;
     font-size: 15px;
     font-weight: 400;
     line-height: 1.47em; }
-  footer.header-footer .site-links li {
+  #footer .site-links li {
     margin: 0 5px; }
-  footer.header-footer .site-links ul {
+  #footer .site-links ul {
     border-color: #999999;
     padding: 20px 30px;
     text-align: center; }
