@@ -192,6 +192,52 @@
     .static-header-footer a:focus,
     .static-header-footer .link:focus {
       outline: #ffbf47 solid 3px; }
+  .static-header-footer button,
+  .static-header-footer .button {
+    font-family: "Roboto", arial, helvetica, sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.58em;
+    background-color: #006ccc;
+    border-color: #006ccc;
+    color: #ffffff;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 800;
+    overflow: hidden;
+    padding: 10px 45px;
+    text-decoration: none; }
+    .static-header-footer button:hover,
+    .static-header-footer .button:hover {
+      background-color: #328dc2;
+      border-color: #328dc2; }
+    .static-header-footer button[disabled="disabled"],
+    .static-header-footer .button[disabled="disabled"] {
+      background-color: #9bc6e9;
+      border-color: #9bc6e9;
+      color: #ffffff;
+      cursor: default; }
+      .static-header-footer button[disabled="disabled"]:hover,
+      .static-header-footer .button[disabled="disabled"]:hover {
+        background-color: #9bc6e9;
+        border-color: #9bc6e9;
+        color: #ffffff; }
+    .static-header-footer button:focus,
+    .static-header-footer .button:focus {
+      outline: #ffbf47 solid 3px; }
+  .static-header-footer .button-cta {
+    background-color: #ffffff;
+    border-color: #006ccc;
+    color: #006ccc; }
+    .static-header-footer .button-cta:focus {
+      border-color: #ffffff; }
+    .static-header-footer .button-cta:hover {
+      background-color: #006ccc;
+      border-color: #006ccc;
+      color: #ffffff; }
   .static-header-footer h1 {
     font-family: "Roboto", arial, helvetica, sans-serif;
     font-size: 48px;
@@ -245,6 +291,11 @@
   .static-header-footer .dead {
     cursor: not-allowed; }
   @media (max-width: 420px) {
+    .static-header-footer button, .static-header-footer .button {
+      font-family: "Roboto", arial, helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.38em; }
     .static-header-footer h1 {
       font-family: "Roboto", arial, helvetica, sans-serif;
       font-size: 32px;
@@ -263,62 +314,6 @@
       line-height: 1.58em;
       margin: 0 0 0.5em 0; }
     .static-header-footer h4, .static-header-footer h5, .static-header-footer h6 {
-      font-family: "Roboto", arial, helvetica, sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.38em; } }
-  .static-header-footer button,
-  .static-header-footer .button {
-    font-family: "Roboto", arial, helvetica, sans-serif;
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 1.58em;
-    border: none;
-    box-shadow: none;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 800;
-    padding: 15px 45px;
-    text-decoration: none; }
-  .static-header-footer button:hover,
-  .static-header-footer .button:hover {
-    color: #ffffff; }
-  .static-header-footer .button-video {
-    background-color: transparent;
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    overflow: hidden;
-    padding: 10px 60px;
-    position: relative; }
-    .static-header-footer .button-video:before {
-      border-bottom: 15px solid white;
-      border-left: 15px solid transparent;
-      content: "";
-      display: block;
-      height: 0px;
-      position: absolute;
-      left: 10px;
-      top: 17px;
-      transform: rotate(-45deg);
-      width: 0px; }
-  .static-header-footer .button-primary {
-    background-color: #006ccc;
-    color: #ffffff; }
-    .static-header-footer .button-primary:hover {
-      background-color: #00549f; }
-  .static-header-footer .button-secondary {
-    background-color: #e41f13;
-    color: #ffffff; }
-    .static-header-footer .button-secondary:hover {
-      background-color: #b00d23; }
-  .static-header-footer .button-cta {
-    border: #006ccc solid 2px;
-    color: #006ccc; }
-    .static-header-footer .button-cta:hover {
-      border-color: #00549f;
-      color: #00549f; }
-  @media (max-width: 420px) {
-    .static-header-footer button, .static-header-footer .button {
       font-family: "Roboto", arial, helvetica, sans-serif;
       font-size: 16px;
       font-weight: 400;
@@ -645,15 +640,15 @@
     background-color: #00549f;
     outline: none; }
     #menu .list-header.active::after {
+      -ms-transform: rotate(45deg);
+      /* IE 9 */
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
       content: "";
       border-style: solid;
       display: inline-block;
       height: 5px;
-      -ms-transform: rotate(45deg);
-      /* IE 9 */
-      -webkit-transform: rotate(45deg);
       position: relative;
-      transform: rotate(45deg);
       vertical-align: top;
       width: 5px;
       border-color: #dfd5c5;
@@ -668,15 +663,15 @@
       top: 0;
       width: 100%; }
   #menu .list-header:after {
+    -ms-transform: rotate(45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
     content: "";
     border-style: solid;
     display: inline-block;
     height: 5px;
-    -ms-transform: rotate(45deg);
-    /* IE 9 */
-    -webkit-transform: rotate(45deg);
     position: relative;
-    transform: rotate(45deg);
     vertical-align: top;
     width: 5px;
     border-color: #00549f;
