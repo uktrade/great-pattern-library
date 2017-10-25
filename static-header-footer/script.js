@@ -153,7 +153,11 @@ dit.responsive = (new function () {
   // Constants
   var RESET_EVENT = "dit:responsive:reset";
   var RESPONSIVE_ELEMENT_ID = "dit-responsive-size";
-  var ARBITRARY_DIFFERENCE_MEASUREMENT = 50;
+  
+  // Sizing difference must be greater than this to trigger the events. 
+  // This is and attempt to restrict the number of changes when, for 
+  // example, resizing the screen by dragging. 
+  var ARBITRARY_DIFFERENCE_MEASUREMENT = 50; 
   
   // Private
   var _self = this;
@@ -361,13 +365,26 @@ dit.scroll = (new function () {
     }, options);
 
     if (arguments.length && $target.length) {
+      
       $control = this.config.$control || $(document.createElement("a"));
       if ($control.get(0).tagName.toLowerCase() === "a") {
         $control.attr("href", "#" + id);
       }
       
+      // Figure out and setup the expanding element
+      if(this.config.wrap) {
+        $wrapper = $(document.createElement("div"));
+        $control.after($wrapper);
+        $wrapper.append($target);
+        this.$node = $wrapper;
+      }
+      else {
+        id = $target.attr("id") || id; // In case the existing element has its own
+        this.$node = $target;
+      }
+      
       this.links = {
-        $found: $("a", $target) || $(),
+        $found: $("a", this.$node) || $(),
         counter: -1
       }
 
@@ -381,26 +398,13 @@ dit.scroll = (new function () {
         Expander.focus.call(EXPANDER);
       });
 
-      $target.before($control);
-      this.$control = $control;
-
-      // Figure out and setup the expanding element
-      if(this.config.wrap) {
-        $wrapper = $(document.createElement("div"));
-        $target.after($wrapper);
-        $wrapper.append($target); //jQuery wrap function not playing nicely with later addClass so do this way.
-        this.$node = $wrapper;
-      }
-      else {
-        id = $target.attr("id") || id; // In case the existing element has its own
-        this.$node = $target;
-      }
-      
+      this.$node.before($control);
       this.$node.addClass(TYPE);
       this.$node.addClass(this.config.cls);
       this.$node.attr("id", id);
 
       // Finish setting up control
+      this.$control = $control;
       $control.addClass(TYPE + "Control");
       $control.attr("aria-controls", id);
       $control.attr("aria-expanded", "false");
@@ -725,6 +729,27 @@ dit.components.menu = (new function() {
   var _expanders = [];
   var _accordion = [];
 
+  // Immediately invoked function and declaration.
+  // Because non-JS view is to show all, we might see a brief glimpse of the 
+  // open menu before JS has kicked in to add dropdown functionality. This
+  // will hide the menu when JS is on, and deactivate itself when the JS
+  // enhancement functionality is ready. 
+  dropdownViewInhibitor(true);
+  function dropdownViewInhibitor(activate) {
+    var rule = SELECTOR_MENU + " .level-2 { display: none; }";
+    var style;
+    if (arguments.length && activate) {
+      style = document.createElement("style");
+      style.setAttribute("type", "text/css");
+      style.setAttribute("id", "menu-dropdown-view-inhibitor");
+      style.appendChild(document.createTextNode(rule));
+      document.head.appendChild(style);
+    }
+    else {
+      document.head.removeChild(document.getElementById("menu-dropdown-view-inhibitor"));
+    }
+  };
+
   /* Add expanding functionality to target elements for desktop.
    **/
   function setupDesktopExpanders() {
@@ -854,6 +879,7 @@ dit.components.menu = (new function() {
   this.init = function() {
     bindResponsiveListener();
     setupResponsiveView();
+    dropdownViewInhibitor(false); // Turn it off because we're ready.
   }
 
   this.reset = function() {
