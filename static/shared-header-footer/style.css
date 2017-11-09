@@ -286,8 +286,6 @@
       padding: 0; }
       .static-header-footer .navigation li::before {
         display: none; }
-  .static-header-footer .dead {
-    cursor: not-allowed; }
   @media (max-width: 420px) {
     .static-header-footer button, .static-header-footer .button {
       font-family: "Roboto", arial, helvetica, sans-serif;
@@ -791,7 +789,7 @@
         border-bottom: none;
         padding-bottom: 10px; }
       #menu .ExpanderControl::before, #menu .ExpanderControl.active:before {
-        background: transparent url(/static/images/icons/sprite-plus-minus.gif) 0 0 no-repeat;
+        background: transparent url(/shared-header-footer/sprite-plus-minus.gif) 0 0 no-repeat;
         content: '';
         height: 16px;
         left: initial;
