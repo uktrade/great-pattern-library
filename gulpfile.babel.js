@@ -14,6 +14,10 @@ const NODEMON_PORT = 4000
 const NODEMON_ENV = 'development'
 const BROWSERSYNC_PORT = 4001
 
+const HEADER_FOOTER_FILES = [
+  `${PROJECT_DIR}/shared-header-footer/*`
+]
+
 const IMG_FILES = [
   './frontend/images/**/*.*{jpg,jpeg,png,svg,bmp}'
 ]
@@ -190,6 +194,12 @@ gulp.task('vendor_assets', ['clean'], function () {
     .pipe(gulp.dest('./static/vendor/'))
 })
 
+// Simply copy over all the header/footer files so we can demo
+gulp.task('header-footer', ['clean'], function () {
+  return gulp.src(HEADER_FOOTER_FILES)
+    .pipe(gulp.dest('./static/shared-header-footer'))
+})
+
 gulp.task('clean', function () {
   return del(['static/**/', 'static/*.*', '!static/robots.txt', '!static/sitemap.xml'])
 })
@@ -199,7 +209,7 @@ gulp.task('default',
     ['build', 'watch', 'browser-sync']
 )
 
-gulp.task('build', ['clean', 'js:test', 'vendor_assets', 'sass', 'webpack', 'images'])
+gulp.task('build', ['clean', 'js:test', 'vendor_assets', 'sass', 'webpack', 'images', 'header-footer'])
 
 // Optional: recompile on changes
 gulp.task('watch',

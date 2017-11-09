@@ -170,6 +170,10 @@ app.get('/patterns', function (request, response) {
   response.render('pages/patterns', context)
 })
 
+app.get('/shared-header-footer', function (request, response) {
+  response.render('pages/shared-header-footer')
+})
+
 app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'))
 })

@@ -378,7 +378,7 @@
   padding: 25px 0;
   position: relative; }
   #header-menu img {
-    margin-bottom: -6px;
+    margin-bottom: -5px;
     max-width: 175px;
     width: 100%; }
   #header-menu .home {
@@ -439,7 +439,7 @@
     font-family: "Roboto", arial, helvetica, sans-serif;
     font-size: 15px;
     font-weight: 400;
-    line-height: 1.47em; }
+    line-height: inherit; }
   #footer nav {
     padding-top: 45px; }
   #footer .link-group {

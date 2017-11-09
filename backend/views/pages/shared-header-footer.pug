@@ -1,0 +1,22 @@
+extends ../layout/base.pug
+block prepend head_links
+  link(rel='stylesheet' href='/shared-header-footer/style.css')
+  script(src='/shared-header-footer/third-party.js')
+  script(src='/shared-header-footer/script.js')
+block content
+  include ../../../shared-header-footer/header.html
+  .container(style={'margin': '100px 30px'})
+    h1.h1 Shared Header &amp; Footer
+    p All content required for the header &amp; footer can be found in the shared-header-footer folder. This includes:
+    ul
+      li DfIT_WHITE_AW.png
+      li eig-logo-stacked.svg
+      li footer.html
+      li header.html
+      li hm_government_logo_horizontal.svg
+      li script.js
+      li sprite-plus-minus.gif
+      li style.css
+      li third-party.js
+
+  include ../../../shared-header-footer/footer.html
