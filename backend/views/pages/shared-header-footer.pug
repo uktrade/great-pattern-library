@@ -3,20 +3,31 @@ block prepend head_links
   link(rel='stylesheet' href='/shared-header-footer/style.css')
   script(src='/shared-header-footer/third-party.js')
   script(src='/shared-header-footer/script.js')
+  style(type='text/css').
+    #content.outer-container {
+      max-width: 100%;
+      padding: 0;
+    }
 block content
   include ../../../shared-header-footer/header.html
-  .container(style={'margin': '100px 30px'})
-    h1.h1 Shared Header &amp; Footer
-    p All content required for the header &amp; footer can be found in the shared-header-footer folder. This includes:
-    ul
-      li DfIT_WHITE_AW.png
-      li eig-logo-stacked.svg
-      li footer.html
-      li header.html
-      li hm_government_logo_horizontal.svg
-      li script.js
-      li sprite-plus-minus.gif
-      li style.css
-      li third-party.js
+  .container(style={'margin': '0 auto', 'max-width': '1200px'})
+    section(style={'margin': '100px 30px'})
+      h2.h2 Shared Header &amp; Footer
+      p All content required for the header &amp; footer can be found in the <span style='font-family: monospace; color: blue;'>shared-header-footer</span> folder. This includes:
+      ul(style={'font-family': 'monospace', 'color': 'blue'})
+        li DfIT_WHITE_AW.png
+        li eig-logo-stacked.svg
+        li footer.html
+        li header.html
+        li hm_government_logo_horizontal.svg
+        li script.js
+        li sprite-plus-minus.gif
+        li style.css
+        li third-party.js
+      br
+      p Image paths will need to be edited in the html. <span style='font-family: monospace; color: blue;'>sprite-plus-minus.gif</span> is used in the mobile menu in these rules: <span style='font-family: monospace; color: blue;'>#menu .ExpanderControl::before, #menu .ExpanderControl.active:before</span>
+      p Links will also need to be updated. Current production urls are used by default. These should be updated to the correct urls for the project's environment.
+      p All SSO links (Register, Sign in, Profile, Sign out) are included in the header. These will need to be swapped out (preferably in server-side templates rather than client-side JS) depending on whether the user is signed in to SSO.
+      p A Django wrapper for the header &amp; footer exists <a href="https://github.com/uktrade/directory-header-footer">here</a>.
 
   include ../../../shared-header-footer/footer.html
