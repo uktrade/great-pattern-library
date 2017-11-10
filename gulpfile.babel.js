@@ -111,6 +111,7 @@ gulp.task('watchForChanges', function () {
   gulp.watch(SASS_FILES, ['sass:dev'])
   gulp.watch(JS_WATCH_FILES, ['webpack:dev'])
   gulp.watch(IMG_FILES, ['images:dev'])
+  gulp.watch(HEADER_FOOTER_FILES, ['header-footer:dev'])
 })
 
 gulp.task('lint:sass', () => gulp
@@ -196,6 +197,11 @@ gulp.task('vendor_assets', ['clean'], function () {
 
 // Simply copy over all the header/footer files so we can demo
 gulp.task('header-footer', ['clean'], function () {
+  return gulp.src(HEADER_FOOTER_FILES)
+    .pipe(gulp.dest('./static/shared-header-footer'))
+})
+
+gulp.task('header-footer:dev', function () {
   return gulp.src(HEADER_FOOTER_FILES)
     .pipe(gulp.dest('./static/shared-header-footer'))
 })
