@@ -286,8 +286,6 @@
       padding: 0; }
       .static-header-footer .navigation li::before {
         display: none; }
-  .static-header-footer .dead {
-    cursor: not-allowed; }
   @media (max-width: 420px) {
     .static-header-footer button, .static-header-footer .button {
       font-family: "Roboto", arial, helvetica, sans-serif;
@@ -378,7 +376,7 @@
   padding: 25px 0;
   position: relative; }
   #header-menu img {
-    margin-bottom: -6px;
+    margin-bottom: -5px;
     max-width: 175px;
     width: 100%; }
   #header-menu .home {
@@ -439,7 +437,7 @@
     font-family: "Roboto", arial, helvetica, sans-serif;
     font-size: 15px;
     font-weight: 400;
-    line-height: 1.47em; }
+    line-height: inherit; }
   #footer nav {
     padding-top: 45px; }
   #footer .link-group {
@@ -791,7 +789,7 @@
         border-bottom: none;
         padding-bottom: 10px; }
       #menu .ExpanderControl::before, #menu .ExpanderControl.active:before {
-        background: transparent url(/static/images/icons/sprite-plus-minus.gif) 0 0 no-repeat;
+        background: transparent url(/shared-header-footer/sprite-plus-minus.gif) 0 0 no-repeat;
         content: '';
         height: 16px;
         left: initial;
