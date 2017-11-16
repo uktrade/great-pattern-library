@@ -390,7 +390,9 @@ dit.scroll = (new function () {
 
       // If we detected any links, enable arrow movement through them.
       this.links.$found.on(KEY, function(e) {
-        e.which != 9 && e.preventDefault();
+        if (e.which !== 9 && e.which !== 13) {
+          e.preventDefault();
+        }
         Expander.move.call(EXPANDER, e);
       }).on(BLUR, function(){
         Expander.blur.call(EXPANDER);
@@ -450,24 +452,34 @@ dit.scroll = (new function () {
    **/
   Expander.AddKeyboardSupport = function() {
     var EXPANDER = this;
+    console.log(EXPANDER.$control);
 
-    EXPANDER.$control.on(KEY, function(event) {
+    EXPANDER.$control.on(KEY, function(e) {
       // keypress charCode=0, keyCode=13 = enter
-      event.which != 9 && event.preventDefault();
+      if (e.which !== 9 && e.which !== 13) {
+        e.preventDefault();
+      }
       Expander.focus.call(EXPANDER);
 
-      switch(event.which) {
-        case 38: // Fall through.
+      switch(e.which) {
+        case 37: // Fall through.
         case 27:
           EXPANDER.close();
           break;
         case 13:
-          EXPANDER.$control.trigger(CLICK);
-          break;
-        case 40:
           if(EXPANDER.state === OPEN) {
             // Move though any detected links.
-            Expander.move.call(EXPANDER, event);
+            Expander.move.call(EXPANDER, e);
+          }
+          else {
+            EXPANDER.open();
+          }
+          break;
+        case 39:
+          console.log(EXPANDER.state);
+          if(EXPANDER.state === OPEN) {
+            // Move though any detected links.
+            Expander.move.call(EXPANDER, e);
           }
           else {
             EXPANDER.open();
@@ -544,17 +556,17 @@ dit.scroll = (new function () {
     var $links = this.links.$found;
     if($links) {
       switch(e.which) {
+        case 37: // Fallthrough
         case 27: this.close();
-          break;
-        case 13:
-          // Enter
-          window.location = e.target.getAttribute('href');
           break;
         case 40:
           // Down.
           if(counter < ($links.length - 1)) {
             $links.eq(++counter).focus();
           }
+          break;
+        case 39:
+          $links.eq(0).focus();
           break;
         case 38:
           // Up.
