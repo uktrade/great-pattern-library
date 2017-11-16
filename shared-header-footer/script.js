@@ -452,7 +452,6 @@ dit.scroll = (new function () {
    **/
   Expander.AddKeyboardSupport = function() {
     var EXPANDER = this;
-    console.log(EXPANDER.$control);
 
     EXPANDER.$control.on(KEY, function(e) {
       // keypress charCode=0, keyCode=13 = enter
@@ -466,17 +465,8 @@ dit.scroll = (new function () {
         case 27:
           EXPANDER.close();
           break;
-        case 13:
-          if(EXPANDER.state === OPEN) {
-            // Move though any detected links.
-            Expander.move.call(EXPANDER, e);
-          }
-          else {
-            EXPANDER.open();
-          }
-          break;
+        case 13: // Fall through
         case 39:
-          console.log(EXPANDER.state);
           if(EXPANDER.state === OPEN) {
             // Move though any detected links.
             Expander.move.call(EXPANDER, e);
