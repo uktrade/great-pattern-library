@@ -1,0 +1,176 @@
+// Main Site Header
+// ----------------
+
+// REQIURES...
+
+// From _colours.scss
+// $dark-navy
+// $dark-blue
+// $focus-yellow
+// $great-blue
+// $light-grey
+// $white
+
+// From _vars.scss
+// $spacing-3
+// $spacing-4
+
+// From _mixins.scss
+// @mixin down-chevron-1
+// separator
+
+// From _typography.scss
+// @mixin body-s
+
+#header-bar {
+  @include body-s;
+  background-color: $dark-navy;
+  color: $light-grey;
+  overflow: hidden;
+
+  a {
+    color: inherit;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  img {
+    margin-right: 1em;
+  }
+
+  p {
+    margin: 0;
+    padding: 7px 0 4px 0;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .account-links {
+    float: right;
+    margin: 0 0 0 0.2em;
+
+    li {
+      display: inline-block;
+      padding: 7px 0 4px 0;
+    }
+  }
+
+  .anonymous {
+    color: $focus-yellow;
+  }
+
+  .profile,
+  .signout {
+    &:before {
+      @include separator($white);
+      position: static;
+    }
+  }
+
+  .government-links {
+    float: left;
+
+    a,
+    span {
+      vertical-align: top;
+    }
+  }
+
+  .greeting {
+    display: inline-block;
+    float: right;
+    padding: 7px 0 4px 0;
+  }
+
+  .signin {
+    &:before {
+      @include separator($focus-yellow);
+    }
+  }
+}
+
+
+#header-menu {
+  background-color: $great-blue;
+  color: $white;
+  padding: 25px 0;
+  position: relative;
+
+  img {
+    margin-bottom: -5px;
+    max-width: 175px;
+    width: 100%;
+  }
+
+  .home {
+    cursor: pointer;
+    display: inline-block;
+  }
+}
+
+#skip-link {
+  background-color: $great-blue;
+  color: $white;
+  display: inline-block;
+  padding: $spacing-4;
+
+  &:focus {
+    background-color: $focus-yellow;
+    color: $dark-blue;
+    left: 0;
+    text-indent: 0;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+
+// TABLET
+@media screen and (max-width: 767px) {
+  #header-bar {
+    .partof {
+      display: none;
+    }
+  }
+
+  #header-menu {
+    min-height: 124px;
+    img {
+      margin-left: $spacing-3;
+    }
+
+    .container {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #header-bar {
+    .profile {
+      &:before {
+        display: none;
+      }
+    }
+
+    .greeting {
+      display: none;
+    }
+  }
+}
+
+
+// MOBILE
+@media screen and (max-width: 420px) {
+  #header-menu {
+    min-height: initial;
+    padding: $spacing-4 0;
+
+    img {
+      margin-left: $spacing-4;
+      width: 60%;
+    }
+  }
+}

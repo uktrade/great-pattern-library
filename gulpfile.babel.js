@@ -17,6 +17,9 @@ const BROWSERSYNC_PORT = 4001
 const HEADER_FOOTER_FILES = [
   `${PROJECT_DIR}/shared-header-footer/*`
 ]
+const HEADER_FOOTER_SASS = [
+  `${PROJECT_DIR}/shared-header-footer-sass/*`
+]
 
 const IMG_FILES = [
   './frontend/images/**/*.*{jpg,jpeg,png,svg,bmp}'
@@ -112,10 +115,18 @@ gulp.task('watchForChanges', function () {
   gulp.watch(JS_WATCH_FILES, ['webpack:dev'])
   gulp.watch(IMG_FILES, ['images:dev'])
   gulp.watch(HEADER_FOOTER_FILES, ['header-footer:dev'])
+  gulp.watch(HEADER_FOOTER_SASS, ['header-footer:sass-dev'])
 })
 
 gulp.task('lint:sass', () => gulp
     .src(SASS_FILES)
+    .pipe(plugins.sassLint())
+    .pipe(plugins.sassLint.format())
+    .pipe(plugins.sassLint.failOnError())
+)
+
+gulp.task('lint:hf-sass', () => gulp
+    .src(HEADER_FOOTER_SASS)
     .pipe(plugins.sassLint())
     .pipe(plugins.sassLint.format())
     .pipe(plugins.sassLint.failOnError())
@@ -181,11 +192,10 @@ gulp.task('sass', ['clean', 'lint'], function () {
 })
 
 gulp.task('sass:dev', ['lint'], function () {
-  // console.log(SASS_FILES)
   return gulp.src(SASS_FILES)
     .pipe(plugins.sass({
       includePaths: SASS_VENDOR_PATHS,
-      outputStyle: 'expanded'
+      outputStyle: 'compressed'
     }).on('error', plugins.sass.logError))
     .pipe(gulp.dest('./static/styles'))
 })
@@ -200,10 +210,28 @@ gulp.task('header-footer', ['clean'], function () {
   return gulp.src(HEADER_FOOTER_FILES)
     .pipe(gulp.dest('./static/shared-header-footer'))
 })
-
+// watch for changes
 gulp.task('header-footer:dev', function () {
   return gulp.src(HEADER_FOOTER_FILES)
     .pipe(gulp.dest('./static/shared-header-footer'))
+})
+// Compile header/footer sass
+gulp.task('header-footer:sass', ['clean', 'lint:hf-sass'], function () {
+  return gulp.src(HEADER_FOOTER_SASS)
+    .pipe(plugins.sass({
+      outputStyle: 'compressed'
+    }).on('error', plugins.sass.logError))
+    .pipe(gulp.dest('./static/shared-header-footer'))
+    .pipe(gulp.dest('./shared-header-footer'))
+})
+// Watch for sass changes and update in static folder AND shared-header-footer
+gulp.task('header-footer:sass-dev', ['lint:hf-sass'], function () {
+  return gulp.src(HEADER_FOOTER_SASS)
+    .pipe(plugins.sass({
+      outputStyle: 'compressed'
+    }).on('error', plugins.sass.logError))
+    .pipe(gulp.dest('./static/shared-header-footer'))
+    .pipe(gulp.dest('./shared-header-footer'))
 })
 
 gulp.task('clean', function () {
@@ -215,7 +243,7 @@ gulp.task('default',
     ['build', 'watch', 'browser-sync']
 )
 
-gulp.task('build', ['clean', 'js:test', 'vendor_assets', 'sass', 'webpack', 'images', 'header-footer'])
+gulp.task('build', ['clean', 'js:test', 'vendor_assets', 'sass', 'webpack', 'images', 'header-footer', 'header-footer:sass'])
 
 // Optional: recompile on changes
 gulp.task('watch',
