@@ -7,7 +7,7 @@ var dit = {
   components: {},
   data: {},
   pages: {},
-  
+
   constants: {
     COMPANIES_HOUSE_SEARCH: "/static/temp/companies-house-data.json"
   }
@@ -20,7 +20,7 @@ var dit = {
 // dit.js
 
 dit.utils = (new function () {
-  
+
   /* Attempt to generate a unique string
    * e.g. For HTML ID attribute.
    * @str = (String) Allow prefix string.
@@ -28,7 +28,7 @@ dit.utils = (new function () {
   this.generateUniqueStr = function (str) {
     return (str ? str : "") + ((new Date().getTime()) + "_" + Math.random().toString()).replace(/[^\w]*/mig, "");
   }
-  
+
   /* Attempt to run a namespaced function from passed string.
    * e.g. dit.utils.executeNamespacedFunction("dit.utils.generateUniqueStr");
    * @namespace (String) Namespaced function like above example.
@@ -43,7 +43,7 @@ dit.utils = (new function () {
       context[names.shift()]();
     }
   }
-  
+
   /* Return max height measurement of passed elements
    * @$items (jQuery collection) elements to compare.
    **/
@@ -56,8 +56,8 @@ dit.utils = (new function () {
     });
     return max;
   }
-  
-  /* Align heights of elements in row where 
+
+  /* Align heights of elements in row where
    * CSS fails or using this is easier.
    * $items = (String) jQuery selector to target elements.
    **/
@@ -84,13 +84,13 @@ dit.utils = (new function () {
       collection = collection.add($this);
     });
 
-    // Catch the last collection 
+    // Catch the last collection
     // (or first/only if they're all the same)
-    align(collection); 
+    align(collection);
   }
-  
-  
-  /* Basically the reset to alignHeights because 
+
+
+  /* Basically the reset to alignHeights because
    * it clears the inline height setting.
    * $items = (String) jQuery selector to target elements.
    **/
@@ -99,41 +99,41 @@ dit.utils = (new function () {
       this.style.height = "";
     });
   }
-  
-  /* Take an array of images that support the load event, and runs the passed 
+
+  /* Take an array of images that support the load event, and runs the passed
    * function only when each event has fired. Because the load event might have
    * already triggered before this function is called, we going to do a deep-clone
    * of the original image, add the load event to that clone, and then replace the
    * original image with the clone. The load event should fire as expected.
    *
    * @elements (Array) Collection of elements with capability of firing a load event.
-   * @action (Function) The callback function to run. 
+   * @action (Function) The callback function to run.
    * @params (Array) Optional params that can be passed to callback.
    **/
   this.whenImagesReady = function($images, action, params) {
     var loaded = 0;
     var parameters = arguments.length > 2 ? params : [];
     var all = $images.length;
-      
+
     $images.each(function() {
       var $original = $(this);
       var $replacement = $original.clone(true, true);
-      
+
       // Add a load event to keep track of what's in.
       $replacement.on("load.whenready", function() {
         if (++loaded == all) {
           action.apply(window, parameters);
         }
-        
+
         // Remove event triggered to prevent re-clone issues.
-        $(this).off("load.whenready"); 
+        $(this).off("load.whenready");
       });
-      
+
       // Replace original
       $original.css("display", "none");
       $original.before($replacement);
     });
-    
+
     // No longer need the old ones
     $images.remove();
   }
@@ -143,33 +143,33 @@ dit.utils = (new function () {
 // Needs corresponding CSS (using media queries) to control
 // the values. See getResponsiveValue();
 // E.g.
-// 
+//
 // Requires...
 // dit.js
-// 
+//
 
 dit.responsive = (new function () {
-  
+
   // Constants
   var RESET_EVENT = "dit:responsive:reset";
   var RESPONSIVE_ELEMENT_ID = "dit-responsive-size";
-  
-  // Sizing difference must be greater than this to trigger the events. 
-  // This is and attempt to restrict the number of changes when, for 
-  // example, resizing the screen by dragging. 
-  var ARBITRARY_DIFFERENCE_MEASUREMENT = 50; 
-  
+
+  // Sizing difference must be greater than this to trigger the events.
+  // This is and attempt to restrict the number of changes when, for
+  // example, resizing the screen by dragging.
+  var ARBITRARY_DIFFERENCE_MEASUREMENT = 50;
+
   // Private
   var _self = this;
   var _rotating = false;
   var _responsiveValues = [];
   var _height = 0;
   var _width = 0;
-  
-  
+
+
   /* Detect responsive size in play.
    * Use CSS media queries to control z-index values of the
-   * #RESPONSIVE_ELEMENT_ID hidden element. Detected value 
+   * #RESPONSIVE_ELEMENT_ID hidden element. Detected value
    * should match up with index number of _responsiveValues
    * array. dit.responsive.mode() will return a string that
    * should give the current responsive mode.
@@ -182,7 +182,7 @@ dit.responsive = (new function () {
   function getResponsiveValue() {
     return Number($("#" + RESPONSIVE_ELEMENT_ID).css("z-index"));
   };
- 
+
   /* Create and append a hidden element to track the responsive
    * size. Note: You need to add CSS to set the z-index property
    * of the element. Do this using media queries so that it fits
@@ -200,10 +200,10 @@ dit.responsive = (new function () {
       "visibility": "hidden",
       "width": "1px"
     })
-    
+
     $(document.body).append($responsiveElement);
   }
-  
+
   /* Create in-page <style> tag containing set media query
    * breakpoints passed to dit.responsive.init()
    * @queries (Object) Media queries and label - e.g. { desktop: "min-width: 1200px" }
@@ -223,11 +223,11 @@ dit.responsive = (new function () {
         index++;
       }
     }
-    
+
     $style.text(css);
     $(document.head).append($style);
   }
-  
+
   /* Triggers jQuery custom event on body for JS elements
    * listening to resize changes (e.g. screen rotate).
    **/
@@ -246,40 +246,40 @@ dit.responsive = (new function () {
       }
     });
   }
-  
+
   /* Calculate if window dimensions have changed enough
-   * to trigger a reset event. Note: This was added 
+   * to trigger a reset event. Note: This was added
    * because some mobile browsers hide the address bar
    * on scroll, which otherwise gives false positive
-   * when trying to detect a resize. 
+   * when trying to detect a resize.
    **/
   function dimensionChangeWasBigEnough() {
     var height = $(window).height();
     var width = $(window).width();
     var result = false;
-    
+
     if (Math.abs(height - _height) >= ARBITRARY_DIFFERENCE_MEASUREMENT) {
       result = true;
     }
-    
+
     if (Math.abs(width - _width) >= ARBITRARY_DIFFERENCE_MEASUREMENT) {
       result = true;
     }
-    
+
     // Update internals with latest values
     _height = height;
     _width = width;
-    
+
     return result;
   }
-  
+
   /* Return the detected current responsive mode */
   this.mode = function() {
     return _responsiveValues[getResponsiveValue()];
   };
-  
+
   this.reset = RESET_EVENT;
-  
+
   this.init = function(breakpoints) {
     addResponsiveSizes(breakpoints);
     addResponsiveTrackingElement();
@@ -291,32 +291,32 @@ dit.responsive = (new function () {
 
 dit.scroll = (new function () {
   this.scrollPosition = 0;
-  
+
   this.disable = function () {
     this.scrollPosition = window.scrollY,
     $(document.body).css({
         overflow: "hidden"
     });
-    
+
     $(document).trigger("scrollingdisabled");
   }
-  
+
   this.enable = function () {
     $(document.body).css({
       overflow: "auto"
     });
-    
+
     window.scrollTo(0, this.scrollPosition);
     $(document).trigger("scrollingenabled");
   }
 });
 /* Class: Expander
  * ----------------
- * Expand and collapse a target element by another specified, controlling element, 
+ * Expand and collapse a target element by another specified, controlling element,
  * or through an automatically added default controller.
  *
  * Note: The COLLAPSED class is added when the Expander element is closed, so
- * you can control CSS the open/close state, or other desired styling. 
+ * you can control CSS the open/close state, or other desired styling.
  *
  * REQUIRES:
  * jquery
@@ -339,7 +339,7 @@ dit.scroll = (new function () {
 
   /* Main Class
    * @$target (jQuery node) Target element that should open/close
-   * @options (Object) Configuration switches. 
+   * @options (Object) Configuration switches.
    **/
   classes.Expander = Expander;
   function Expander($target, options) {
@@ -365,12 +365,12 @@ dit.scroll = (new function () {
     }, options);
 
     if (arguments.length && $target.length) {
-      
+
       $control = this.config.$control || $(document.createElement("a"));
       if ($control.get(0).tagName.toLowerCase() === "a") {
         $control.attr("href", "#" + id);
       }
-      
+
       // Figure out and setup the expanding element
       if(this.config.wrap) {
         $wrapper = $(document.createElement("div"));
@@ -382,7 +382,7 @@ dit.scroll = (new function () {
         id = $target.attr("id") || id; // In case the existing element has its own
         this.$node = $target;
       }
-      
+
       this.links = {
         $found: $("a", this.$node) || $(),
         counter: -1
@@ -390,7 +390,9 @@ dit.scroll = (new function () {
 
       // If we detected any links, enable arrow movement through them.
       this.links.$found.on(KEY, function(e) {
-        e.which != 9 && e.preventDefault();
+        if (e.which !== 9 && e.which !== 13) {
+          e.preventDefault();
+        }
         Expander.move.call(EXPANDER, e);
       }).on(BLUR, function(){
         Expander.blur.call(EXPANDER);
@@ -423,21 +425,21 @@ dit.scroll = (new function () {
         this.state = CLOSE;
         this.open();
       }
-     
+
       // Bind events for user interaction
       Expander.bindEvents.call(this);
     }
   }
-  
-  /* Class utility function to bind required 
-   * events upon instantiation. Needs to be run 
+
+  /* Class utility function to bind required
+   * events upon instantiation. Needs to be run
    * with context of the instantiated object.
    **/
   Expander.bindEvents = function() {
     var EXPANDER = this;
-    
+
     Expander.AddKeyboardSupport.call(EXPANDER);
-    
+
     if (EXPANDER.config.hover) {
       Expander.AddHoverSupport.call(EXPANDER);
     }
@@ -445,29 +447,29 @@ dit.scroll = (new function () {
       Expander.AddClickSupport.call(EXPANDER);
     }
   }
-  
+
   /* Add ability to control by keyboard
    **/
   Expander.AddKeyboardSupport = function() {
     var EXPANDER = this;
-    
-    EXPANDER.$control.on(KEY, function(event) {
+
+    EXPANDER.$control.on(KEY, function(e) {
       // keypress charCode=0, keyCode=13 = enter
-      event.which != 9 && event.preventDefault();
+      if (e.which !== 9 && e.which !== 13) {
+        e.preventDefault();
+      }
       Expander.focus.call(EXPANDER);
 
-      switch(event.which) {
-        case 38: // Fall through.
-        case 27: 
+      switch(e.which) {
+        case 37: // Fall through.
+        case 27:
           EXPANDER.close();
           break;
-        case 13: 
-          EXPANDER.$control.trigger(CLICK);
-          break;
-        case 40:
+        case 13: // Fall through
+        case 39:
           if(EXPANDER.state === OPEN) {
             // Move though any detected links.
-            Expander.move.call(EXPANDER, event);
+            Expander.move.call(EXPANDER, e);
           }
           else {
             EXPANDER.open();
@@ -489,16 +491,16 @@ dit.scroll = (new function () {
       Expander.on.call(EXPANDER);
       EXPANDER.open();
     });
-    
+
     EXPANDER.$control.add($node).on(ONMOUSEOUT, function() {
       Expander.off.call(EXPANDER);
     });
-    
+
     EXPANDER.$control.on(CLICK, function(event) {
       event.preventDefault();
     });
   }
-  
+
   /* Using click for desktop and mobile.
    **/
   Expander.AddClickSupport = function() {
@@ -509,7 +511,7 @@ dit.scroll = (new function () {
       Expander.on.call(EXPANDER);
       EXPANDER.toggle();
     });
-    
+
     // And now what happens on blur.
     if(EXPANDER.config.blur) {
       EXPANDER.$control.on(BLUR, function() {
@@ -521,7 +523,7 @@ dit.scroll = (new function () {
   Expander.on = function() {
     clearTimeout(this.closerequest);
   }
-  
+
   Expander.off = function() {
     var self = this;
     this.closerequest = setTimeout(function() {
@@ -544,6 +546,7 @@ dit.scroll = (new function () {
     var $links = this.links.$found;
     if($links) {
       switch(e.which) {
+        case 37: // Fallthrough
         case 27: this.close();
           break;
         case 40:
@@ -551,6 +554,9 @@ dit.scroll = (new function () {
           if(counter < ($links.length - 1)) {
             $links.eq(++counter).focus();
           }
+          break;
+        case 39:
+          $links.eq(0).focus();
           break;
         case 38:
           // Up.
@@ -619,7 +625,7 @@ dit.scroll = (new function () {
       this.$node.removeClass(COLLAPSED);
       this.$node.removeClass(TYPE);
     }
-    
+
     if(this.config.$control) {
       this.$control.off(events);
       this.$control.removeClass(this.config.cls + "Control");
@@ -636,7 +642,7 @@ dit.scroll = (new function () {
     this.links.$found.removeAttr("tabindex");
     this.config.cleanup();
   }
-  
+
 })(jQuery, dit.utils, dit.classes);
 
 /* Class will add a controller before the $target element.
@@ -656,11 +662,11 @@ dit.scroll = (new function () {
  **/
 
 (function($, utils, classes) {
-  
-  function Accordion(items, open, close) {  
+
+  function Accordion(items, open, close) {
     if (arguments.length) {
       this.items = items;
-      
+
       for (var i=0; i<items.length; ++i) {
         Accordion.enhance.call(this, items[i], open, close);
       }
@@ -674,11 +680,11 @@ dit.scroll = (new function () {
         if(items[i] !== target) {
           items[i][close]();
         }
-      }  
+      }
       originalOpen.call(target);
     }
   }
-  
+
   classes.Accordion = Accordion;
 })(jQuery, dit.utils, dit.classes);
 // ExRed Project-specific Code
@@ -690,7 +696,7 @@ dit.scroll = (new function () {
 // dit.components.menu.js
 
 dit.exred = (new function () {
-  
+
   // Initial site init
   this.init = function() {
     dit.responsive.init({
@@ -698,9 +704,9 @@ dit.exred = (new function () {
       "tablet" : "max-width: 767px",
       "mobile" : "max-width: 480px"
     });
-    
+
     dit.components.menu.init();
-    
+
     delete this.init; // Run once
   }
 });
@@ -730,10 +736,10 @@ dit.components.menu = (new function() {
   var _accordion = [];
 
   // Immediately invoked function and declaration.
-  // Because non-JS view is to show all, we might see a brief glimpse of the 
+  // Because non-JS view is to show all, we might see a brief glimpse of the
   // open menu before JS has kicked in to add dropdown functionality. This
   // will hide the menu when JS is on, and deactivate itself when the JS
-  // enhancement functionality is ready. 
+  // enhancement functionality is ready.
   dropdownViewInhibitor(true);
   function dropdownViewInhibitor(activate) {
     var rule = SELECTOR_MENU + " .level-2 { display: none; }";
