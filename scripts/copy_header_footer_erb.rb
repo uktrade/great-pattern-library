@@ -3,7 +3,9 @@
 
 # this script copies the header/footer html files from great-pattern-library
 # and adds all the necessary variables and template logic
-# for export opportunities templates
+# for erb templates used in export-opportunities
+
+# export-opportunities directory must exist parallel to great-pattern-library
 
 PATTLIB_DIR = "./shared-header-footer/"
 DIR_HEADER_FOOTER = "../export-opportunities/app/views/layouts/"

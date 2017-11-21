@@ -3,7 +3,9 @@
 
 # this script copies the header/footer html files from great-pattern-library
 # and adds all the necessary variables and template logic
-# for django templates
+# for django templates used in directory-header-footer
+
+# directory-header-footer directory must exist parallel to great-pattern-library
 
 PATTLIB_DIR = "./shared-header-footer/"
 DIR_HEADER_FOOTER = "../directory-header-footer/directory_header_footer/templates/directory_header_footer/"
