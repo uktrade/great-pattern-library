@@ -11,7 +11,7 @@ DIR_HEADER_FOOTER = "../directory-header-footer/directory_header_footer/template
 def build_header()
   pattlib_header = File.read(PATTLIB_DIR+"header.html")
   header = "{% load static %}\n" + pattlib_header
-  header = header.split(/(links\"\>)(\s)/)
+  header = header.split(/(t\-links\"\>)(\s)/)
   header[2] = "\n        {% if not sso_is_logged_in %}\n"
   header = header.join.split(/(.)(\" class\=\"reg)/)
   header[1] = '{{ sso_register_url }}'

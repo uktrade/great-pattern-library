@@ -10,7 +10,7 @@ DIR_HEADER_FOOTER = "../export-opportunities/app/views/layouts/"
 
 def build_header()
   header = File.read(PATTLIB_DIR+"header.html")
-  header = header.split(/(links\"\>)(\s)/)
+  header = header.split(/(t\-links\"\>)(\s)/)
   header[2] = "\n        <% if not @current_user %>\n"
   header = header.join.split(/(.)(\" class\=\"reg)/)
   header[1] = '<%=Figaro.env.SSO_ENDPOINT_BASE_URI %>accounts/signup'
@@ -46,7 +46,6 @@ end
 
 def replace(html)
   html.gsub!(/\/shared\-header\-footer\/DfIT\_WHITE_AW\.png/, "<%=asset_path('logos/DfIT_WHITE_AW.png')%>")
-  html.gsub!(/\/shared\-header\-footer\/hm\_government\_logo\_horizontal\.svg/, "<%=asset_path('logos/HM_Government_logo_horizontal.svg')%>")
   html.gsub!(/\/shared\-header\-footer\/eig\-logo\-stacked\.svg/, "<%=asset_path('logos/eig-logo-stacked.svg')%>")
   # services
   html.gsub!(/http\:\/\/find\-a\-buyer\.export\.great\.gov\.uk/, "<%=Figaro.env.FIND_A_BUYER_URL %>")
