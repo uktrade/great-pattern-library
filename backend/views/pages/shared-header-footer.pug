@@ -17,17 +17,17 @@ block content
       ul(style={'font-family': 'monospace', 'color': 'blue'})
         li DfIT_WHITE_AW.png
         li eig-logo-stacked.svg
+        li eig-world-language-icon.svg
         li footer.html
         li header.html
-        li hm_government_logo_horizontal.svg
         li script.js
         li sprite-plus-minus.gif
         li style.css
         li third-party.js
       br
-      p Image paths will need to be edited in the html. <span style='font-family: monospace; color: blue;'>sprite-plus-minus.gif</span> is used in the mobile menu in these rules: <span style='font-family: monospace; color: blue;'>#menu .ExpanderControl::before, #menu .ExpanderControl.active:before</span>
+      p Image paths will need to be edited in the html. <span style='font-family: monospace; color: blue;'>sprite-plus-minus.gif</span> is used in the mobile menu css.
       p Links will also need to be updated. Current production urls are used by default. These should be updated to the correct urls for the project's environment.
-      p All SSO links (Register, Sign in, Profile, Sign out) are included in the header. These will need to be swapped out (preferably in server-side templates rather than client-side JS) depending on whether the user is signed in to SSO.
+      p All SSO elements (Register, Sign in, Profile, Sign out) are included in the header. These will need to be swapped out (preferably in server-side templates rather than client-side JS) depending on whether the user is signed in to SSO.
       p A Django wrapper for the header &amp; footer exists <a href="https://github.com/uktrade/directory-header-footer">here</a>.
 
   include ../../../shared-header-footer/footer.html
