@@ -24,18 +24,30 @@
 
 #header-bar {
   @include body-s;
-  background-color: $dark-navy;
-  color: $light-grey;
+  background-color: $great-blue;
+  color: $white;
   overflow: hidden;
+  height: 110px;
 
   a {
     color: inherit;
-    display: inline-block;
     font-weight: bold;
   }
 
+  a.language-selector {
+    display: inline-block;
+    text-decoration: none;
+    img {
+      margin: 0;
+      display: inline-block;
+      width: 20px;
+    }
+  }
+
   img {
-    margin-right: 1em;
+    max-width: 158px;
+    width: 100%;
+    margin: 20px 0 15px;
   }
 
   p {
@@ -48,12 +60,19 @@
   }
 
   .account-links {
-    float: right;
-    margin: 0 0 0 0.2em;
-
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin-right: $spacing-3 + 25px;
     li {
       display: inline-block;
       padding: 7px 0 4px 0;
+    }
+  }
+
+  .top-bar {
+    .account-locale-links {
+      float: right;
     }
   }
 
@@ -84,6 +103,18 @@
     padding: 7px 0 4px 0;
   }
 
+  .language-selector {
+    &:before {
+      content: "";
+      height: 20px;
+      width: 20px;
+      margin-left: -25px;
+      position: absolute;
+      background: url('/shared-header-footer/eig-world-language-icon.svg');
+      background-repeat: no-repeat;
+    }
+  }
+
   .signin {
     &:before {
       @include separator($focus-yellow);
@@ -93,16 +124,8 @@
 
 
 #header-menu {
-  background-color: $great-blue;
   color: $white;
-  padding: 25px 0;
   position: relative;
-
-  img {
-    margin-bottom: -5px;
-    max-width: 175px;
-    width: 100%;
-  }
 
   .home {
     cursor: pointer;
@@ -136,17 +159,11 @@
   }
 
   #header-menu {
-    min-height: 124px;
-    img {
-      margin-left: $spacing-3;
-    }
-
     .container {
       margin: 0;
     }
   }
 }
-
 @media screen and (max-width: 600px) {
   #header-bar {
     .profile {
@@ -161,16 +178,17 @@
   }
 }
 
-
-// MOBILE
-@media screen and (max-width: 420px) {
-  #header-menu {
-    min-height: initial;
-    padding: $spacing-4 0;
-
+// logo breakpoint
+@media screen and (max-width: 450px) {
+  #header-bar {
+    height: 115px;
+    .container {
+      overflow: auto;
+    }
     img {
-      margin-left: $spacing-4;
-      width: 60%;
+      margin: 0;
+      margin-top: 5px;
+      max-width: 130px;
     }
   }
 }

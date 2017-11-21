@@ -28,20 +28,21 @@
 #menu {
   background-color: $great-blue;
   float: right;
-  padding-top: 44px;
+  margin-top: -58px;
 
   a {
     @include body-s;
+    font-weight: 600;
     background-color: inherit;
     color: $white;
     display: block;
     padding: $spacing-4 $spacing-4 21px $spacing-4;
     position: relative;
     text-decoration: none;
-    
+
     &:hover {
       background-color: $mid-blue;
-    
+
       &:before {
         @include great-red-trim;
       }
@@ -56,7 +57,7 @@
   .description {
     @include body-s-mob; // Hmm... pity we don't have 13px desktop font.
     display: inline-block;
-    padding-top: $spacing-4;
+    padding-top: 5px;
   }
 
   .level-2 {
@@ -70,7 +71,8 @@
       background-color: transparent;
       line-height: 1.26em;
       padding: 0;
-      
+      height: 45px;
+
       &:before {
         display: none;
       }
@@ -96,16 +98,16 @@
         top: $spacing-3;
         width: 0;
       }
-      
+
       // Custom widths based on items-X class name (number of items in list)
       &.items-3 {
         @include items(3, 0px);
       }
-      
+
       &.items-5 {
         @include items(5, 0px);
       }
-      
+
       &.items-6 {
         @include items(6, 0px);
       }
@@ -119,7 +121,7 @@
       &::after {
         @include up-chevron-1($stone);
       }
-      
+
       &:before {
         @include great-red-trim;
       }
@@ -134,6 +136,7 @@
   .Expander {
     background-color: $mid-blue;
     left: 0;
+    top: 0;
     opacity: 1;
     position: absolute;
     transition: opacity 0.3s;
@@ -175,7 +178,7 @@
     height: auto;
     padding-top: 0;
     position: relative;
-    top: 25px;
+    top: 55px;
     transition: none;
     z-index: 1;
 
@@ -188,10 +191,10 @@
       margin: 0;
       outline: none;
       padding: $spacing-3;
-      
+
       &:hover {
         background-color: transparent;
-    
+
         &:before {
           display: none;
         }
@@ -227,14 +230,14 @@
         &::before {
           display: none;
         }
-        
+
         &:last-child {
           border-bottom: $mid-grey solid 1px;
           a{
             border-bottom: none;
           }
         }
-        
+
         &.items-3,
         &.items-5,
         &.items-6 {
@@ -274,7 +277,7 @@
 
       &::before,
       &.active:before {
-        background: transparent url(/static/images/icons/sprite-plus-minus.gif) 0 0 no-repeat;
+        background: transparent url(/shared-header-footer/sprite-plus-minus.gif) 0 0 no-repeat;
         content: '';
         height: 16px;
         left: initial;
@@ -298,21 +301,30 @@
 
   #menu-activator {
     @include body-s;
+    font-weight: 600;
+    width: 104px;
+    height: 50px;
+    text-align: left;
     background-color: transparent;
-    border: none;
+    border: 2px solid $white;
     border-radius: 0;
     color: $white;
     display: block;
-    padding: 15px 55px 30px 30px;
+    padding: 5px 10px 5px 10px;
+    margin-right: 15px;
     position: absolute;
     transition: none;
     right: 0;
-    top: 70px;
+    top: -10px;
+
+    &:focus {
+      outline-color: $focus-yellow;
+    }
 
     span {
       position: absolute;
-      right: $spacing-3;
-      top: 24px;
+      right: $spacing-4;
+      top: 22px;
 
       &,
       &:after,
@@ -323,7 +335,7 @@
         float: right;
         height: 2px;
         margin: 0 0 8px 10px;
-        width: 15px;
+        width: 20px;
       }
 
       &:before {
@@ -337,27 +349,4 @@
     }
   }
 
-}
-
-// MOBILE
-@media screen and (max-width: 420px) {
-  #menu {
-    top: $spacing-4;
-    
-    a {
-      padding-left: $spacing-3-m;
-      padding-right: $spacing-3-m;
-    }
-    
-    .level-2 {
-      a {
-        margin-left: $spacing-3-m;
-        margin-right: $spacing-3-m;
-      }
-    }
-  }
-
-  #menu-activator {
-    top: $spacing-4;
-  }
 }
