@@ -37,11 +37,6 @@
   a.language-selector {
     display: inline-block;
     text-decoration: none;
-    img {
-      margin: 0;
-      display: inline-block;
-      width: 20px;
-    }
   }
 
   img {
@@ -61,8 +56,6 @@
 
   .account-links {
     display: inline-block;
-    position: relative;
-    z-index: 1;
     margin-right: $spacing-3 + 25px;
     li {
       display: inline-block;
@@ -173,7 +166,7 @@
   }
 }
 
-// logo breakpoint
+// MOBILE + logo breakpoint
 @media screen and (max-width: 450px) {
   #header-bar {
     height: 115px;
