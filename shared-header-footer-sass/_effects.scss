@@ -1,0 +1,185 @@
+// EFFECT STYLES
+// ---------------------
+
+// REQIURES...
+//
+// From _vars.scss
+// $spacing-1
+//
+// From _colours.scss
+// $active-blue
+//
+// From _mixins.scss
+// @mixin right-chevron-1
+
+
+.Carousel {
+  padding: 0 $spacing-1;
+
+  .controls {
+    bottom: 0;
+    left: 25%;
+    position: absolute;
+    text-align: center;
+    width: 50%;
+  }
+
+  .indicator {
+    background-color: $light-grey;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 10px;
+    margin: 0 5px;
+    overflow: hidden;
+    padding: 0;
+    text-indent: -1000px;
+    width: 10px;
+
+    &.active {
+      background-color: $active-blue;
+      cursor: default;
+    }
+  }
+
+  .indicators {
+    text-align: center;
+  }
+
+  .item {
+    padding: 0 $spacing-2;
+  }
+
+  .next {
+    background: none;
+    border: none;
+    height: 50px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    text-indent: -1000px;
+    top: 35%;
+    width: 50px;
+    &:after {
+      @include right-chevron-1($active-blue);
+      left: 27px;
+      position: absolute;
+      top: 17px;
+    }
+  }
+
+  .previous {
+    background: none;
+    border: none;
+    height: 50px;
+    left: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    text-indent: -1000px;
+    top: 35%;
+    width: 50px;
+    &:before {
+      @include left-chevron-1($active-blue);
+      left: 4px;
+      position: absolute;
+      top: 17px;
+    }
+  }
+}
+
+
+
+.SelectiveLookupDisplay {
+  background-color: $white;
+  border: $light-grey solid 1px;
+  max-height: 221px;
+  overflow: scroll;
+  z-index: 2;
+
+  li {
+    border-top: $light-grey solid 1px;
+    padding: 10px 20px;
+    position: relative;
+    top: -1px;
+    &:before {
+      display: none;
+    }
+    &:focus {
+      border-color: $focus-yellow;
+      border-style: solid;
+      border-width: 4px 3px 3px 3px;
+      box-shadow: none;
+      outline: 0;
+      padding: 7px 17px;
+      -webkit-box-shadow: none;
+    }
+    &:hover {
+      background-color: $offwhite;
+    }
+  }
+}
+
+
+.Modal-Container {
+  background-color: $white;
+	border: $light-grey solid 1px;
+  display: none;
+  height: auto;
+  left: $spacing-3;
+  margin-top: $spacing-3;
+  position: absolute;
+  width: calc(100% - (#{$spacing-3 * 2}));
+
+  .close {
+    @include body-m;
+    color: $active-blue;
+    text-decoration: underline;
+    border-radius: 15px;
+    border-width: 0;
+    cursor: pointer;
+    height: 30px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: $spacing-4;
+    top: $spacing-4;
+    z-index: 1;
+  }
+
+  .content {
+    margin-bottom: -10px;
+    padding: $spacing-3;
+    position: relative;
+    z-index: 0;
+  }
+}
+
+.Modal-Overlay {
+  background-color: $mid-grey;
+  display: none;
+  height: 100%;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+// MOBILE
+@media screen and (max-width: 480px) {
+  .Modal-Container {
+    left: $spacing-4;
+    margin-top: $spacing-4;
+    width: calc(100% - (#{$spacing-4 * 2}));
+
+    .close {
+      right: 0;
+      top: 0;
+    }
+
+    .content {
+      padding: $spacing-4;
+    }
+  }
+}

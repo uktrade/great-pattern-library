@@ -1,0 +1,68 @@
+// GLOBAL ELEMENT STYLES
+// ----------------------------
+//
+
+
+.link-continuity {
+  border-color: $light-grey;
+  border-style: solid;
+  border-width: 1px 0;
+  clear: both;
+  margin-bottom: $spacing-1;
+  
+  a {
+    @include heading-l;
+    border-bottom: 6px solid $active-blue;
+    display: block;
+    margin-bottom: 0;
+    padding-bottom: $spacing-3;
+    padding-right: #{$spacing-4 + 52px};
+    position: relative;
+    text-decoration: none;
+    
+    &:after {
+      @include continue-arrow;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+  
+  p {
+    margin-bottom: 0;
+    padding-top: $spacing-2;
+  }
+  
+  span {
+    display: block;
+  }
+}
+
+
+.link-top {
+  @include body-s;
+}
+
+
+.link-back-to {
+  @include body-s;
+}
+
+
+// TABLET
+@media (max-width: 767px) {
+}
+
+
+// MOBILE
+@media (max-width: 420px) {
+  .link-continuity {
+    border-width: 0;
+    a {
+      @include heading-l-mob;
+      &:after {
+        @include continue-arrow-mob;
+      }
+    }
+  }
+}
