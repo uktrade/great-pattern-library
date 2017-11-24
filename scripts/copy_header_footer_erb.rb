@@ -23,13 +23,13 @@ def build_header
   header[1] = '<%=Figaro.env.SSO_ENDPOINT_BASE_URI %>accounts/signup'
   header = header.join.split(/(.)(\" class\=\"signin)/)
   header[1] = '<%=dashboard_path%>'
-  header = header.join.split(%r{/(in\<\/a\>\s+\<\/li\>)(\s)/})
+  header = header.join.split(%r{(in\<\/a\>\s+\<\/li\>)(\s)})
   header[2] = "\n        <% else %>\n"
   header = header.join.split(/(.)(\" class\=\"pro)/)
   header[1] = '<%=dashboard_path%>'
-  header = header.join.split(%r{/(.)(\" class\=\"signout)/})
+  header = header.join.split(%r{(.)(\" class\=\"signout)})
   header[1] = '<%=destroy_user_session_path%>'
-  header = header.join.split(%r{/(out\<\/a\>\s+\<\/li\>)(\s)/})
+  header = header.join.split(%r{(out\<\/a\>\s+\<\/li\>)(\s)})
   header[2] = "\n        <% end %>\n"
   header = replace_html(header.join)
   header = header + "\n<!-- needs to be added in assets.rb for production pre-compilation too -->\n<%= stylesheet_link_tag('header-footer') %>"
@@ -61,18 +61,18 @@ def write_file(filename, data, dest)
 end
 
 def replace_html(html)
-  html.gsub!(%r{/\/shared\-header\-footer\/DfIT\_WHITE_AW\.png/}, "<%=asset_path('logos/DfIT_WHITE_AW.png')%>")
-  html.gsub!(%r{/\/shared\-header\-footer\/eig\-logo\-stacked\.svg/}, "<%=asset_path('logos/EiG-logo-stacked.svg')%>")
+  html.gsub!(%r{\/shared\-header\-footer\/DfIT\_WHITE_AW\.png}, "<%=asset_path('logos/DfIT_WHITE_AW.png')%>")
+  html.gsub!(%r{\/shared\-header\-footer\/eig\-logo\-stacked\.svg}, "<%=asset_path('logos/EiG-logo-stacked.svg')%>")
   # services
-  html.gsub!(%r{/http\:\/\/find\-a\-buyer\.export\.great\.gov\.uk/}, '<%=Figaro.env.FIND_A_BUYER_URL %>')
-  html.gsub!(%r{/http\:\/\/selling\-online\-overseas\.export\.great\.gov\.uk/}, '<%=Figaro.env.SELLING_ONLINE_OVERSEAS_URL %>')
-  html.gsub!(%r{/http\:\/\/opportunities\.export\.great\.gov\.uk/}, '<%=Figaro.env.EXPORT_OPPORTUNITIES_URL %>')
-  html.gsub!(%r{/http\:\/\/events\.trade\.gov\.uk/}, '<%=Figaro.env.EVENTS_URL %>')
+  html.gsub!(%r{http\:\/\/find\-a\-buyer\.export\.great\.gov\.uk}, '<%=Figaro.env.FIND_A_BUYER_URL %>')
+  html.gsub!(%r{http\:\/\/selling\-online\-overseas\.export\.great\.gov\.uk}, '<%=Figaro.env.SELLING_ONLINE_OVERSEAS_URL %>')
+  html.gsub!(%r{http\:\/\/opportunities\.export\.great\.gov\.uk}, '<%=Figaro.env.EXPORT_OPPORTUNITIES_URL %>')
+  html.gsub!(%r{http\:\/\/events\.trade\.gov\.uk}, '<%=Figaro.env.EVENTS_URL %>')
   # info
-  html.gsub!(%r{/http\:\/\/contactus\.trade\.gov\.uk/}, '<%=Figaro.env.CONTACT_US_FORM %>')
-  html.gsub!(%r{/http\:\/\/great\.gov\.uk/}, '<%=Figaro.env.GREAT_GOV_URL %>')
+  html.gsub!(%r{http\:\/\/contactus\.trade\.gov\.uk}, '<%=Figaro.env.CONTACT_US_FORM %>')
+  html.gsub!(%r{http\:\/\/great\.gov\.uk}, '<%=Figaro.env.GREAT_GOV_URL %>')
   # export home
-  html.gsub!(%r{/http\:\/\/export\.great\.gov\.uk/}, '<%=Figaro.env.EXPORT_READINESS_URL %>')
+  html.gsub!(%r{http\:\/\/export\.great\.gov\.uk}, '<%=Figaro.env.EXPORT_READINESS_URL %>')
   html
 end
 
