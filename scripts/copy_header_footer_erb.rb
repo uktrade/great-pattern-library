@@ -33,6 +33,7 @@ def build_header()
   header = header.join.split(/(out\<\/a\>\s+\<\/li\>)(\s)/)
   header[2] = "\n        <% end %>\n"
   header = replace_html(header.join)
+  header = header + "\n<!-- needs to be added in assets.rb for production pre-compilation too -->\n<%= stylesheet_link_tag('header-footer') %>"
   write_file("_dit_header.html.erb", header, DIR_HTML)
 end
 
