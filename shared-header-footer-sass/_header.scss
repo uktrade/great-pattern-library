@@ -73,7 +73,6 @@
     color: $focus-yellow;
   }
 
-  .profile,
   .signout {
     &:before {
       @include separator($white);
