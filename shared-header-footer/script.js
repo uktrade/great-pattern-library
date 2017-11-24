@@ -22,17 +22,17 @@ var dit = {
 dit.utils = (new function () {
 
   /* Attempt to generate a unique string
-   * e.g. For HTML ID attribute.
-   * @str = (String) Allow prefix string.
-   **/
+  * e.g. For HTML ID attribute.
+  * @str = (String) Allow prefix string.
+  **/
   this.generateUniqueStr = function (str) {
     return (str ? str : "") + ((new Date().getTime()) + "_" + Math.random().toString()).replace(/[^\w]*/mig, "");
   }
 
   /* Attempt to run a namespaced function from passed string.
-   * e.g. dit.utils.executeNamespacedFunction("dit.utils.generateUniqueStr");
-   * @namespace (String) Namespaced function like above example.
-   **/
+  * e.g. dit.utils.executeNamespacedFunction("dit.utils.generateUniqueStr");
+  * @namespace (String) Namespaced function like above example.
+  **/
   this.executeNamespacedFunction = function (namespace) {
     var names = arguments.length ? namespace.split('.')  : null;
     var context = window;
@@ -45,8 +45,8 @@ dit.utils = (new function () {
   }
 
   /* Return max height measurement of passed elements
-   * @$items (jQuery collection) elements to compare.
-   **/
+  * @$items (jQuery collection) elements to compare.
+  **/
   this.maxHeight = function ($items, outer) {
     var max = 0;
     $items.each(function () {
@@ -58,9 +58,9 @@ dit.utils = (new function () {
   }
 
   /* Align heights of elements in row where
-   * CSS fails or using this is easier.
-   * $items = (String) jQuery selector to target elements.
-   **/
+  * CSS fails or using this is easier.
+  * $items = (String) jQuery selector to target elements.
+  **/
   this.alignHeights = function ($items) {
     var collection = $();
     var max = 0;
@@ -91,9 +91,9 @@ dit.utils = (new function () {
 
 
   /* Basically the reset to alignHeights because
-   * it clears the inline height setting.
-   * $items = (String) jQuery selector to target elements.
-   **/
+  * it clears the inline height setting.
+  * $items = (String) jQuery selector to target elements.
+  **/
   this.clearHeights = function ($items) {
     $items.each(function () {
       this.style.height = "";
@@ -101,15 +101,15 @@ dit.utils = (new function () {
   }
 
   /* Take an array of images that support the load event, and runs the passed
-   * function only when each event has fired. Because the load event might have
-   * already triggered before this function is called, we going to do a deep-clone
-   * of the original image, add the load event to that clone, and then replace the
-   * original image with the clone. The load event should fire as expected.
-   *
-   * @elements (Array) Collection of elements with capability of firing a load event.
-   * @action (Function) The callback function to run.
-   * @params (Array) Optional params that can be passed to callback.
-   **/
+  * function only when each event has fired. Because the load event might have
+  * already triggered before this function is called, we going to do a deep-clone
+  * of the original image, add the load event to that clone, and then replace the
+  * original image with the clone. The load event should fire as expected.
+  *
+  * @elements (Array) Collection of elements with capability of firing a load event.
+  * @action (Function) The callback function to run.
+  * @params (Array) Optional params that can be passed to callback.
+  **/
   this.whenImagesReady = function($images, action, params) {
     var loaded = 0;
     var parameters = arguments.length > 2 ? params : [];
@@ -168,28 +168,28 @@ dit.responsive = (new function () {
 
 
   /* Detect responsive size in play.
-   * Use CSS media queries to control z-index values of the
-   * #RESPONSIVE_ELEMENT_ID hidden element. Detected value
-   * should match up with index number of _responsiveValues
-   * array. dit.responsive.mode() will return a string that
-   * should give the current responsive mode.
-   * E.g. For _responsiveValues array ["desktop", "table", "mobile"],
-   * the expected z-index values would be:
-   * desktop = 0
-   * tablet = 1
-   * mobile = 2
-   **/
+  * Use CSS media queries to control z-index values of the
+  * #RESPONSIVE_ELEMENT_ID hidden element. Detected value
+  * should match up with index number of _responsiveValues
+  * array. dit.responsive.mode() will return a string that
+  * should give the current responsive mode.
+  * E.g. For _responsiveValues array ["desktop", "table", "mobile"],
+  * the expected z-index values would be:
+  * desktop = 0
+  * tablet = 1
+  * mobile = 2
+  **/
   function getResponsiveValue() {
     return Number($("#" + RESPONSIVE_ELEMENT_ID).css("z-index"));
   };
 
   /* Create and append a hidden element to track the responsive
-   * size. Note: You need to add CSS to set the z-index property
-   * of the element. Do this using media queries so that it fits
-   * in with other media query controlled responsive sizing.
-   * See _responsiveValues variable for expected values (the
-   * array index should match the set z-index value).
-   **/
+  * size. Note: You need to add CSS to set the z-index property
+  * of the element. Do this using media queries so that it fits
+  * in with other media query controlled responsive sizing.
+  * See _responsiveValues variable for expected values (the
+  * array index should match the set z-index value).
+  **/
   function addResponsiveTrackingElement() {
     var $responsiveElement = $("<span></span>");
     $responsiveElement.attr("id", RESPONSIVE_ELEMENT_ID);
@@ -205,9 +205,9 @@ dit.responsive = (new function () {
   }
 
   /* Create in-page <style> tag containing set media query
-   * breakpoints passed to dit.responsive.init()
-   * @queries (Object) Media queries and label - e.g. { desktop: "min-width: 1200px" }
-   **/
+  * breakpoints passed to dit.responsive.init()
+  * @queries (Object) Media queries and label - e.g. { desktop: "min-width: 1200px" }
+  **/
   function addResponsiveSizes(queries) {
     var $style = $("<style id=\"dit-responsive-css\" type=\"text/css\"></style>");
     var css = "";
@@ -229,8 +229,8 @@ dit.responsive = (new function () {
   }
 
   /* Triggers jQuery custom event on body for JS elements
-   * listening to resize changes (e.g. screen rotate).
-   **/
+  * listening to resize changes (e.g. screen rotate).
+  **/
   function bindResizeEvent() {
     $(window).on("resize", function () {
       if (!_rotating) {
@@ -248,11 +248,11 @@ dit.responsive = (new function () {
   }
 
   /* Calculate if window dimensions have changed enough
-   * to trigger a reset event. Note: This was added
-   * because some mobile browsers hide the address bar
-   * on scroll, which otherwise gives false positive
-   * when trying to detect a resize.
-   **/
+  * to trigger a reset event. Note: This was added
+  * because some mobile browsers hide the address bar
+  * on scroll, which otherwise gives false positive
+  * when trying to detect a resize.
+  **/
   function dimensionChangeWasBigEnough() {
     var height = $(window).height();
     var width = $(window).width();
@@ -295,7 +295,7 @@ dit.scroll = (new function () {
   this.disable = function () {
     this.scrollPosition = window.scrollY,
     $(document.body).css({
-        overflow: "hidden"
+      overflow: "hidden"
     });
 
     $(document).trigger("scrollingdisabled");
@@ -311,19 +311,19 @@ dit.scroll = (new function () {
   }
 });
 /* Class: Expander
- * ----------------
- * Expand and collapse a target element by another specified, controlling element,
- * or through an automatically added default controller.
- *
- * Note: The COLLAPSED class is added when the Expander element is closed, so
- * you can control CSS the open/close state, or other desired styling.
- *
- * REQUIRES:
- * jquery
- * dit.js
- * dit.utils.js
- *
- **/
+* ----------------
+* Expand and collapse a target element by another specified, controlling element,
+* or through an automatically added default controller.
+*
+* Note: The COLLAPSED class is added when the Expander element is closed, so
+* you can control CSS the open/close state, or other desired styling.
+*
+* REQUIRES:
+* jquery
+* dit.js
+* dit.utils.js
+*
+**/
 (function($, utils, classes) {
   var TYPE = "Expander";
   var COLLAPSED = "collapsed";
@@ -338,9 +338,9 @@ dit.scroll = (new function () {
   var ONMOUSEOVER = "mouseover." + TYPE;
 
   /* Main Class
-   * @$target (jQuery node) Target element that should open/close
-   * @options (Object) Configuration switches.
-   **/
+  * @$target (jQuery node) Target element that should open/close
+  * @options (Object) Configuration switches.
+  **/
   classes.Expander = Expander;
   function Expander($target, options) {
     var EXPANDER = this;
@@ -432,9 +432,9 @@ dit.scroll = (new function () {
   }
 
   /* Class utility function to bind required
-   * events upon instantiation. Needs to be run
-   * with context of the instantiated object.
-   **/
+  * events upon instantiation. Needs to be run
+  * with context of the instantiated object.
+  **/
   Expander.bindEvents = function() {
     var EXPANDER = this;
 
@@ -449,7 +449,7 @@ dit.scroll = (new function () {
   }
 
   /* Add ability to control by keyboard
-   **/
+  **/
   Expander.AddKeyboardSupport = function() {
     var EXPANDER = this;
 
@@ -463,25 +463,25 @@ dit.scroll = (new function () {
       switch(e.which) {
         case 37: // Fall through.
         case 27:
-          EXPANDER.close();
-          break;
+        EXPANDER.close();
+        break;
         case 13: // Fall through
         case 39:
-          if(EXPANDER.state === OPEN) {
-            // Move though any detected links.
-            Expander.move.call(EXPANDER, e);
-          }
-          else {
-            EXPANDER.open();
-          }
-          break;
+        if(EXPANDER.state === OPEN) {
+          // Move though any detected links.
+          Expander.move.call(EXPANDER, e);
+        }
+        else {
+          EXPANDER.open();
+        }
+        break;
         default: ; // Nothing yet.
       }
     });
   }
 
   /* Add Hover events (for desktop only)
-   **/
+  **/
   Expander.AddHoverSupport = function() {
     var EXPANDER = this;
     var $node = EXPANDER.$node;
@@ -502,7 +502,7 @@ dit.scroll = (new function () {
   }
 
   /* Using click for desktop and mobile.
-   **/
+  **/
   Expander.AddClickSupport = function() {
     var EXPANDER = this;
 
@@ -548,26 +548,26 @@ dit.scroll = (new function () {
       switch(e.which) {
         case 37: // Fallthrough
         case 27: this.close();
-          break;
+        break;
         case 40:
-          // Down.
-          if(counter < ($links.length - 1)) {
-            $links.eq(++counter).focus();
-          }
-          break;
+        // Down.
+        if(counter < ($links.length - 1)) {
+          $links.eq(++counter).focus();
+        }
+        break;
         case 39:
-          $links.eq(0).focus();
-          break;
+        $links.eq(0).focus();
+        break;
         case 38:
-          // Up.
-          if(counter > 0) {
-            $links.eq(--counter).focus();
-          }
-          else {
-            counter--;
-            this.close();
-          }
-          break;
+        // Up.
+        if(counter > 0) {
+          $links.eq(--counter).focus();
+        }
+        else {
+          counter--;
+          this.close();
+        }
+        break;
         default: ; // Nothing yet.
       }
     }
@@ -646,20 +646,20 @@ dit.scroll = (new function () {
 })(jQuery, dit.utils, dit.classes);
 
 /* Class will add a controller before the $target element.
- * The triggered event will toggle a class on the target element and controller.
- * the target element with collapse, or expand.
- *
- * Note: The COLLAPSED class is added when the Expander element is closed, so
- * you can add additional CSS for this state. Inline style, display:none is
- * added by the code (mainly only because IE8 doesn't support CSS transitions).
- *
- * REQUIRES:
- * jquery
- * dit.js
- * dit.utils.js
- * dit.classes.expander.js
- *
- **/
+* The triggered event will toggle a class on the target element and controller.
+* the target element with collapse, or expand.
+*
+* Note: The COLLAPSED class is added when the Expander element is closed, so
+* you can add additional CSS for this state. Inline style, display:none is
+* added by the code (mainly only because IE8 doesn't support CSS transitions).
+*
+* REQUIRES:
+* jquery
+* dit.js
+* dit.utils.js
+* dit.classes.expander.js
+*
+**/
 
 (function($, utils, classes) {
 
@@ -687,33 +687,7 @@ dit.scroll = (new function () {
 
   classes.Accordion = Accordion;
 })(jQuery, dit.utils, dit.classes);
-// ExRed Project-specific Code
-//
-// Requires
-// jQuery
-// dit.js
-// dit.responsive.js
-// dit.components.menu.js
 
-dit.exred = (new function () {
-
-  // Initial site init
-  this.init = function() {
-    dit.responsive.init({
-      "desktop": "min-width: 768px",
-      "tablet" : "max-width: 767px",
-      "mobile" : "max-width: 480px"
-    });
-
-    dit.components.menu.init();
-
-    delete this.init; // Run once
-  }
-});
-
-$(document).ready(function() {
-  dit.exred.init();
-});
 // Menu Component Functionality.
 //
 // Requires...
@@ -757,7 +731,7 @@ dit.components.menu = (new function() {
   };
 
   /* Add expanding functionality to target elements for desktop.
-   **/
+  **/
   function setupDesktopExpanders() {
     $(SELECTOR_MENU_LISTS).each(function() {
       var $this = $(this);
@@ -771,41 +745,41 @@ dit.components.menu = (new function() {
   }
 
   /* Add expanding functionality to target elements for tablet.
-   **/
+  **/
   function setupTabletExpanders() {
     setupOpenByButton();
     setupAccordionMenus();
   }
 
   /* Add expanding functionality to target elements for mobile.
-   * Note: Just calls the tablet setup because it is the same.
-   **/
+  * Note: Just calls the tablet setup because it is the same.
+  **/
   function setupMobileExpanders() {
     setupTabletExpanders();
   }
 
   /* Figures out what responsive view is in play
-   * and attempts to setup the appropriate functionality.
-   **/
+  * and attempts to setup the appropriate functionality.
+  **/
   function setupResponsiveView() {
     var mode = dit.responsive.mode();
     this.mode = mode;
     switch(mode) {
       case "desktop":
-        setupDesktopExpanders();
-        break;
+      setupDesktopExpanders();
+      break;
       case "tablet":
-        setupTabletExpanders();
-        break;
+      setupTabletExpanders();
+      break;
       case "mobile":
-        setupMobileExpanders();
-        break;
+      setupMobileExpanders();
+      break;
       default: console.log("Could not determine responsive mode"); // Do nothing.
     }
   }
 
   /* Adds button for opening all menu lists (e.g. common mobile view)
-   **/
+  **/
   function createMenuActivator() {
     var $button = $("<button></button>");
     var $icon = $("<span></span>");
@@ -817,8 +791,8 @@ dit.components.menu = (new function() {
   }
 
   /* Bind listener for the dit.responsive.reset event
-   * to reset the view when triggered.
-   **/
+  * to reset the view when triggered.
+  **/
   function bindResponsiveListener() {
     $(document.body).on(dit.responsive.reset, function(e, mode) {
       if(mode !== dit.components.menu.mode) {
@@ -828,11 +802,11 @@ dit.components.menu = (new function() {
   }
 
   /* Hacky workaround.
-   * List Headers are HTML anchors, mainly to get keyboard
-   * tabbing working properly. This causes issues when in
-   * tablet/mobile view, however. This function is trying
-   * to prevent list-headers acting like focusable anchors.
-   **/
+  * List Headers are HTML anchors, mainly to get keyboard
+  * tabbing working properly. This causes issues when in
+  * tablet/mobile view, however. This function is trying
+  * to prevent list-headers acting like focusable anchors.
+  **/
   function fixTabletTabbingIssue() {
     var $listHeaders = $(SELECTOR_LIST_HEADER);
     $listHeaders.attr("tabindex", "-1");
@@ -843,7 +817,7 @@ dit.components.menu = (new function() {
   }
 
   /* Open and close the entire menu by a single button
-   **/
+  **/
   function setupOpenByButton() {
     var $control = createMenuActivator();
     var $menu = $(SELECTOR_MENU);
@@ -861,7 +835,7 @@ dit.components.menu = (new function() {
   }
 
   /* Accordion effect for individual menu dropdowns
-   **/
+  **/
   function setupAccordionMenus() {
     var expanders = [];
     $(SELECTOR_MENU_LISTS).each(function() {
@@ -899,4 +873,316 @@ dit.components.menu = (new function() {
     setupResponsiveView();
   }
 
+});
+
+
+/* Class: Modal
+ * -------------------------
+ * Create an area to use as popup/modal/lightbox effect.
+ *
+ * REQUIRES:
+ * jquery
+ * dit.js
+ * dit.responsive.js
+ *
+ **/
+(function($, utils, classes) {
+
+  var ARIA_EXPANDED = "aria-expanded";
+  var CSS_CLASS_CLOSE_BUTTON = "close";
+  var CSS_CLASS_CONTAINER = "Modal-Container"
+  var CSS_CLASS_CONTENT = "content";
+  var CSS_CLASS_OPEN = "open";
+  var CSS_CLASS_OVERLAY = "Modal-Overlay";
+
+  /* Constructor
+   * @options (Object) Allow some configurations
+   **/
+  classes.Modal = Modal;
+  function Modal($container, options) {
+    var modal = this;
+    var config = $.extend({
+      $activators: $(), // (optional) Element(s) to control the Modal
+      closeOnBuild: true, // Whether intial Modal view is open or closed
+      overlay: true  // Whether it has an overlay or not
+    }, options || {});
+
+    // If no arguments, likely just being inherited
+    if (arguments.length) {
+      // Create the required elements
+      if(config.overlay) {
+        this.$overlay = Modal.createOverlay();
+        Modal.bindResponsiveOverlaySizeListener.call(this);
+      }
+
+      this.$closeButton = Modal.createCloseButton();
+      this.$content = Modal.createContent();
+      this.$container = Modal.enhanceModalContainer($container);
+
+      // Add elements to DOM
+      Modal.appendElements.call(this, config.overlay);
+
+      // Add events
+      Modal.bindCloseEvents.call(this);
+      Modal.bindActivators.call(this, config.$activators);
+
+      // Initial state
+      if (config.closeOnBuild) {
+        this.close();
+      }
+      else {
+        this.open();
+      }
+    }
+  }
+
+  Modal.createOverlay = function() {
+    var $overlay = $(document.createElement("div"));
+    $overlay.addClass(CSS_CLASS_OVERLAY);
+    return $overlay;
+  }
+
+  Modal.createCloseButton = function() {
+    var $button = $(document.createElement("button"));
+    $button.text("Close");
+    $button.addClass(CSS_CLASS_CLOSE_BUTTON);
+    return $button;
+  }
+
+  Modal.createContent = function() {
+    var $content = $(document.createElement("div"));
+    $content.addClass(CSS_CLASS_CONTENT);
+    return $content;
+  }
+
+  Modal.enhanceModalContainer = function($container) {
+    $container.addClass(CSS_CLASS_CONTAINER);
+    return $container;
+  }
+
+  Modal.appendElements = function(overlay) {
+    this.$container.append(this.$closeButton);
+    this.$container.append(this.$content);
+
+    if (overlay) {
+      $(document.body).append(this.$overlay);
+    }
+    $(document.body).append(this.$container);
+  }
+
+  Modal.bindCloseEvents = function() {
+    var self = this;
+    self.$closeButton.on("click", function(e) {
+      e.preventDefault();
+      self.close();
+    });
+
+    if (self.$overlay && self.$overlay.length) {
+      self.$overlay.on("click", function() {
+        self.close();
+      });
+    }
+  }
+
+  Modal.bindActivators = function($activators) {
+    var self = this;
+    $activators.on("click", function(e) {
+      e.preventDefault();
+      self.open();
+    });
+  }
+
+  Modal.bindResponsiveOverlaySizeListener = function() {
+    var self = this;
+    // Resets the overlay height (once) on scroll because document
+    // height changes with responsive resizing and the browser
+    // needs a delay to redraw elements. Alternative was to have
+    // a rubbish setTimeout with arbitrary delay.
+    $(document.body).on(dit.responsive.reset, function(e, mode) {
+      $(window).off("scroll.ModalOverlayResizer");
+      $(window).one("scroll.ModalOverlayResizer", function() {
+        Modal.setOverlayHeight(self.$overlay);
+      });
+    });
+  }
+
+  Modal.setOverlayHeight = function($overlay) {
+    $overlay.get(0).style.height = ""; // Clear it first
+    $overlay.height($(document).height());
+  }
+
+  Modal.prototype = {};
+  Modal.prototype.close = function() {
+    var self = this;
+    self.$container.fadeOut(50, function () {
+      self.$container.attr(ARIA_EXPANDED, false);
+      self.$container.removeClass(CSS_CLASS_OPEN);
+    });
+
+    if (self.$overlay && self.$overlay.length) {
+      self.$overlay.fadeOut(150);
+    }
+  }
+
+  Modal.prototype.open = function() {
+    var self = this;
+    self.$container.css("top", window.scrollY + "px");
+    self.$container.addClass(CSS_CLASS_OPEN);
+    self.$container.fadeIn(250, function () {
+      self.$container.attr(ARIA_EXPANDED, true);
+    });
+
+    if (self.$overlay && self.$overlay.length) {
+      Modal.setOverlayHeight(self.$overlay);
+      self.$overlay.fadeIn(0);
+    }
+  }
+
+  Modal.prototype.setContent = function(content) {
+    var self = this;
+    self.$content.empty();
+    self.$content.append(content);
+  }
+
+
+})(jQuery, dit.utils, dit.classes);
+
+
+// Language Selector Component Functionality.
+//
+// Requires...
+// dit.js
+// dit.utils.js
+// dit.class.modal.js
+
+// Usage
+// --------------------------------------------------------------------
+// To find all Language Selector components and enhance using
+// the default settings.
+//
+// dit.components.languageSelector.init()
+//
+// For greater control, use either of the individual enhance functions
+// for Language Selector Control or Language Selector Dialog components.
+// This also allow passing options to customise the output.
+//
+// dit.components.languageSelector.enhanceControl()
+// dit.components.languageSelector.enhanceDialog()
+//
+dit.components.languageSelector = (new function() {
+
+  /* Constructor
+   * Displays control and dialog enhancement for language-selector-dialog element.
+   * @$dialog (jQuery node) Element displaying list of selective links
+   * @options (Object) Configurable options
+   **/
+  function LanguageSelectorDialog($dialog, options) {
+    var LANGUAGE_SELECTOR_DISPLAY = this;
+    var id = dit.utils.generateUniqueStr("LanguageSelectorDialog_");
+    dit.classes.Modal.call(LANGUAGE_SELECTOR_DISPLAY, $dialog);
+    this.$container.attr("id", id);
+    this.config = $.extend({
+      $controlContainer: $dialog.parent() // Where to append the generated control
+    }, options);
+
+
+    if(arguments.length > 0 && $dialog.length) {
+      this.$dialog = $dialog;
+      this.$dialog.addClass("LanguageSelectorDialog-Modal");
+
+      this.$control = LanguageSelectorDialog.createControl($dialog, id);
+      this.config.$controlContainer.append(this.$control);
+      this.setContent(this.$dialog.children());
+
+      this.$control.on("click.LanguageSelectorDialog", function(e) {
+        e.preventDefault();
+        LANGUAGE_SELECTOR_DISPLAY.open();
+      });
+    }
+  }
+
+  LanguageSelectorDialog.createControl = function($node, id) {
+    var $control = $(document.createElement("a"));
+    var $lang = $(document.createElement("span"));
+    var $country = $(document.createElement("span"));
+    $lang.addClass("lang");
+    $lang.text($node.attr("data-lang"));
+    $country.addClass("label");
+    $country.text($node.attr("data-label"));
+    $control.append($lang);
+    $control.append($country);
+    $control.addClass("LanguageSelectorDialog-Tracker");
+    $control.attr("href", ("#" + id));
+    $control.attr("aria-controls", id);
+    return $control;
+  }
+
+  LanguageSelectorDialog.prototype = new dit.classes.Modal
+
+  // Selective enhancement for individual Language Selector Control views
+  // Allows passing of custom options.
+  // @$control (jQuery object) Something like this: $("[data-component='language-selector-control'] select")
+  // @options (Object) Configurable options for class used.
+  this.enhanceControl = function($control, options) {
+    if ($control.length) {
+      new LanguageSelectorControl($control, options);
+    }
+    else {
+      console.error("Language Selector Control missing or not passed")
+    }
+  }
+
+  // Selective enhancement for individual Language Selector Dialog views
+  // Allows passing of custom options.
+  // @$control (jQuery object) Something like this: $("[data-component='language-selector-dialog']")
+  // @options (Object) Configurable options for class used.
+  this.enhanceDialog = function($dialog , options) {
+    if ($dialog.length) {
+      new LanguageSelectorDialog($dialog, options);
+    }
+    else {
+      console.error("Language Selector Dialog missing or not passed");
+    }
+  }
+
+});
+
+
+// Header code
+//
+// Requires
+// jQuery
+// dit.js
+// dit.components.js
+//
+dit.header = (new function () {
+  // Page init
+  this.init = function() {
+    dit.responsive.init({
+      "desktop": "min-width: 768px",
+      "tablet" : "max-width: 767px",
+      "mobile" : "max-width: 480px"
+    });
+
+    delete this.init; // Run once
+
+    // dit.components.languageSelector.init();
+    enhanceLanguageSelector();
+    dit.components.menu.init();
+
+  }
+
+  /* Find and enhance any Language Selector Dialog view
+   **/
+  function enhanceLanguageSelector() {
+    var $dialog = $("[data-component='language-selector-dialog']");
+    dit.components.languageSelector.enhanceDialog($dialog, {
+      $controlContainer: $("#header-bar .account-locale-links")
+    });
+  }
+
+});
+
+$(document).ready(function() {
+  dit.header.init();
 });

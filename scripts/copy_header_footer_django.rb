@@ -28,21 +28,21 @@ def build_header()
   header = header.join.split(/(out\<\/a\>\s+\<\/li\>)(\s)/)
   header[2] = "\n        {% endif %}\n"
   header = replace(header.join)
-  write_file('header', header)
+  write_file("header.html", header, DIR_HEADER_FOOTER)
 end
 
 def build_footer()
   pattlib_footer = File.read(PATTLIB_DIR+"footer.html")
   footer = "{% load static %}\n" + pattlib_footer
   footer = replace(footer)
-  write_file('footer', footer)
+  write_file("footer", footer, DIR_HEADER_FOOTER)
 end
 
-def write_file(filename, data)
-  file = File.new("#{DIR_HEADER_FOOTER}#{filename}.html", "r+")
+def write_file(filename, data, dest)
+  file = File.new("#{dest}#{filename}", "w")
   if file
     file.syswrite(data)
-    puts "Written #{DIR_HEADER_FOOTER}#{filename}.html"
+    puts "Written #{dest}#{filename}"
   else
     puts "Unable to write to file"
   end

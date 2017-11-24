@@ -1,0 +1,37 @@
+// PAGE: INTERNATIONAL
+// ------------------------------------------------
+
+@import 'colours';
+@import 'vars';
+@import 'typography';
+@import 'mixins';
+@import 'layout';
+
+// Global style
+@import 'general';
+@import 'content';
+@import 'elements';
+@import 'effects';
+
+// Components
+@import 'language-selector';
+
+// Language selection
+.international-links {
+  .teaser-site-external {
+    @include items(2, $spacing-3);
+    padding-top: 29%;
+    position: relative;
+  }
+
+  img {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.LanguageSelectorDialog-Tracker {
+  float: right;
+}
