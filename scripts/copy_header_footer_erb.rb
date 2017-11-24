@@ -19,7 +19,7 @@ def build_header()
   puts "*** Building HEADER TEMPLATE ***"
   header = File.read(PATTLIB_DIR+"header.html")
   header = header.split(/(t\-links\"\>)(\s)/)
-  header[2] = "\n        <% if not @current_user %>\n"
+  header[2] = "\n        <% if !current_user %>\n"
   header = header.join.split(/(.)(\" class\=\"reg)/)
   header[1] = '<%=Figaro.env.SSO_ENDPOINT_BASE_URI %>accounts/signup'
   header = header.join.split(/(.)(\" class\=\"signin)/)
