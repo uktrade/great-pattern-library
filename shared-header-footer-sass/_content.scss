@@ -22,9 +22,14 @@ a,
   &:hover {
     color: $mid-blue;
   }
-  
+
+  &:active {
+    color: $aqua;
+    background-color: $focus-yellow;
+  }
+
   &:focus {
-    outline: $focus-yellow solid 3px;
+    @include focus;
   }
 }
 
@@ -81,6 +86,7 @@ ul {
   @include button($active-blue, $active-blue-alt);
   border-style: solid;
   border-width: 2px;
+  border-radius: 0;
   box-shadow: none;
   cursor: pointer;
   display: inline-block;
@@ -88,11 +94,13 @@ ul {
   overflow: hidden;
   padding: 10px $spacing-2;
   text-decoration: none;
+  -webkit-appearance: none;
+  border-radius: 0;
 
   &[disabled="disabled"] {
     @include button-disabled($active-blue-disabled, $white);
   }
-  
+
   &:focus {
     outline: $focus-yellow solid 3px;
   }

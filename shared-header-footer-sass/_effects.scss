@@ -23,19 +23,22 @@
   width: calc(100% - (#{$spacing-3 * 2}));
 
   .close {
-    @include body-m;
+    background-color: transparent;
+    border: none;
     color: $active-blue;
-    text-decoration: underline;
-    border-radius: 15px;
-    border-width: 0;
     cursor: pointer;
-    height: 30px;
-    overflow: hidden;
+    cursor: pointer;
+    font-size: inherit;
     padding: 0;
     position: absolute;
-    right: $spacing-4;
-    top: $spacing-4;
+    right: 0;
+    text-decoration: underline;
+    top: 0;
     z-index: 1;
+
+    &:focus {
+      @include focus;
+    }
   }
 
   .content {
