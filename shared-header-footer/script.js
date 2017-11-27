@@ -874,8 +874,6 @@ dit.components.menu = (new function() {
   }
 
 });
-
-
 /* Class: Modal
  * -------------------------
  * Create an area to use as popup/modal/lightbox effect.
@@ -970,25 +968,67 @@ dit.components.menu = (new function() {
     $(document.body).append(this.$container);
   }
 
+  // Handles open actions including whether additioal
+  // ability to focus and remember activator if using
+  // the keyboard for navigation.
+  Modal.activate = function(activator, event) {
+    switch(event.which) {
+      case 1: // mouse
+        this.open();
+        this.activator = null;
+        event.preventDefault();
+        break;
+      case 13: // Enter
+        this.open();
+        this.focus();
+        this.activator = activator;
+        event.preventDefault();
+        break;
+    }
+  }
+
+  // Handles close including whether additional
+  // ability to refocus on origina activator if
+  // using keyboard for navigaiton.
+  Modal.deactivate = function(event) {
+    switch(event.which) {
+      case 1: // mouse
+        this.close();
+        this.activator = null;
+        event.preventDefault();
+        break;
+      case 27: // Esc (fallthrough)
+      case 13: // Enter
+        this.close();
+        this.activator && this.activator.focus();
+        this.activator = null;
+        event.preventDefault();
+        break;
+    }
+  }
+
   Modal.bindCloseEvents = function() {
     var self = this;
-    self.$closeButton.on("click", function(e) {
-      e.preventDefault();
-      self.close();
+
+    self.$container.on("keydown", function(e) {
+      Modal.deactivate.call(self, e);
+    });
+
+    self.$closeButton.on("click keydown", function(e) {
+      Modal.deactivate.call(self, e);
     });
 
     if (self.$overlay && self.$overlay.length) {
-      self.$overlay.on("click", function() {
-        self.close();
+      self.$overlay.on("click", function(e) {
+        Modal.deactivate.call(self, e);
       });
     }
   }
 
   Modal.bindActivators = function($activators) {
     var self = this;
-    $activators.on("click", function(e) {
-      e.preventDefault();
-      self.open();
+    $activators.on("click keydown", function(e) {
+      Modal.activate.call(self, this, e);
     });
   }
 
@@ -1044,6 +1084,12 @@ dit.components.menu = (new function() {
     self.$content.append(content);
   }
 
+  // Tries to add focus to the first found element allowed nwith atural focus ability.
+  Modal.prototype.focus = function() {
+    var self = this;
+    self.$content.find("a, button, input, select").eq(0).focus();
+  }
+
 
 })(jQuery, dit.utils, dit.classes);
 
@@ -1071,7 +1117,7 @@ dit.components.menu = (new function() {
 //
 dit.components.languageSelector = (new function() {
 
-  /* Constructor
+  /* Contructor
    * Displays control and dialog enhancement for language-selector-dialog element.
    * @$dialog (jQuery node) Element displaying list of selective links
    * @options (Object) Configurable options
@@ -1094,9 +1140,8 @@ dit.components.languageSelector = (new function() {
       this.config.$controlContainer.append(this.$control);
       this.setContent(this.$dialog.children());
 
-      this.$control.on("click.LanguageSelectorDialog", function(e) {
-        e.preventDefault();
-        LANGUAGE_SELECTOR_DISPLAY.open();
+      this.$control.on("click.LanguageSelectorDialog, keydown.LanguageSelectorDialog", function(e) {
+        dit.classes.Modal.activate.call(LANGUAGE_SELECTOR_DISPLAY, this, e);
       });
     }
   }
@@ -1147,7 +1192,6 @@ dit.components.languageSelector = (new function() {
 
 });
 
-
 // Header code
 //
 // Requires
@@ -1164,12 +1208,9 @@ dit.header = (new function () {
       "mobile" : "max-width: 480px"
     });
 
-    delete this.init; // Run once
-
-    // dit.components.languageSelector.init();
     enhanceLanguageSelector();
+    delete this.init; // Run once
     dit.components.menu.init();
-
   }
 
   /* Find and enhance any Language Selector Dialog view
@@ -1180,7 +1221,6 @@ dit.header = (new function () {
       $controlContainer: $("#header-bar .account-locale-links")
     });
   }
-
 });
 
 $(document).ready(function() {
