@@ -45,7 +45,7 @@
   }
 
   .SelectTraker-Tracker {
-    background-image: url(/static/images/international/language-icon.svg);
+    background-image: url("/shared-header-footer/eig-world-language-icon.svg");
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 20px;
@@ -91,12 +91,6 @@
     float: none;
   }
 
-  p {
-    @include body-s;
-    display: inline-block;
-    margin-bottom: 0;
-  }
-
   .domestic-redirect {
     padding-top: $spacing-4;
     span {
@@ -105,15 +99,16 @@
   }
 
   .languages {
-    border-bottom: $light-grey solid 1px;
     padding-bottom: $spacing-4;
   }
 }
 
 
 .LanguageSelectorDialog-Modal {
+  top: 0;
   a {
     font-size: 21px;
+    text-decoration: underline;
   }
 
   li {
@@ -122,9 +117,14 @@
   }
 
   p {
-    @include body-xl;
+    @include body-m;
     display: block;
     margin-bottom: $spacing-3;
+  }
+
+  #great-languages-selector {
+    @include heading-m;
+    font-weight: normal;
   }
 
   ul {
@@ -144,13 +144,8 @@
   }
 
   .languages {
-    border-bottom: none;
-    border-right: $light-grey solid 1px;
-    float: left;
-    margin-bottom: $spacing-3;
     overflow: hidden;
-    padding: 0 $spacing-3 0 0;
-    width: $cols-8;
+    padding: 0;
   }
 
   .domestic-redirect {
@@ -175,8 +170,8 @@
 
 #header-bar .LanguageSelectorDialog-Tracker {
   @include body-s;
-  font-weight: bold;
-  background-image: url(/static/images/international/language-icon.svg);
+  margin-left: $spacing-3;
+  background-image: url("/shared-header-footer/eig-world-language-icon.svg");
   background-position: 0px 8px;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -200,7 +195,6 @@
   }
 
   .lang {
-    font-weight: normal;
     text-transform: uppercase;
     &:after {
       content: " - ";
@@ -247,10 +241,16 @@
 // MOBILE
 @media screen and (max-width: 580px) {
   .LanguageSelectorDialog-Modal {
+    width: 100%;
+    left: 0;
+    top: 15px;
+
+    .close {
+      top: 30px;
+      right: 30px;
+    }
+
     .languages {
-      border-bottom: $light-grey solid 1px;
-      border-right: none;
-      float: none;
       width: auto;
     }
 
@@ -259,23 +259,26 @@
       padding-left: 0;
       width: auto;
     }
+
+    #great-languages-selector {
+      width: 80%;
+    }
   }
 }
 
 @media screen and (max-width: 480px) {
-  .language-selector-dialog {
-    padding: $spacing-3-m;
-  }
 
   .LanguageSelectorDialog-Modal {
-    p {
-      @include body-l;
+    padding: $spacing-4;
+    #great-languages-select {
+      @include body-m;
+      font-weight: bold;
     }
-
-    .content {
-      padding-left: 0;
-      padding-right: 0;
-      padding-top: 85px;
+    a {
+      @include body-m;
+    }
+    p {
+      @include body-m;
     }
 
     .countries {

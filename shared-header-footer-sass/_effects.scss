@@ -23,12 +23,12 @@
   width: calc(100% - (#{$spacing-3 * 2}));
 
   .close {
+    @include body-m;
     background-color: transparent;
     border: none;
     color: $active-blue;
     cursor: pointer;
     cursor: pointer;
-    font-size: inherit;
     padding: 0;
     position: absolute;
     right: 0;
@@ -37,7 +37,7 @@
     z-index: 1;
 
     &:focus {
-      @include focus;
+      outline: $focus-yellow solid 3px;
     }
   }
 
@@ -58,22 +58,4 @@
   position: absolute;
   top: 0;
   width: 100%;
-}
-
-// MOBILE
-@media screen and (max-width: 480px) {
-  .Modal-Container {
-    left: $spacing-4;
-    margin-top: $spacing-4;
-    width: calc(100% - (#{$spacing-4 * 2}));
-
-    .close {
-      right: 0;
-      top: 0;
-    }
-
-    .content {
-      padding: $spacing-4;
-    }
-  }
 }
