@@ -19,7 +19,7 @@ def build_header
   pattlib_header = File.read(PATTLIB_DIR + 'header.html')
   header = "{% load static %}\n" + pattlib_header
   header = header.split(/(t\-links\"\>)(\s)/)
-  header[2] = "\n        {% if not sso_is_logged_in %}\n"
+  header[2] = "\n        {% block login_state %}\n        {% if not sso_is_logged_in %}\n"
   header = header.join.split(/(.)(\" class\=\"reg)/)
   header[1] = '{{ sso_register_url }}'
   header = header.join.split(/(.)(\" class\=\"signin)/)
@@ -31,7 +31,7 @@ def build_header
   header = header.join.split(/(.)(\" class\=\"signout)/)
   header[1] = '{{ sso_logout_url }}'
   header = header.join.split(%r{(out\<\/a\>\s+\<\/li\>)(\s)})
-  header[2] = "\n        {% endif %}\n"
+  header[2] = "\n        {% endif %}\n        {% endblock %}\n"
   replace(header.join)
 end
 
