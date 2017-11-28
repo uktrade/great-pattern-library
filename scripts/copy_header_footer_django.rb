@@ -19,29 +19,20 @@ def build_header
   pattlib_header = File.read(PATTLIB_DIR + 'header.html')
   header = "{% load static %}\n" + pattlib_header
   header = header.split(/(t\-links\"\>)(\s)/)
-  header[2] = "\n        {% if not sso_is_logged_in %}\n"
+  header[2] = "\n        {% block login_state %}\n        {% if not sso_is_logged_in %}\n"
   header = header.join.split(/(.)(\" class\=\"reg)/)
   header[1] = '{{ sso_register_url }}'
   header = header.join.split(/(.)(\" class\=\"signin)/)
   header[1] = '{{ sso_login_url }}'
-  header = header.join.split(%r{(in\<\/a\>\s+\<\/li\>)(\s)})
+  header = header.join.split(%r{(in\<\/a\>\<\/li\>)(\s)})
   header[2] = "\n        {% else %}\n"
   header = header.join.split(/(.)(\" class\=\"pro)/)
   header[1] = '{{ sso_profile_url }}'
   header = header.join.split(/(.)(\" class\=\"signout)/)
   header[1] = '{{ sso_logout_url }}'
-  header = header.join.split(%r{(out\<\/a\>\s+\<\/li\>)(\s)})
-  header[2] = "\n        {% endif %}\n"
+  header = header.join.split(%r{(out\<\/a\>\<\/li\>)(\s)})
+  header[2] = "\n        {% endif %}\n        {% endblock %}\n"
   replace(header.join)
-end
-
-def build_header_language_select(html)
-  puts '*** Building HEADER TEMPLATE WITH LANGUAGE SELECT ***'
-  header = html.split(%r{(ent\<\/a\>)(\s)})
-  header[2] = "\n  {% if header_language_select %}\n"
-  header = header.join.split(%r{(\<\/section\>)(\s)})
-  header[2] = "\n  {% endif %}\n"
-  header.join
 end
 
 def build_footer
@@ -49,6 +40,12 @@ def build_footer
   pattlib_footer = File.read(PATTLIB_DIR + 'footer.html')
   footer = "{% load static %}\n" + pattlib_footer
   replace(footer)
+end
+
+def build_css
+  puts '*** Replacing image paths in CSS ***'
+  css = File.read(PATTLIB_DIR + 'style.css')
+  replace_css(css)
 end
 
 def write_file(filename, data, dest)
@@ -166,6 +163,11 @@ def replace(html)
   html
 end
 
+def replace_css(css)
+  css.gsub!(/shared\-header\-footer/, 'static/icons/')
+  css
+end
+
 def copy_images
   puts '*** Copying IMAGES ***'
   src = Dir.glob("#{PATTLIB_DIR}*.{svg,png,gif}")
@@ -179,11 +181,8 @@ end
 def copy_js
   puts '*** Copying JS ***'
   script = "#{PATTLIB_DIR}script.js"
-  lang = "#{PATTLIB_DIR}language-selector.js"
   FileUtils.cp(script, "#{DIR_JS}script.js")
   puts "Copied #{script} to #{DIR_JS}script.js"
-  FileUtils.cp(lang, "#{DIR_JS}language-selector.js")
-  puts "Copied #{lang} to #{DIR_JS}language-selector.js"
   third_party = "#{PATTLIB_DIR}third-party.js"
   FileUtils.cp(third_party, "#{DIR_JS}third-party.js")
 end
@@ -192,5 +191,4 @@ copy_js
 copy_images
 write_file('footer.html', build_footer, DIR_HTML)
 write_file('header.html', build_header, DIR_HTML)
-write_file('header_language_select.html', build_header_language_select(build_header), DIR_HTML)
-FileUtils.cp("#{PATTLIB_DIR}style.css", "#{DIR_CSS}main.css")
+write_file('main.css', build_css, DIR_CSS)
