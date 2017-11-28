@@ -30,13 +30,13 @@ def build_header
   header[1] = '<%=Figaro.env.SSO_ENDPOINT_BASE_URI %>accounts/signup'
   header = header.join.split(/(.)(\" class\=\"signin)/)
   header[1] = '<%=dashboard_path%>'
-  header = header.join.split(%r{(in\<\/a\>\s+\<\/li\>)(\s)})
+  header = header.join.split(%r{(in\<\/a\>\<\/li\>)(\s)})
   header[2] = "\n        <% else %>\n"
   header = header.join.split(/(.)(\" class\=\"pro)/)
   header[1] = '<%=dashboard_path%>'
   header = header.join.split(/(.)(\" class\=\"signout)/)
   header[1] = '<%=destroy_user_session_path%>'
-  header = header.join.split(%r{(out\<\/a\>\s+\<\/li\>)(\s)})
+  header = header.join.split(%r{(out\<\/a\>\<\/li\>)(\s)})
   header[2] = "\n        <% end %>\n"
   header = add_warning(replace_html(header.join))
   header + "\n<!-- needs to be added in assets.rb for production pre-compilation too -->\n<% unless request.fullpath.include?('/admin') %>\n<%= stylesheet_link_tag('header-footer') %>\n<% end %>"

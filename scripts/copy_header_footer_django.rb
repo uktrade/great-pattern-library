@@ -24,13 +24,13 @@ def build_header
   header[1] = '{{ sso_register_url }}'
   header = header.join.split(/(.)(\" class\=\"signin)/)
   header[1] = '{{ sso_login_url }}'
-  header = header.join.split(%r{(in\<\/a\>\s+\<\/li\>)(\s)})
+  header = header.join.split(%r{(in\<\/a\>\<\/li\>)(\s)})
   header[2] = "\n        {% else %}\n"
   header = header.join.split(/(.)(\" class\=\"pro)/)
   header[1] = '{{ sso_profile_url }}'
   header = header.join.split(/(.)(\" class\=\"signout)/)
   header[1] = '{{ sso_logout_url }}'
-  header = header.join.split(%r{(out\<\/a\>\s+\<\/li\>)(\s)})
+  header = header.join.split(%r{(out\<\/a\>\<\/li\>)(\s)})
   header[2] = "\n        {% endif %}\n        {% endblock %}\n"
   replace(header.join)
 end
