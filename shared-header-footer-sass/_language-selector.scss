@@ -197,12 +197,10 @@
   }
 
   .label {
-		font-weight: normal;
     text-transform: capitalize;
   }
 
   .lang {
-    font-weight: normal;
     text-transform: uppercase;
     &:after {
       content: " - ";
