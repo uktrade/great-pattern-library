@@ -63,22 +63,6 @@ li {
   padding: 0 0 0 $spacing-3;
 }
 
-ul {
-  margin: 0 0 1em 0;
-  list-style: none;
-
-  li::before {
-    background-color: $stone;
-    border-radius: 4px;
-    content: "";
-    display: inline-block;
-    height: 8px;
-    left: 0;
-    position: absolute;
-    top: 0.65em;
-    width: 8px;
-  }
-}
 
 .button {
   @include body-m;
