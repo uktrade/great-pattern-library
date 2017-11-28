@@ -191,6 +191,5 @@ end
 copy_js
 copy_images
 write_file('footer.html', build_footer, DIR_HTML)
-write_file('header.html', build_header, DIR_HTML)
-write_file('header_language_select.html', build_header_language_select(build_header), DIR_HTML)
+write_file('header.html', build_header_language_select(build_header), DIR_HTML)
 FileUtils.cp("#{PATTLIB_DIR}style.css", "#{DIR_CSS}main.css")
