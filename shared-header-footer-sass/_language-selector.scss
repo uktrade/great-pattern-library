@@ -190,11 +190,12 @@
   }
 
   .label {
-    font-weight: normal;
+    font-weight: bold;
     text-transform: capitalize;
   }
 
   .lang {
+    font-weight: bold;
     text-transform: uppercase;
     &:after {
       content: " - ";
