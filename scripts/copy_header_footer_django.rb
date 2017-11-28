@@ -4,13 +4,18 @@
 # this script copies the header/footer html files from great-pattern-library
 # and adds all the necessary variables and template logic
 # for django templates used in directory-header-footer
-
 # directory-header-footer directory must exist parallel to great-pattern-library
 
+require 'fileutils'
+
 PATTLIB_DIR = './shared-header-footer/'.freeze
-DIR_HEADER_FOOTER = '../directory-header-footer/directory_header_footer/templates/directory_header_footer/'.freeze
+DIR_HTML = '../directory-header-footer/directory_header_footer/templates/directory_header_footer/'.freeze
+DIR_IMG = '../directory-header-footer/directory_header_footer/static/images/'.freeze
+DIR_JS = '../directory-header-footer/directory_header_footer/static/Dit-Pattern-Styling/public/js/'.freeze
+DIR_CSS = '../directory-header-footer/directory_header_footer/static/Dit-Pattern-Styling/public/css/'.freeze
 
 def build_header
+  puts '*** Building HEADER TEMPLATE ***'
   pattlib_header = File.read(PATTLIB_DIR + 'header.html')
   header = "{% load static %}\n" + pattlib_header
   header = header.split(/(t\-links\"\>)(\s)/)
@@ -27,15 +32,23 @@ def build_header
   header[1] = '{{ sso_logout_url }}'
   header = header.join.split(%r{(out\<\/a\>\s+\<\/li\>)(\s)})
   header[2] = "\n        {% endif %}\n"
-  header = replace(header.join)
-  write_file('header.html', header, DIR_HEADER_FOOTER)
+  replace(header.join)
+end
+
+def build_header_language_select(html)
+  puts '*** Building HEADER TEMPLATE WITH LANGUAGE SELECT ***'
+  header = html.split(%r{(ent\<\/a\>)(\s)})
+  header[2] = "\n  {% if header_language_select %}\n"
+  header = header.join.split(%r{(\<\/section\>)(\s)})
+  header[2] = "\n  {% endif %}\n"
+  header.join
 end
 
 def build_footer
+  puts '*** Building FOOTER TEMPLATE ***'
   pattlib_footer = File.read(PATTLIB_DIR + 'footer.html')
   footer = "{% load static %}\n" + pattlib_footer
-  footer = replace(footer)
-  write_file('footer', footer, DIR_HEADER_FOOTER)
+  replace(footer)
 end
 
 def write_file(filename, data, dest)
@@ -153,5 +166,31 @@ def replace(html)
   html
 end
 
-build_footer
-build_header
+def copy_images
+  puts '*** Copying IMAGES ***'
+  src = Dir.glob("#{PATTLIB_DIR}*.{svg,png,gif}")
+  src.each do |file|
+    filename = File.basename file
+    FileUtils.cp(file, DIR_IMG + filename)
+    puts "Copied #{filename} to #{DIR_IMG + filename}"
+  end
+end
+
+def copy_js
+  puts '*** Copying JS ***'
+  script = "#{PATTLIB_DIR}script.js"
+  lang = "#{PATTLIB_DIR}language-selector.js"
+  FileUtils.cp(script, "#{DIR_JS}script.js")
+  puts "Copied #{script} to #{DIR_JS}script.js"
+  FileUtils.cp(lang, "#{DIR_JS}language-selector.js")
+  puts "Copied #{lang} to #{DIR_JS}language-selector.js"
+  third_party = "#{PATTLIB_DIR}third-party.js"
+  FileUtils.cp(third_party, "#{DIR_JS}third-party.js")
+end
+
+copy_js
+copy_images
+write_file('footer.html', build_footer, DIR_HTML)
+write_file('header.html', build_header, DIR_HTML)
+write_file('header_language_select.html', build_header_language_select(build_header), DIR_HTML)
+FileUtils.cp("#{PATTLIB_DIR}style.css", "#{DIR_CSS}main.css")

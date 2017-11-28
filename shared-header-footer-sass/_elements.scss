@@ -9,7 +9,7 @@
   border-width: 1px 0;
   clear: both;
   margin-bottom: $spacing-1;
-  
+
   a {
     @include heading-l;
     border-bottom: 6px solid $active-blue;
@@ -19,7 +19,7 @@
     padding-right: #{$spacing-4 + 52px};
     position: relative;
     text-decoration: none;
-    
+
     &:after {
       @include continue-arrow;
       position: absolute;
@@ -27,12 +27,12 @@
       top: 0;
     }
   }
-  
+
   p {
     margin-bottom: 0;
     padding-top: $spacing-2;
   }
-  
+
   span {
     display: block;
   }

@@ -24,18 +24,21 @@
 
   .close {
     @include body-m;
+    background-color: transparent;
+    border: none;
     color: $active-blue;
-    text-decoration: underline;
-    border-radius: 15px;
-    border-width: 0;
     cursor: pointer;
-    height: 30px;
-    overflow: hidden;
+    cursor: pointer;
     padding: 0;
     position: absolute;
-    right: $spacing-4;
-    top: $spacing-4;
+    right: 0;
+    text-decoration: underline;
+    top: 0;
     z-index: 1;
+
+    &:focus {
+      outline: $focus-yellow solid 3px;
+    }
   }
 
   .content {
@@ -55,22 +58,4 @@
   position: absolute;
   top: 0;
   width: 100%;
-}
-
-// MOBILE
-@media screen and (max-width: 480px) {
-  .Modal-Container {
-    left: $spacing-4;
-    margin-top: $spacing-4;
-    width: calc(100% - (#{$spacing-4 * 2}));
-
-    .close {
-      right: 0;
-      top: 0;
-    }
-
-    .content {
-      padding: $spacing-4;
-    }
-  }
 }

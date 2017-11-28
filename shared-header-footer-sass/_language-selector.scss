@@ -45,7 +45,7 @@
   }
 
   .SelectTraker-Tracker {
-    background-image: url(/shared-header-footer/eig-world-language-icon.svg);
+    background-image: url("/shared-header-footer/eig-world-language-icon.svg");
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 20px;
@@ -91,25 +91,23 @@
     float: none;
   }
 
-  p {
-    @include body-s;
-    display: inline-block;
-    margin-bottom: 0;
+  .domestic-redirect {
+    padding-top: $spacing-4;
+    span {
+      display: block;
+    }
   }
 
-	.domestic-redirect {
-		padding-top: $spacing-4;
-		span {
-			display: block;
-		}
-	}
-
+  .languages {
+    padding-bottom: $spacing-4;
+  }
 }
 
 
 .LanguageSelectorDialog-Modal {
+  top: 0;
   a {
-    @include body-m;
+    font-size: 21px;
     text-decoration: underline;
   }
 
@@ -118,16 +116,15 @@
     margin-bottom: $spacing-3;
   }
 
-  h2 {
-    @include heading-m;
-    font-weight: 500;
-    display: block;
-    margin-bottom: $spacing-4;
-  }
-
   p {
     @include body-m;
+    display: block;
     margin-bottom: $spacing-3;
+  }
+
+  #great-languages-selector {
+    @include heading-m;
+    font-weight: normal;
   }
 
   ul {
@@ -148,11 +145,13 @@
 
   .languages {
     overflow: hidden;
+    padding: 0;
   }
 
   .domestic-redirect {
     float: right;
     padding-left: $spacing-3;
+    padding-top: 71px;
     width: $cols-4;
 
     p {
@@ -162,25 +161,18 @@
 
     span {
       @include body-s;
+      display: block;
+      max-width: 215px;
+      padding-top: $spacing-4;
     }
   }
-
-  // Country flags
-  .br { background-image: url(/shared-header-footer/flags/br.svg); }
-  .cn { background-image: url(/shared-header-footer/flags/cn.svg); }
-  .de { background-image: url(/shared-header-footer/flags/de.svg); }
-  .es { background-image: url(/shared-header-footer/flags/es.svg); }
-  .in { background-image: url(/shared-header-footer/flags/in.svg); }
-  .jp { background-image: url(/shared-header-footer/flags/jp.svg); }
-  .us { background-image: url(/shared-header-footer/flags/us.svg); }
-  .uk { background-image: url(/shared-header-footer/flags/uk.svg); }
 }
 
 #header-bar .LanguageSelectorDialog-Tracker {
   @include body-s;
-  font-weight: bold;
-  background-image: url(/shared-header-footer/eig-world-language-icon.svg);
-  background-position: 0px 7px;
+  margin-left: $spacing-3;
+  background-image: url("/shared-header-footer/eig-world-language-icon.svg");
+  background-position: 0px 8px;
   background-repeat: no-repeat;
   background-size: 20px;
   color: $white;
@@ -188,7 +180,8 @@
   display: inline-block;
   height: 27px;
   line-height: 27px;
-  padding: 5px 0 0 25px;
+  min-height: 30px;
+  padding: 5px 3px 3px 25px;
   text-decoration: none;
 
   &:hover {
@@ -197,10 +190,12 @@
   }
 
   .label {
+    font-weight: bold;
     text-transform: capitalize;
   }
 
   .lang {
+    font-weight: bold;
     text-transform: uppercase;
     &:after {
       content: " - ";
@@ -247,10 +242,16 @@
 // MOBILE
 @media screen and (max-width: 580px) {
   .LanguageSelectorDialog-Modal {
+    width: 100%;
+    left: 0;
+    top: 15px;
+
+    .close {
+      top: 30px;
+      right: 30px;
+    }
+
     .languages {
-      border-bottom: $light-grey solid 1px;
-      border-right: none;
-      float: none;
       width: auto;
     }
 
@@ -259,23 +260,26 @@
       padding-left: 0;
       width: auto;
     }
+
+    #great-languages-selector {
+      width: 80%;
+    }
   }
 }
 
 @media screen and (max-width: 480px) {
-  .language-selector-dialog {
-    padding: $spacing-3-m;
-  }
 
   .LanguageSelectorDialog-Modal {
-    h2 {
-      @include heading-m-mob;
+    padding: $spacing-4;
+    #great-languages-select {
+      @include body-m;
+      font-weight: bold;
     }
-
-    .content {
-      padding-left: 0;
-      padding-right: 0;
-      padding-top: 85px;
+    a {
+      @include body-m;
+    }
+    p {
+      @include body-m;
     }
 
     .countries {
@@ -303,6 +307,14 @@
         left: 0;
         top: $spacing-4-m;
       }
+    }
+  }
+
+  .LanguageSelectorDialog-Tracker {
+    .label,
+    .lang::after {
+      position: absolute;
+      z-index: -1;
     }
   }
 }
