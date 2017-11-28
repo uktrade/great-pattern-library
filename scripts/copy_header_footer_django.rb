@@ -38,7 +38,7 @@ end
 def build_header_language_select(html)
   puts '*** Building HEADER TEMPLATE WITH LANGUAGE SELECT ***'
   header = html.split(%r{(ent\<\/a\>)(\s)})
-  header[2] = "\n  {% if header_language_select %}\n"
+  header[2] = "\n  {% if header_footer_language_select %}\n"
   header = header.join.split(%r{(\<\/section\>)(\s)})
   header[2] = "\n  {% endif %}\n"
   header.join
