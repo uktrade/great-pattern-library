@@ -42,12 +42,6 @@ def build_header
   header + "\n<!-- needs to be added in assets.rb for production pre-compilation too -->\n<% unless request.fullpath.include?('/admin') %>\n<%= stylesheet_link_tag('header-footer') %>\n<% end %>"
 end
 
-def remove_header_language_select(html)
-  top = html.split(%r{(ent\<\/a\>)})
-  tail = html.split(%r{(\<\/section\>)})
-  top[0] + top[1] + tail[2]
-end
-
 def build_footer
   puts '*** Building FOOTER TEMPLATE ***'
   footer = File.read(PATTLIB_DIR + 'footer.html')
@@ -139,7 +133,7 @@ end
 
 write_file(
   '_dit_header.html.erb',
-  remove_header_language_select(build_header),
+  build_header,
   DIR_HTML
 )
 write_file(
