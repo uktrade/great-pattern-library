@@ -2,7 +2,7 @@ extends ../layout/base.pug
 block prepend head_links
   link(rel='stylesheet' href='/shared-header-footer/style.css')
   script(src='/shared-header-footer/third-party.js')
-  script(src='/shared-header-footer/language-selector.js')
+  script(src='/shared-header-footer/script.js')
   style(type='text/css').
     #content.outer-container {
       max-width: 100%;
@@ -10,21 +10,6 @@ block prepend head_links
     }
 block content
   include ../../../shared-header-footer/header.html
-  <section role="dialog" data-component="language-selector-dialog" data-lang="en" data-label="UK" data-name="English" class="language-selector-dialog">
-    <p id="great-languages-selector">Go to our international site</p>
-    <p>The UK supports international trade and investment, and welcomes travellers and students from across the world.</p>
-    <div data-node="languages" class="languages">
-      <ul aria-labelledby="great-languages-selector" class="navigation">
-        <li><a href="http://export.great.gov.uk/international?lang=en">English (International)</a></li>
-        <li><a href="http://export.great.gov.uk/international?lang=zh">中国</a></li>
-        <li><a href="http://export.great.gov.uk/international?lang=de">Deutsch</a></li>
-        <li><a href="http://export.great.gov.uk/international?lang=ja">日本語</a></li>
-        <li><a href="http://export.great.gov.uk/international?lang=es">Español</a></li>
-        <li><a href="http://export.great.gov.uk/international?lang=pt">Português</a></li>
-        <li><a href="http://export.great.gov.uk/international?lang=ar">عربى</a></li>
-      </ul>
-    </div>
-  </section>
   .container(style={'margin': '0 auto', 'max-width': '1200px'})
     section(style={'margin': '100px 30px'})
       h2.h2 Shared Header &amp; Footer
