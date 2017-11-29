@@ -84,23 +84,20 @@
       padding: $spacing-3 0;
     }
   }
-}
 
-.global-footer {
-  height: 35px;
-  background-color: $dark-navy;
-  color: $light-grey;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  .global-footer {
+    height: 35px;
+    background-color: $dark-navy;
+    color: $light-grey;
 
-  span {
-    @include body-s-mob;
-    font-size: 12px;
-    float: right;
-    line-height: 35px;
+    span {
+      @include body-s-mob;
+      font-size: 12px;
+      float: right;
+      line-height: 35px;
+    }
   }
 }
-
 
 
 // TABLET
@@ -160,15 +157,13 @@
         text-align: center;
       }
     }
-  }
-
-  .global-footer {
-    padding-bottom: $spacing-4;
-    padding-top: $spacing-4;
-
-    span {
-      display: block;
-      float: none;
+    .global-footer {
+      .container {
+        span {
+          display: block;
+          float: none;
+        }
+      }
     }
   }
 }

@@ -6,15 +6,44 @@
 @import 'mixins';
 @import 'layout';
 
-.static-header-footer {
+@mixin common {
   -webkit-font-smoothing: antialiased;
+  a {
+    text-decoration: underline;
+  }
+  .container {
+    &:before, &:after {
+      display: none;
+    }
+    width: auto;
+    max-width: $design-max-width;
+    margin: 0 auto;
+    padding: 0;
+    @media (max-width: #{$design-max-width + ($spacing-3 * 2)}) {
+      margin: 0 $spacing-3;
+    }
+    @media (max-width: 420px) {
+      margin: 0 20px; // Special figure intentionally outside of standard.
+    }
+  }
+  nav.container {
+    padding-top: 45px;
+  }
+  .verbose {
+    overflow: hidden;
+    position: absolute;
+    text-indent: -1000px;
+    z-index: -1;
+  }
+}
 
-  @import 'static-reset';
-  @import 'general';
-  @import 'content';
+#header {
+  @include common;
+}
+#footer {
+  @include common;
 }
 
 @import 'header';
 @import 'footer';
 @import 'menu';
-@import 'modal';

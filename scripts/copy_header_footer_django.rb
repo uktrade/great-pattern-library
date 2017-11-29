@@ -164,7 +164,7 @@ def replace(html)
 end
 
 def replace_css(css)
-  css.gsub!(/shared\-header\-footer/, 'static/icons/')
+  css.gsub!(/shared\-header\-footer/, 'static/icons')
   css
 end
 

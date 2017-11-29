@@ -139,6 +139,7 @@
 // TABLET
 @media screen and (max-width: 767px) {
   #header {
+    height: 110px;
     .container {
       margin: 0 15px;
     }
@@ -165,9 +166,6 @@
 
 // MOBILE + logo breakpoint
 @media screen and (max-width: 450px) {
-  #header {
-    height: 115px;
-  }
   #header-bar {
     .container {
       overflow: auto;
