@@ -454,6 +454,9 @@ dit.scroll = (new function () {
     var EXPANDER = this;
 
     EXPANDER.$control.on(KEY, function(e) {
+      if(event.shiftKey && event.keyCode == 9) {
+        EXPANDER.close();
+      }
       // keypress charCode=0, keyCode=13 = enter
       if (e.which !== 9 && e.which !== 13) {
         e.preventDefault();
@@ -461,12 +464,12 @@ dit.scroll = (new function () {
       Expander.focus.call(EXPANDER);
 
       switch(e.which) {
-        case 37: // Fall through.
+        case 38: // Fall through.
         case 27:
         EXPANDER.close();
         break;
         case 13: // Fall through
-        case 39:
+        case 40:
         if(EXPANDER.state === OPEN) {
           // Move though any detected links.
           Expander.move.call(EXPANDER, e);
