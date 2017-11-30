@@ -64,7 +64,7 @@
   }
 
   .anonymous {
-    color: $focus-yellow;
+    color: #e9e2d6;
   }
 
   .signout {
@@ -91,7 +91,7 @@
 
   a.signin {
     &:before {
-      @include separator($focus-yellow);
+      @include separator(#e9e2d6);
     }
   }
 }

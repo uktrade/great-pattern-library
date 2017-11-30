@@ -120,6 +120,7 @@
       outline: none;
       &::after {
         @include up-chevron-1($stone);
+        box-sizing: initial;
       }
       &:before {
           @include great-red-trim;
