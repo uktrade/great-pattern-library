@@ -24,6 +24,19 @@
 // @mixin down-chevron-1
 // @mixin great-red-trim
 
+@mixin plus {
+  font-family: "Roboto", arial, helvetica, sans-serif;
+  content: '+';
+  font-size: 35px;
+  font-weight: normal;
+  height: 30px;
+  width: 30px;
+  left: initial;
+  position: absolute;
+  right: 30px;
+  top: calc(100% / 3);
+}
+
 
 #menu {
   background-color: $great-blue;
@@ -194,9 +207,9 @@
 
       &:hover {
         background-color: transparent;
-
         &:before {
-          display: none;
+          background-color: transparent;
+          @include plus;
         }
       }
     }
@@ -278,23 +291,14 @@
 
       &::before,
       &.active:before {
-        font-family: "Roboto", arial, helvetica, sans-serif;
-        content: '+';
-        font-size: 35px;
-        font-weight: normal;
-        height: 30px;
-        width: 30px;
-        left: initial;
-        position: absolute;
-        right: 30px;
-        top: calc(100% / 3);
+        @include plus;
       }
 
       &.active:before {
         background-color: transparent;
         font-family: "Roboto", arial, helvetica, sans-serif;
         content: '_';
-        font-size: 35px;
+        font-size: 40px;
         font-weight: normal;
         top: 23%;
       }
