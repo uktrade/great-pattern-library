@@ -121,6 +121,9 @@
       &::after {
         @include up-chevron-1($stone);
       }
+      &:before {
+          @include great-red-trim;
+        }
     }
 
     &:after {
@@ -287,6 +290,7 @@
       }
 
       &.active:before {
+        background-color: transparent;
         font-family: "Roboto", arial, helvetica, sans-serif;
         content: '_';
         font-size: 35px;
