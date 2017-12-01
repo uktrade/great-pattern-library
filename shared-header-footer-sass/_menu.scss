@@ -128,12 +128,14 @@
   }
 
   .list-header {
+    &:after {
+      box-sizing: initial;
+    }
     &.active {
       background-color: $mid-blue;
       outline: none;
       &::after {
         @include up-chevron-1($stone);
-        box-sizing: initial;
       }
       &:before {
           @include great-red-trim;
