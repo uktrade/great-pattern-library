@@ -31,7 +31,7 @@
   font-weight: normal;
   height: 30px;
   width: 30px;
-  left: initial;
+  left: auto;
   position: absolute;
   right: 30px;
   top: calc(100% / 3);
@@ -194,6 +194,7 @@
     padding-top: 0;
     position: relative;
     top: 58px;
+    margin-top: -58px;
     transition: none;
     z-index: 1;
 
@@ -220,7 +221,12 @@
       display: block;
       margin: 0;
       padding: 0;
+    }
 
+    ul li:first-child a:hover {
+      &:before {
+        content: '';
+      }
     }
 
     .description {
