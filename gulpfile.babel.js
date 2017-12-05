@@ -186,7 +186,7 @@ gulp.task('sass', ['clean', 'lint'], function () {
   return gulp.src(SASS_FILES)
     .pipe(plugins.sass({
       includePaths: SASS_VENDOR_PATHS,
-      outputStyle: 'compressed'
+      outputStyle: 'expanded'
     }).on('error', plugins.sass.logError))
     .pipe(gulp.dest('./static/styles'))
 })
@@ -195,7 +195,7 @@ gulp.task('sass:dev', ['lint'], function () {
   return gulp.src(SASS_FILES)
     .pipe(plugins.sass({
       includePaths: SASS_VENDOR_PATHS,
-      outputStyle: 'compressed'
+      outputStyle: 'expanded'
     }).on('error', plugins.sass.logError))
     .pipe(gulp.dest('./static/styles'))
 })
@@ -219,7 +219,7 @@ gulp.task('header-footer:dev', function () {
 gulp.task('header-footer:sass', ['clean', 'lint:hf-sass'], function () {
   return gulp.src(HEADER_FOOTER_SASS)
     .pipe(plugins.sass({
-      outputStyle: 'compressed'
+      outputStyle: 'expanded'
     }).on('error', plugins.sass.logError))
     .pipe(gulp.dest('./static/shared-header-footer'))
     .pipe(gulp.dest('./shared-header-footer'))
@@ -228,7 +228,7 @@ gulp.task('header-footer:sass', ['clean', 'lint:hf-sass'], function () {
 gulp.task('header-footer:sass-dev', ['lint:hf-sass'], function () {
   return gulp.src(HEADER_FOOTER_SASS)
     .pipe(plugins.sass({
-      outputStyle: 'compressed'
+      outputStyle: 'expanded'
     }).on('error', plugins.sass.logError))
     .pipe(gulp.dest('./static/shared-header-footer'))
     .pipe(gulp.dest('./shared-header-footer'))
