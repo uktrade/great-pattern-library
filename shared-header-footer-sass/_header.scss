@@ -21,13 +21,16 @@
 
 // From _typography.scss
 // @mixin body-s
-
+#header {
+  min-height: 110px;
+  background-color: $great-blue;
+}
 #header-bar {
   @include body-s;
-  background-color: $great-blue;
   color: $white;
   overflow: hidden;
   height: 110px;
+  position: relative;
 
   a {
     color: inherit;
