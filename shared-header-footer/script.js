@@ -464,18 +464,20 @@ headerFooter.scroll = (new function () {
       Expander.focus.call(EXPANDER);
 
       switch(e.which) {
-        case 38: // Fall through.
+        case 37: // Fall through.
         case 27:
         EXPANDER.close();
         break;
         case 13: // Fall through
-        case 40:
+        case 39:
         if(EXPANDER.state === OPEN) {
           // Move though any detected links.
           Expander.move.call(EXPANDER, e);
         }
         else {
           EXPANDER.open();
+          // move focus to first link in group when opened with keyboard
+          EXPANDER.links.$found.eq(0).focus();
         }
         break;
         default: ; // Nothing yet.
@@ -550,7 +552,10 @@ headerFooter.scroll = (new function () {
     if($links) {
       switch(e.which) {
         case 37: // Fallthrough
-        case 27: this.close();
+        case 27:
+        this.close();
+        // focus the menu activator again on close
+        this.$control.focus();
         break;
         case 40:
         // Down.
@@ -569,6 +574,7 @@ headerFooter.scroll = (new function () {
         else {
           counter--;
           this.close();
+          this.focus();
         }
         break;
         default: ; // Nothing yet.
