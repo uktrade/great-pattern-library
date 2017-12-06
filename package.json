@@ -11,7 +11,9 @@
     "test": "./node_modules/.bin/gulp lint",
     "build": "./node_modules/.bin/gulp build",
     "watch": "./node_modules/.bin/gulp watch",
-    "heroku-postbuild": "gulp build"
+    "heroku-postbuild": "gulp build",
+    "django": "ruby scripts/copy_header_footer_django.rb",
+    "erb": "ruby scripts/copy_header_footer_erb.rb"
   },
   "dependencies": {
     "babel-core": "6.3.26",
