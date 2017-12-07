@@ -476,8 +476,6 @@ headerFooter.scroll = (new function () {
         }
         else {
           EXPANDER.open();
-          // move focus to first link in group when opened with keyboard
-          EXPANDER.links.$found.eq(0).focus();
         }
         break;
         default: ; // Nothing yet.
