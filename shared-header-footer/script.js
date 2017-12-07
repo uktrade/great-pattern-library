@@ -454,7 +454,7 @@ headerFooter.scroll = (new function () {
     var EXPANDER = this;
 
     EXPANDER.$control.on(KEY, function(e) {
-      if(event.shiftKey && event.keyCode == 9) {
+      if(e.shiftKey && e.keyCode == 9) {
         EXPANDER.close();
       }
       // keypress charCode=0, keyCode=13 = enter
@@ -476,8 +476,6 @@ headerFooter.scroll = (new function () {
         }
         else {
           EXPANDER.open();
-          // move focus to first link in group when opened with keyboard
-          EXPANDER.links.$found.eq(0).focus();
         }
         break;
         default: ; // Nothing yet.
