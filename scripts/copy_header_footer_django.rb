@@ -39,7 +39,9 @@ def build_footer
   puts '*** Building FOOTER TEMPLATE ***'
   pattlib_footer = File.read(PATTLIB_DIR + 'footer.html')
   footer = "{% load static %}\n" + pattlib_footer
-  replace(footer)
+  footer = footer.split(/(copyright )(2[0-9]{3})/)
+  footer[2] = '{% now "Y" %}'
+  replace(footer.join)
 end
 
 def build_css
@@ -159,6 +161,11 @@ def replace(html)
   html.gsub!(
     %r{http\:\/\/export\.great\.gov\.uk},
     '{{ header_footer_urls.great_export_home }}'
+  )
+  # footer year
+  html.gsub!(
+    %r{2018},
+    '{% now "Y" %}'
   )
   html
 end

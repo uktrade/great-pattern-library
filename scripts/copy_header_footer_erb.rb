@@ -45,7 +45,9 @@ end
 def build_footer
   puts '*** Building FOOTER TEMPLATE ***'
   footer = File.read(PATTLIB_DIR + 'footer.html')
-  add_warning(replace_html(footer))
+  footer = footer.split(/(copyright )(2[0-9]{3})/)
+  footer[2] = '<%= Time.current.year %>'
+  add_warning(replace_html(footer.join))
 end
 
 def build_css
