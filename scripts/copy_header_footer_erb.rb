@@ -24,15 +24,15 @@ end
 def build_header
   puts '*** Building HEADER TEMPLATE ***'
   header = File.read(PATTLIB_DIR + 'header.html')
-  header = header.split(/(t\-links\"\>)(\s)/)
+  header = header.split(/(account\-links\"\>)(\s)/)
   header[2] = "\n        <% if !current_user %>\n"
-  header = header.join.split(/(.)(\" class\=\"reg)/)
+  header = header.join.split(/(.)(\" class\=\"register)/)
   header[1] = '<%=Figaro.env.SSO_ENDPOINT_BASE_URI %>accounts/signup'
   header = header.join.split(/(.)(\" class\=\"signin)/)
   header[1] = '<%=dashboard_path%>'
   header = header.join.split(%r{(in\<\/a\>\<\/li\>)(\s)})
   header[2] = "\n        <% else %>\n"
-  header = header.join.split(/(.)(\" class\=\"pro)/)
+  header = header.join.split(/(.)(\" class\=\"profile)/)
   header[1] = '<%=dashboard_path%>'
   header = header.join.split(/(.)(\" class\=\"signout)/)
   header[1] = '<%=destroy_user_session_path%>'
@@ -100,11 +100,6 @@ def replace_html(html)
   html.gsub!(
     %r{http\:\/\/great\.gov\.uk},
     '<%=Figaro.env.GREAT_GOV_URL %>'
-  )
-  # export home
-  html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk},
-    '<%=Figaro.env.EXPORT_READINESS_URL %>'
   )
   html
 end

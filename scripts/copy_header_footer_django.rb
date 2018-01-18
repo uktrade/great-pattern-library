@@ -18,15 +18,15 @@ def build_header
   puts '*** Building HEADER TEMPLATE ***'
   pattlib_header = File.read(PATTLIB_DIR + 'header.html')
   header = "{% load static %}\n" + pattlib_header
-  header = header.split(/(t\-links\"\>)(\s)/)
+  header = header.split(/(account\-links\"\>)(\s)/)
   header[2] = "\n        {% block login_state %}\n        {% if not sso_is_logged_in %}\n"
-  header = header.join.split(/(.)(\" class\=\"reg)/)
+  header = header.join.split(/(.)(\" class\=\"register)/)
   header[1] = '{{ sso_register_url }}'
   header = header.join.split(/(.)(\" class\=\"signin)/)
   header[1] = '{{ sso_login_url }}'
   header = header.join.split(%r{(in\<\/a\>\<\/li\>)(\s)})
   header[2] = "\n        {% else %}\n"
-  header = header.join.split(/(.)(\" class\=\"pro)/)
+  header = header.join.split(/(.)(\" class\=\"profile)/)
   header[1] = '{{ sso_profile_url }}'
   header = header.join.split(/(.)(\" class\=\"signout)/)
   header[1] = '{{ sso_logout_url }}'
@@ -66,49 +66,49 @@ def replace(html)
     "{% static 'images/DfIT_WHITE_AW.png' %}"
   )
   html.gsub!(
-    %r{\/shared\-header\-footer\/hm\_government\_logo\_horizontal\.svg},
-    "{% static 'images/hm-gov-horizontal.svg' %}"
-  )
-  html.gsub!(
     %r{\/shared\-header\-footer\/eig\-logo\-stacked\.svg},
     "{% static 'images/eig-logo-stacked.svg' %}"
   )
   # personas
   html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/new},
+    %r{http\:\/\/great\.gov\.uk\/new},
     '{{ header_footer_urls.new_to_exporting }}'
   )
   html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/occasional},
+    %r{http\:\/\/great\.gov\.uk\/occasional},
     '{{ header_footer_urls.occasional_exporter }}'
   )
   html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/regular},
+    %r{http\:\/\/great\.gov\.uk\/regular},
     '{{ header_footer_urls.regular_exporter }}'
   )
-  # articles
   html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/market\-research},
-    '{{ header_footer_urls.guidance_market_research }}'
-  )
-  html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/customer\-insight},
+    %r{http\:\/\/great\.gov\.uk\/customer\-insight},
     '{{ header_footer_urls.guidance_customer_insight }}'
   )
   html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/finance},
+    %r{http\:\/\/great\.gov\.uk\/custom},
+    '{{ header_footer_urls.custom_page }}'
+  )
+  # articles
+  html.gsub!(
+    %r{http\:\/\/great\.gov\.uk\/market\-research},
+    '{{ header_footer_urls.guidance_market_research }}'
+  )
+  html.gsub!(
+    %r{http\:\/\/great\.gov\.uk\/finance},
     '{{ header_footer_urls.guidance_finance }}'
   )
   html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/business\-planning},
+    %r{http\:\/\/great\.gov\.uk\/business\-planning},
     '{{ header_footer_urls.guidance_business_planning }}'
   )
   html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/getting\-paid},
+    %r{http\:\/\/great\.gov\.uk\/getting\-paid},
     '{{ header_footer_urls.guidance_getting_paid }}'
   )
   html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/operations\-and\-compliance},
+    %r{http\:\/\/great\.gov\.uk\/operations\-and\-compliance},
     '{{ header_footer_urls.guidance_operations_and_compliance }}'
   )
   # services
@@ -125,7 +125,7 @@ def replace(html)
     '{{ header_footer_urls.services_exopps }}'
   )
   html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/get\-finance},
+    %r{http\:\/\/great\.gov\.uk\/get\-finance},
     '{{ header_footer_urls.services_get_finance }}'
   )
   html.gsub!(
@@ -134,19 +134,19 @@ def replace(html)
   )
   # info
   html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/about},
+    %r{http\:\/\/great\.gov\.uk\/about},
     '{{ header_footer_urls.info_about }}'
   )
   html.gsub!(
-    %r{http\:\/\/contactus\.trade\.gov\.uk},
+    %r{https\:\/\/contact\-us\.export\.great\.gov\.uk\/directory\/FeedbackForm},
     '{{ header_footer_urls.info_contact_us }}'
   )
   html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/privacy\-and\-cookies},
+    %r{http\:\/\/great\.gov\.uk\/privacy\-and\-cookies},
     '{{ header_footer_urls.info_privacy_and_cookies }}'
   )
   html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk\/terms\-and\-conditions},
+    %r{http\:\/\/great\.gov\.uk\/terms\-and\-conditions},
     '{{ header_footer_urls.info_terms_and_conditions }}'
   )
   html.gsub!(
@@ -156,11 +156,6 @@ def replace(html)
   html.gsub!(
     %r{http\:\/\/great\.gov\.uk},
     '{{ header_footer_urls.great_home }}'
-  )
-  # export home
-  html.gsub!(
-    %r{http\:\/\/export\.great\.gov\.uk},
-    '{{ header_footer_urls.great_export_home }}'
   )
   # footer year
   html.gsub!(
