@@ -13,21 +13,18 @@ block content
   .container(style={'margin': '0 auto', 'max-width': '1200px'})
     section(style={'margin': '100px 30px'})
       h2.h2 Shared Header &amp; Footer
-      p All content required for the header &amp; footer can be found in the <span style='font-family: monospace; color: blue;'>shared-header-footer</span> folder. This includes:
+      p All content required for the header &amp; footer can be found in the <span style='font-family: monospace;'>shared-header-footer</span> folder. This includes:
       ul(style={'font-family': 'monospace', 'color': 'blue'})
         li DfIT_WHITE_AW.png
         li eig-logo-stacked.svg
-        li eig-world-language-icon.svg
         li footer.html
         li header.html
         li script.js
-        li sprite-plus-minus.gif
         li style.css
         li third-party.js
       br
-      p Image paths will need to be edited in the html. <span style='font-family: monospace; color: blue;'>sprite-plus-minus.gif</span> is used in the mobile menu css.
-      p Links will also need to be updated. Current production urls are used by default. These should be updated to the correct urls for the project's environment.
-      p All SSO elements (Register, Sign in, Profile, Sign out) are included in the header. These will need to be swapped out (preferably in server-side templates rather than client-side JS) depending on whether the user is signed in to SSO.
+      p Current production urls are used by default. These should be updated to the correct urls for the project's environment.
+      p All SSO elements (Register, Sign in, Profile, Sign out) are included in the header. These will need to be swapped out (either in server-side templates or client-side JS) depending on whether the user is signed in to SSO.
       p A Django wrapper for the header &amp; footer exists <a href="https://github.com/uktrade/directory-header-footer">here</a>.
 
   include ../../../shared-header-footer/footer.html
