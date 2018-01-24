@@ -155,7 +155,7 @@ def replace(html)
   )
   html.gsub!(
     %r{http\:\/\/great\.gov\.uk},
-    '{{ header_footer_urls.great_home }}'
+    '{{ header_footer_urls.great_export_home }}'
   )
   # footer year
   html.gsub!(
