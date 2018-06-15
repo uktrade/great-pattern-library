@@ -27,7 +27,7 @@ def build_header
   header = header.split(/(account\-links\"\>)(\s)/)
   header[2] = "\n        <% if !current_user %>\n"
   header = header.join.split(/(.)(\" class\=\"register)/)
-  header[1] = '<%=Figaro.env.SSO_ENDPOINT_BASE_URI %>accounts/signup'
+  header[1] = '<%=Figaro.env.SSO_ENDPOINT_BASE_URI %>/accounts/signup'
   header = header.join.split(/(.)(\" class\=\"signin)/)
   header[1] = '<%=dashboard_path%>'
   header = header.join.split(%r{(in\<\/a\>\<\/li\>)(\s)})
