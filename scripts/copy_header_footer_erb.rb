@@ -39,7 +39,6 @@ def build_header
   header = header.join.split(%r{(out\<\/a\>\<\/li\>)(\s)})
   header[2] = "\n        <% end %>\n"
   header = add_warning(replace_html(header.join))
-  header + "\n<!-- needs to be added in assets.rb for production pre-compilation too -->\n<% unless request.fullpath.include?('/admin') %>\n<%= stylesheet_link_tag('header-footer') %>\n<% end %>"
 end
 
 def build_footer
