@@ -16,7 +16,7 @@
     "erb": "ruby scripts/copy_header_footer_erb.rb"
   },
   "dependencies": {
-    "babel-core": "6.3.26",
+    "babel-core": "6.9.0",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-preset-es2015": "6.3.13",
     "babel-preset-es2016": "^6.24.1",
