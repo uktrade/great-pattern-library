@@ -27,7 +27,7 @@ def build_header
   header = header.split(/(account\-links\"\>)(\s)/)
   header[2] = "\n        <% if !current_user %>\n"
   header = header.join.split(/(.)(\" class\=\"register)/)
-  header[1] = '<%=Figaro.env.SSO_ENDPOINT_BASE_URI %>/accounts/signup'
+  header[1] = '<%=ENV[\'SSO_ENDPOINT_BASE_URI\'] %>/accounts/signup'
   header = header.join.split(/(.)(\" class\=\"signin)/)
   header[1] = '<%=dashboard_path%>'
   header = header.join.split(%r{(in\<\/a\>\<\/li\>)(\s)})
@@ -77,28 +77,28 @@ def replace_html(html)
   # services
   html.gsub!(
     %r{http\:\/\/find\-a\-buyer\.export\.great\.gov\.uk},
-    '<%=Figaro.env.FIND_A_BUYER_URL %>'
+    '<%=ENV[\'FIND_A_BUYER_URL\'] %>'
   )
   html.gsub!(
     %r{http\:\/\/selling\-online\-overseas\.export\.great\.gov\.uk},
-    '<%=Figaro.env.SELLING_ONLINE_OVERSEAS_URL %>'
+    '<%=ENV[\'SELLING_ONLINE_OVERSEAS_URL\'] %>'
   )
   html.gsub!(
     %r{http\:\/\/opportunities\.export\.great\.gov\.uk},
-    '<%=Figaro.env.EXPORT_OPPORTUNITIES_URL %>'
+    '<%=ENV[\'EXPORT_OPPORTUNITIES_URL\'] %>'
   )
   html.gsub!(
     %r{http\:\/\/events\.trade\.gov\.uk},
-    '<%=Figaro.env.EVENTS_URL %>'
+    '<%=ENV[\'EVENTS_URL\'] %>'
   )
   # info
   html.gsub!(
     %r{http\:\/\/contactus\.trade\.gov\.uk},
-    '<%=Figaro.env.CONTACT_US_FORM %>'
+    '<%=ENV[\'CONTACT_US_FORM\'] %>'
   )
   html.gsub!(
     %r{http\:\/\/great\.gov\.uk},
-    '<%=Figaro.env.GREAT_GOV_URL %>'
+    '<%=ENV[\'GREAT_GOV_URL\'] %>'
   )
   html
 end
